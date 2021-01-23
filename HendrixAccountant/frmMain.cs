@@ -90,6 +90,10 @@ namespace HendrixAccountant
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            foreach (Control ctrl in this.Controls)
+                if (ctrl is MdiClient)
+                    ctrl.BackColor = SystemColors.ControlLight;
+            
         }
 
         private void btnVenta_Click(object sender, EventArgs e)
@@ -112,6 +116,45 @@ namespace HendrixAccountant
             frmVentas.MdiParent = this;
             frmVentas.FormClosed += new FormClosedEventHandler(frmVentas_FormClosed);
             frmVentas.Show();
+        }
+
+        private void itemVenta_Click(object sender, EventArgs e)
+        {
+            if (frmPuntoVenta != null)
+                return;
+            
+            DeselectButtons();
+            itemVenta.BackColor = Color.FromArgb(253, 184, 39);
+            frmPuntoVenta = new frmPuntoVenta();
+            frmPuntoVenta.MdiParent = this;
+            frmPuntoVenta.FormClosed += new FormClosedEventHandler(ventas_FormClosed);
+            frmPuntoVenta.Show();
+        }
+
+        private void DeselectButtons()
+        {
+            itemClientes.BackColor = Color.FromArgb(27, 46, 140);
+            itemConfiguracion.BackColor = Color.FromArgb(27, 46, 140);
+            itemReportes.BackColor = Color.FromArgb(27, 46, 140);
+            itemVenta.BackColor = Color.FromArgb(27, 46, 140);
+        }
+
+        private void itemClientes_Click(object sender, EventArgs e)
+        {
+            DeselectButtons();
+            itemClientes.BackColor = Color.FromArgb(253, 184, 39);
+        }
+
+        private void itemReportes_Click(object sender, EventArgs e)
+        {
+            DeselectButtons();
+            itemReportes.BackColor = Color.FromArgb(253, 184, 39);
+        }
+
+        private void itemConfiguracion_Click(object sender, EventArgs e)
+        {
+            DeselectButtons();
+            itemConfiguracion.BackColor = Color.FromArgb(253, 184, 39);
         }
     }
 }

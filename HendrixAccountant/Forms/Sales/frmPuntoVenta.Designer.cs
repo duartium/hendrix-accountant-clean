@@ -39,8 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
-            this.txtNombresCliente = new System.Windows.Forms.TextBox();
-            this.txtCodCliente = new System.Windows.Forms.TextBox();
             this.pnMontosVenta = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -66,6 +64,9 @@
             this.statusPOS = new System.Windows.Forms.StatusStrip();
             this.lblInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblEstadoProceso = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.txtNombresCliente = new HendrixAccountant.UIControls.TextInput();
+            this.txtIdentCliente = new HendrixAccountant.UIControls.NumericInput();
             this.gpDatosVenta.SuspendLayout();
             this.pnMontosVenta.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -77,6 +78,8 @@
             // 
             // gpDatosVenta
             // 
+            this.gpDatosVenta.Controls.Add(this.txtNombresCliente);
+            this.gpDatosVenta.Controls.Add(this.txtIdentCliente);
             this.gpDatosVenta.Controls.Add(this.lblFechaEmision);
             this.gpDatosVenta.Controls.Add(this.dtpFechaEmision);
             this.gpDatosVenta.Controls.Add(this.lblDireccionCliente);
@@ -84,8 +87,6 @@
             this.gpDatosVenta.Controls.Add(this.label2);
             this.gpDatosVenta.Controls.Add(this.label1);
             this.gpDatosVenta.Controls.Add(this.btnBuscarCliente);
-            this.gpDatosVenta.Controls.Add(this.txtNombresCliente);
-            this.gpDatosVenta.Controls.Add(this.txtCodCliente);
             this.gpDatosVenta.Location = new System.Drawing.Point(8, 11);
             this.gpDatosVenta.Name = "gpDatosVenta";
             this.gpDatosVenta.Size = new System.Drawing.Size(687, 152);
@@ -126,6 +127,7 @@
             this.txtDireccionCliente.Enabled = false;
             this.txtDireccionCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccionCliente.Location = new System.Drawing.Point(17, 116);
+            this.txtDireccionCliente.MaxLength = 300;
             this.txtDireccionCliente.Name = "txtDireccionCliente";
             this.txtDireccionCliente.Size = new System.Drawing.Size(474, 22);
             this.txtDireccionCliente.TabIndex = 7;
@@ -155,29 +157,11 @@
             this.btnBuscarCliente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarCliente.Location = new System.Drawing.Point(497, 72);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(42, 26);
+            this.btnBuscarCliente.Size = new System.Drawing.Size(42, 23);
             this.btnBuscarCliente.TabIndex = 3;
             this.btnBuscarCliente.Text = "...";
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
             this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
-            // 
-            // txtNombresCliente
-            // 
-            this.txtNombresCliente.Enabled = false;
-            this.txtNombresCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombresCliente.Location = new System.Drawing.Point(145, 73);
-            this.txtNombresCliente.Name = "txtNombresCliente";
-            this.txtNombresCliente.Size = new System.Drawing.Size(348, 22);
-            this.txtNombresCliente.TabIndex = 2;
-            // 
-            // txtCodCliente
-            // 
-            this.txtCodCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodCliente.Location = new System.Drawing.Point(16, 73);
-            this.txtCodCliente.MaxLength = 13;
-            this.txtCodCliente.Name = "txtCodCliente";
-            this.txtCodCliente.Size = new System.Drawing.Size(125, 22);
-            this.txtCodCliente.TabIndex = 1;
             // 
             // pnMontosVenta
             // 
@@ -391,6 +375,7 @@
             this.dgvPuntoVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPuntoVenta.Size = new System.Drawing.Size(683, 266);
             this.dgvPuntoVenta.TabIndex = 1;
+            this.dgvPuntoVenta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPuntoVenta_KeyDown);
             // 
             // colCodigo
             // 
@@ -439,7 +424,7 @@
             this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAgregar.Enabled = false;
             this.btnAgregar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(299, 167);
+            this.btnAgregar.Location = new System.Drawing.Point(253, 167);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(119, 30);
             this.btnAgregar.TabIndex = 3;
@@ -471,11 +456,46 @@
             this.lblEstadoProceso.Name = "lblEstadoProceso";
             this.lblEstadoProceso.Size = new System.Drawing.Size(0, 17);
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(382, 167);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(119, 30);
+            this.btnEliminar.TabIndex = 5;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // txtNombresCliente
+            // 
+            this.txtNombresCliente.Enabled = false;
+            this.txtNombresCliente.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtNombresCliente.Location = new System.Drawing.Point(146, 72);
+            this.txtNombresCliente.MaxLength = 200;
+            this.txtNombresCliente.Name = "txtNombresCliente";
+            this.txtNombresCliente.Size = new System.Drawing.Size(345, 23);
+            this.txtNombresCliente.TabIndex = 14;
+            // 
+            // txtIdentCliente
+            // 
+            this.txtIdentCliente.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtIdentCliente.Location = new System.Drawing.Point(17, 72);
+            this.txtIdentCliente.MaxLength = 13;
+            this.txtIdentCliente.Name = "txtIdentCliente";
+            this.txtIdentCliente.Size = new System.Drawing.Size(122, 23);
+            this.txtIdentCliente.TabIndex = 13;
+            this.txtIdentCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdentCliente_KeyDown);
+            // 
             // frmPuntoVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(909, 505);
+            this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.statusPOS);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.groupBox1);
@@ -484,6 +504,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmPuntoVenta";
             this.Text = "NUEVA VENTA";
+            this.Activated += new System.EventHandler(this.frmPuntoVenta_Activated);
             this.Load += new System.EventHandler(this.frmPuntoVenta_Load);
             this.gpDatosVenta.ResumeLayout(false);
             this.gpDatosVenta.PerformLayout();
@@ -503,8 +524,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gpDatosVenta;
-        private System.Windows.Forms.TextBox txtNombresCliente;
-        private System.Windows.Forms.TextBox txtCodCliente;
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -537,5 +556,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDireccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.ToolStripStatusLabel lblEstadoProceso;
+        private System.Windows.Forms.Button btnEliminar;
+        private UIControls.NumericInput txtIdentCliente;
+        private UIControls.TextInput txtNombresCliente;
     }
 }

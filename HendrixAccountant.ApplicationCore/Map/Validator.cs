@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HendrixAccountant.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,16 @@ namespace HendrixAccountant.ApplicationCore.Map
         public static bool DatasetIsValid(System.Data.DataSet data)
         {
             bool resp = true;
-            if (data == null) resp = false;
-            if (data.Tables.Count <= 0) resp = false;
-            if (data.Tables[0].Rows.Count <= 0) resp = false; // solo recorrer la primera tabla
+            try
+			{
+                if (data == null) resp = false;
+                if (data.Tables.Count <= 0) resp = false;
+                if (data.Tables[0].Rows.Count <= 0) resp = false; // solo recorrer la primera tabla
+            }
+			catch (Exception ex)
+			{
+                Utils.GrabarLog("DatasetIsValid", ex.ToString());
+			}
             return resp;
         }
     }

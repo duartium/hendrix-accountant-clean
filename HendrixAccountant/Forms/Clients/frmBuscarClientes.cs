@@ -113,7 +113,7 @@ namespace HendrixAccountant
         private void rbnIdentificacion_CheckedChanged(object sender, EventArgs e)
         {
             pnIdentificacion.Visible = true;
-            txtIdentificación.Focus();
+            txtIdentificacion.Focus();
         }
 
         private void rbnNombres_CheckedChanged(object sender, EventArgs e)
@@ -140,6 +140,16 @@ namespace HendrixAccountant
         private void frmBuscarClientes_Activated(object sender, EventArgs e)
         {
             this.txtNombres.Focus();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

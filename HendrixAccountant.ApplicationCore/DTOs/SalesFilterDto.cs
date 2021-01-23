@@ -10,7 +10,7 @@ namespace HendrixAccountant.ApplicationCore.DTOs
     public class SalesFilterDto
     {
         public int Secuencial { get; set; }
-        public string IdentificacionClte { get; set; }
+        public int IdCliente { get; set; }
         public string FechaDesde { get; set; }
         public string FechaHasta { get; set; }
         public int IdUsuario { get; set; }

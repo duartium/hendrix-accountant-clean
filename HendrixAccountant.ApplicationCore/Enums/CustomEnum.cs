@@ -36,4 +36,10 @@ namespace HendrixAccountant.ApplicationCore.Enums
         GENERAL,
         COMP_INDIVIDUAL
     }
+
+    public enum TipoReporte
+    {
+        VENTAS_GENERALES,
+        FACTURA_VENTA
+    }
 }

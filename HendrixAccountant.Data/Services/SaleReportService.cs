@@ -24,11 +24,11 @@ namespace HendrixAccountant.Data.Services
         public DataSet Get(SalesFilterDto salesFilter)
         {
             var parms = new List<SqlParameter>();
-            parms.Add(new SqlParameter("@accion", 'C'));
+            parms.Add(new SqlParameter("@accion", 'G'));
             parms.Add(new SqlParameter("@secuencial", salesFilter.Secuencial));
             parms.Add(new SqlParameter("@fecha_desde", salesFilter.FechaDesde));
             parms.Add(new SqlParameter("@fecha_hasta", salesFilter.FechaHasta));
-            parms.Add(new SqlParameter("@id_cliente", salesFilter.IdentificacionClte));
+            parms.Add(new SqlParameter("@id_cliente", salesFilter.IdCliente));
             parms.Add(new SqlParameter("@id_usuario", salesFilter.IdUsuario));
             return _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
         }

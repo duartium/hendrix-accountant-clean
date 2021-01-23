@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HendrixAccountant.ApplicationCore.DTOs;
+using HendrixAccountant.ApplicationCore.Entities;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.ApplicationCore.Map;
 using HendrixAccountant.Common;
@@ -15,7 +16,7 @@ namespace HendrixAccountant.Data
     public class ClienteRepository : IClientRepository
     {
         #region  "Nombre de los procedimientos de operación"
-        private const string _storeProcedureName = "SP_CONSULTA_CLIENTES";
+        private const string _storeProcedureName = "SP_QRY_CLIENTS";
         #endregion
 
         private readonly ISqlServer _sqlServer;
@@ -31,7 +32,17 @@ namespace HendrixAccountant.Data
             parms.Add(new SqlParameter("@usuario", ""));
             var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
             return new ClientMapper().DatasetToClients(dsResp); ;
-        } 
+        }
+
+        public Client GetByIdentification(string identification)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", 'C'));
+            parms.Add(new SqlParameter("@identificacion", identification));
+            var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+            return new ClientMapper().DatasetToClient(dsResp);
+        }
+
         public bool Save()
         {
             throw new NotImplementedException();

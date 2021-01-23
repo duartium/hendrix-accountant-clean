@@ -1,4 +1,6 @@
-﻿using HendrixAccountant.Common;
+﻿using HendrixAccountant.ApplicationCore.Map;
+using HendrixAccountant.Common;
+using HendrixAccountant.Data.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -12,6 +14,7 @@ namespace HendrixAccountant.Data
     {
         #region  "Nombre de los procedimientos de operación"
         private const string _storeProcedureName = "SP_USER_ATHENTICATION";
+        private const string SP_QRY_USERS = "SP_QRY_USERS";
         #endregion
         private ISqlServer _sqlServer;
         public UserRepository()
@@ -37,9 +40,18 @@ namespace HendrixAccountant.Data
             }
             catch (Exception ex)
             {
-                Common.Utils.GrabarLog("Authenticate", ex.ToString());
+                Utils.GrabarLog("Authenticate", ex.ToString());
             }
             return isAutenticated;
         }
+
+        public List<UserDto> GetAll()
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", 'G'));
+            var dsResp = _sqlServer.ExecuteProcedure(SP_QRY_USERS, parms);
+            return new UserMapper().DatasetToUsers(dsResp);
+        }
+
     }
 }

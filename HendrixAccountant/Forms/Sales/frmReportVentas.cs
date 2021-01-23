@@ -1,4 +1,5 @@
-﻿using HendrixAccountant.Common;
+﻿using HendrixAccountant.ApplicationCore.Models;
+using HendrixAccountant.Common;
 using HendrixAccountant.Reports;
 using Microsoft.Reporting.WinForms;
 using System;
@@ -21,7 +22,7 @@ namespace HendrixAccountant.Forms
             InitializeComponent();
         }
 
-        public frmReportVentas(DataSet data)
+        public frmReportVentas(ReportData data)
         {
             InitializeComponent();
             LoadReport(data);
@@ -32,18 +33,34 @@ namespace HendrixAccountant.Forms
             
         }
 
-        private void LoadReport(DataSet data)
+        private void LoadReport(ReportData data)
         {
             try
             {
-                ReportDataSource dataSource = new ReportDataSource("dsFactura", data.Tables[0]);
-                ReportDataSource dataSource2 = new ReportDataSource("dsFacturaDetalle", data.Tables[1]);
+                string pathRoot = Utils.GetValueSetting("reports");
+                var dataSource = new List<ReportDataSource>();
                 this.rptViewerVentas.ProcessingMode = ProcessingMode.Local;
+                switch (data.TipoReporte)
+                {
+                    case ApplicationCore.Enums.TipoReporte.VENTAS_GENERALES:
+                        rptViewerVentas.LocalReport.ReportPath = pathRoot + "rptVentasGenerales.rdlc";
+                        dataSource.Add(new ReportDataSource("dsVentasGenerales", data.Data.Tables[0]));
+                        break;
+                    case ApplicationCore.Enums.TipoReporte.FACTURA_VENTA:
+                        rptViewerVentas.LocalReport.ReportPath = pathRoot+"rptFacturaVenta.rdlc";
+                        dataSource.Add(new ReportDataSource("dsFactura", data.Data.Tables[0]));
+                        dataSource.Add(new ReportDataSource("dsFacturaDetalle", data.Data.Tables[1]));
+                        break;
+                    default:
+                        break;
+                }
                 
                 this.rptViewerVentas.LocalReport.DataSources.Clear();
-                //this.rptViewerVentas.LocalReport.ReportEmbeddedResource = "rptFacturaVenta.rdlc";
-                this.rptViewerVentas.LocalReport.DataSources.Add(dataSource);
-                this.rptViewerVentas.LocalReport.DataSources.Add(dataSource2);
+                foreach (var source in dataSource)
+                    this.rptViewerVentas.LocalReport.DataSources.Add(source);
+                this.rptViewerVentas.SetDisplayMode(DisplayMode.PrintLayout);
+                this.rptViewerVentas.ZoomMode = ZoomMode.Percent;
+                this.rptViewerVentas.ZoomPercent = 100;
                 this.rptViewerVentas.RefreshReport();
             }
             catch (Exception ex)

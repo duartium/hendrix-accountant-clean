@@ -1,9 +1,11 @@
 ﻿using HendrixAccountant.ApplicationCore.Constants;
 using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Interfaces.Forms;
+using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.ApplicationCore.Models;
 using HendrixAccountant.ApplicationCore.Services;
 using HendrixAccountant.Common;
+using HendrixAccountant.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +25,7 @@ namespace HendrixAccountant
         private decimal _descuento;
         private ClientIdentity _client;
         private InvoiceDto _invoice;
+        private IClientRepository _rpsClient;
         public frmPuntoVenta()
         {
             InitializeComponent();
@@ -31,6 +34,7 @@ namespace HendrixAccountant
             _client = null;
             _invoice = null;
             _descuento = 0;
+            _rpsClient = null;
         }
 
         private void frmPuntoVenta_Load(object sender, EventArgs e)
@@ -58,11 +62,7 @@ namespace HendrixAccountant
             {
                 case "ClientIdentity":
                     _client = entity as ClientIdentity;
-                    txtCodCliente.Text = _client.Identificacion;
-                    txtNombresCliente.Text = _client.NombresCompletos;
-                    if (_client != null)
-                        btnAgregar.Enabled = true;
-                    lblInfo.Text = "Cliente seleccionado.";
+                    SetClient();
                     break;
                 case "ProductIdentityDto":
                     _product = entity as ProductIdentityDto;
@@ -85,6 +85,7 @@ namespace HendrixAccountant
             if (_product == null) return;
             dgvPuntoVenta.Rows.Add(_product.IdProducto, _product.Nombre, _product.Cantidad, _product.Precio, _product.Total);
             dgvPuntoVenta.FirstDisplayedScrollingRowIndex = dgvPuntoVenta.RowCount - 1;
+            btnEliminar.Enabled = true;
         }
 
         //implement member IQuantity
@@ -145,14 +146,14 @@ namespace HendrixAccountant
                     Detalle = _lsProducts,
                     Auditoria = new Audit{
                         IdUser = 1,
-                        Username = "prueba",
+                        Username = "bduarte",
                         SerialMainboard = Utils.GetSerial()
                     }
                 };
                 var sale = new SaleService();
                 if (sale.Generate(_invoice))
                 {
-                    dgvPuntoVenta.Rows.Clear();
+                    Clear();
                     MessageBox.Show("Venta registrada con éxito", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                     
@@ -174,9 +175,82 @@ namespace HendrixAccountant
             txtValorIva.Clear();
             txtTotalPagar.Clear();
             txtNombresCliente.Clear();
-            txtCodCliente.Clear();
+            txtIdentCliente.Clear();
             txtDireccionCliente.Clear();
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            RemoveProduct();
+        }
+
+        private void RemoveProduct()
+        {
+            if (dgvPuntoVenta.SelectedRows.Count <= 0) return;
+            if (MessageBox.Show("¿Está seguro que desea eliminar el artículo seleccionado?", CString.DEFAULT_TITLE, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.Cancel) return;
+
+            foreach (DataGridViewRow row in dgvPuntoVenta.SelectedRows)
+            {
+                _lsProducts.RemoveAt(row.Index);
+                dgvPuntoVenta.Rows.RemoveAt(row.Index);
+            }
+        }
+
+        private void dgvPuntoVenta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+                RemoveProduct();
+        }
+
+        private void frmPuntoVenta_Activated(object sender, EventArgs e)
+        {
+            txtIdentCliente.Focus();
+        }
+
+        private void txtIdentCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                GetClient();
+        }
+
+        private void GetClient()
+        {
+            if (txtIdentCliente.Text.Length <= 0)
+            {
+                MessageBox.Show("Ingrese la identifiación para buscar el cliente.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+                
+            if (txtIdentCliente.Text.Length < 10)
+            {
+                MessageBox.Show("Ingrese una identifiación válida.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+                
+            _rpsClient = new ClienteRepository();
+            var client = _rpsClient.GetByIdentification(txtIdentCliente.Text);
+            if (client == null)
+            {
+                MessageBox.Show("No se econtró el cliente con la identificación: " + txtIdentCliente.Text + ".", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            _client = new ClientIdentity
+            {
+                IdCliente = client.id_cliente,
+                Identificacion = client.identificacion,
+                NombresCompletos = client.nombres + " " + client.apellidos
+            };
+            SetClient();
+        }
+
+        private void SetClient()
+        {
+            txtIdentCliente.Text = _client.Identificacion;
+            txtNombresCliente.Text = _client.NombresCompletos;
+            if (_client != null)
+                btnAgregar.Enabled = true;
+            btnAgregar.Focus();
+            lblInfo.Text = "Cliente seleccionado.";
+        }
     }
 }

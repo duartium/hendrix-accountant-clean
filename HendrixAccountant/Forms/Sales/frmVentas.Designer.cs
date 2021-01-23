@@ -28,26 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnConsultar = new System.Windows.Forms.Button();
             this.tabControlVentas = new System.Windows.Forms.TabControl();
             this.tpGeneral = new System.Windows.Forms.TabPage();
             this.gbDatosVenta = new System.Windows.Forms.GroupBox();
             this.dgvVentaGeneral = new System.Windows.Forms.DataGridView();
-            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSecuencial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpDatosVenta = new System.Windows.Forms.GroupBox();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.lblFechaDesde = new System.Windows.Forms.Label();
@@ -75,6 +74,7 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNumSecuencial = new System.Windows.Forms.TextBox();
+            this.btnImprimir = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.panel1.SuspendLayout();
             this.tabControlVentas.SuspendLayout();
             this.tpGeneral.SuspendLayout();
@@ -90,26 +90,34 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.panel1.Controls.Add(this.btnImprimir);
+            this.panel1.Controls.Add(this.btnConsultar);
             this.panel1.Controls.Add(this.btnLimpiar);
             this.panel1.Controls.Add(this.btnCerrar);
-            this.panel1.Controls.Add(this.btnConsultar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(661, 0);
+            this.panel1.Location = new System.Drawing.Point(736, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(125, 620);
+            this.panel1.Size = new System.Drawing.Size(127, 528);
             this.panel1.TabIndex = 9;
             // 
-            // btnImprimir
+            // btnConsultar
             // 
-            this.btnImprimir.Enabled = false;
-            this.btnImprimir.Location = new System.Drawing.Point(3, 50);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(119, 30);
-            this.btnImprimir.TabIndex = 3;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = true;
-            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            this.btnConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsultar.FlatAppearance.BorderSize = 0;
+            this.btnConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
+            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultar.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnConsultar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnConsultar.Location = new System.Drawing.Point(0, 30);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(127, 40);
+            this.btnConsultar.TabIndex = 4;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnLimpiar
             // 
@@ -130,16 +138,6 @@
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = true;
             // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Location = new System.Drawing.Point(3, 16);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(119, 30);
-            this.btnConsultar.TabIndex = 0;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
             // tabControlVentas
             // 
             this.tabControlVentas.Controls.Add(this.tpGeneral);
@@ -147,7 +145,7 @@
             this.tabControlVentas.Location = new System.Drawing.Point(8, 8);
             this.tabControlVentas.Name = "tabControlVentas";
             this.tabControlVentas.SelectedIndex = 0;
-            this.tabControlVentas.Size = new System.Drawing.Size(647, 604);
+            this.tabControlVentas.Size = new System.Drawing.Size(722, 521);
             this.tabControlVentas.TabIndex = 11;
             // 
             // tpGeneral
@@ -157,7 +155,7 @@
             this.tpGeneral.Location = new System.Drawing.Point(4, 22);
             this.tpGeneral.Name = "tpGeneral";
             this.tpGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tpGeneral.Size = new System.Drawing.Size(639, 578);
+            this.tpGeneral.Size = new System.Drawing.Size(714, 495);
             this.tpGeneral.TabIndex = 0;
             this.tpGeneral.Text = "General";
             this.tpGeneral.UseVisualStyleBackColor = true;
@@ -165,9 +163,9 @@
             // gbDatosVenta
             // 
             this.gbDatosVenta.Controls.Add(this.dgvVentaGeneral);
-            this.gbDatosVenta.Location = new System.Drawing.Point(8, 226);
+            this.gbDatosVenta.Location = new System.Drawing.Point(8, 142);
             this.gbDatosVenta.Name = "gbDatosVenta";
-            this.gbDatosVenta.Size = new System.Drawing.Size(624, 346);
+            this.gbDatosVenta.Size = new System.Drawing.Size(697, 346);
             this.gbDatosVenta.TabIndex = 12;
             this.gbDatosVenta.TabStop = false;
             // 
@@ -179,60 +177,60 @@
             this.dgvVentaGeneral.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvVentaGeneral.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVentaGeneral.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCodigo,
-            this.colNombre,
-            this.colCantidad,
-            this.colDireccion,
-            this.colTotal});
+            this.colSecuencial,
+            this.colFechaEmision,
+            this.colCliente,
+            this.colTotal,
+            this.colUsuario});
             this.dgvVentaGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvVentaGeneral.Location = new System.Drawing.Point(3, 16);
             this.dgvVentaGeneral.Name = "dgvVentaGeneral";
             this.dgvVentaGeneral.RowHeadersVisible = false;
             this.dgvVentaGeneral.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVentaGeneral.Size = new System.Drawing.Size(618, 327);
+            this.dgvVentaGeneral.Size = new System.Drawing.Size(691, 327);
             this.dgvVentaGeneral.TabIndex = 2;
             // 
-            // colCodigo
+            // colSecuencial
             // 
-            this.colCodigo.HeaderText = "Código";
-            this.colCodigo.Name = "colCodigo";
-            this.colCodigo.ReadOnly = true;
-            this.colCodigo.Width = 60;
+            this.colSecuencial.HeaderText = "Número";
+            this.colSecuencial.Name = "colSecuencial";
+            this.colSecuencial.ReadOnly = true;
+            this.colSecuencial.Width = 80;
             // 
-            // colNombre
+            // colFechaEmision
             // 
-            this.colNombre.HeaderText = "Nombre de producto";
-            this.colNombre.Name = "colNombre";
-            this.colNombre.ReadOnly = true;
-            this.colNombre.Width = 280;
+            this.colFechaEmision.HeaderText = "Fecha de emisión";
+            this.colFechaEmision.Name = "colFechaEmision";
+            this.colFechaEmision.ReadOnly = true;
+            this.colFechaEmision.Width = 130;
             // 
-            // colCantidad
+            // colCliente
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colCantidad.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colCantidad.HeaderText = "Cantidad";
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.ReadOnly = true;
-            this.colCantidad.Width = 80;
-            // 
-            // colDireccion
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colDireccion.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colDireccion.HeaderText = "Precio";
-            this.colDireccion.Name = "colDireccion";
-            this.colDireccion.ReadOnly = true;
-            this.colDireccion.Width = 140;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colCliente.DefaultCellStyle = dataGridViewCellStyle7;
+            this.colCliente.HeaderText = "Nombres de cliente";
+            this.colCliente.Name = "colCliente";
+            this.colCliente.ReadOnly = true;
+            this.colCliente.Width = 280;
             // 
             // colTotal
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.NullValue = "0";
-            this.colTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.NullValue = "0";
+            this.colTotal.DefaultCellStyle = dataGridViewCellStyle8;
             this.colTotal.HeaderText = "Total";
             this.colTotal.Name = "colTotal";
             this.colTotal.ReadOnly = true;
             this.colTotal.Width = 120;
+            // 
+            // colUsuario
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colUsuario.DefaultCellStyle = dataGridViewCellStyle9;
+            this.colUsuario.HeaderText = "Usuario";
+            this.colUsuario.Name = "colUsuario";
+            this.colUsuario.ReadOnly = true;
+            this.colUsuario.Width = 140;
             // 
             // gpDatosVenta
             // 
@@ -244,7 +242,7 @@
             this.gpDatosVenta.Controls.Add(this.groupBox1);
             this.gpDatosVenta.Location = new System.Drawing.Point(8, 6);
             this.gpDatosVenta.Name = "gpDatosVenta";
-            this.gpDatosVenta.Size = new System.Drawing.Size(624, 217);
+            this.gpDatosVenta.Size = new System.Drawing.Size(697, 143);
             this.gpDatosVenta.TabIndex = 11;
             this.gpDatosVenta.TabStop = false;
             // 
@@ -252,7 +250,7 @@
             // 
             this.dtpFechaDesde.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDesde.Location = new System.Drawing.Point(16, 31);
+            this.dtpFechaDesde.Location = new System.Drawing.Point(10, 31);
             this.dtpFechaDesde.Name = "dtpFechaDesde";
             this.dtpFechaDesde.Size = new System.Drawing.Size(104, 22);
             this.dtpFechaDesde.TabIndex = 29;
@@ -261,7 +259,7 @@
             // 
             this.lblFechaDesde.AutoSize = true;
             this.lblFechaDesde.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaDesde.Location = new System.Drawing.Point(14, 15);
+            this.lblFechaDesde.Location = new System.Drawing.Point(8, 15);
             this.lblFechaDesde.Name = "lblFechaDesde";
             this.lblFechaDesde.Size = new System.Drawing.Size(73, 14);
             this.lblFechaDesde.TabIndex = 30;
@@ -271,7 +269,7 @@
             // 
             this.lblHasta.AutoSize = true;
             this.lblHasta.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHasta.Location = new System.Drawing.Point(132, 14);
+            this.lblHasta.Location = new System.Drawing.Point(126, 14);
             this.lblHasta.Name = "lblHasta";
             this.lblHasta.Size = new System.Drawing.Size(70, 14);
             this.lblHasta.TabIndex = 32;
@@ -281,7 +279,7 @@
             // 
             this.dtpFechaHasta.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaHasta.Location = new System.Drawing.Point(135, 31);
+            this.dtpFechaHasta.Location = new System.Drawing.Point(129, 31);
             this.dtpFechaHasta.Name = "dtpFechaHasta";
             this.dtpFechaHasta.Size = new System.Drawing.Size(104, 22);
             this.dtpFechaHasta.TabIndex = 31;
@@ -293,9 +291,9 @@
             this.gbUsuario.Controls.Add(this.lblUsuario);
             this.gbUsuario.Controls.Add(this.txtCodUsuario);
             this.gbUsuario.Controls.Add(this.btnBuscarUsuario);
-            this.gbUsuario.Location = new System.Drawing.Point(8, 133);
+            this.gbUsuario.Location = new System.Drawing.Point(461, 62);
             this.gbUsuario.Name = "gbUsuario";
-            this.gbUsuario.Size = new System.Drawing.Size(303, 72);
+            this.gbUsuario.Size = new System.Drawing.Size(231, 69);
             this.gbUsuario.TabIndex = 28;
             this.gbUsuario.TabStop = false;
             this.gbUsuario.Text = "Usuario";
@@ -312,18 +310,17 @@
             // 
             // txtNombreUsuario
             // 
-            this.txtNombreUsuario.Enabled = false;
-            this.txtNombreUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreUsuario.Location = new System.Drawing.Point(91, 36);
+            this.txtNombreUsuario.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreUsuario.Location = new System.Drawing.Point(71, 36);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(154, 24);
+            this.txtNombreUsuario.Size = new System.Drawing.Size(103, 22);
             this.txtNombreUsuario.TabIndex = 26;
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(88, 20);
+            this.lblUsuario.Location = new System.Drawing.Point(68, 20);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(98, 14);
             this.lblUsuario.TabIndex = 7;
@@ -331,22 +328,22 @@
             // 
             // txtCodUsuario
             // 
-            this.txtCodUsuario.Enabled = false;
-            this.txtCodUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodUsuario.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodUsuario.Location = new System.Drawing.Point(8, 36);
             this.txtCodUsuario.Name = "txtCodUsuario";
-            this.txtCodUsuario.Size = new System.Drawing.Size(77, 24);
+            this.txtCodUsuario.Size = new System.Drawing.Size(57, 22);
             this.txtCodUsuario.TabIndex = 19;
             // 
             // btnBuscarUsuario
             // 
             this.btnBuscarUsuario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarUsuario.Location = new System.Drawing.Point(251, 35);
+            this.btnBuscarUsuario.Location = new System.Drawing.Point(178, 35);
             this.btnBuscarUsuario.Name = "btnBuscarUsuario";
-            this.btnBuscarUsuario.Size = new System.Drawing.Size(42, 26);
+            this.btnBuscarUsuario.Size = new System.Drawing.Size(42, 23);
             this.btnBuscarUsuario.TabIndex = 20;
             this.btnBuscarUsuario.Text = "...";
             this.btnBuscarUsuario.UseVisualStyleBackColor = true;
+            this.btnBuscarUsuario.Click += new System.EventHandler(this.btnBuscarUsuario_Click);
             // 
             // groupBox1
             // 
@@ -355,9 +352,9 @@
             this.groupBox1.Controls.Add(this.txtNombresCliente);
             this.groupBox1.Controls.Add(this.btnBuscarCliente);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(8, 62);
+            this.groupBox1.Location = new System.Drawing.Point(4, 62);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(607, 69);
+            this.groupBox1.Size = new System.Drawing.Size(452, 69);
             this.groupBox1.TabIndex = 27;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cliente";
@@ -366,7 +363,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Location = new System.Drawing.Point(6, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 14);
             this.label1.TabIndex = 4;
@@ -374,37 +371,38 @@
             // 
             // txtIdentCliente
             // 
-            this.txtIdentCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdentCliente.Location = new System.Drawing.Point(8, 32);
+            this.txtIdentCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdentCliente.Location = new System.Drawing.Point(8, 35);
             this.txtIdentCliente.MaxLength = 13;
             this.txtIdentCliente.Name = "txtIdentCliente";
-            this.txtIdentCliente.Size = new System.Drawing.Size(125, 24);
+            this.txtIdentCliente.Size = new System.Drawing.Size(104, 22);
             this.txtIdentCliente.TabIndex = 1;
             // 
             // txtNombresCliente
             // 
             this.txtNombresCliente.Enabled = false;
-            this.txtNombresCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombresCliente.Location = new System.Drawing.Point(137, 32);
+            this.txtNombresCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombresCliente.Location = new System.Drawing.Point(116, 35);
             this.txtNombresCliente.Name = "txtNombresCliente";
-            this.txtNombresCliente.Size = new System.Drawing.Size(316, 24);
+            this.txtNombresCliente.Size = new System.Drawing.Size(282, 22);
             this.txtNombresCliente.TabIndex = 2;
             // 
             // btnBuscarCliente
             // 
             this.btnBuscarCliente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarCliente.Location = new System.Drawing.Point(459, 30);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(401, 34);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(42, 26);
+            this.btnBuscarCliente.Size = new System.Drawing.Size(42, 24);
             this.btnBuscarCliente.TabIndex = 3;
             this.btnBuscarCliente.Text = "...";
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(135, 16);
+            this.label2.Location = new System.Drawing.Point(114, 19);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 14);
             this.label2.TabIndex = 5;
@@ -416,7 +414,7 @@
             this.tpCIndividual.Location = new System.Drawing.Point(4, 22);
             this.tpCIndividual.Name = "tpCIndividual";
             this.tpCIndividual.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCIndividual.Size = new System.Drawing.Size(639, 578);
+            this.tpCIndividual.Size = new System.Drawing.Size(714, 495);
             this.tpCIndividual.TabIndex = 1;
             this.tpCIndividual.Text = "Comprobante";
             this.tpCIndividual.UseVisualStyleBackColor = true;
@@ -426,9 +424,9 @@
             this.groupBox4.Controls.Add(this.dgvComprobanteInd);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.txtNumSecuencial);
-            this.groupBox4.Location = new System.Drawing.Point(9, 4);
+            this.groupBox4.Location = new System.Drawing.Point(7, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(624, 403);
+            this.groupBox4.Size = new System.Drawing.Size(699, 403);
             this.groupBox4.TabIndex = 13;
             this.groupBox4.TabStop = false;
             // 
@@ -445,11 +443,11 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            this.dgvComprobanteInd.Location = new System.Drawing.Point(4, 67);
+            this.dgvComprobanteInd.Location = new System.Drawing.Point(9, 71);
             this.dgvComprobanteInd.Name = "dgvComprobanteInd";
             this.dgvComprobanteInd.RowHeadersVisible = false;
             this.dgvComprobanteInd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvComprobanteInd.Size = new System.Drawing.Size(615, 318);
+            this.dgvComprobanteInd.Size = new System.Drawing.Size(684, 318);
             this.dgvComprobanteInd.TabIndex = 19;
             // 
             // dataGridViewTextBoxColumn1
@@ -468,8 +466,8 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn3.HeaderText = "Cantidad";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -477,8 +475,8 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTextBoxColumn4.HeaderText = "Precio";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -486,9 +484,9 @@
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.NullValue = "0";
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.NullValue = "0";
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewTextBoxColumn5.HeaderText = "Total";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -498,7 +496,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 16);
+            this.label4.Location = new System.Drawing.Point(6, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(58, 14);
             this.label4.TabIndex = 18;
@@ -507,18 +505,35 @@
             // txtNumSecuencial
             // 
             this.txtNumSecuencial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumSecuencial.Location = new System.Drawing.Point(9, 32);
+            this.txtNumSecuencial.Location = new System.Drawing.Point(9, 36);
             this.txtNumSecuencial.MaxLength = 13;
             this.txtNumSecuencial.Name = "txtNumSecuencial";
             this.txtNumSecuencial.Size = new System.Drawing.Size(159, 24);
             this.txtNumSecuencial.TabIndex = 17;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnImprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnImprimir.Location = new System.Drawing.Point(0, 75);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(127, 40);
+            this.btnImprimir.TabIndex = 5;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = false;
             // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(786, 620);
+            this.ClientSize = new System.Drawing.Size(863, 528);
             this.Controls.Add(this.tabControlVentas);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -549,17 +564,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.TabControl tabControlVentas;
         private System.Windows.Forms.TabPage tpGeneral;
         private System.Windows.Forms.GroupBox gbDatosVenta;
         private System.Windows.Forms.DataGridView dgvVentaGeneral;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDireccion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.GroupBox gpDatosVenta;
         private System.Windows.Forms.GroupBox gbUsuario;
         private System.Windows.Forms.Label lblCodUsuario;
@@ -587,5 +595,12 @@
         private System.Windows.Forms.Label lblFechaDesde;
         private System.Windows.Forms.Label lblHasta;
         private System.Windows.Forms.DateTimePicker dtpFechaHasta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSecuencial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFechaEmision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUsuario;
+        private UIControls.Buttons.ItemAsideSmall btnConsultar;
+        private UIControls.Buttons.ItemAsideSmall btnImprimir;
     }
 }

@@ -76,9 +76,11 @@
     <Compile Include="Interfaces\Shared\IMailService.cs" />
     <Compile Include="Map\ProductMapper.cs" />
     <Compile Include="Map\ClientMapper.cs" />
+    <Compile Include="Map\UserMapper.cs" />
     <Compile Include="Map\Validator.cs" />
     <Compile Include="Models\Audit.cs" />
     <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\ReportData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ProductService.cs" />
   </ItemGroup>

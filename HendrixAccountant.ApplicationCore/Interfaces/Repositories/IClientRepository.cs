@@ -1,4 +1,5 @@
 ﻿using HendrixAccountant.ApplicationCore.DTOs;
+using HendrixAccountant.ApplicationCore.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,7 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
 {
     public interface IClientRepository
     {
-        //List<ClientDto> GetByIdentification(string numberID);
-        //List<ClientDto> GetByName(string numberID);
+        Client GetByIdentification(string identification); 
         IEnumerable<ClientDto> GetAll();
     }
 }

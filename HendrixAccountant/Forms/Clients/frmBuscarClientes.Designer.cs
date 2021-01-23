@@ -37,22 +37,21 @@
             this.colTeléfono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnBotones = new System.Windows.Forms.Panel();
-            this.btnSeleccionar = new System.Windows.Forms.Button();
-            this.btnSiguientes = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnSeleccionar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
+            this.btnCerrar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
+            this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
+            this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnIdentificacion = new System.Windows.Forms.Panel();
             this.lblIdentificacion = new System.Windows.Forms.Label();
-            this.txtIdentificación = new System.Windows.Forms.TextBox();
-            this.txtApellidos = new System.Windows.Forms.TextBox();
             this.lblApellidos = new System.Windows.Forms.Label();
             this.lblNombres = new System.Windows.Forms.Label();
-            this.txtNombres = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbnIdentificacion = new System.Windows.Forms.RadioButton();
             this.rbnNombres = new System.Windows.Forms.RadioButton();
+            this.txtIdentificacion = new HendrixAccountant.UIControls.TextInput();
+            this.txtNombres = new HendrixAccountant.UIControls.TextInput();
+            this.txtApellidos = new HendrixAccountant.UIControls.TextInput();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.pnBotones.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -130,77 +129,95 @@
             // 
             // pnBotones
             // 
+            this.pnBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.pnBotones.Controls.Add(this.btnSeleccionar);
-            this.pnBotones.Controls.Add(this.btnSiguientes);
-            this.pnBotones.Controls.Add(this.btnLimpiar);
             this.pnBotones.Controls.Add(this.btnCerrar);
+            this.pnBotones.Controls.Add(this.btnLimpiar);
             this.pnBotones.Controls.Add(this.btnConsultar);
             this.pnBotones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnBotones.Location = new System.Drawing.Point(563, 0);
+            this.pnBotones.Location = new System.Drawing.Point(566, 0);
             this.pnBotones.Name = "pnBotones";
-            this.pnBotones.Size = new System.Drawing.Size(125, 420);
+            this.pnBotones.Size = new System.Drawing.Size(127, 420);
             this.pnBotones.TabIndex = 1;
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Enabled = false;
-            this.btnSeleccionar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionar.Location = new System.Drawing.Point(3, 177);
+            this.btnSeleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnSeleccionar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSeleccionar.FlatAppearance.BorderSize = 0;
+            this.btnSeleccionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnSeleccionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
+            this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSeleccionar.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnSeleccionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnSeleccionar.Location = new System.Drawing.Point(0, 177);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(119, 30);
-            this.btnSeleccionar.TabIndex = 7;
+            this.btnSeleccionar.Size = new System.Drawing.Size(127, 35);
+            this.btnSeleccionar.TabIndex = 13;
             this.btnSeleccionar.Text = "Seleccionar";
-            this.btnSeleccionar.UseVisualStyleBackColor = true;
-            // 
-            // btnSiguientes
-            // 
-            this.btnSiguientes.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSiguientes.Location = new System.Drawing.Point(3, 56);
-            this.btnSiguientes.Name = "btnSiguientes";
-            this.btnSiguientes.Size = new System.Drawing.Size(119, 30);
-            this.btnSiguientes.TabIndex = 6;
-            this.btnSiguientes.Text = "Siguientes";
-            this.btnSiguientes.UseVisualStyleBackColor = true;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Enabled = false;
-            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(3, 334);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(119, 30);
-            this.btnLimpiar.TabIndex = 8;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            this.btnSeleccionar.UseVisualStyleBackColor = false;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // btnCerrar
             // 
-            this.btnCerrar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCerrar.Location = new System.Drawing.Point(3, 367);
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnCerrar.Location = new System.Drawing.Point(0, 355);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(119, 30);
-            this.btnCerrar.TabIndex = 9;
+            this.btnCerrar.Size = new System.Drawing.Size(127, 35);
+            this.btnCerrar.TabIndex = 12;
             this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnLimpiar.Location = new System.Drawing.Point(0, 314);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(127, 35);
+            this.btnLimpiar.TabIndex = 11;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultar.Location = new System.Drawing.Point(3, 20);
+            this.btnConsultar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsultar.FlatAppearance.BorderSize = 0;
+            this.btnConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnConsultar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
+            this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultar.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnConsultar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnConsultar.Location = new System.Drawing.Point(0, 19);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(119, 30);
-            this.btnConsultar.TabIndex = 5;
+            this.btnConsultar.Size = new System.Drawing.Size(127, 35);
+            this.btnConsultar.TabIndex = 10;
             this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.pnIdentificacion);
-            this.groupBox1.Controls.Add(this.txtApellidos);
             this.groupBox1.Controls.Add(this.lblApellidos);
             this.groupBox1.Controls.Add(this.lblNombres);
+            this.groupBox1.Controls.Add(this.txtApellidos);
             this.groupBox1.Controls.Add(this.txtNombres);
             this.groupBox1.Location = new System.Drawing.Point(10, 71);
             this.groupBox1.Name = "groupBox1";
@@ -211,9 +228,9 @@
             // 
             // pnIdentificacion
             // 
+            this.pnIdentificacion.Controls.Add(this.txtIdentificacion);
             this.pnIdentificacion.Controls.Add(this.lblIdentificacion);
-            this.pnIdentificacion.Controls.Add(this.txtIdentificación);
-            this.pnIdentificacion.Location = new System.Drawing.Point(2, 16);
+            this.pnIdentificacion.Location = new System.Drawing.Point(2, 18);
             this.pnIdentificacion.Name = "pnIdentificacion";
             this.pnIdentificacion.Size = new System.Drawing.Size(539, 69);
             this.pnIdentificacion.TabIndex = 3;
@@ -228,22 +245,6 @@
             this.lblIdentificacion.Size = new System.Drawing.Size(89, 16);
             this.lblIdentificacion.TabIndex = 1;
             this.lblIdentificacion.Text = "Identificación:";
-            // 
-            // txtIdentificación
-            // 
-            this.txtIdentificación.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdentificación.Location = new System.Drawing.Point(103, 10);
-            this.txtIdentificación.Name = "txtIdentificación";
-            this.txtIdentificación.Size = new System.Drawing.Size(303, 24);
-            this.txtIdentificación.TabIndex = 11;
-            // 
-            // txtApellidos
-            // 
-            this.txtApellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidos.Location = new System.Drawing.Point(88, 54);
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(329, 24);
-            this.txtApellidos.TabIndex = 3;
             // 
             // lblApellidos
             // 
@@ -264,14 +265,6 @@
             this.lblNombres.Size = new System.Drawing.Size(67, 16);
             this.lblNombres.TabIndex = 1;
             this.lblNombres.Text = "Nombres:";
-            // 
-            // txtNombres
-            // 
-            this.txtNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombres.Location = new System.Drawing.Point(88, 24);
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(329, 24);
-            this.txtNombres.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -311,11 +304,36 @@
             this.rbnNombres.UseVisualStyleBackColor = true;
             this.rbnNombres.CheckedChanged += new System.EventHandler(this.rbnNombres_CheckedChanged);
             // 
+            // txtIdentificacion
+            // 
+            this.txtIdentificacion.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtIdentificacion.Location = new System.Drawing.Point(103, 10);
+            this.txtIdentificacion.Name = "txtIdentificacion";
+            this.txtIdentificacion.Size = new System.Drawing.Size(204, 23);
+            this.txtIdentificacion.TabIndex = 2;
+            // 
+            // txtNombres
+            // 
+            this.txtNombres.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtNombres.Location = new System.Drawing.Point(88, 25);
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(329, 23);
+            this.txtNombres.TabIndex = 4;
+            // 
+            // txtApellidos
+            // 
+            this.txtApellidos.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtApellidos.Location = new System.Drawing.Point(88, 52);
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(329, 23);
+            this.txtApellidos.TabIndex = 5;
+            // 
             // frmBuscarClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 420);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(693, 420);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -344,18 +362,11 @@
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.Panel pnBotones;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.Label lblApellidos;
         private System.Windows.Forms.Label lblNombres;
-        private System.Windows.Forms.TextBox txtApellidos;
-        private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rbnIdentificacion;
         private System.Windows.Forms.RadioButton rbnNombres;
-        private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Button btnSiguientes;
-        private System.Windows.Forms.Button btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdentificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombres;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDireccion;
@@ -365,6 +376,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
         private System.Windows.Forms.Panel pnIdentificacion;
         private System.Windows.Forms.Label lblIdentificacion;
-        private System.Windows.Forms.TextBox txtIdentificación;
+        private UIControls.Buttons.ItemAsideSmall btnConsultar;
+        private UIControls.Buttons.ItemAsideSmall btnLimpiar;
+        private UIControls.Buttons.ItemAsideSmall btnCerrar;
+        private UIControls.Buttons.ItemAsideSmall btnSeleccionar;
+        private UIControls.TextInput txtIdentificacion;
+        private UIControls.TextInput txtNombres;
+        private UIControls.TextInput txtApellidos;
     }
 }
