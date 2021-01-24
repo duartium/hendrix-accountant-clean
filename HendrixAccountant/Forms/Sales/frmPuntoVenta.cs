@@ -39,7 +39,8 @@ namespace HendrixAccountant
 
         private void frmPuntoVenta_Load(object sender, EventArgs e)
         {
-            
+            DisableAdd();
+            DisabledRemove();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -85,7 +86,7 @@ namespace HendrixAccountant
             if (_product == null) return;
             dgvPuntoVenta.Rows.Add(_product.IdProducto, _product.Nombre, _product.Cantidad, _product.Precio, _product.Total);
             dgvPuntoVenta.FirstDisplayedScrollingRowIndex = dgvPuntoVenta.RowCount - 1;
-            btnEliminar.Enabled = true;
+            EnableRemove();
         }
 
         //implement member IQuantity
@@ -247,10 +248,39 @@ namespace HendrixAccountant
         {
             txtIdentCliente.Text = _client.Identificacion;
             txtNombresCliente.Text = _client.NombresCompletos;
-            if (_client != null)
-                btnAgregar.Enabled = true;
-            btnAgregar.Focus();
+            if (_client == null) return;
+            EnableAdd();
             lblInfo.Text = "Cliente seleccionado.";
+        }
+
+        private void btnEliminar_MouseEnter(object sender, EventArgs e)
+        {
+        }
+
+        private void DisableAdd()
+        {
+            btnAgregar.Enabled = false;
+            btnAgregar.BackColor = SystemColors.Control;
+            btnAgregar.Focus();
+        }
+        private void EnableAdd()
+        {
+            btnAgregar.Enabled = true;
+            btnAgregar.BackColor = Color.FromArgb(40, 167, 89);
+            btnAgregar.Focus();
+        }
+
+        private void EnableRemove()
+        {
+            btnEliminar.Enabled = true;
+            btnEliminar.BackColor = Color.FromArgb(220, 53, 69);
+            btnEliminar.Focus();
+        }
+
+        private void DisabledRemove()
+        {
+            btnEliminar.Enabled = false;
+            btnEliminar.BackColor = SystemColors.Control;
         }
     }
 }

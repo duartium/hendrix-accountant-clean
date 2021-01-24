@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 namespace HendrixAccountant.ApplicationCore.Enums
 {
-    enum ERoles
+    public enum UserRole
     {
-        Cajero = 10,
-        Administrador = 20
+        ADMINISTRADOR = 1,
+        CAJERO = 3
     }
 
     public enum TipoMovimiento //flujo de caja
     {
-        Apertura = 1,
-        Cierre = 2
+        APERTURA = 1,
+        CIERRE = 2
     }
 
     public enum Estado
     {
-        Inactivo,
-        Activo
+        INACTIVO,
+        ACTIVO
     }
 
     public enum EstadoPantalla
     {
-        Inicial,
-        Creacion,
-        Eliminacion
+        INICIAL,
+        CREACION,
+        ELIMINACION
     }
 
     public enum ConsultaVenta

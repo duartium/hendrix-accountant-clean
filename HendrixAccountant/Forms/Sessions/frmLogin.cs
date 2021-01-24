@@ -36,12 +36,16 @@ namespace HendrixAccountant.Sessions
         {
             if (txtUsername.Text.Trim().Length == 0 || txtPassword.Text.Trim().Length == 0)
                 MessageBox.Show("Ingrese usuario y contraseña", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            if (!_repUser.Authenticate(txtUsername.Text, txtPassword.Text))
+            
+            var user = _repUser.Authenticate(txtUsername.Text, txtPassword.Text);
+            if (user == null)
                 MessageBox.Show("Usuario o contraseña incorrectos", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
             else{
                 DataOperator _operator = DataOperator.Instance;
-                _operator.Username = txtUsername.Text.Trim();
+                _operator.IdUser = user.IdUsuario;
+                _operator.Username = user.Usuario;
+                _operator.UserRole = user.IdRol;
+                _operator.Role = user.NombreRol;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

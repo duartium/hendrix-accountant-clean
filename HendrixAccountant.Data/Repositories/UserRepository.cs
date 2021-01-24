@@ -21,28 +21,23 @@ namespace HendrixAccountant.Data
         {
             this._sqlServer = new DataBase();
         }
-        public bool Authenticate(string username, string password)
+        public UserAuthDto Authenticate(string username, string password)
         {
-            bool isAutenticated = false;
+            UserAuthDto user  = null;
             try
             {
                 var parms = new List<SqlParameter>();
-                parms.Add(new SqlParameter("@accion", 'C'));
-                parms.Add(new SqlParameter("@usuario", ""));
+                parms.Add(new SqlParameter("@accion", 'A'));
                 parms.Add(new SqlParameter("@username", username));
                 parms.Add(new SqlParameter("@password", Encrypt.GetSHA256(password)));
-
                 var resp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
-                if (resp == null) return false;
-                if (resp.Tables.Count <= 0) return false;
-
-                isAutenticated = Boolean.Parse((resp.Tables[0].Rows[0]["RESP"].ToString().Equals("1")) ? "true" : "false");
+                user = new UserMapper().DatasetToUser(resp);
             }
             catch (Exception ex)
             {
                 Utils.GrabarLog("Authenticate", ex.ToString());
             }
-            return isAutenticated;
+            return user;
         }
 
         public List<UserDto> GetAll()

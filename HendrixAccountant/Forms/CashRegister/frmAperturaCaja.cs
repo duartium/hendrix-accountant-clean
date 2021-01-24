@@ -34,7 +34,7 @@ namespace HendrixAccountant
 
             bool resp = _rpsCaja.RegisterMovement(new Data.Dtos.CashFlowDto
             {
-                tipoMovimiento = (int)TipoMovimiento.Apertura,
+                tipoMovimiento = (int)TipoMovimiento.APERTURA,
                 usuario = _username,
                 saldo = Decimal.Parse(lblMontoTotal.Text)
             });

@@ -33,7 +33,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pbxLogoCompany = new System.Windows.Forms.PictureBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -42,11 +41,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnAcceder = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblCerrar = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbxLogoCompany = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCompany)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCompany)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,7 +77,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.label2.Location = new System.Drawing.Point(53, 189);
+            this.label2.Location = new System.Drawing.Point(53, 226);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 19);
             this.label2.TabIndex = 2;
@@ -88,19 +88,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(51, 160);
+            this.label1.Location = new System.Drawing.Point(51, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 34);
             this.label1.TabIndex = 1;
             this.label1.Text = "HENDRIX";
-            // 
-            // pbxLogoCompany
-            // 
-            this.pbxLogoCompany.Location = new System.Drawing.Point(57, 53);
-            this.pbxLogoCompany.Name = "pbxLogoCompany";
-            this.pbxLogoCompany.Size = new System.Drawing.Size(124, 93);
-            this.pbxLogoCompany.TabIndex = 0;
-            this.pbxLogoCompany.TabStop = false;
             // 
             // txtUsername
             // 
@@ -108,7 +100,7 @@
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
-            this.txtUsername.Location = new System.Drawing.Point(304, 183);
+            this.txtUsername.Location = new System.Drawing.Point(304, 184);
             this.txtUsername.MaxLength = 100;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(284, 22);
@@ -119,7 +111,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(130)))));
-            this.label3.Location = new System.Drawing.Point(299, 18);
+            this.label3.Location = new System.Drawing.Point(299, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(168, 25);
             this.label3.TabIndex = 3;
@@ -130,7 +122,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(130)))));
-            this.label4.Location = new System.Drawing.Point(301, 158);
+            this.label4.Location = new System.Drawing.Point(301, 159);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 18);
             this.label4.TabIndex = 4;
@@ -139,7 +131,7 @@
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
-            this.label5.Location = new System.Drawing.Point(304, 207);
+            this.label5.Location = new System.Drawing.Point(304, 208);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(285, 3);
             this.label5.TabIndex = 5;
@@ -149,7 +141,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(130)))));
-            this.label6.Location = new System.Drawing.Point(301, 225);
+            this.label6.Location = new System.Drawing.Point(301, 226);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 18);
             this.label6.TabIndex = 6;
@@ -158,7 +150,7 @@
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
-            this.label7.Location = new System.Drawing.Point(304, 273);
+            this.label7.Location = new System.Drawing.Point(304, 269);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(285, 3);
             this.label7.TabIndex = 8;
@@ -167,12 +159,12 @@
             // 
             this.txtPassword.BackColor = System.Drawing.SystemColors.Control;
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPassword.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
-            this.txtPassword.Location = new System.Drawing.Point(304, 249);
+            this.txtPassword.Location = new System.Drawing.Point(304, 248);
             this.txtPassword.MaxLength = 100;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(284, 25);
             this.txtPassword.TabIndex = 7;
             this.txtPassword.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyUp);
@@ -186,7 +178,7 @@
             this.btnAcceder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAcceder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcceder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(130)))));
-            this.btnAcceder.Location = new System.Drawing.Point(304, 293);
+            this.btnAcceder.Location = new System.Drawing.Point(304, 294);
             this.btnAcceder.Name = "btnAcceder";
             this.btnAcceder.Size = new System.Drawing.Size(285, 45);
             this.btnAcceder.TabIndex = 9;
@@ -194,28 +186,38 @@
             this.btnAcceder.UseVisualStyleBackColor = false;
             this.btnAcceder.Click += new System.EventHandler(this.btnAcceder_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(413, 93);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
             // lblCerrar
             // 
             this.lblCerrar.AutoSize = true;
             this.lblCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCerrar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCerrar.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblCerrar.Location = new System.Drawing.Point(613, 18);
+            this.lblCerrar.Location = new System.Drawing.Point(613, 21);
             this.lblCerrar.Name = "lblCerrar";
             this.lblCerrar.Size = new System.Drawing.Size(20, 19);
             this.lblCerrar.TabIndex = 11;
             this.lblCerrar.Text = "X";
             this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(413, 88);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(70, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pbxLogoCompany
+            // 
+            this.pbxLogoCompany.Image = global::HendrixAccountant.Properties.Resources.HendrixLogoWhite;
+            this.pbxLogoCompany.Location = new System.Drawing.Point(73, 98);
+            this.pbxLogoCompany.Name = "pbxLogoCompany";
+            this.pbxLogoCompany.Size = new System.Drawing.Size(97, 85);
+            this.pbxLogoCompany.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxLogoCompany.TabIndex = 0;
+            this.pbxLogoCompany.TabStop = false;
             // 
             // frmLogin
             // 
@@ -239,8 +241,8 @@
             this.Text = "frmLogin";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCompany)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCompany)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

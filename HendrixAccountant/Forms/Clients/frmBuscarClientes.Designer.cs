@@ -43,15 +43,15 @@
             this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnIdentificacion = new System.Windows.Forms.Panel();
+            this.txtIdentificacion = new HendrixAccountant.UIControls.TextInput();
             this.lblIdentificacion = new System.Windows.Forms.Label();
             this.lblApellidos = new System.Windows.Forms.Label();
             this.lblNombres = new System.Windows.Forms.Label();
+            this.txtApellidos = new HendrixAccountant.UIControls.TextInput();
+            this.txtNombres = new HendrixAccountant.UIControls.TextInput();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbnIdentificacion = new System.Windows.Forms.RadioButton();
             this.rbnNombres = new System.Windows.Forms.RadioButton();
-            this.txtIdentificacion = new HendrixAccountant.UIControls.TextInput();
-            this.txtNombres = new HendrixAccountant.UIControls.TextInput();
-            this.txtApellidos = new HendrixAccountant.UIControls.TextInput();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.pnBotones.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -168,7 +168,7 @@
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Arial", 9F);
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnCerrar.Location = new System.Drawing.Point(0, 355);
+            this.btnCerrar.Location = new System.Drawing.Point(0, 362);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(127, 35);
             this.btnCerrar.TabIndex = 12;
@@ -186,7 +186,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9F);
             this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnLimpiar.Location = new System.Drawing.Point(0, 314);
+            this.btnLimpiar.Location = new System.Drawing.Point(0, 321);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(127, 35);
             this.btnLimpiar.TabIndex = 11;
@@ -236,6 +236,14 @@
             this.pnIdentificacion.TabIndex = 3;
             this.pnIdentificacion.Visible = false;
             // 
+            // txtIdentificacion
+            // 
+            this.txtIdentificacion.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtIdentificacion.Location = new System.Drawing.Point(103, 10);
+            this.txtIdentificacion.Name = "txtIdentificacion";
+            this.txtIdentificacion.Size = new System.Drawing.Size(204, 23);
+            this.txtIdentificacion.TabIndex = 2;
+            // 
             // lblIdentificacion
             // 
             this.lblIdentificacion.AutoSize = true;
@@ -265,6 +273,22 @@
             this.lblNombres.Size = new System.Drawing.Size(67, 16);
             this.lblNombres.TabIndex = 1;
             this.lblNombres.Text = "Nombres:";
+            // 
+            // txtApellidos
+            // 
+            this.txtApellidos.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtApellidos.Location = new System.Drawing.Point(88, 52);
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(329, 23);
+            this.txtApellidos.TabIndex = 5;
+            // 
+            // txtNombres
+            // 
+            this.txtNombres.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtNombres.Location = new System.Drawing.Point(88, 25);
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(329, 23);
+            this.txtNombres.TabIndex = 4;
             // 
             // groupBox2
             // 
@@ -303,30 +327,6 @@
             this.rbnNombres.Text = "Nombres o apellidos";
             this.rbnNombres.UseVisualStyleBackColor = true;
             this.rbnNombres.CheckedChanged += new System.EventHandler(this.rbnNombres_CheckedChanged);
-            // 
-            // txtIdentificacion
-            // 
-            this.txtIdentificacion.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtIdentificacion.Location = new System.Drawing.Point(103, 10);
-            this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(204, 23);
-            this.txtIdentificacion.TabIndex = 2;
-            // 
-            // txtNombres
-            // 
-            this.txtNombres.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtNombres.Location = new System.Drawing.Point(88, 25);
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(329, 23);
-            this.txtNombres.TabIndex = 4;
-            // 
-            // txtApellidos
-            // 
-            this.txtApellidos.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtApellidos.Location = new System.Drawing.Point(88, 52);
-            this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(329, 23);
-            this.txtApellidos.TabIndex = 5;
             // 
             // frmBuscarClientes
             // 

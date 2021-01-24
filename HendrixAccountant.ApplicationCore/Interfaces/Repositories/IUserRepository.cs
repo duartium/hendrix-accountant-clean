@@ -9,7 +9,7 @@ namespace HendrixAccountant.Data
 {
     public interface IUserRepository
     {
-        bool Authenticate(string username, string password);
+        UserAuthDto Authenticate(string username, string password);
         List<UserDto> GetAll();
     }
 }

@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gpDatosVenta = new System.Windows.Forms.GroupBox();
+            this.txtNombresCliente = new HendrixAccountant.UIControls.TextInput();
+            this.txtIdentCliente = new HendrixAccountant.UIControls.NumericInput();
             this.lblFechaEmision = new System.Windows.Forms.Label();
             this.dtpFechaEmision = new System.Windows.Forms.DateTimePicker();
             this.lblDireccionCliente = new System.Windows.Forms.Label();
@@ -41,8 +45,6 @@
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.pnMontosVenta = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtValorIva = new System.Windows.Forms.TextBox();
@@ -53,27 +55,24 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblDescuento = new System.Windows.Forms.Label();
             this.lblSubtotal = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.statusPOS = new System.Windows.Forms.StatusStrip();
+            this.lblInfo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblEstadoProceso = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.dgvPuntoVenta = new System.Windows.Forms.DataGridView();
             this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.statusPOS = new System.Windows.Forms.StatusStrip();
-            this.lblInfo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblEstadoProceso = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.txtNombresCliente = new HendrixAccountant.UIControls.TextInput();
-            this.txtIdentCliente = new HendrixAccountant.UIControls.NumericInput();
             this.gpDatosVenta.SuspendLayout();
             this.pnMontosVenta.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPuntoVenta)).BeginInit();
             this.statusPOS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPuntoVenta)).BeginInit();
             this.SuspendLayout();
             // 
             // gpDatosVenta
@@ -92,6 +91,26 @@
             this.gpDatosVenta.Size = new System.Drawing.Size(687, 152);
             this.gpDatosVenta.TabIndex = 0;
             this.gpDatosVenta.TabStop = false;
+            // 
+            // txtNombresCliente
+            // 
+            this.txtNombresCliente.Enabled = false;
+            this.txtNombresCliente.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtNombresCliente.Location = new System.Drawing.Point(146, 72);
+            this.txtNombresCliente.MaxLength = 200;
+            this.txtNombresCliente.Name = "txtNombresCliente";
+            this.txtNombresCliente.Size = new System.Drawing.Size(345, 23);
+            this.txtNombresCliente.TabIndex = 14;
+            // 
+            // txtIdentCliente
+            // 
+            this.txtIdentCliente.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtIdentCliente.Location = new System.Drawing.Point(17, 72);
+            this.txtIdentCliente.MaxLength = 13;
+            this.txtIdentCliente.Name = "txtIdentCliente";
+            this.txtIdentCliente.Size = new System.Drawing.Size(122, 23);
+            this.txtIdentCliente.TabIndex = 13;
+            this.txtIdentCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdentCliente_KeyDown);
             // 
             // lblFechaEmision
             // 
@@ -178,7 +197,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.panel2.Controls.Add(this.btnGuardar);
-            this.panel2.Controls.Add(this.btnImprimir);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 186);
@@ -186,37 +204,6 @@
             this.panel2.Size = new System.Drawing.Size(205, 319);
             this.panel2.TabIndex = 5;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnGuardar.Location = new System.Drawing.Point(0, 29);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(204, 40);
-            this.btnGuardar.TabIndex = 4;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.FlatAppearance.BorderSize = 0;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnImprimir.Location = new System.Drawing.Point(0, 72);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(204, 40);
-            this.btnImprimir.TabIndex = 3;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = false;
             // 
             // label8
             // 
@@ -346,92 +333,6 @@
             this.lblSubtotal.TabIndex = 0;
             this.lblSubtotal.Text = "Subtotal:";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dgvPuntoVenta);
-            this.groupBox1.Location = new System.Drawing.Point(9, 195);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(689, 285);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            // 
-            // dgvPuntoVenta
-            // 
-            this.dgvPuntoVenta.AllowUserToAddRows = false;
-            this.dgvPuntoVenta.AllowUserToResizeRows = false;
-            this.dgvPuntoVenta.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvPuntoVenta.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvPuntoVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPuntoVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colCodigo,
-            this.colNombre,
-            this.colCantidad,
-            this.colDireccion,
-            this.colTotal});
-            this.dgvPuntoVenta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvPuntoVenta.Location = new System.Drawing.Point(3, 16);
-            this.dgvPuntoVenta.Name = "dgvPuntoVenta";
-            this.dgvPuntoVenta.RowHeadersVisible = false;
-            this.dgvPuntoVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPuntoVenta.Size = new System.Drawing.Size(683, 266);
-            this.dgvPuntoVenta.TabIndex = 1;
-            this.dgvPuntoVenta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPuntoVenta_KeyDown);
-            // 
-            // colCodigo
-            // 
-            this.colCodigo.HeaderText = "Código";
-            this.colCodigo.Name = "colCodigo";
-            this.colCodigo.ReadOnly = true;
-            this.colCodigo.Width = 60;
-            // 
-            // colNombre
-            // 
-            this.colNombre.HeaderText = "Nombre de producto";
-            this.colNombre.Name = "colNombre";
-            this.colNombre.ReadOnly = true;
-            this.colNombre.Width = 280;
-            // 
-            // colCantidad
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colCantidad.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colCantidad.HeaderText = "Cantidad";
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.ReadOnly = true;
-            this.colCantidad.Width = 80;
-            // 
-            // colDireccion
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colDireccion.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colDireccion.HeaderText = "Precio";
-            this.colDireccion.Name = "colDireccion";
-            this.colDireccion.ReadOnly = true;
-            this.colDireccion.Width = 140;
-            // 
-            // colTotal
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.NullValue = "0";
-            this.colTotal.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colTotal.HeaderText = "Total";
-            this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
-            this.colTotal.Width = 120;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.Enabled = false;
-            this.btnAgregar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(253, 167);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(119, 30);
-            this.btnAgregar.TabIndex = 3;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // statusPOS
             // 
             this.statusPOS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -449,6 +350,7 @@
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(40, 17);
             this.lblInfo.Text = "INFO: ";
+            this.lblInfo.Visible = false;
             // 
             // lblEstadoProceso
             // 
@@ -458,36 +360,140 @@
             // 
             // btnEliminar
             // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
             this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.Enabled = false;
-            this.btnEliminar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(382, 167);
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
+            this.btnEliminar.Location = new System.Drawing.Point(349, 169);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(119, 30);
+            this.btnEliminar.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar.TabIndex = 5;
             this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnEliminar.MouseEnter += new System.EventHandler(this.btnEliminar_MouseEnter);
             // 
-            // txtNombresCliente
+            // btnAgregar
             // 
-            this.txtNombresCliente.Enabled = false;
-            this.txtNombresCliente.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtNombresCliente.Location = new System.Drawing.Point(146, 72);
-            this.txtNombresCliente.MaxLength = 200;
-            this.txtNombresCliente.Name = "txtNombresCliente";
-            this.txtNombresCliente.Size = new System.Drawing.Size(345, 23);
-            this.txtNombresCliente.TabIndex = 14;
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(89)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAgregar.Image = global::HendrixAccountant.Properties.Resources.addWhite20;
+            this.btnAgregar.Location = new System.Drawing.Point(253, 169);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(90, 30);
+            this.btnAgregar.TabIndex = 3;
+            this.btnAgregar.Text = " Agregar";
+            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // txtIdentCliente
+            // btnGuardar
             // 
-            this.txtIdentCliente.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtIdentCliente.Location = new System.Drawing.Point(17, 72);
-            this.txtIdentCliente.MaxLength = 13;
-            this.txtIdentCliente.Name = "txtIdentCliente";
-            this.txtIdentCliente.Size = new System.Drawing.Size(122, 23);
-            this.txtIdentCliente.TabIndex = 13;
-            this.txtIdentCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdentCliente_KeyDown);
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnGuardar.Image = global::HendrixAccountant.Properties.Resources.saveBlue20;
+            this.btnGuardar.Location = new System.Drawing.Point(0, 29);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnGuardar.Size = new System.Drawing.Size(204, 40);
+            this.btnGuardar.TabIndex = 4;
+            this.btnGuardar.Text = " Guardar";
+            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // dgvPuntoVenta
+            // 
+            this.dgvPuntoVenta.AllowUserToAddRows = false;
+            this.dgvPuntoVenta.AllowUserToResizeRows = false;
+            this.dgvPuntoVenta.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvPuntoVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvPuntoVenta.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPuntoVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvPuntoVenta.ColumnHeadersHeight = 27;
+            this.dgvPuntoVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvPuntoVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colCodigo,
+            this.colNombre,
+            this.colCantidad,
+            this.colDireccion,
+            this.colTotal});
+            this.dgvPuntoVenta.EnableHeadersVisualStyles = false;
+            this.dgvPuntoVenta.Location = new System.Drawing.Point(12, 206);
+            this.dgvPuntoVenta.Name = "dgvPuntoVenta";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPuntoVenta.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvPuntoVenta.RowHeadersVisible = false;
+            this.dgvPuntoVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPuntoVenta.Size = new System.Drawing.Size(683, 266);
+            this.dgvPuntoVenta.TabIndex = 6;
+            // 
+            // colCodigo
+            // 
+            this.colCodigo.HeaderText = "Código";
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.ReadOnly = true;
+            this.colCodigo.Width = 60;
+            // 
+            // colNombre
+            // 
+            this.colNombre.HeaderText = "Nombre de producto";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.ReadOnly = true;
+            this.colNombre.Width = 280;
+            // 
+            // colCantidad
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colCantidad.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colCantidad.HeaderText = "Cantidad";
+            this.colCantidad.Name = "colCantidad";
+            this.colCantidad.ReadOnly = true;
+            this.colCantidad.Width = 80;
+            // 
+            // colDireccion
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colDireccion.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colDireccion.HeaderText = "Precio";
+            this.colDireccion.Name = "colDireccion";
+            this.colDireccion.ReadOnly = true;
+            this.colDireccion.Width = 140;
+            // 
+            // colTotal
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.NullValue = "0";
+            this.colTotal.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colTotal.HeaderText = "Total";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.ReadOnly = true;
+            this.colTotal.Width = 120;
             // 
             // frmPuntoVenta
             // 
@@ -495,13 +501,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(909, 505);
+            this.Controls.Add(this.dgvPuntoVenta);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.statusPOS);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnMontosVenta);
             this.Controls.Add(this.gpDatosVenta);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmPuntoVenta";
             this.Text = "NUEVA VENTA";
             this.Activated += new System.EventHandler(this.frmPuntoVenta_Activated);
@@ -512,10 +520,9 @@
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPuntoVenta)).EndInit();
             this.statusPOS.ResumeLayout(false);
             this.statusPOS.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPuntoVenta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -529,14 +536,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnMontosVenta;
         private System.Windows.Forms.Label lblSubtotal;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblDescuento;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dgvPuntoVenta;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Label lblDireccionCliente;
         private System.Windows.Forms.TextBox txtDireccionCliente;
         private System.Windows.Forms.Label lblFechaEmision;
@@ -550,14 +554,15 @@
         private System.Windows.Forms.TextBox txtValorSubtotal;
         private System.Windows.Forms.TextBox txtValorIva;
         private System.Windows.Forms.TextBox txtValorDscto;
+        private System.Windows.Forms.ToolStripStatusLabel lblEstadoProceso;
+        private System.Windows.Forms.Button btnEliminar;
+        private UIControls.NumericInput txtIdentCliente;
+        private UIControls.TextInput txtNombresCliente;
+        private System.Windows.Forms.DataGridView dgvPuntoVenta;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDireccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
-        private System.Windows.Forms.ToolStripStatusLabel lblEstadoProceso;
-        private System.Windows.Forms.Button btnEliminar;
-        private UIControls.NumericInput txtIdentCliente;
-        private UIControls.TextInput txtNombresCliente;
     }
 }

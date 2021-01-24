@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HendrixAccountant
+﻿namespace HendrixAccountant
 {
     public  class DataOperator
     {
@@ -27,5 +21,7 @@ namespace HendrixAccountant
         //las fucking propiedades que necesite
         public int IdUser { get; set; }
         public string Username { get; set; }
+        public int UserRole { get; set; }
+        public string Role { get; set; }
     }
 }

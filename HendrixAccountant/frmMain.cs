@@ -1,4 +1,5 @@
-﻿using HendrixAccountant.Data.Dtos;
+﻿using HendrixAccountant.ApplicationCore.Enums;
+using HendrixAccountant.Data.Dtos;
 using HendrixAccountant.Forms;
 using System;
 using System.Collections.Generic;
@@ -19,20 +20,29 @@ namespace HendrixAccountant
         private frmAperturaCaja frmCaja = null;
         private frmPuntoVenta frmPuntoVenta = null;
         private frmVentas frmVentas = null;
+        private DataOperator _dataOper;
 
         #region constructores
         public frmMain()
         {
             InitializeComponent();
+            DataOperator _operator = DataOperator.Instance;
+            _operator.IdUser = 1;
+            _operator.Username = "admin";
+            _operator.UserRole = 1;
+            _operator.Role = "Administrador";
         }
         #endregion
 
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (frmClientes != null)
-                return;
+            ShowClient();
+        }
 
+        private void ShowClient()
+        {
+            if (frmClientes != null) return;
             frmClientes = new frmBuscarClientes();
             frmClientes.MdiParent = this;
             frmClientes.FormClosed += new FormClosedEventHandler(clientes_FormClosed);
@@ -90,10 +100,22 @@ namespace HendrixAccountant
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            _dataOper = DataOperator.Instance;
+            if (_dataOper.UserRole == (int)UserRole.CAJERO)
+                RestrictAccess();
+
+            lblNombreUsuario.Text = _dataOper.Username;
+            lblTipoUsuario.Text = _dataOper.Role;
             foreach (Control ctrl in this.Controls)
                 if (ctrl is MdiClient)
                     ctrl.BackColor = SystemColors.ControlLight;
-            
+        }
+
+        private void RestrictAccess()
+        {
+            configuracionToolStripMenuItem.Visible = false;
+            inventarioToolStripMenuItem.Visible = false;
+            itemConfiguracion.Visible = false;
         }
 
         private void btnVenta_Click(object sender, EventArgs e)
@@ -155,6 +177,11 @@ namespace HendrixAccountant
         {
             DeselectButtons();
             itemConfiguracion.BackColor = Color.FromArgb(253, 184, 39);
+        }
+
+        private void clientesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            ShowClient();
         }
     }
 }

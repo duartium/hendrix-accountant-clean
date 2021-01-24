@@ -25,12 +25,17 @@ BEGIN
 
 	IF @accion='I'
 	BEGIN
-	--BEGIN TRANSACTION TR_REGISTER_INVOICE
-	--  BEGIN TRY
+	BEGIN TRANSACTION TR_REGISTER_INVOICE
+	  BEGIN TRY
+		IF OBJECT_ID('tempdb..#tmpProducts') IS NOT NULL DROP TABLE #tmpProducts
+
+		CREATE TABLE #tmpProducts(id int, quantity int)
 		SET @factura_xml = CAST(@factura as XML)
 		
+		--genera secuencial único
 		EXEC @secuencial = dbo.SP_GENERATE_SEQUENTIAL 'factura'
 
+		--graba cabecera de factura
 		INSERT INTO sale.FACTURA
 		SELECT
 		   @secuencial,
@@ -48,6 +53,7 @@ BEGIN
 
 		SET @id_factura = SCOPE_IDENTITY()
 
+		--graba detalles de factura
 		INSERT INTO sale.FACTURA_DETALLE
 		SELECT
 		   @id_factura,
@@ -57,12 +63,24 @@ BEGIN
 		   detalle.value('(descuento/text())[1]', 'decimal(10,2)'),
 		   1 as estado
 		from @factura_xml.nodes('/factura/detalles/detalle') AS FACTURA_XML(detalle);
-		--COMMIT TRANSACTION TR_REGISTER_INVOICE
 
-	 -- END TRY
-	 -- BEGIN CATCH
-		--  ROLLBACK TRANSACTION TR_REGISTER_INVOICE
-	 -- END CATCH
+		--disminuye stock
+		INSERT INTO #tmpProducts
+		SELECT detalle.value('(productoId/text())[1]', 'int'),
+			   detalle.value('(cantidad/text())[1]', 'int')
+		from @factura_xml.nodes('/factura/detalles/detalle') AS FACTURA_XML(detalle);
+
+		UPDATE inventory.PRODUCTOS SET stock = stock - tmp.quantity
+		FROM inventory.PRODUCTOS p
+		INNER JOIN #tmpProducts tmp
+		ON p.id_producto = tmp.id
+
+		DROP TABLE #tmpProducts
+		COMMIT TRANSACTION TR_REGISTER_INVOICE
+	  END TRY
+	  BEGIN CATCH
+		  ROLLBACK TRANSACTION TR_REGISTER_INVOICE
+	  END CATCH
 		
     END
 END

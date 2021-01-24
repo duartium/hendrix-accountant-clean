@@ -206,6 +206,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\rptFacturaVenta.rdlc" />
     <EmbeddedResource Include="Reports\rptVentasGenerales.rdlc" />
@@ -260,7 +261,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Images\addWhite20.png" />
+    <Content Include="Resources\Images\cartWhite.png" />
+    <Content Include="Resources\Images\cartWhite25.png" />
+    <Content Include="Resources\Images\cartWhite26.png" />
+    <Content Include="Resources\Images\clientsWhite25.png" />
+    <Content Include="Resources\Images\configWhite25.png" />
+    <Content Include="Resources\Images\HendrixLogoWhite.png" />
+    <Content Include="Resources\Images\HendrixLogoWhite256.png" />
+    <Content Include="Resources\Images\HendrixUserCircle.png" />
     <Content Include="Resources\Images\logo.png" />
+    <Content Include="Resources\Images\reportWhite25.png" />
+    <Content Include="Resources\Images\saveBlue20.png" />
+    <Content Include="Resources\Images\simpleReportWhite25.png" />
+    <Content Include="Resources\Images\trashWhite20.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

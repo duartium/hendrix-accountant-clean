@@ -13,4 +13,12 @@ namespace HendrixAccountant.Data.Dtos
         public string Usuario { get; set; }
         public string FechaCreacion { get; set; }
     }
+
+    public class UserAuthDto
+    {
+        public int IdUsuario { get; set; }
+        public string Usuario { get; set; }
+        public int IdRol { get; set; }
+        public string NombreRol { get; set; }
+    }
 }

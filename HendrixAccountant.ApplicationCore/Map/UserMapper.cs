@@ -32,6 +32,29 @@ namespace HendrixAccountant.ApplicationCore.Map
             }
             return products;
         }
+
+        public UserAuthDto DatasetToUser(DataSet data)
+        {
+            if (!Validator.DatasetIsValid(data))
+                return null;
+
+            UserAuthDto user = null;
+            try
+            {
+                user = data.Tables[0].AsEnumerable().Select(field => new UserAuthDto
+                {
+                    IdUsuario = Convert.ToInt32(field["idUsuario"].ToString()),
+                    Usuario = field["usuario"].ToString(),
+                    IdRol = Convert.ToInt32(field["rolId"].ToString()),
+                    NombreRol = field["rol"].ToString()
+                }).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("DatasetToUsers", ex.ToString());
+            }
+            return user;
+        }
     }
 }
 

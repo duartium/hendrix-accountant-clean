@@ -28,8 +28,7 @@ namespace HendrixAccountant
 
         private void txtCantidad_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-                SendQuantity();
+           
         }
 
         private void SendQuantity()
@@ -49,6 +48,12 @@ namespace HendrixAccountant
         private void btnOk_Click(object sender, EventArgs e)
         {
             SendQuantity();
+        }
+
+        private void txtCantidad_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                SendQuantity();
         }
     }
 }
