@@ -1,4 +1,5 @@
 ﻿using HendrixAccountant.ApplicationCore.Entities;
+using HendrixAccountant.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
 {
-    public interface IProductRepository: IRepository<Product>
+    public interface IProductRepository : IRepository<Product>
     {
+        
     }
 }

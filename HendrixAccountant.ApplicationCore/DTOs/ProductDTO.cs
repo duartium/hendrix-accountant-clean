@@ -8,7 +8,8 @@ namespace HendrixAccountant.ApplicationCore.DTOs
 {
     public class ProductDTO
     {
-
+        public string Descripcion { get; set; }
+        public string Codigo { get; set; }
     }
 
     public class ProductIdentityDto : ISaleElement

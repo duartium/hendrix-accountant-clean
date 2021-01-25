@@ -1,4 +1,6 @@
 ﻿using HendrixAccountant.ApplicationCore.Enums;
+using HendrixAccountant.Forms.Directorio;
+using HendrixAccountant.Forms.Inventory;
 using HendrixAccountant.Data.Dtos;
 using HendrixAccountant.Forms;
 using System;
@@ -15,8 +17,11 @@ namespace HendrixAccountant
 {
     public partial class frmMain : Form
     {
+        frmMantProducto frmMantProducto = null;
         private frmClientes frmClientes = null;
-        private frmBuscarProductos frmProductos = null;
+        frmProductos frmProductos = null;
+        frmMantProveedor frmMantProveedor = null;
+        frmCompras frmCompras = null;
         private frmAperturaCaja frmCaja = null;
         private frmPuntoVenta frmPuntoVenta = null;
         private frmVentas frmVentas = null;
@@ -51,10 +56,9 @@ namespace HendrixAccountant
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ( frmProductos != null)
-                return;
+            if ( frmProductos != null) return;
 
-            frmProductos = new frmBuscarProductos();
+            frmProductos = new frmProductos();
             frmProductos.MdiParent = this;
             frmProductos.FormClosed += new FormClosedEventHandler(productos_FormClosed);
             frmProductos.Show();
@@ -95,6 +99,20 @@ namespace HendrixAccountant
         private void frmVentas_FormClosed(object sender, EventArgs e)
         {
             frmVentas = null;
+        }
+
+        private void mantProductos_FormClosed(object sender, EventArgs e)
+        {
+            frmMantProducto = null;
+        }
+
+        private void mantProveedor_FormClosed(object sender, EventArgs e)
+        {
+            frmMantProveedor = null;
+        }
+        private void compras_FormClosed(object sender, EventArgs e)
+        {
+            frmCompras = null;
         }
         #endregion
 
@@ -187,6 +205,54 @@ namespace HendrixAccountant
         private void clientesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             ShowClient();
+        }
+
+        private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (frmMantProducto != null)
+                return;
+
+            frmMantProducto = new frmMantProducto();
+            frmMantProducto.MdiParent = this;
+            frmMantProducto.FormClosed += new FormClosedEventHandler(mantProductos_FormClosed);
+            frmMantProducto.Show();
+            
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (frmProductos != null)
+                return;
+
+            frmProductos = new frmProductos();
+            frmProductos.MdiParent = this;
+            frmProductos.FormClosed += new FormClosedEventHandler(productos_FormClosed);
+            frmProductos.Show();
+        }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (frmMantProveedor != null)
+                return;
+            frmMantProveedor = new frmMantProveedor();
+            frmMantProveedor.MdiParent = this;
+            frmMantProveedor.FormClosed += new FormClosedEventHandler(mantProveedor_FormClosed);
+            frmMantProveedor.Show();
+        }
+
+        private void ingresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comprasToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (frmCompras != null)
+                return;
+            frmCompras = new frmCompras();
+            frmCompras.MdiParent = this;
+            frmCompras.FormClosed += new FormClosedEventHandler(compras_FormClosed);
+            frmCompras.Show();
         }
     }
 }

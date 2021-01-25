@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,13 +45,23 @@
     <Compile Include="CacheKeys\ProductCacheKeys.cs" />
     <Compile Include="Constants\CString.cs" />
     <Compile Include="Constants\CValue.cs" />
+    <Compile Include="DTOs\BrandDTO.cs" />
     <Compile Include="DTOs\CashFlowDto.cs" />
+    <Compile Include="DTOs\CategoryDTO.cs" />
     <Compile Include="DTOs\ClientDto.cs" />
+    <Compile Include="DTOs\ColorDTO.cs" />
     <Compile Include="DTOs\InvoiceDetailDto.cs" />
     <Compile Include="DTOs\InvoiceDto.cs" />
     <Compile Include="DTOs\FiltersDto.cs" />
+    <Compile Include="DTOs\ProductDetailBuyDto.cs" />
+    <Compile Include="DTOs\SupplierDTO.cs" />
+    <Compile Include="Entities\Brand.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Color.cs" />
     <Compile Include="Entities\Invoice.cs" />
     <Compile Include="Entities\InvoiceDetail.cs" />
+    <Compile Include="Entities\ProductEntry.cs" />
+    <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Interfaces\Forms\IQuantity.cs" />
     <Compile Include="Interfaces\Forms\ISaleElement.cs" />
     <Compile Include="DTOs\ProductDTO.cs" />
@@ -60,18 +71,24 @@
     <Compile Include="Enums\CustomEnum.cs" />
     <Compile Include="Exceptions\CustomException.cs" />
     <Compile Include="Interfaces\Forms\IFindElement.cs" />
+    <Compile Include="Interfaces\Repositories\IBrandRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICashRegisterRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICategoryRepository.cs" />
     <Compile Include="Interfaces\Repositories\IClientRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IColorRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPersistent.cs" />
+    <Compile Include="Interfaces\Repositories\IProductEntryRepository.cs" />
     <Compile Include="Interfaces\Repositories\IProductRepository.cs" />
     <Compile Include="Interfaces\Repositories\IProductTempRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISupplierRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Repositories\IUserRepository.cs" />
     <Compile Include="Interfaces\Services\IProductService.cs" />
     <Compile Include="Interfaces\Services\IReports.cs" />
     <Compile Include="Interfaces\Services\ISaleReceipt.cs" />
     <Compile Include="Interfaces\Services\ISales.cs" />
+    <Compile Include="Interfaces\Services\ISupplierService.cs" />
     <Compile Include="Interfaces\Shared\IGoogleService.cs" />
     <Compile Include="Interfaces\Shared\IMailService.cs" />
     <Compile Include="Map\ProductMapper.cs" />

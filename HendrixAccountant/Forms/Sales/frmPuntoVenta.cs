@@ -156,8 +156,8 @@ namespace HendrixAccountant
                     Total = Convert.ToDecimal(txtTotalPagar.Text, Utils.GetCulture()),
                     Detalle = _lsProducts,
                     Auditoria = new Audit{
-                        IdUser = 1,
-                        Username = "bduarte",
+                        IdUser = dataOp.IdUser,
+                        Username = dataOp.Username,
                         SerialMainboard = Utils.GetSerial()
                     }
                 };
@@ -167,7 +167,6 @@ namespace HendrixAccountant
                     Clear();
                     MessageBox.Show("Venta registrada con éxito", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                    
                 else
                     MessageBox.Show("No se pudo procesar la venta.", "Proceso fallido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

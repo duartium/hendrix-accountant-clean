@@ -76,5 +76,11 @@ namespace HendrixAccountant.Data
             int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
             if (resp > 0) return true; else return false;
         }
+
+        public List<ClientDto> GetList()
+        {
+
+            throw new NotImplementedException();
+        }
     }
 }

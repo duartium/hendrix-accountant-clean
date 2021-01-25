@@ -14,5 +14,6 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
         List<ClientDto> GetAll(ClientFilterDto filters);
         bool Save(ClientDto client, bool isUpdate = false);
         bool Remove(int idClient, string username);
+        List<ClientDto> GetList();
     }
 }

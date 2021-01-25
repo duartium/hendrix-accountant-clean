@@ -48,4 +48,27 @@ namespace HendrixAccountant.ApplicationCore.Enums
         IDENTIFICACION,
         NOMBRES
     }
+
+    public enum EstadoOperacionCrud
+    {
+        Nuevo = 1,
+        Edicion = 2,
+        Eliminacion = 3
+    }
+
+    public enum EnumCriterioBusquedaMantProducto
+    {
+        Nombre = 0,
+        Descripción = 1,
+        Costo = 2,
+        PrecioDeVenta = 3
+    }
+
+    public enum EnumCriterioBusquedaMantProveedor
+    {
+        Nombre = 0,
+        RUC = 1,
+        Ciudad = 2,
+        Provincia = 3
+    }
 }

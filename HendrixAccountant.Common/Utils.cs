@@ -21,7 +21,6 @@ namespace HendrixAccountant.Common
         {
             try
             {
-                
                 string path = ConfigurationManager.AppSettings["rutaLogs"].ToString();
                 if (!Directory.Exists(path))
                     Directory.CreateDirectory(path);
