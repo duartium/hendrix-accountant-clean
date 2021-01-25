@@ -51,6 +51,9 @@ namespace HendrixAccountant
 
         private void btnBuscarCliente_Click(object sender, EventArgs e)
         {
+            _client = null;
+            txtIdentCliente.Clear();
+            txtNombresCliente.Clear();
             frmBuscarClientes frmBuscarClientes = new frmBuscarClientes(this);
             frmBuscarClientes.ShowDialog();
         }
@@ -93,6 +96,13 @@ namespace HendrixAccountant
         public void GetQuantity(int quantity)
         {
             if (_product == null) return;
+
+            if (quantity > _product.Stock)
+            {
+                _product = null;
+                MessageBox.Show("No hay suficientes productos en stock.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             _product.Cantidad = quantity;
             decimal total = _product.Precio * quantity;
             _product.Total = Math.Round(total, 2);
@@ -246,9 +256,9 @@ namespace HendrixAccountant
 
         private void SetClient()
         {
+            if (_client == null) return;
             txtIdentCliente.Text = _client.Identificacion;
             txtNombresCliente.Text = _client.NombresCompletos;
-            if (_client == null) return;
             EnableAdd();
             lblInfo.Text = "Cliente seleccionado.";
         }

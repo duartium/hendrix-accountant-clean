@@ -28,25 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentas));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnImprimir = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.tabControlVentas = new System.Windows.Forms.TabControl();
             this.tpGeneral = new System.Windows.Forms.TabPage();
-            this.gbDatosVenta = new System.Windows.Forms.GroupBox();
-            this.dgvVentaGeneral = new System.Windows.Forms.DataGridView();
-            this.colSecuencial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpDatosVenta = new System.Windows.Forms.GroupBox();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.lblFechaDesde = new System.Windows.Forms.Label();
@@ -60,7 +57,6 @@
             this.btnBuscarUsuario = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtIdentCliente = new System.Windows.Forms.TextBox();
             this.txtNombresCliente = new System.Windows.Forms.TextBox();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,19 +69,24 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtNumSecuencial = new System.Windows.Forms.TextBox();
-            this.btnImprimir = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
+            this.dgvVentaGeneral = new System.Windows.Forms.DataGridView();
+            this.colSecuencial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtIdentCliente = new HendrixAccountant.UIControls.NumericInput();
+            this.txtNumSecuencial = new HendrixAccountant.UIControls.NumericInput();
             this.panel1.SuspendLayout();
             this.tabControlVentas.SuspendLayout();
             this.tpGeneral.SuspendLayout();
-            this.gbDatosVenta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVentaGeneral)).BeginInit();
             this.gpDatosVenta.SuspendLayout();
             this.gbUsuario.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tpCIndividual.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComprobanteInd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVentaGeneral)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -100,6 +101,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(127, 528);
             this.panel1.TabIndex = 9;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.FlatAppearance.BorderSize = 0;
+            this.btnImprimir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnImprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnImprimir.Location = new System.Drawing.Point(0, 75);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(127, 40);
+            this.btnImprimir.TabIndex = 5;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnConsultar
             // 
@@ -147,10 +166,12 @@
             this.tabControlVentas.SelectedIndex = 0;
             this.tabControlVentas.Size = new System.Drawing.Size(722, 521);
             this.tabControlVentas.TabIndex = 11;
+            this.tabControlVentas.SelectedIndexChanged += new System.EventHandler(this.tabControlVentas_SelectedIndexChanged);
+            this.tabControlVentas.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControlVentas_Selected);
             // 
             // tpGeneral
             // 
-            this.tpGeneral.Controls.Add(this.gbDatosVenta);
+            this.tpGeneral.Controls.Add(this.dgvVentaGeneral);
             this.tpGeneral.Controls.Add(this.gpDatosVenta);
             this.tpGeneral.Location = new System.Drawing.Point(4, 22);
             this.tpGeneral.Name = "tpGeneral";
@@ -159,78 +180,6 @@
             this.tpGeneral.TabIndex = 0;
             this.tpGeneral.Text = "General";
             this.tpGeneral.UseVisualStyleBackColor = true;
-            // 
-            // gbDatosVenta
-            // 
-            this.gbDatosVenta.Controls.Add(this.dgvVentaGeneral);
-            this.gbDatosVenta.Location = new System.Drawing.Point(8, 142);
-            this.gbDatosVenta.Name = "gbDatosVenta";
-            this.gbDatosVenta.Size = new System.Drawing.Size(697, 346);
-            this.gbDatosVenta.TabIndex = 12;
-            this.gbDatosVenta.TabStop = false;
-            // 
-            // dgvVentaGeneral
-            // 
-            this.dgvVentaGeneral.AllowUserToAddRows = false;
-            this.dgvVentaGeneral.AllowUserToResizeRows = false;
-            this.dgvVentaGeneral.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvVentaGeneral.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvVentaGeneral.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVentaGeneral.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colSecuencial,
-            this.colFechaEmision,
-            this.colCliente,
-            this.colTotal,
-            this.colUsuario});
-            this.dgvVentaGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvVentaGeneral.Location = new System.Drawing.Point(3, 16);
-            this.dgvVentaGeneral.Name = "dgvVentaGeneral";
-            this.dgvVentaGeneral.RowHeadersVisible = false;
-            this.dgvVentaGeneral.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVentaGeneral.Size = new System.Drawing.Size(691, 327);
-            this.dgvVentaGeneral.TabIndex = 2;
-            // 
-            // colSecuencial
-            // 
-            this.colSecuencial.HeaderText = "Número";
-            this.colSecuencial.Name = "colSecuencial";
-            this.colSecuencial.ReadOnly = true;
-            this.colSecuencial.Width = 80;
-            // 
-            // colFechaEmision
-            // 
-            this.colFechaEmision.HeaderText = "Fecha de emisión";
-            this.colFechaEmision.Name = "colFechaEmision";
-            this.colFechaEmision.ReadOnly = true;
-            this.colFechaEmision.Width = 130;
-            // 
-            // colCliente
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.colCliente.DefaultCellStyle = dataGridViewCellStyle7;
-            this.colCliente.HeaderText = "Nombres de cliente";
-            this.colCliente.Name = "colCliente";
-            this.colCliente.ReadOnly = true;
-            this.colCliente.Width = 280;
-            // 
-            // colTotal
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.NullValue = "0";
-            this.colTotal.DefaultCellStyle = dataGridViewCellStyle8;
-            this.colTotal.HeaderText = "Total";
-            this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
-            this.colTotal.Width = 120;
-            // 
-            // colUsuario
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.colUsuario.DefaultCellStyle = dataGridViewCellStyle9;
-            this.colUsuario.HeaderText = "Usuario";
-            this.colUsuario.Name = "colUsuario";
-            this.colUsuario.ReadOnly = true;
-            this.colUsuario.Width = 140;
             // 
             // gpDatosVenta
             // 
@@ -312,6 +261,7 @@
             // 
             this.txtNombreUsuario.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreUsuario.Location = new System.Drawing.Point(71, 36);
+            this.txtNombreUsuario.MaxLength = 20;
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(103, 22);
             this.txtNombreUsuario.TabIndex = 26;
@@ -330,6 +280,7 @@
             // 
             this.txtCodUsuario.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodUsuario.Location = new System.Drawing.Point(8, 36);
+            this.txtCodUsuario.MaxLength = 10;
             this.txtCodUsuario.Name = "txtCodUsuario";
             this.txtCodUsuario.Size = new System.Drawing.Size(57, 22);
             this.txtCodUsuario.TabIndex = 19;
@@ -347,8 +298,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtIdentCliente);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtNombresCliente);
             this.groupBox1.Controls.Add(this.btnBuscarCliente);
             this.groupBox1.Controls.Add(this.label2);
@@ -369,20 +320,12 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Identificación";
             // 
-            // txtIdentCliente
-            // 
-            this.txtIdentCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdentCliente.Location = new System.Drawing.Point(8, 35);
-            this.txtIdentCliente.MaxLength = 13;
-            this.txtIdentCliente.Name = "txtIdentCliente";
-            this.txtIdentCliente.Size = new System.Drawing.Size(104, 22);
-            this.txtIdentCliente.TabIndex = 1;
-            // 
             // txtNombresCliente
             // 
             this.txtNombresCliente.Enabled = false;
             this.txtNombresCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombresCliente.Location = new System.Drawing.Point(116, 35);
+            this.txtNombresCliente.MaxLength = 100;
             this.txtNombresCliente.Name = "txtNombresCliente";
             this.txtNombresCliente.Size = new System.Drawing.Size(282, 22);
             this.txtNombresCliente.TabIndex = 2;
@@ -421,9 +364,9 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txtNumSecuencial);
             this.groupBox4.Controls.Add(this.dgvComprobanteInd);
             this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.txtNumSecuencial);
             this.groupBox4.Location = new System.Drawing.Point(7, 3);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(699, 403);
@@ -435,19 +378,30 @@
             this.dgvComprobanteInd.AllowUserToAddRows = false;
             this.dgvComprobanteInd.AllowUserToResizeRows = false;
             this.dgvComprobanteInd.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvComprobanteInd.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvComprobanteInd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvComprobanteInd.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvComprobanteInd.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvComprobanteInd.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            this.dgvComprobanteInd.ColumnHeadersHeight = 27;
+            this.dgvComprobanteInd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvComprobanteInd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
+            this.dgvComprobanteInd.EnableHeadersVisualStyles = false;
             this.dgvComprobanteInd.Location = new System.Drawing.Point(9, 71);
             this.dgvComprobanteInd.Name = "dgvComprobanteInd";
             this.dgvComprobanteInd.RowHeadersVisible = false;
             this.dgvComprobanteInd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvComprobanteInd.Size = new System.Drawing.Size(684, 318);
+            this.dgvComprobanteInd.Size = new System.Drawing.Size(682, 318);
             this.dgvComprobanteInd.TabIndex = 19;
             // 
             // dataGridViewTextBoxColumn1
@@ -466,8 +420,8 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewTextBoxColumn3.HeaderText = "Cantidad";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -475,8 +429,8 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridViewTextBoxColumn4.HeaderText = "Precio";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -484,9 +438,9 @@
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.NullValue = "0";
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle28.NullValue = "0";
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridViewTextBoxColumn5.HeaderText = "Total";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
@@ -502,31 +456,95 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "Factura nº";
             // 
+            // dgvVentaGeneral
+            // 
+            this.dgvVentaGeneral.AllowUserToAddRows = false;
+            this.dgvVentaGeneral.AllowUserToResizeRows = false;
+            this.dgvVentaGeneral.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvVentaGeneral.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvVentaGeneral.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVentaGeneral.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            this.dgvVentaGeneral.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvVentaGeneral.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colSecuencial,
+            this.colFechaEmision,
+            this.colCliente,
+            this.colTotal,
+            this.colUsuario});
+            this.dgvVentaGeneral.EnableHeadersVisualStyles = false;
+            this.dgvVentaGeneral.Location = new System.Drawing.Point(9, 158);
+            this.dgvVentaGeneral.Name = "dgvVentaGeneral";
+            this.dgvVentaGeneral.RowHeadersVisible = false;
+            this.dgvVentaGeneral.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvVentaGeneral.Size = new System.Drawing.Size(696, 327);
+            this.dgvVentaGeneral.TabIndex = 12;
+            // 
+            // colSecuencial
+            // 
+            this.colSecuencial.HeaderText = "Número";
+            this.colSecuencial.Name = "colSecuencial";
+            this.colSecuencial.ReadOnly = true;
+            this.colSecuencial.Width = 80;
+            // 
+            // colFechaEmision
+            // 
+            this.colFechaEmision.HeaderText = "Fecha de emisión";
+            this.colFechaEmision.Name = "colFechaEmision";
+            this.colFechaEmision.ReadOnly = true;
+            this.colFechaEmision.Width = 130;
+            // 
+            // colCliente
+            // 
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colCliente.DefaultCellStyle = dataGridViewCellStyle30;
+            this.colCliente.HeaderText = "Nombres de cliente";
+            this.colCliente.Name = "colCliente";
+            this.colCliente.ReadOnly = true;
+            this.colCliente.Width = 280;
+            // 
+            // colTotal
+            // 
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle31.NullValue = "0";
+            this.colTotal.DefaultCellStyle = dataGridViewCellStyle31;
+            this.colTotal.HeaderText = "Total";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.ReadOnly = true;
+            this.colTotal.Width = 120;
+            // 
+            // colUsuario
+            // 
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colUsuario.DefaultCellStyle = dataGridViewCellStyle32;
+            this.colUsuario.HeaderText = "Usuario";
+            this.colUsuario.Name = "colUsuario";
+            this.colUsuario.ReadOnly = true;
+            this.colUsuario.Width = 140;
+            // 
+            // txtIdentCliente
+            // 
+            this.txtIdentCliente.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtIdentCliente.Location = new System.Drawing.Point(7, 34);
+            this.txtIdentCliente.MaxLength = 13;
+            this.txtIdentCliente.Name = "txtIdentCliente";
+            this.txtIdentCliente.Size = new System.Drawing.Size(103, 23);
+            this.txtIdentCliente.TabIndex = 33;
+            // 
             // txtNumSecuencial
             // 
-            this.txtNumSecuencial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumSecuencial.Location = new System.Drawing.Point(9, 36);
+            this.txtNumSecuencial.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtNumSecuencial.Location = new System.Drawing.Point(9, 37);
             this.txtNumSecuencial.MaxLength = 13;
             this.txtNumSecuencial.Name = "txtNumSecuencial";
-            this.txtNumSecuencial.Size = new System.Drawing.Size(159, 24);
-            this.txtNumSecuencial.TabIndex = 17;
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.FlatAppearance.BorderSize = 0;
-            this.btnImprimir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnImprimir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnImprimir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnImprimir.Location = new System.Drawing.Point(0, 75);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(127, 40);
-            this.btnImprimir.TabIndex = 5;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.txtNumSecuencial.Size = new System.Drawing.Size(159, 23);
+            this.txtNumSecuencial.TabIndex = 20;
             // 
             // frmVentas
             // 
@@ -537,15 +555,18 @@
             this.Controls.Add(this.tabControlVentas);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(5, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmVentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "CONSULTA DE VENTAS";
             this.Activated += new System.EventHandler(this.frmVentas_Activated);
             this.Load += new System.EventHandler(this.rptVentas_Load);
             this.panel1.ResumeLayout(false);
             this.tabControlVentas.ResumeLayout(false);
             this.tpGeneral.ResumeLayout(false);
-            this.gbDatosVenta.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVentaGeneral)).EndInit();
             this.gpDatosVenta.ResumeLayout(false);
             this.gpDatosVenta.PerformLayout();
             this.gbUsuario.ResumeLayout(false);
@@ -556,6 +577,7 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComprobanteInd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVentaGeneral)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -566,8 +588,6 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.TabControl tabControlVentas;
         private System.Windows.Forms.TabPage tpGeneral;
-        private System.Windows.Forms.GroupBox gbDatosVenta;
-        private System.Windows.Forms.DataGridView dgvVentaGeneral;
         private System.Windows.Forms.GroupBox gpDatosVenta;
         private System.Windows.Forms.GroupBox gbUsuario;
         private System.Windows.Forms.Label lblCodUsuario;
@@ -577,7 +597,6 @@
         private System.Windows.Forms.Button btnBuscarUsuario;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtIdentCliente;
         private System.Windows.Forms.TextBox txtNombresCliente;
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.Label label2;
@@ -590,17 +609,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtNumSecuencial;
         private System.Windows.Forms.DateTimePicker dtpFechaDesde;
         private System.Windows.Forms.Label lblFechaDesde;
         private System.Windows.Forms.Label lblHasta;
         private System.Windows.Forms.DateTimePicker dtpFechaHasta;
+        private UIControls.Buttons.ItemAsideSmall btnConsultar;
+        private UIControls.Buttons.ItemAsideSmall btnImprimir;
+        private System.Windows.Forms.DataGridView dgvVentaGeneral;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSecuencial;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFechaEmision;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUsuario;
-        private UIControls.Buttons.ItemAsideSmall btnConsultar;
-        private UIControls.Buttons.ItemAsideSmall btnImprimir;
+        private UIControls.NumericInput txtIdentCliente;
+        private UIControls.NumericInput txtNumSecuencial;
     }
 }

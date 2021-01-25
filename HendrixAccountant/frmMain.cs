@@ -15,7 +15,7 @@ namespace HendrixAccountant
 {
     public partial class frmMain : Form
     {
-        private frmBuscarClientes frmClientes = null;
+        private frmClientes frmClientes = null;
         private frmBuscarProductos frmProductos = null;
         private frmAperturaCaja frmCaja = null;
         private frmPuntoVenta frmPuntoVenta = null;
@@ -43,7 +43,7 @@ namespace HendrixAccountant
         private void ShowClient()
         {
             if (frmClientes != null) return;
-            frmClientes = new frmBuscarClientes();
+            frmClientes = new frmClientes();
             frmClientes.MdiParent = this;
             frmClientes.FormClosed += new FormClosedEventHandler(clientes_FormClosed);
             frmClientes.Show();
@@ -120,9 +120,7 @@ namespace HendrixAccountant
 
         private void btnVenta_Click(object sender, EventArgs e)
         {
-            if (frmPuntoVenta != null)
-                return;
-
+            if (frmPuntoVenta != null)return;
             frmPuntoVenta = new frmPuntoVenta();
             frmPuntoVenta.MdiParent = this;
             frmPuntoVenta.FormClosed += new FormClosedEventHandler(ventas_FormClosed);
@@ -131,9 +129,12 @@ namespace HendrixAccountant
 
         private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (frmVentas != null)
-                return;
+            ShowReports();
+        }
 
+        private void ShowReports()
+        {
+            if (frmVentas != null) return;
             frmVentas = new frmVentas();
             frmVentas.MdiParent = this;
             frmVentas.FormClosed += new FormClosedEventHandler(frmVentas_FormClosed);
@@ -142,8 +143,7 @@ namespace HendrixAccountant
 
         private void itemVenta_Click(object sender, EventArgs e)
         {
-            if (frmPuntoVenta != null)
-                return;
+            if (frmPuntoVenta != null) return;
             
             DeselectButtons();
             itemVenta.BackColor = Color.FromArgb(253, 184, 39);
@@ -151,6 +151,9 @@ namespace HendrixAccountant
             frmPuntoVenta.MdiParent = this;
             frmPuntoVenta.FormClosed += new FormClosedEventHandler(ventas_FormClosed);
             frmPuntoVenta.Show();
+            //frmPuntoVenta.Location = new Point(10, 10);
+            //frmPuntoVenta.Location = new Point(210, 30);
+
         }
 
         private void DeselectButtons()
@@ -163,12 +166,14 @@ namespace HendrixAccountant
 
         private void itemClientes_Click(object sender, EventArgs e)
         {
+            ShowClient();
             DeselectButtons();
             itemClientes.BackColor = Color.FromArgb(253, 184, 39);
         }
 
         private void itemReportes_Click(object sender, EventArgs e)
         {
+            ShowReports();
             DeselectButtons();
             itemReportes.BackColor = Color.FromArgb(253, 184, 39);
         }

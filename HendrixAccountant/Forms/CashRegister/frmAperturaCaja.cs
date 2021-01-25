@@ -84,5 +84,10 @@ namespace HendrixAccountant
             }
         }
         #endregion
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

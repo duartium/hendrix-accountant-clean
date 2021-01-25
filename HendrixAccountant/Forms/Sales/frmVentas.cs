@@ -162,5 +162,21 @@ namespace HendrixAccountant.Forms
             frmBuscarUsuario.ShowDialog();
         }
 
+        private void tabControlVentas_Selected(object sender, TabControlEventArgs e)
+        {
+            
+        }
+
+        private void tabControlVentas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControlVentas.SelectedTab.Name.Equals("tpGeneral"))
+            {
+                txtIdentCliente.Focus();
+            }
+            else
+            {
+                txtNumSecuencial.Focus();
+            }
+        }
     }
 }

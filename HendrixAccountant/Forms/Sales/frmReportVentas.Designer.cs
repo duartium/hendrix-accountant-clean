@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReportVentas));
             this.rptViewerVentas = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
@@ -48,9 +49,11 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.rptViewerVentas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmReportVentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "REPORTE DE VENTA";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmReportVentas_Load);

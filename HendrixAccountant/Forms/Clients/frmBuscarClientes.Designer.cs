@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarClientes));
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.colIdentificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,9 +44,6 @@
             this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pnIdentificacion = new System.Windows.Forms.Panel();
-            this.txtIdentificacion = new HendrixAccountant.UIControls.TextInput();
-            this.lblIdentificacion = new System.Windows.Forms.Label();
             this.lblApellidos = new System.Windows.Forms.Label();
             this.lblNombres = new System.Windows.Forms.Label();
             this.txtApellidos = new HendrixAccountant.UIControls.TextInput();
@@ -52,11 +51,14 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbnIdentificacion = new System.Windows.Forms.RadioButton();
             this.rbnNombres = new System.Windows.Forms.RadioButton();
+            this.lblIdentificacion = new System.Windows.Forms.Label();
+            this.txtIdentificacion = new HendrixAccountant.UIControls.NumericInput();
+            this.pnIdentificacion = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.pnBotones.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.pnIdentificacion.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.pnIdentificacion.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvClientes
@@ -64,8 +66,18 @@
             this.dgvClientes.AllowUserToAddRows = false;
             this.dgvClientes.AllowUserToResizeRows = false;
             this.dgvClientes.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvClientes.ColumnHeadersHeight = 27;
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colIdentificacion,
             this.colNombres,
@@ -74,7 +86,9 @@
             this.colCelular,
             this.colTeléfono,
             this.colCodigo});
-            this.dgvClientes.Location = new System.Drawing.Point(10, 177);
+            this.dgvClientes.EnableHeadersVisualStyles = false;
+            this.dgvClientes.Location = new System.Drawing.Point(10, 174);
+            this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.RowHeadersVisible = false;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -144,13 +158,14 @@
             // 
             this.btnSeleccionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
             this.btnSeleccionar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSeleccionar.Enabled = false;
             this.btnSeleccionar.FlatAppearance.BorderSize = 0;
             this.btnSeleccionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
             this.btnSeleccionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
             this.btnSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSeleccionar.Font = new System.Drawing.Font("Arial", 9F);
             this.btnSeleccionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnSeleccionar.Location = new System.Drawing.Point(0, 177);
+            this.btnSeleccionar.Location = new System.Drawing.Point(0, 175);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(127, 35);
             this.btnSeleccionar.TabIndex = 13;
@@ -204,7 +219,7 @@
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Arial", 9F);
             this.btnConsultar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnConsultar.Location = new System.Drawing.Point(0, 19);
+            this.btnConsultar.Location = new System.Drawing.Point(0, 13);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(127, 35);
             this.btnConsultar.TabIndex = 10;
@@ -219,82 +234,56 @@
             this.groupBox1.Controls.Add(this.lblNombres);
             this.groupBox1.Controls.Add(this.txtApellidos);
             this.groupBox1.Controls.Add(this.txtNombres);
-            this.groupBox1.Location = new System.Drawing.Point(10, 71);
+            this.groupBox1.Location = new System.Drawing.Point(9, 60);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(547, 94);
+            this.groupBox1.Size = new System.Drawing.Size(547, 105);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criterios de búsqueda";
             // 
-            // pnIdentificacion
-            // 
-            this.pnIdentificacion.Controls.Add(this.txtIdentificacion);
-            this.pnIdentificacion.Controls.Add(this.lblIdentificacion);
-            this.pnIdentificacion.Location = new System.Drawing.Point(2, 18);
-            this.pnIdentificacion.Name = "pnIdentificacion";
-            this.pnIdentificacion.Size = new System.Drawing.Size(539, 69);
-            this.pnIdentificacion.TabIndex = 3;
-            this.pnIdentificacion.Visible = false;
-            // 
-            // txtIdentificacion
-            // 
-            this.txtIdentificacion.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtIdentificacion.Location = new System.Drawing.Point(103, 10);
-            this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(204, 23);
-            this.txtIdentificacion.TabIndex = 2;
-            // 
-            // lblIdentificacion
-            // 
-            this.lblIdentificacion.AutoSize = true;
-            this.lblIdentificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdentificacion.Location = new System.Drawing.Point(8, 13);
-            this.lblIdentificacion.Name = "lblIdentificacion";
-            this.lblIdentificacion.Size = new System.Drawing.Size(89, 16);
-            this.lblIdentificacion.TabIndex = 1;
-            this.lblIdentificacion.Text = "Identificación:";
-            // 
             // lblApellidos
             // 
             this.lblApellidos.AutoSize = true;
-            this.lblApellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellidos.Location = new System.Drawing.Point(10, 55);
+            this.lblApellidos.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApellidos.Location = new System.Drawing.Point(10, 59);
             this.lblApellidos.Name = "lblApellidos";
-            this.lblApellidos.Size = new System.Drawing.Size(68, 16);
+            this.lblApellidos.Size = new System.Drawing.Size(54, 14);
             this.lblApellidos.TabIndex = 1;
             this.lblApellidos.Text = "Apellidos:";
             // 
             // lblNombres
             // 
             this.lblNombres.AutoSize = true;
-            this.lblNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombres.Location = new System.Drawing.Point(10, 27);
+            this.lblNombres.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombres.Location = new System.Drawing.Point(10, 17);
             this.lblNombres.Name = "lblNombres";
-            this.lblNombres.Size = new System.Drawing.Size(67, 16);
+            this.lblNombres.Size = new System.Drawing.Size(53, 14);
             this.lblNombres.TabIndex = 1;
             this.lblNombres.Text = "Nombres:";
             // 
             // txtApellidos
             // 
             this.txtApellidos.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtApellidos.Location = new System.Drawing.Point(88, 52);
+            this.txtApellidos.Location = new System.Drawing.Point(13, 74);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(329, 23);
             this.txtApellidos.TabIndex = 5;
+            this.txtApellidos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtApellidos_KeyDown);
             // 
             // txtNombres
             // 
             this.txtNombres.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtNombres.Location = new System.Drawing.Point(88, 25);
+            this.txtNombres.Location = new System.Drawing.Point(13, 32);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(329, 23);
             this.txtNombres.TabIndex = 4;
+            this.txtNombres.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombres_KeyDown);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.rbnIdentificacion);
             this.groupBox2.Controls.Add(this.rbnNombres);
-            this.groupBox2.Location = new System.Drawing.Point(12, 13);
+            this.groupBox2.Location = new System.Drawing.Point(12, 6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(545, 48);
             this.groupBox2.TabIndex = 3;
@@ -304,10 +293,10 @@
             // rbnIdentificacion
             // 
             this.rbnIdentificacion.AutoSize = true;
-            this.rbnIdentificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbnIdentificacion.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnIdentificacion.Location = new System.Drawing.Point(173, 20);
             this.rbnIdentificacion.Name = "rbnIdentificacion";
-            this.rbnIdentificacion.Size = new System.Drawing.Size(174, 20);
+            this.rbnIdentificacion.Size = new System.Drawing.Size(162, 19);
             this.rbnIdentificacion.TabIndex = 2;
             this.rbnIdentificacion.TabStop = true;
             this.rbnIdentificacion.Text = "Número de identificación";
@@ -318,15 +307,45 @@
             // 
             this.rbnNombres.AutoSize = true;
             this.rbnNombres.Checked = true;
-            this.rbnNombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbnNombres.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnNombres.Location = new System.Drawing.Point(11, 20);
             this.rbnNombres.Name = "rbnNombres";
-            this.rbnNombres.Size = new System.Drawing.Size(152, 20);
+            this.rbnNombres.Size = new System.Drawing.Size(141, 19);
             this.rbnNombres.TabIndex = 0;
             this.rbnNombres.TabStop = true;
             this.rbnNombres.Text = "Nombres o apellidos";
             this.rbnNombres.UseVisualStyleBackColor = true;
             this.rbnNombres.CheckedChanged += new System.EventHandler(this.rbnNombres_CheckedChanged);
+            // 
+            // lblIdentificacion
+            // 
+            this.lblIdentificacion.AutoSize = true;
+            this.lblIdentificacion.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdentificacion.Location = new System.Drawing.Point(8, 15);
+            this.lblIdentificacion.Name = "lblIdentificacion";
+            this.lblIdentificacion.Size = new System.Drawing.Size(73, 14);
+            this.lblIdentificacion.TabIndex = 1;
+            this.lblIdentificacion.Text = "Identificación:";
+            // 
+            // txtIdentificacion
+            // 
+            this.txtIdentificacion.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtIdentificacion.Location = new System.Drawing.Point(11, 31);
+            this.txtIdentificacion.MaxLength = 13;
+            this.txtIdentificacion.Name = "txtIdentificacion";
+            this.txtIdentificacion.Size = new System.Drawing.Size(129, 23);
+            this.txtIdentificacion.TabIndex = 2;
+            this.txtIdentificacion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdentificacion_KeyDown);
+            // 
+            // pnIdentificacion
+            // 
+            this.pnIdentificacion.Controls.Add(this.txtIdentificacion);
+            this.pnIdentificacion.Controls.Add(this.lblIdentificacion);
+            this.pnIdentificacion.Location = new System.Drawing.Point(4, 17);
+            this.pnIdentificacion.Name = "pnIdentificacion";
+            this.pnIdentificacion.Size = new System.Drawing.Size(539, 80);
+            this.pnIdentificacion.TabIndex = 3;
+            this.pnIdentificacion.Visible = false;
             // 
             // frmBuscarClientes
             // 
@@ -339,6 +358,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnBotones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmBuscarClientes";
@@ -349,10 +369,10 @@
             this.pnBotones.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.pnIdentificacion.ResumeLayout(false);
-            this.pnIdentificacion.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.pnIdentificacion.ResumeLayout(false);
+            this.pnIdentificacion.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -374,14 +394,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCelular;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTeléfono;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
-        private System.Windows.Forms.Panel pnIdentificacion;
-        private System.Windows.Forms.Label lblIdentificacion;
         private UIControls.Buttons.ItemAsideSmall btnConsultar;
         private UIControls.Buttons.ItemAsideSmall btnLimpiar;
         private UIControls.Buttons.ItemAsideSmall btnCerrar;
         private UIControls.Buttons.ItemAsideSmall btnSeleccionar;
-        private UIControls.TextInput txtIdentificacion;
         private UIControls.TextInput txtNombres;
         private UIControls.TextInput txtApellidos;
+        private System.Windows.Forms.Label lblIdentificacion;
+        private UIControls.NumericInput txtIdentificacion;
+        private System.Windows.Forms.Panel pnIdentificacion;
     }
 }

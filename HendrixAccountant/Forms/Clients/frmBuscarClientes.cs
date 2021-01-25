@@ -1,5 +1,6 @@
 ﻿using HendrixAccountant.ApplicationCore.Constants;
 using HendrixAccountant.ApplicationCore.DTOs;
+using HendrixAccountant.ApplicationCore.Enums;
 using HendrixAccountant.ApplicationCore.Interfaces.Forms;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.Common;
@@ -20,7 +21,9 @@ namespace HendrixAccountant
     public partial class frmBuscarClientes : Form
     {
         private readonly IClientRepository _rpsClient;
-        private IFindElement _callerPOS;
+        private IFindElement _caller;
+        private TipoBusqueda _tipoBusqueda;
+        private ClientFilterDto _filters;
         public frmBuscarClientes()
         {
             InitializeComponent();
@@ -31,7 +34,7 @@ namespace HendrixAccountant
         public frmBuscarClientes(IFindElement caller)
         {
             InitializeComponent();
-            _callerPOS = caller;
+            _caller = caller;
             _rpsClient = new ClienteRepository();
         }
 
@@ -54,20 +57,71 @@ namespace HendrixAccountant
 
         private void frmClientes_Load(object sender, EventArgs e)
         {
-            
+            _tipoBusqueda = TipoBusqueda.NOMBRES;
         }
 
         #region Private methods
 
         private void Search()
         {
+            if (txtNombres.Text.Length > 0 && txtNombres.Text.Length < 4)
+            {
+                MessageBox.Show("Ingrese al menos 3 letras para buscar al cliente por nombres.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (txtApellidos.Text.Length > 0 && txtApellidos.Text.Length < 4)
+            {
+                MessageBox.Show("Ingrese al menos 3 letras para buscar al cliente por apellidos.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (txtIdentificacion.Text.Length > 0 && txtIdentificacion.Text.Length < 10)
+            {
+                MessageBox.Show("La identificación debe contener al menos 10 dígitos.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             try
             {
-                var clients = _rpsClient.GetAll();
-                if (clients == null)
+                _filters = new ClientFilterDto
                 {
-                    MessageBox.Show("No se obtuvieron datos.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
+                    Identificacion = txtIdentificacion.Text.Trim(),
+                    Nombres = txtNombres.Text,
+                    Apellidos = txtApellidos.Text
+                };
+                
+                var clients = new List<ClientDto>();
+                dgvClientes.Rows.Clear();
+                if (_tipoBusqueda == TipoBusqueda.IDENTIFICACION){
+                    var client = _rpsClient.GetByIdentification(txtIdentificacion.Text);
+                    if(client == null)
+                    {
+                        MessageBox.Show("No se encontró un cliente con identificación "+txtIdentificacion.Text+".", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    //debo mapear con un solo método en clientMapper
+                    clients.Add(new ClientDto { 
+                        IdCliente = client.id_cliente,
+                        Nombres = client.nombres,
+                        Apellidos = client.apellidos,
+                        TipoCliente = client.tipo_cliente,
+                        Identificacion = client.identificacion,
+                        Celular = client.celular,
+                        Direccion = client.direccion,
+                        Email = client.email,
+                        Telefono = client.telefono,
+                        TipoIdentificacion = client.tipo_identificacion
+                    });
+                }
+                else
+                {
+                    clients = _rpsClient.GetAll(_filters);
+                    if (clients == null)
+                    {
+                        MessageBox.Show("No se encontraron clientes.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
                 }
                 FillGrid(clients);
             }
@@ -81,16 +135,19 @@ namespace HendrixAccountant
         private void FillGrid(IEnumerable<ClientDto> data)
         {
             dgvClientes.DataSource = null;
-            dgvClientes.Rows.Clear();
+            
             dgvClientes.AutoGenerateColumns = false;
+            int i = 0;
             foreach (var item in data)
+            {
                 dgvClientes.Rows.Add(item.Identificacion, item.NombresCompletos, item.Direccion, item.Email, item.Celular, item.Telefono, item.IdCliente);
-            //var bindingList = new BindingList<ClientDto>(data.Cast<ClientDto>().ToList());
-            //var source = new BindingSource(bindingList, null);
-            //dgvClientes.DataSource = source;
+                dgvClientes.Rows[i].Tag = item;
+                i++;
+            }
+                
         }
 
-        private ClientIdentity MapRowToClient(DataGridViewRow row) {
+        private ClientIdentity MapRowToClientIdentity(DataGridViewRow row) {
             ClientIdentity client = null;
             try
             {
@@ -107,34 +164,38 @@ namespace HendrixAccountant
             }
             return client;
         }
+
         #endregion
 
         #region "Events"
         private void rbnIdentificacion_CheckedChanged(object sender, EventArgs e)
         {
+            _tipoBusqueda = TipoBusqueda.IDENTIFICACION;
             pnIdentificacion.Visible = true;
+            txtNombres.Clear();
+            txtApellidos.Clear();
             txtIdentificacion.Focus();
         }
 
         private void rbnNombres_CheckedChanged(object sender, EventArgs e)
         {
+            _tipoBusqueda = TipoBusqueda.NOMBRES;
             pnIdentificacion.Visible = false;
+            txtIdentificacion.Clear();
             txtNombres.Focus();
         }
         
         private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
-                return;
+            if (e.RowIndex < 0) return;
 
-            ClientIdentity client = MapRowToClient(dgvClientes.Rows[e.RowIndex]);
-            _callerPOS.Selected(client);
+            if (_caller.GetType() == typeof(frmClientes))
+                _caller.Selected((dgvClientes.Rows[e.RowIndex].Tag as ClientDto));
+            else
+                _caller.Selected(MapRowToClientIdentity(dgvClientes.Rows[e.RowIndex]));
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
-
-
-
         #endregion
 
         private void frmBuscarClientes_Activated(object sender, EventArgs e)
@@ -150,6 +211,24 @@ namespace HendrixAccountant
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtIdentificacion_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Search();
+        }
+
+        private void txtNombres_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Search();
+        }
+
+        private void txtApellidos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                Search();
         }
     }
 }

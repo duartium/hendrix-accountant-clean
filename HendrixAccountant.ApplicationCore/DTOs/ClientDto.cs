@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HendrixAccountant.ApplicationCore.DTOs
 {
-    public class ClientDto
+    public class ClientDto : ISaleElement
     {
         private string _nombres = String.Empty;
         private string _apellidos = String.Empty;
@@ -22,6 +22,7 @@ namespace HendrixAccountant.ApplicationCore.DTOs
         public string Celular { get; set; }
         public string Direccion { get; set; }
         public string Email { get; set; }
+        public string Usuario { get; set; }
     }
 
     public class ClientIdentity : ISaleElement

@@ -15,4 +15,11 @@ namespace HendrixAccountant.ApplicationCore.DTOs
         public string FechaHasta { get; set; }
         public int IdUsuario { get; set; }
     }
+
+    public class ClientFilterDto
+    {
+        public string Identificacion { get; set; }
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
+    }
 }

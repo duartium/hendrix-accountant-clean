@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.sesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,8 +36,8 @@
             this.aperturarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cierreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directoriosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,13 +52,13 @@
             this.statusBarMain = new System.Windows.Forms.StatusStrip();
             this.lblEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnAside = new System.Windows.Forms.Panel();
-            this.pnHeader = new System.Windows.Forms.Panel();
-            this.lblTipoUsuario = new System.Windows.Forms.Label();
-            this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.pnFooter = new System.Windows.Forms.Panel();
             this.itemVenta = new HendrixAccountant.UIControls.ItemMenu();
             this.itemConfiguracion = new HendrixAccountant.UIControls.ItemMenu();
             this.itemClientes = new HendrixAccountant.UIControls.ItemMenu();
+            this.pnHeader = new System.Windows.Forms.Panel();
+            this.lblNombreUsuario = new System.Windows.Forms.Label();
+            this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.p = new System.Windows.Forms.PictureBox();
             this.itemReportes = new HendrixAccountant.UIControls.ItemMenu();
             this.menuStripMain.SuspendLayout();
@@ -129,18 +130,18 @@
             this.directoriosToolStripMenuItem1.Size = new System.Drawing.Size(71, 20);
             this.directoriosToolStripMenuItem1.Text = "Directorio";
             // 
+            // proveedoresToolStripMenuItem
+            // 
+            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click_1);
-            // 
-            // proveedoresToolStripMenuItem
-            // 
-            this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.proveedoresToolStripMenuItem.Text = "Proveedores";
             // 
             // productosToolStripMenuItem1
             // 
@@ -251,40 +252,6 @@
             this.pnAside.Size = new System.Drawing.Size(206, 486);
             this.pnAside.TabIndex = 1;
             // 
-            // pnHeader
-            // 
-            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.pnHeader.Controls.Add(this.lblNombreUsuario);
-            this.pnHeader.Controls.Add(this.lblTipoUsuario);
-            this.pnHeader.Controls.Add(this.p);
-            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnHeader.Name = "pnHeader";
-            this.pnHeader.Size = new System.Drawing.Size(206, 86);
-            this.pnHeader.TabIndex = 5;
-            // 
-            // lblTipoUsuario
-            // 
-            this.lblTipoUsuario.AutoSize = true;
-            this.lblTipoUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.lblTipoUsuario.Location = new System.Drawing.Point(70, 44);
-            this.lblTipoUsuario.Name = "lblTipoUsuario";
-            this.lblTipoUsuario.Size = new System.Drawing.Size(88, 16);
-            this.lblTipoUsuario.TabIndex = 1;
-            this.lblTipoUsuario.Text = "Administrador";
-            // 
-            // lblNombreUsuario
-            // 
-            this.lblNombreUsuario.AutoSize = true;
-            this.lblNombreUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreUsuario.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblNombreUsuario.Location = new System.Drawing.Point(70, 29);
-            this.lblNombreUsuario.Name = "lblNombreUsuario";
-            this.lblNombreUsuario.Size = new System.Drawing.Size(56, 16);
-            this.lblNombreUsuario.TabIndex = 2;
-            this.lblNombreUsuario.Text = "Usuario";
-            // 
             // pnFooter
             // 
             this.pnFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
@@ -357,6 +324,40 @@
             this.itemClientes.UseVisualStyleBackColor = false;
             this.itemClientes.Click += new System.EventHandler(this.itemClientes_Click);
             // 
+            // pnHeader
+            // 
+            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.pnHeader.Controls.Add(this.lblNombreUsuario);
+            this.pnHeader.Controls.Add(this.lblTipoUsuario);
+            this.pnHeader.Controls.Add(this.p);
+            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnHeader.Name = "pnHeader";
+            this.pnHeader.Size = new System.Drawing.Size(206, 86);
+            this.pnHeader.TabIndex = 5;
+            // 
+            // lblNombreUsuario
+            // 
+            this.lblNombreUsuario.AutoSize = true;
+            this.lblNombreUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreUsuario.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblNombreUsuario.Location = new System.Drawing.Point(70, 29);
+            this.lblNombreUsuario.Name = "lblNombreUsuario";
+            this.lblNombreUsuario.Size = new System.Drawing.Size(56, 16);
+            this.lblNombreUsuario.TabIndex = 2;
+            this.lblNombreUsuario.Text = "Usuario";
+            // 
+            // lblTipoUsuario
+            // 
+            this.lblTipoUsuario.AutoSize = true;
+            this.lblTipoUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.lblTipoUsuario.Location = new System.Drawing.Point(70, 44);
+            this.lblTipoUsuario.Name = "lblTipoUsuario";
+            this.lblTipoUsuario.Size = new System.Drawing.Size(88, 16);
+            this.lblTipoUsuario.TabIndex = 1;
+            this.lblTipoUsuario.Text = "Administrador";
+            // 
             // p
             // 
             this.p.Image = global::HendrixAccountant.Properties.Resources.HendrixUserCircle;
@@ -396,8 +397,10 @@
             this.Controls.Add(this.pnAside);
             this.Controls.Add(this.menuStripMain);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStripMain;
+            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HENDRIX";

@@ -87,6 +87,12 @@
     <Compile Include="Forms\Clients\frmBuscarClientes.Designer.cs">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Clients\frmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clients\frmClientes.Designer.cs">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Inventory\frmCompras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,12 +110,6 @@
     </Compile>
     <Compile Include="Forms\Products\frmCantidad.Designer.cs">
       <DependentUpon>frmCantidad.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Products\frmProductos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Products\frmProductos.Designer.cs">
-      <DependentUpon>frmProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Sales\frmPuntoVenta.cs">
       <SubType>Form</SubType>
@@ -167,6 +167,9 @@
     <EmbeddedResource Include="Forms\Clients\frmBuscarClientes.resx">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clients\frmClientes.resx">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory\frmCompras.resx">
       <DependentUpon>frmCompras.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,9 +178,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Products\frmCantidad.resx">
       <DependentUpon>frmCantidad.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Products\frmProductos.resx">
-      <DependentUpon>frmProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sales\frmPuntoVenta.resx">
       <DependentUpon>frmPuntoVenta.cs</DependentUpon>
@@ -261,6 +261,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\HendrixIcon.ico" />
     <Content Include="Resources\Images\addWhite20.png" />
     <Content Include="Resources\Images\cartWhite.png" />
     <Content Include="Resources\Images\cartWhite25.png" />
@@ -273,6 +274,8 @@
     <Content Include="Resources\Images\logo.png" />
     <Content Include="Resources\Images\reportWhite25.png" />
     <Content Include="Resources\Images\saveBlue20.png" />
+    <Content Include="Resources\Images\saveWhite20.png" />
+    <Content Include="Resources\Images\searchBlue20.png" />
     <Content Include="Resources\Images\simpleReportWhite25.png" />
     <Content Include="Resources\Images\trashWhite20.png" />
     <Content Include="SqlServerTypes\readme.htm" />

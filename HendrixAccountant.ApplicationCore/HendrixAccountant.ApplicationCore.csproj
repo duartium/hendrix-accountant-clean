@@ -48,7 +48,7 @@
     <Compile Include="DTOs\ClientDto.cs" />
     <Compile Include="DTOs\InvoiceDetailDto.cs" />
     <Compile Include="DTOs\InvoiceDto.cs" />
-    <Compile Include="DTOs\SalesFilterDto.cs" />
+    <Compile Include="DTOs\FiltersDto.cs" />
     <Compile Include="Entities\Invoice.cs" />
     <Compile Include="Entities\InvoiceDetail.cs" />
     <Compile Include="Interfaces\Forms\IQuantity.cs" />

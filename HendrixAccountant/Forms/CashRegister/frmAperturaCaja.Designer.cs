@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAperturaCaja));
             this.lblMontoTotal = new System.Windows.Forms.Label();
             this.gbxMontoTotal = new System.Windows.Forms.GroupBox();
             this.lblCash = new System.Windows.Forms.Label();
@@ -36,11 +37,11 @@
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAperturar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblFechaCierre = new System.Windows.Forms.Label();
             this.lblFechaApertura = new System.Windows.Forms.Label();
+            this.btnCerrar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
+            this.btnAperturar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.gbxMontoTotal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDineroCaja)).BeginInit();
             this.panel1.SuspendLayout();
@@ -50,10 +51,11 @@
             // lblMontoTotal
             // 
             this.lblMontoTotal.AutoSize = true;
-            this.lblMontoTotal.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMontoTotal.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMontoTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.lblMontoTotal.Location = new System.Drawing.Point(74, 26);
             this.lblMontoTotal.Name = "lblMontoTotal";
-            this.lblMontoTotal.Size = new System.Drawing.Size(91, 42);
+            this.lblMontoTotal.Size = new System.Drawing.Size(93, 44);
             this.lblMontoTotal.TabIndex = 1;
             this.lblMontoTotal.Text = "0.00";
             // 
@@ -73,6 +75,7 @@
             // 
             this.lblCash.AutoSize = true;
             this.lblCash.Font = new System.Drawing.Font("Arial", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCash.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.lblCash.Location = new System.Drawing.Point(29, 26);
             this.lblCash.Name = "lblCash";
             this.lblCash.Size = new System.Drawing.Size(39, 42);
@@ -123,34 +126,14 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnCancelar);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.panel1.Controls.Add(this.btnAperturar);
+            this.panel1.Controls.Add(this.btnCerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(449, 0);
+            this.panel1.Location = new System.Drawing.Point(450, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(125, 322);
+            this.panel1.Size = new System.Drawing.Size(127, 322);
             this.panel1.TabIndex = 6;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(6, 236);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(119, 30);
-            this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnAperturar
-            // 
-            this.btnAperturar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAperturar.Location = new System.Drawing.Point(3, 18);
-            this.btnAperturar.Name = "btnAperturar";
-            this.btnAperturar.Size = new System.Drawing.Size(119, 30);
-            this.btnAperturar.TabIndex = 0;
-            this.btnAperturar.Text = "Aperturar";
-            this.btnAperturar.UseVisualStyleBackColor = true;
-            this.btnAperturar.Click += new System.EventHandler(this.btnAperturar_Click);
             // 
             // groupBox1
             // 
@@ -181,16 +164,56 @@
             this.lblFechaApertura.TabIndex = 0;
             this.lblFechaApertura.Text = "Fecha apertura:";
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnCerrar.Location = new System.Drawing.Point(0, 265);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(127, 40);
+            this.btnCerrar.TabIndex = 1;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnAperturar
+            // 
+            this.btnAperturar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnAperturar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAperturar.FlatAppearance.BorderSize = 0;
+            this.btnAperturar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnAperturar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
+            this.btnAperturar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAperturar.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnAperturar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnAperturar.Location = new System.Drawing.Point(0, 18);
+            this.btnAperturar.Name = "btnAperturar";
+            this.btnAperturar.Size = new System.Drawing.Size(127, 40);
+            this.btnAperturar.TabIndex = 2;
+            this.btnAperturar.Text = "Aperturar";
+            this.btnAperturar.UseVisualStyleBackColor = false;
+            this.btnAperturar.Click += new System.EventHandler(this.btnAperturar_Click);
+            // 
             // frmAperturaCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 322);
+            this.BackColor = System.Drawing.SystemColors.Window;
+            this.ClientSize = new System.Drawing.Size(577, 322);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvDineroCaja);
             this.Controls.Add(this.gbxMontoTotal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAperturaCaja";
             this.Text = "GESTOR DE CAJA";
             this.Load += new System.EventHandler(this.frmAperturaCaja_Load);
@@ -210,13 +233,13 @@
         private System.Windows.Forms.Label lblCash;
         private System.Windows.Forms.DataGridView dgvDineroCaja;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAperturar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblFechaApertura;
         private System.Windows.Forms.Label lblFechaCierre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDenominacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal;
+        private UIControls.Buttons.ItemAsideSmall btnCerrar;
+        private UIControls.Buttons.ItemAsideSmall btnAperturar;
     }
 }

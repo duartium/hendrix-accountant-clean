@@ -10,7 +10,9 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
 {
     public interface IClientRepository
     {
-        Client GetByIdentification(string identification); 
-        IEnumerable<ClientDto> GetAll();
+        Client GetByIdentification(string identificacion); 
+        List<ClientDto> GetAll(ClientFilterDto filters);
+        bool Save(ClientDto client, bool isUpdate = false);
+        bool Remove(int idClient, string username);
     }
 }

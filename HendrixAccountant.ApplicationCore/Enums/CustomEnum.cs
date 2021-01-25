@@ -42,4 +42,10 @@ namespace HendrixAccountant.ApplicationCore.Enums
         VENTAS_GENERALES,
         FACTURA_VENTA
     }
+
+    public enum TipoBusqueda
+    {
+        IDENTIFICACION,
+        NOMBRES
+    }
 }

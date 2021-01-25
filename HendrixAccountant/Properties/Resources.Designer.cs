@@ -173,6 +173,26 @@ namespace HendrixAccountant.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap saveWhite20 {
+            get {
+                object obj = ResourceManager.GetObject("saveWhite20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap searchBlue20 {
+            get {
+                object obj = ResourceManager.GetObject("searchBlue20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap simpleReportWhite25 {
             get {
                 object obj = ResourceManager.GetObject("simpleReportWhite25", resourceCulture);

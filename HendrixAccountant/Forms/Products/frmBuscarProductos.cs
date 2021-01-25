@@ -80,7 +80,8 @@ namespace HendrixAccountant
                 {
                     IdProducto = Convert.ToInt32(row.Cells[colCodigo.Index].Value.ToString()),
                     Nombre = row.Cells[colNombreProd.Index].Value.ToString(),
-                    Precio = Convert.ToDecimal(row.Cells[colPrecio.Index].Value.ToString().Replace(",", "."), Utils.GetCulture())
+                    Precio = Convert.ToDecimal(row.Cells[colPrecio.Index].Value.ToString().Replace(",", "."), Utils.GetCulture()),
+                    Stock = Convert.ToInt32(row.Cells[colStock.Index].Value.ToString())
                 };
             }
             catch (Exception ex)
@@ -102,6 +103,12 @@ namespace HendrixAccountant
                 return;
 
             ProductIdentityDto product = MapRowToProduct(dgvProductos.Rows[e.RowIndex]);
+            if (product.Stock <= 0)
+            {
+                MessageBox.Show("Stock insuficiente de artículo: " + product.Nombre, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+                
             _callerPOS.Selected(product);
             this.DialogResult = DialogResult.OK;
             this.Close();
