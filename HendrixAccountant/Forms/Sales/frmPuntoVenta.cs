@@ -132,6 +132,7 @@ namespace HendrixAccountant
         {
             if(_client == null){
                 MessageBox.Show("Seleccione un cliente para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtIdentCliente.Focus();
                 return;
             }
                 

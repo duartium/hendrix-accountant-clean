@@ -14,12 +14,13 @@ namespace HendrixAccountant.ApplicationCore.Map
             bool resp = true;
             try
 			{
-                if (data == null) resp = false;
-                if (data.Tables.Count <= 0) resp = false;
+                if (data == null) throw new ArgumentNullException();
+                if (data.Tables.Count <= 0) throw new ArgumentNullException();
                 if (data.Tables[0].Rows.Count <= 0) resp = false; // solo recorrer la primera tabla
             }
 			catch (Exception ex)
 			{
+                resp = false;
                 Utils.GrabarLog("DatasetIsValid", ex.ToString());
 			}
             return resp;

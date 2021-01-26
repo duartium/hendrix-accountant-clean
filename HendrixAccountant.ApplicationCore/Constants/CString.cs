@@ -23,5 +23,7 @@ namespace HendrixAccountant.ApplicationCore.Constants
             "Moneda de $0.50",      "Moneda de $1"
         };
         public const string DEF_FORMAT_DATE = "dd/MM/yyyy";
+        //parámetros DB
+        public const string COMPANY = "empresa";
     }
 }

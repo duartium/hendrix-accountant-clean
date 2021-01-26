@@ -105,13 +105,11 @@ namespace HendrixAccountant.Common
         public static CultureInfo GetCulture()
         {
             CultureInfo myCI = new CultureInfo("en-US", false);
-            // Clones myCI and modifies the DTFI and NFI instances associated with the clone.
             CultureInfo myCIclone = (CultureInfo)myCI.Clone();
-            //myCIclone.DateTimeFormat.AMDesignator = "a.m.";
-            //myCIclone.DateTimeFormat.DateSeparator = "-";
             //myCIclone.NumberFormat.CurrencySymbol = "USD";
             myCIclone.NumberFormat.NumberDecimalDigits = 2;
             return myCI;
         }
+
     }
 }

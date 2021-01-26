@@ -17,15 +17,16 @@ namespace HendrixAccountant
 {
     public partial class frmMain : Form
     {
-        frmMantProducto frmMantProducto = null;
+        private frmMantProducto frmMantProducto = null;
         private frmClientes frmClientes = null;
-        frmProductos frmProductos = null;
-        frmMantProveedor frmMantProveedor = null;
-        frmCompras frmCompras = null;
+        private frmProductos frmProductos = null;
+        private frmMantProveedor frmMantProveedor = null;
+        private frmCompras frmCompras = null;
         private frmAperturaCaja frmCaja = null;
         private frmPuntoVenta frmPuntoVenta = null;
         private frmVentas frmVentas = null;
         private DataOperator _dataOper;
+        private frmParametros  frmParametros = null;
 
         #region constructores
         public frmMain()
@@ -114,6 +115,11 @@ namespace HendrixAccountant
         {
             frmCompras = null;
         }
+
+        private void configuration_FormClosed(object sender, EventArgs e)
+        {
+            frmParametros = null;
+        }
         #endregion
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -148,6 +154,8 @@ namespace HendrixAccountant
         private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowReports();
+            DeselectButtons();
+            itemReportes.BackColor = Color.FromArgb(253, 184, 39);
         }
 
         private void ShowReports()
@@ -169,9 +177,6 @@ namespace HendrixAccountant
             frmPuntoVenta.MdiParent = this;
             frmPuntoVenta.FormClosed += new FormClosedEventHandler(ventas_FormClosed);
             frmPuntoVenta.Show();
-            //frmPuntoVenta.Location = new Point(10, 10);
-            //frmPuntoVenta.Location = new Point(210, 30);
-
         }
 
         private void DeselectButtons()
@@ -198,6 +203,7 @@ namespace HendrixAccountant
 
         private void itemConfiguracion_Click(object sender, EventArgs e)
         {
+            ShowConfiguration();
             DeselectButtons();
             itemConfiguracion.BackColor = Color.FromArgb(253, 184, 39);
         }
@@ -205,13 +211,13 @@ namespace HendrixAccountant
         private void clientesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             ShowClient();
+            DeselectButtons();
+            itemClientes.BackColor = Color.FromArgb(253, 184, 39);
         }
 
         private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (frmMantProducto != null)
-                return;
-
+            if (frmMantProducto != null) return;
             frmMantProducto = new frmMantProducto();
             frmMantProducto.MdiParent = this;
             frmMantProducto.FormClosed += new FormClosedEventHandler(mantProductos_FormClosed);
@@ -221,9 +227,7 @@ namespace HendrixAccountant
 
         private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (frmProductos != null)
-                return;
-
+            if (frmProductos != null) return;
             frmProductos = new frmProductos();
             frmProductos.MdiParent = this;
             frmProductos.FormClosed += new FormClosedEventHandler(productos_FormClosed);
@@ -232,8 +236,7 @@ namespace HendrixAccountant
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (frmMantProveedor != null)
-                return;
+            if (frmMantProveedor != null) return;
             frmMantProveedor = new frmMantProveedor();
             frmMantProveedor.MdiParent = this;
             frmMantProveedor.FormClosed += new FormClosedEventHandler(mantProveedor_FormClosed);
@@ -247,12 +250,27 @@ namespace HendrixAccountant
 
         private void comprasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (frmCompras != null)
-                return;
+            if (frmCompras != null) return;
             frmCompras = new frmCompras();
             frmCompras.MdiParent = this;
             frmCompras.FormClosed += new FormClosedEventHandler(compras_FormClosed);
             frmCompras.Show();
+        }
+
+        private void ShowConfiguration()
+        {
+            if (frmParametros != null) return;
+            frmParametros = new frmParametros();
+            frmParametros.MdiParent = this;
+            frmParametros.FormClosed += new FormClosedEventHandler(configuration_FormClosed);
+            frmParametros.Show();
+        }
+
+        private void parámetrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowConfiguration();
+            DeselectButtons();
+            itemConfiguracion.BackColor = Color.FromArgb(253, 184, 39);
         }
     }
 }

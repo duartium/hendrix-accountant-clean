@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -76,6 +79,7 @@
     <Compile Include="Interfaces\Repositories\ICategoryRepository.cs" />
     <Compile Include="Interfaces\Repositories\IClientRepository.cs" />
     <Compile Include="Interfaces\Repositories\IColorRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IParameterRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPersistent.cs" />
     <Compile Include="Interfaces\Repositories\IProductEntryRepository.cs" />
     <Compile Include="Interfaces\Repositories\IProductRepository.cs" />
@@ -84,6 +88,7 @@
     <Compile Include="Interfaces\Repositories\ISupplierRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Repositories\IUserRepository.cs" />
+    <Compile Include="Interfaces\Services\IParameter.cs" />
     <Compile Include="Interfaces\Services\IProductService.cs" />
     <Compile Include="Interfaces\Services\IReports.cs" />
     <Compile Include="Interfaces\Services\ISaleReceipt.cs" />
@@ -91,6 +96,7 @@
     <Compile Include="Interfaces\Services\ISupplierService.cs" />
     <Compile Include="Interfaces\Shared\IGoogleService.cs" />
     <Compile Include="Interfaces\Shared\IMailService.cs" />
+    <Compile Include="Map\CompanyMapper.cs" />
     <Compile Include="Map\ProductMapper.cs" />
     <Compile Include="Map\ClientMapper.cs" />
     <Compile Include="Map\UserMapper.cs" />
@@ -106,6 +112,9 @@
       <Project>{98D939CE-2D59-47A8-BA79-225B6FDDB13C}</Project>
       <Name>HendrixAccountant.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
