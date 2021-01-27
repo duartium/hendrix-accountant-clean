@@ -44,12 +44,14 @@ namespace HendrixAccountant.Forms
                 {
                     case ApplicationCore.Enums.TipoReporte.VENTAS_GENERALES:
                         rptViewerVentas.LocalReport.ReportPath = pathRoot + "rptVentasGenerales.rdlc";
-                        dataSource.Add(new ReportDataSource("dsVentasGenerales", data.Data.Tables[0]));
+                        dataSource.Add(new ReportDataSource("dsCompania", data.Data.Tables[0]));
+                        dataSource.Add(new ReportDataSource("dsVentasGenerales", data.Data.Tables[1]));
                         break;
                     case ApplicationCore.Enums.TipoReporte.FACTURA_VENTA:
                         rptViewerVentas.LocalReport.ReportPath = pathRoot+"rptFacturaVenta.rdlc";
-                        dataSource.Add(new ReportDataSource("dsFactura", data.Data.Tables[0]));
-                        dataSource.Add(new ReportDataSource("dsFacturaDetalle", data.Data.Tables[1]));
+                        dataSource.Add(new ReportDataSource("dsCompania", data.Data.Tables[0]));
+                        dataSource.Add(new ReportDataSource("dsFactura", data.Data.Tables[1]));
+                        dataSource.Add(new ReportDataSource("dsFacturaDetalle", data.Data.Tables[2]));
                         break;
                     default:
                         break;

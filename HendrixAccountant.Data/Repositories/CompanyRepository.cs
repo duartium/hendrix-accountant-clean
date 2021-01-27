@@ -42,7 +42,7 @@ namespace HendrixAccountant.Data.Repositories
         public IParameter Get()
         {
             var parms = new List<SqlParameter>();
-            parms.Add(new SqlParameter("@accion", 'I'));
+            parms.Add(new SqlParameter("@accion", 'C'));
             parms.Add(new SqlParameter("@esJson", 1));
             parms.Add(new SqlParameter("@nombre", CString.COMPANY));
             var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);

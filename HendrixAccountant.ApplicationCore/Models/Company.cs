@@ -9,7 +9,6 @@ namespace HendrixAccountant.ApplicationCore.Models
 {
     public class Company : IParameter
     {
-        public int IdCompania { get; set; }
         public string RazonSocial { get; set; }
         public string NombreComercial { get; set; }
         public string Ruc { get; set; }

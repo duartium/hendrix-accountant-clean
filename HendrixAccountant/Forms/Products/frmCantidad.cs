@@ -23,7 +23,7 @@ namespace HendrixAccountant
 
         private void frmCantidad_Load(object sender, EventArgs e)
         {
-
+            txtCantidad.Focus();
         }
 
         private void txtCantidad_KeyUp(object sender, KeyEventArgs e)
@@ -54,6 +54,11 @@ namespace HendrixAccountant
         {
             if (e.KeyCode == Keys.Enter)
                 SendQuantity();
+        }
+
+        private void frmCantidad_Activated(object sender, EventArgs e)
+        {
+            txtCantidad.Focus();
         }
     }
 }

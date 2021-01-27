@@ -783,6 +783,10 @@
           <DataField>usuarioCrea</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="identificacion">
+          <DataField>identificacion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>VentasGenerales</rd:DataSetName>

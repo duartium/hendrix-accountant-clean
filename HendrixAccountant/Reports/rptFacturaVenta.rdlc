@@ -309,7 +309,7 @@
         <Top>0.38841cm</Top>
         <Left>0.17662cm</Left>
         <Height>1.2cm</Height>
-        <Width>16.09737cm</Width>
+        <Width>16.09738cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -327,16 +327,16 @@
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="Textbox7">
+        <Textbox Name="Textbox8">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Razón social:</Value>
+                  <Value>=First(Fields!NombreComercial.Value, "dsCompania")</Value>
                   <Style>
-                    <FontSize>9pt</FontSize>
+                    <FontSize>11pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -346,41 +346,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
           <Top>3.09245cm</Top>
-          <Left>0.03387cm</Left>
+          <Left>0.08137cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.1825cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox8">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value />
-                  <Style>
-                    <FontSize>9pt</FontSize>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>3.09245cm</Top>
-          <Left>2.39276cm</Left>
-          <Height>0.6cm</Height>
-          <Width>6.5558cm</Width>
-          <ZIndex>1</ZIndex>
+          <Width>8.86719cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -466,7 +434,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value />
+                      <Value>=First(Fields!Ruc.Value, "dsCompania")</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
@@ -529,7 +497,7 @@
           <Left>9.12495cm</Left>
           <Height>2.91042cm</Height>
           <Width>7.11729cm</Width>
-          <ZIndex>2</ZIndex>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -544,7 +512,7 @@
           <Left>0.08137cm</Left>
           <Height>2.75731cm</Height>
           <Width>8.86719cm</Width>
-          <ZIndex>3</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -556,7 +524,7 @@
           <Left>0.14487cm</Left>
           <Height>0cm</Height>
           <Width>16.09737cm</Width>
-          <ZIndex>4</ZIndex>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Color>Orange</Color>
@@ -586,7 +554,7 @@
           <Left>0.03387cm</Left>
           <Height>0.6cm</Height>
           <Width>1.5475cm</Width>
-          <ZIndex>5</ZIndex>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -618,7 +586,7 @@
           <Left>1.63605cm</Left>
           <Height>0.6cm</Height>
           <Width>8.9882cm</Width>
-          <ZIndex>6</ZIndex>
+          <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -651,7 +619,7 @@
           <Left>0.01787cm</Left>
           <Height>0.6cm</Height>
           <Width>2.43673cm</Width>
-          <ZIndex>7</ZIndex>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -683,7 +651,7 @@
           <Left>2.50399cm</Left>
           <Height>0.6cm</Height>
           <Width>4.43374cm</Width>
-          <ZIndex>8</ZIndex>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -716,7 +684,7 @@
           <Left>10.80064cm</Left>
           <Height>0.6cm</Height>
           <Width>1.42579cm</Width>
-          <ZIndex>9</ZIndex>
+          <ZIndex>8</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -734,7 +702,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
+                  <Value>=First(Fields!identificacion.Value, "dsFactura")</Value>
                   <Style>
                     <FontSize>9pt</FontSize>
                   </Style>
@@ -748,7 +716,7 @@
           <Left>12.30757cm</Left>
           <Height>0.6cm</Height>
           <Width>3.87396cm</Width>
-          <ZIndex>10</ZIndex>
+          <ZIndex>9</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -834,6 +802,10 @@
           <DataField>usuarioCrea</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="identificacion">
+          <DataField>identificacion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>Factura</rd:DataSetName>
@@ -875,6 +847,38 @@
         <rd:DataSetName>Factura</rd:DataSetName>
         <rd:SchemaPath>D:\Desarrollo\HENDRIX_ACCOUNTANT\hendrix-accountant-clean\HendrixAccountant\Reports\XSD\Factura.xsd</rd:SchemaPath>
         <rd:TableName>InvoiceDetail</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="dsCompania">
+      <Query>
+        <DataSourceName>Factura</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="RazonSocial">
+          <DataField>RazonSocial</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NombreComercial">
+          <DataField>NombreComercial</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Ruc">
+          <DataField>Ruc</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DirMatriz">
+          <DataField>DirMatriz</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Factura</rd:DataSetName>
+        <rd:SchemaPath>D:\Desarrollo\HENDRIX_ACCOUNTANT\hendrix-accountant-clean\HendrixAccountant\Reports\XSD\Factura.xsd</rd:SchemaPath>
+        <rd:TableName>Company</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />

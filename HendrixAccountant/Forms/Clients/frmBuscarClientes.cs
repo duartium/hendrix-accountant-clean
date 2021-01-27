@@ -47,6 +47,7 @@ namespace HendrixAccountant
         {
             this.txtNombres.Text = "";
             this.txtApellidos.Text = "";
+            dgvClientes.Rows.Clear();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

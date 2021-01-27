@@ -44,6 +44,9 @@
             this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pnIdentificacion = new System.Windows.Forms.Panel();
+            this.txtIdentificacion = new HendrixAccountant.UIControls.NumericInput();
+            this.lblIdentificacion = new System.Windows.Forms.Label();
             this.lblApellidos = new System.Windows.Forms.Label();
             this.lblNombres = new System.Windows.Forms.Label();
             this.txtApellidos = new HendrixAccountant.UIControls.TextInput();
@@ -51,14 +54,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbnIdentificacion = new System.Windows.Forms.RadioButton();
             this.rbnNombres = new System.Windows.Forms.RadioButton();
-            this.lblIdentificacion = new System.Windows.Forms.Label();
-            this.txtIdentificacion = new HendrixAccountant.UIControls.NumericInput();
-            this.pnIdentificacion = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.pnBotones.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.pnIdentificacion.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvClientes
@@ -171,6 +171,7 @@
             this.btnSeleccionar.TabIndex = 13;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = false;
+            this.btnSeleccionar.Visible = false;
             this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // btnCerrar
@@ -240,6 +241,36 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criterios de búsqueda";
+            // 
+            // pnIdentificacion
+            // 
+            this.pnIdentificacion.Controls.Add(this.txtIdentificacion);
+            this.pnIdentificacion.Controls.Add(this.lblIdentificacion);
+            this.pnIdentificacion.Location = new System.Drawing.Point(4, 17);
+            this.pnIdentificacion.Name = "pnIdentificacion";
+            this.pnIdentificacion.Size = new System.Drawing.Size(539, 80);
+            this.pnIdentificacion.TabIndex = 3;
+            this.pnIdentificacion.Visible = false;
+            // 
+            // txtIdentificacion
+            // 
+            this.txtIdentificacion.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtIdentificacion.Location = new System.Drawing.Point(11, 31);
+            this.txtIdentificacion.MaxLength = 13;
+            this.txtIdentificacion.Name = "txtIdentificacion";
+            this.txtIdentificacion.Size = new System.Drawing.Size(129, 23);
+            this.txtIdentificacion.TabIndex = 2;
+            this.txtIdentificacion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdentificacion_KeyDown);
+            // 
+            // lblIdentificacion
+            // 
+            this.lblIdentificacion.AutoSize = true;
+            this.lblIdentificacion.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdentificacion.Location = new System.Drawing.Point(8, 15);
+            this.lblIdentificacion.Name = "lblIdentificacion";
+            this.lblIdentificacion.Size = new System.Drawing.Size(73, 14);
+            this.lblIdentificacion.TabIndex = 1;
+            this.lblIdentificacion.Text = "Identificación:";
             // 
             // lblApellidos
             // 
@@ -317,36 +348,6 @@
             this.rbnNombres.UseVisualStyleBackColor = true;
             this.rbnNombres.CheckedChanged += new System.EventHandler(this.rbnNombres_CheckedChanged);
             // 
-            // lblIdentificacion
-            // 
-            this.lblIdentificacion.AutoSize = true;
-            this.lblIdentificacion.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIdentificacion.Location = new System.Drawing.Point(8, 15);
-            this.lblIdentificacion.Name = "lblIdentificacion";
-            this.lblIdentificacion.Size = new System.Drawing.Size(73, 14);
-            this.lblIdentificacion.TabIndex = 1;
-            this.lblIdentificacion.Text = "Identificación:";
-            // 
-            // txtIdentificacion
-            // 
-            this.txtIdentificacion.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtIdentificacion.Location = new System.Drawing.Point(11, 31);
-            this.txtIdentificacion.MaxLength = 13;
-            this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(129, 23);
-            this.txtIdentificacion.TabIndex = 2;
-            this.txtIdentificacion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdentificacion_KeyDown);
-            // 
-            // pnIdentificacion
-            // 
-            this.pnIdentificacion.Controls.Add(this.txtIdentificacion);
-            this.pnIdentificacion.Controls.Add(this.lblIdentificacion);
-            this.pnIdentificacion.Location = new System.Drawing.Point(4, 17);
-            this.pnIdentificacion.Name = "pnIdentificacion";
-            this.pnIdentificacion.Size = new System.Drawing.Size(539, 80);
-            this.pnIdentificacion.TabIndex = 3;
-            this.pnIdentificacion.Visible = false;
-            // 
             // frmBuscarClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,10 +370,10 @@
             this.pnBotones.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.pnIdentificacion.ResumeLayout(false);
             this.pnIdentificacion.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }

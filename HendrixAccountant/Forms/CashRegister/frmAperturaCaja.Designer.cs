@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAperturaCaja));
             this.lblMontoTotal = new System.Windows.Forms.Label();
             this.gbxMontoTotal = new System.Windows.Forms.GroupBox();
@@ -37,11 +38,11 @@
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAperturar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
+            this.btnCerrar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblFechaCierre = new System.Windows.Forms.Label();
             this.lblFechaApertura = new System.Windows.Forms.Label();
-            this.btnCerrar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
-            this.btnAperturar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.gbxMontoTotal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDineroCaja)).BeginInit();
             this.panel1.SuspendLayout();
@@ -89,12 +90,22 @@
             this.dgvDineroCaja.AllowUserToResizeColumns = false;
             this.dgvDineroCaja.AllowUserToResizeRows = false;
             this.dgvDineroCaja.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvDineroCaja.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvDineroCaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDineroCaja.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDineroCaja.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDineroCaja.ColumnHeadersHeight = 27;
+            this.dgvDineroCaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDineroCaja.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colDenominacion,
             this.colCantidad,
             this.colSubtotal});
+            this.dgvDineroCaja.EnableHeadersVisualStyles = false;
             this.dgvDineroCaja.Location = new System.Drawing.Point(9, 70);
             this.dgvDineroCaja.MultiSelect = false;
             this.dgvDineroCaja.Name = "dgvDineroCaja";
@@ -135,6 +146,42 @@
             this.panel1.Size = new System.Drawing.Size(127, 322);
             this.panel1.TabIndex = 6;
             // 
+            // btnAperturar
+            // 
+            this.btnAperturar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnAperturar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAperturar.FlatAppearance.BorderSize = 0;
+            this.btnAperturar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnAperturar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
+            this.btnAperturar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAperturar.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnAperturar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnAperturar.Location = new System.Drawing.Point(0, 18);
+            this.btnAperturar.Name = "btnAperturar";
+            this.btnAperturar.Size = new System.Drawing.Size(127, 40);
+            this.btnAperturar.TabIndex = 2;
+            this.btnAperturar.Text = "Aperturar";
+            this.btnAperturar.UseVisualStyleBackColor = false;
+            this.btnAperturar.Click += new System.EventHandler(this.btnAperturar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnCerrar.Location = new System.Drawing.Point(0, 265);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(127, 40);
+            this.btnCerrar.TabIndex = 1;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblFechaCierre);
@@ -163,42 +210,6 @@
             this.lblFechaApertura.Size = new System.Drawing.Size(82, 13);
             this.lblFechaApertura.TabIndex = 0;
             this.lblFechaApertura.Text = "Fecha apertura:";
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnCerrar.Location = new System.Drawing.Point(0, 265);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(127, 40);
-            this.btnCerrar.TabIndex = 1;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // btnAperturar
-            // 
-            this.btnAperturar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnAperturar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAperturar.FlatAppearance.BorderSize = 0;
-            this.btnAperturar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnAperturar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
-            this.btnAperturar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAperturar.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnAperturar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnAperturar.Location = new System.Drawing.Point(0, 18);
-            this.btnAperturar.Name = "btnAperturar";
-            this.btnAperturar.Size = new System.Drawing.Size(127, 40);
-            this.btnAperturar.TabIndex = 2;
-            this.btnAperturar.Text = "Aperturar";
-            this.btnAperturar.UseVisualStyleBackColor = false;
-            this.btnAperturar.Click += new System.EventHandler(this.btnAperturar_Click);
             // 
             // frmAperturaCaja
             // 

@@ -39,6 +39,94 @@ namespace HendrixAccountant.Forms
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            Search();
+        }
+
+
+
+        private void rptVentas_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = _dsResp, TipoReporte = _tipoReporte });
+            frmReportVentas.ShowDialog();
+        }
+
+        private void FillGrid()
+        {
+            if (_dsResp == null) return;
+
+            dgvVentaGeneral.Rows.Clear();
+            dgvComprobanteInd.Rows.Clear();
+
+            if(consultaVenta == ConsultaVenta.COMP_INDIVIDUAL)
+                foreach (var row in _dsResp.Tables[2].AsEnumerable())
+                    dgvComprobanteInd.Rows.Add(row.ItemArray[0], row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[4]);
+            else
+                foreach (var row in _dsResp.Tables[1].AsEnumerable())
+                    dgvVentaGeneral.Rows.Add(row.ItemArray[1], row.ItemArray[2], row.ItemArray[4], row.ItemArray[7], row.ItemArray[8]);
+        }
+
+        private void frmVentas_Activated(object sender, EventArgs e)
+        {
+            txtIdentCliente.Focus();
+        }
+
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            frmBuscarClientes frmBuscarClientes = new frmBuscarClientes(this);
+            frmBuscarClientes.ShowDialog();
+        }
+
+        public void Selected(ISaleElement entity)
+        {
+            if (entity == null) return;
+
+            switch (entity.GetType().Name)
+            {
+                case "ClientIdentity":
+                    _client = entity as ClientIdentity;
+                    txtIdentCliente.Text = _client.Identificacion;
+                    txtNombresCliente.Text = _client.NombresCompletos;
+                    break;
+                case "UserDto":
+                    _user = entity as UserDto;
+                    txtCodUsuario.Text = _user.IdUsuario.ToString();
+                    txtNombreUsuario.Text = _user.Usuario;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void btnBuscarUsuario_Click(object sender, EventArgs e)
+        {
+            frmBuscarUsuario frmBuscarUsuario = new frmBuscarUsuario(this);
+            frmBuscarUsuario.ShowDialog();
+        }
+
+        private void tabControlVentas_Selected(object sender, TabControlEventArgs e)
+        {
+            
+        }
+
+        private void tabControlVentas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControlVentas.SelectedTab.Name.Equals("tpGeneral"))
+            {
+                txtIdentCliente.Focus();
+            }
+            else
+            {
+                txtNumSecuencial.Focus();
+            }
+        }
+
+        private void Search()
+        {
             if (tabControlVentas.SelectedTab.Name.Equals("tpGeneral"))
             {
                 consultaVenta = ConsultaVenta.GENERAL;
@@ -96,87 +184,39 @@ namespace HendrixAccountant.Forms
             }
         }
 
-
-
-        private void rptVentas_Load(object sender, EventArgs e)
+        private void txtNumSecuencial_KeyDown(object sender, KeyEventArgs e)
         {
-            
+            if(e.KeyCode == Keys.Enter)
+                Search();
         }
 
-        private void btnImprimir_Click(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = _dsResp, TipoReporte = _tipoReporte });
-            frmReportVentas.ShowDialog();
+            Clear();
         }
 
-        private void FillGrid()
+        private void Clear()
         {
-            if (_dsResp == null) return;
-
-            dgvVentaGeneral.Rows.Clear();
-            dgvComprobanteInd.Rows.Clear();
-
-            if(consultaVenta == ConsultaVenta.COMP_INDIVIDUAL)
-                foreach (var row in _dsResp.Tables[1].AsEnumerable())
-                    dgvComprobanteInd.Rows.Add(row.ItemArray[0], row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[4]);
-            else
-                foreach (var row in _dsResp.Tables[0].AsEnumerable())
-                    dgvVentaGeneral.Rows.Add(row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[6], row.ItemArray[7]);
-        }
-
-        private void frmVentas_Activated(object sender, EventArgs e)
-        {
-            txtIdentCliente.Focus();
-        }
-
-        private void btnBuscarCliente_Click(object sender, EventArgs e)
-        {
-            frmBuscarClientes frmBuscarClientes = new frmBuscarClientes(this);
-            frmBuscarClientes.ShowDialog();
-        }
-
-        public void Selected(ISaleElement entity)
-        {
-            if (entity == null) return;
-
-            switch (entity.GetType().Name)
-            {
-                case "ClientIdentity":
-                    _client = entity as ClientIdentity;
-                    txtIdentCliente.Text = _client.Identificacion;
-                    txtNombresCliente.Text = _client.NombresCompletos;
-                    break;
-                case "UserDto":
-                    _user = entity as UserDto;
-                    txtCodUsuario.Text = _user.IdUsuario.ToString();
-                    txtNombreUsuario.Text = _user.Usuario;
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void btnBuscarUsuario_Click(object sender, EventArgs e)
-        {
-            frmBuscarUsuario frmBuscarUsuario = new frmBuscarUsuario(this);
-            frmBuscarUsuario.ShowDialog();
-        }
-
-        private void tabControlVentas_Selected(object sender, TabControlEventArgs e)
-        {
-            
-        }
-
-        private void tabControlVentas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabControlVentas.SelectedTab.Name.Equals("tpGeneral"))
-            {
-                txtIdentCliente.Focus();
+            if (consultaVenta == ConsultaVenta.COMP_INDIVIDUAL){
+                txtNumSecuencial.Clear();
+                dgvComprobanteInd.Rows.Clear();
             }
             else
             {
-                txtNumSecuencial.Focus();
+                txtCodUsuario.Clear();
+                txtNombreUsuario.Clear();
+                txtIdentCliente.Clear();
+                txtNombresCliente.Clear();
+                dtpFechaDesde.Value = DateTime.Now;
+                dtpFechaHasta.Value = DateTime.Now;
+                dgvVentaGeneral.Rows.Clear();
             }
+            
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

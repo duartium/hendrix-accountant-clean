@@ -102,6 +102,7 @@
             this.MinimizeBox = false;
             this.Name = "frmCantidad";
             this.Text = "INGRESE CANTIDAD";
+            this.Activated += new System.EventHandler(this.frmCantidad_Activated);
             this.Load += new System.EventHandler(this.frmCantidad_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
