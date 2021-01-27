@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantProducto));
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,10 +45,6 @@
             this.cboColor = new System.Windows.Forms.ComboBox();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.cboProveedor = new System.Windows.Forms.ComboBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.cboBuscarPor = new System.Windows.Forms.ComboBox();
             this.txtValorBuscarPor = new System.Windows.Forms.TextBox();
@@ -61,25 +56,20 @@
             this.cboMarca = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtValorDescuento = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dgvListadoProductos = new System.Windows.Forms.DataGridView();
             this.btnLimiparBusqueda = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.dgvListadoProductos = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoProductos)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.label1.Location = new System.Drawing.Point(10, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 30);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Productos";
             // 
             // label2
             // 
@@ -233,52 +223,10 @@
             this.cboProveedor.Size = new System.Drawing.Size(85, 21);
             this.cboProveedor.TabIndex = 16;
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(91, 20);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(84, 28);
-            this.btnGuardar.TabIndex = 17;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Location = new System.Drawing.Point(6, 19);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(79, 29);
-            this.btnNuevo.TabIndex = 18;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnEliminar);
-            this.groupBox1.Controls.Add(this.btnNuevo);
-            this.groupBox1.Controls.Add(this.btnGuardar);
-            this.groupBox1.Location = new System.Drawing.Point(15, 42);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(591, 66);
-            this.groupBox1.TabIndex = 19;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Operaciones";
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(181, 21);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(84, 27);
-            this.btnEliminar.TabIndex = 19;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 117);
+            this.label10.Location = new System.Drawing.Point(18, 145);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(64, 13);
             this.label10.TabIndex = 20;
@@ -292,21 +240,21 @@
             "Descripción",
             "Costo",
             "Precio de Venta"});
-            this.cboBuscarPor.Location = new System.Drawing.Point(91, 116);
+            this.cboBuscarPor.Location = new System.Drawing.Point(91, 144);
             this.cboBuscarPor.Name = "cboBuscarPor";
             this.cboBuscarPor.Size = new System.Drawing.Size(139, 21);
             this.cboBuscarPor.TabIndex = 21;
             // 
             // txtValorBuscarPor
             // 
-            this.txtValorBuscarPor.Location = new System.Drawing.Point(236, 117);
+            this.txtValorBuscarPor.Location = new System.Drawing.Point(236, 145);
             this.txtValorBuscarPor.Name = "txtValorBuscarPor";
             this.txtValorBuscarPor.Size = new System.Drawing.Size(253, 20);
             this.txtValorBuscarPor.TabIndex = 22;
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(495, 112);
+            this.btnBuscar.Location = new System.Drawing.Point(495, 140);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(55, 28);
             this.btnBuscar.TabIndex = 23;
@@ -338,7 +286,7 @@
             this.groupBox2.Controls.Add(this.txtStock);
             this.groupBox2.Controls.Add(this.cboColor);
             this.groupBox2.Controls.Add(this.txtCosto);
-            this.groupBox2.Location = new System.Drawing.Point(15, 143);
+            this.groupBox2.Location = new System.Drawing.Point(15, 171);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(591, 171);
             this.groupBox2.TabIndex = 24;
@@ -403,29 +351,9 @@
             this.txtValorDescuento.TabIndex = 18;
             this.txtValorDescuento.TextChanged += new System.EventHandler(this.txtValorDescuento_TextChanged);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.dgvListadoProductos);
-            this.groupBox3.Location = new System.Drawing.Point(15, 320);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(591, 262);
-            this.groupBox3.TabIndex = 25;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Listado";
-            // 
-            // dgvListadoProductos
-            // 
-            this.dgvListadoProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListadoProductos.Location = new System.Drawing.Point(15, 21);
-            this.dgvListadoProductos.Name = "dgvListadoProductos";
-            this.dgvListadoProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListadoProductos.Size = new System.Drawing.Size(558, 224);
-            this.dgvListadoProductos.TabIndex = 0;
-            this.dgvListadoProductos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvListadoProductos_CellMouseDoubleClick);
-            // 
             // btnLimiparBusqueda
             // 
-            this.btnLimiparBusqueda.Location = new System.Drawing.Point(552, 112);
+            this.btnLimiparBusqueda.Location = new System.Drawing.Point(552, 140);
             this.btnLimiparBusqueda.Name = "btnLimiparBusqueda";
             this.btnLimiparBusqueda.Size = new System.Drawing.Size(54, 27);
             this.btnLimiparBusqueda.TabIndex = 26;
@@ -433,41 +361,135 @@
             this.btnLimiparBusqueda.UseVisualStyleBackColor = true;
             this.btnLimiparBusqueda.Click += new System.EventHandler(this.btnLimiparBusqueda_Click);
             // 
+            // dgvListadoProductos
+            // 
+            this.dgvListadoProductos.AllowUserToAddRows = false;
+            this.dgvListadoProductos.AllowUserToDeleteRows = false;
+            this.dgvListadoProductos.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvListadoProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvListadoProductos.ColumnHeadersHeight = 27;
+            this.dgvListadoProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvListadoProductos.GridColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvListadoProductos.Location = new System.Drawing.Point(15, 348);
+            this.dgvListadoProductos.MultiSelect = false;
+            this.dgvListadoProductos.Name = "dgvListadoProductos";
+            this.dgvListadoProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListadoProductos.Size = new System.Drawing.Size(591, 234);
+            this.dgvListadoProductos.TabIndex = 27;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.lblTitulo);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(623, 60);
+            this.panel1.TabIndex = 28;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 55);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(623, 5);
+            this.panel2.TabIndex = 2;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblTitulo.Location = new System.Drawing.Point(275, 18);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(113, 19);
+            this.lblTitulo.TabIndex = 0;
+            this.lblTitulo.Text = "PRODUCTOS";
+            this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::HendrixAccountant.Properties.Resources.productWhite25;
+            this.pictureBox1.Location = new System.Drawing.Point(241, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 25);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(89)))));
+            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevo.FlatAppearance.BorderSize = 0;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnNuevo.Image = global::HendrixAccountant.Properties.Resources.addWhite20;
+            this.btnNuevo.Location = new System.Drawing.Point(21, 78);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(90, 30);
+            this.btnNuevo.TabIndex = 31;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(227, 81);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(84, 27);
+            this.btnEliminar.TabIndex = 30;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(122, 80);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(84, 28);
+            this.btnGuardar.TabIndex = 29;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            // 
             // frmMantProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(623, 594);
+            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.dgvListadoProductos);
             this.Controls.Add(this.btnLimiparBusqueda);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtValorBuscarPor);
             this.Controls.Add(this.cboBuscarPor);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmMantProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Mantenimiento - Productos";
-            this.groupBox1.ResumeLayout(false);
+            this.Text = "MANTENIMIENTO DE PRODUCTOS";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoProductos)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -484,10 +506,6 @@
         private System.Windows.Forms.ComboBox cboColor;
         private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.ComboBox cboProveedor;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cboBuscarPor;
         private System.Windows.Forms.TextBox txtValorBuscarPor;
@@ -499,8 +517,14 @@
         private System.Windows.Forms.ComboBox cboMarca;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtTalla;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dgvListadoProductos;
         private System.Windows.Forms.Button btnLimiparBusqueda;
+        private System.Windows.Forms.DataGridView dgvListadoProductos;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnGuardar;
     }
 }

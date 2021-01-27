@@ -19,7 +19,6 @@ namespace HendrixAccountant
     {
         private frmMantProducto frmMantProducto = null;
         private frmClientes frmClientes = null;
-        private frmProductos frmProductos = null;
         private frmMantProveedor frmMantProveedor = null;
         private frmCompras frmCompras = null;
         private frmAperturaCaja frmCaja = null;
@@ -57,19 +56,17 @@ namespace HendrixAccountant
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if ( frmProductos != null) return;
+            if (frmMantProducto != null) return;
 
-            frmProductos = new frmProductos();
-            frmProductos.MdiParent = this;
-            frmProductos.FormClosed += new FormClosedEventHandler(productos_FormClosed);
-            frmProductos.Show();
+            frmMantProducto = new frmMantProducto();
+            frmMantProducto.MdiParent = this;
+            frmMantProducto.FormClosed += new FormClosedEventHandler(productos_FormClosed);
+            frmMantProducto.Show();
         }
 
         private void aperturarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (frmCaja != null)
-                return;
-
+            if (frmCaja != null) return;
             frmCaja = new frmAperturaCaja();
             frmCaja.MdiParent = this;
             frmCaja.FormClosed += new FormClosedEventHandler(caja_FormClosed);
@@ -84,7 +81,7 @@ namespace HendrixAccountant
 
         private void productos_FormClosed(object sender, EventArgs e)
         {
-            frmProductos = null;
+            frmMantProducto = null;
         }
 
         private void caja_FormClosed(object sender, EventArgs e)
@@ -222,16 +219,6 @@ namespace HendrixAccountant
             frmMantProducto.MdiParent = this;
             frmMantProducto.FormClosed += new FormClosedEventHandler(mantProductos_FormClosed);
             frmMantProducto.Show();
-            
-        }
-
-        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (frmProductos != null) return;
-            frmProductos = new frmProductos();
-            frmProductos.MdiParent = this;
-            frmProductos.FormClosed += new FormClosedEventHandler(productos_FormClosed);
-            frmProductos.Show();
         }
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
