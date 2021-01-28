@@ -31,7 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarProductos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericInput1 = new HendrixAccountant.UIControls.NumericInput();
+            this.txtCodProducto = new HendrixAccountant.UIControls.NumericInput();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtNombreProd = new System.Windows.Forms.TextBox();
@@ -40,12 +40,12 @@
             this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombreProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -53,7 +53,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.numericInput1);
+            this.groupBox1.Controls.Add(this.txtCodProducto);
             this.groupBox1.Controls.Add(this.lblNombreProducto);
             this.groupBox1.Controls.Add(this.lblCodigo);
             this.groupBox1.Controls.Add(this.txtNombreProd);
@@ -66,13 +66,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criterios de búsqueda";
             // 
-            // numericInput1
+            // txtCodProducto
             // 
-            this.numericInput1.Font = new System.Drawing.Font("Arial", 10F);
-            this.numericInput1.Location = new System.Drawing.Point(10, 40);
-            this.numericInput1.Name = "numericInput1";
-            this.numericInput1.Size = new System.Drawing.Size(88, 23);
-            this.numericInput1.TabIndex = 7;
+            this.txtCodProducto.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtCodProducto.Location = new System.Drawing.Point(10, 40);
+            this.txtCodProducto.Name = "txtCodProducto";
+            this.txtCodProducto.Size = new System.Drawing.Size(88, 23);
+            this.txtCodProducto.TabIndex = 7;
+            this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
             // 
             // lblNombreProducto
             // 
@@ -103,6 +104,7 @@
             this.txtNombreProd.Name = "txtNombreProd";
             this.txtNombreProd.Size = new System.Drawing.Size(366, 24);
             this.txtNombreProd.TabIndex = 0;
+            this.txtNombreProd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreProd_KeyDown);
             // 
             // panel1
             // 
@@ -132,6 +134,7 @@
             this.btnCerrar.TabIndex = 14;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnLimpiar
             // 
@@ -149,6 +152,7 @@
             this.btnLimpiar.TabIndex = 13;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnConsultar
             // 
@@ -186,12 +190,12 @@
             this.dgvProductos.ColumnHeadersHeight = 27;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colCodigo,
             this.colNombreProd,
             this.colStock,
             this.colPrecio,
-            this.colMarca,
             this.colCategoria,
-            this.colCodigo});
+            this.colMarca});
             this.dgvProductos.EnableHeadersVisualStyles = false;
             this.dgvProductos.Location = new System.Drawing.Point(5, 95);
             this.dgvProductos.MultiSelect = false;
@@ -201,6 +205,13 @@
             this.dgvProductos.Size = new System.Drawing.Size(538, 276);
             this.dgvProductos.TabIndex = 7;
             this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
+            // 
+            // colCodigo
+            // 
+            this.colCodigo.HeaderText = "Código";
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.ReadOnly = true;
+            this.colCodigo.Width = 80;
             // 
             // colNombreProd
             // 
@@ -221,12 +232,6 @@
             this.colPrecio.Name = "colPrecio";
             this.colPrecio.ReadOnly = true;
             // 
-            // colMarca
-            // 
-            this.colMarca.HeaderText = "Marca";
-            this.colMarca.Name = "colMarca";
-            this.colMarca.ReadOnly = true;
-            // 
             // colCategoria
             // 
             this.colCategoria.HeaderText = "Categoría";
@@ -234,12 +239,11 @@
             this.colCategoria.ReadOnly = true;
             this.colCategoria.Width = 150;
             // 
-            // colCodigo
+            // colMarca
             // 
-            this.colCodigo.HeaderText = "Código";
-            this.colCodigo.Name = "colCodigo";
-            this.colCodigo.ReadOnly = true;
-            this.colCodigo.Width = 80;
+            this.colMarca.HeaderText = "Marca";
+            this.colMarca.Name = "colMarca";
+            this.colMarca.ReadOnly = true;
             // 
             // frmBuscarProductos
             // 
@@ -274,15 +278,15 @@
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Label lblNombreProducto;
         private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNombreProd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStock;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
-        private UIControls.NumericInput numericInput1;
+        private UIControls.NumericInput txtCodProducto;
         private UIControls.Buttons.ItemAsideSmall btnConsultar;
         private UIControls.Buttons.ItemAsideSmall btnCerrar;
         private UIControls.Buttons.ItemAsideSmall btnLimpiar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNombreProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMarca;
     }
 }

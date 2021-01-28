@@ -21,7 +21,7 @@ namespace HendrixAccountant.ApplicationCore.Map
             {
                 products = data.Tables[0].AsEnumerable().Select(field => new Product
                 {
-                    id_producto = Convert.ToInt32(field["id_producto"].ToString()),
+                    id_producto = Convert.ToInt32(field["idProducto"].ToString()),
                     nombre = field["nombre"].ToString(),
                     descripcion = field["descripcion"].ToString(),
                     stock = Convert.ToInt32(field["stock"].ToString()),
@@ -30,8 +30,9 @@ namespace HendrixAccountant.ApplicationCore.Map
                     categoria_id = Convert.ToInt32(field["categoria"].ToString())
                 }).ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Utils.GrabarLog("DatasetToProducts", ex.ToString());
             }
             return products;
         }

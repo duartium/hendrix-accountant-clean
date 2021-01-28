@@ -17,6 +17,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Color = System.Drawing.Color;
 
 namespace HendrixAccountant.Forms.Directorio
 {
@@ -72,6 +73,10 @@ namespace HendrixAccountant.Forms.Directorio
             this.btnNuevo.Enabled = botonNuevo;
             this.btnGuardar.Enabled = botonGuardar;
             this.btnEliminar.Enabled = botonEliminar;
+
+            if (botonNuevo) btnNuevo.BackColor = Color.FromArgb(40, 167, 89); else btnNuevo.BackColor = SystemColors.Control;
+            if (botonGuardar) btnGuardar.BackColor = Color.FromArgb(27, 46, 140); else btnGuardar.BackColor = SystemColors.Control;
+            if (botonEliminar) btnEliminar.BackColor = Color.FromArgb(220, 53, 69); else btnEliminar.BackColor = SystemColors.Control;
         }
 
         private void HabilitarControlesEntrada(bool valor)
@@ -326,6 +331,11 @@ namespace HendrixAccountant.Forms.Directorio
                 MessageBox.Show("Error no controlado en el proceso.", "Proveedores", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        private void frmMantProveedor_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

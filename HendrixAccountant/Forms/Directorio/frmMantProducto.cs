@@ -20,6 +20,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Color = System.Drawing.Color;
 
 namespace HendrixAccountant.Forms.Directorio
 {
@@ -160,6 +161,10 @@ namespace HendrixAccountant.Forms.Directorio
             this.btnNuevo.Enabled = botonNuevo;
             this.btnGuardar.Enabled = botonGuardar;
             this.btnEliminar.Enabled = botonEliminar;
+
+            if (botonNuevo) btnNuevo.BackColor = Color.FromArgb(40, 167, 89); else btnNuevo.BackColor = SystemColors.Control;
+            if (botonGuardar) btnGuardar.BackColor = Color.FromArgb(27, 46, 140); else btnGuardar.BackColor = SystemColors.Control;
+            if (botonEliminar) btnEliminar.BackColor = Color.FromArgb(220, 53, 69); else btnEliminar.BackColor = SystemColors.Control;
         }
 
         private void HabilitarControlesEntrada(bool valor)
@@ -173,7 +178,7 @@ namespace HendrixAccountant.Forms.Directorio
             cboColor.Enabled = valor;
             cboProveedor.Enabled = valor;
             cboMarca.Enabled = valor;
-            txtValorDescuento.Enabled = valor;
+            //txtValorDescuento.Enabled = valor;
             txtTalla.Enabled = valor;
         }
 
@@ -185,7 +190,7 @@ namespace HendrixAccountant.Forms.Directorio
             txtStock.Text = "";
             txtCosto.Text = "";
             txtPrecioVenta.Text = "";
-            txtValorDescuento.Text = "";
+            //txtValorDescuento.Text = "";
             txtTalla.Text = "";
             cboCategoria.SelectedIndex = 0;
             cboColor.SelectedIndex = 0;
@@ -239,7 +244,7 @@ namespace HendrixAccountant.Forms.Directorio
             _product.color = idcolor;
             _product.costo = Decimal.Parse(txtCosto.Text.Trim().Substring(1).Replace(",", "").Replace(".", ","));
             _product.descripcion = txtDescripcion.Text.Trim();
-            _product.descuento = (txtValorDescuento.Text.Trim().Equals("")) ? 0 : Decimal.Parse(txtValorDescuento.Text.Trim().Substring(1).Replace(",", "").Replace(".", ","));
+            _product.descuento = 0;
             _product.marca = idmarca;
             _product.nombre = txtNombre.Text.Trim();
             _product.descripcion = txtDescripcion.Text.Trim();
@@ -254,7 +259,7 @@ namespace HendrixAccountant.Forms.Directorio
             cboColor.SelectedValue = (int)_product.color;
             txtCosto.Text = "$" + _product.costo.ToString();
             txtDescripcion.Text = _product.descripcion;
-            txtValorDescuento.Text = "$" + _product.descuento.ToString();
+            //txtValorDescuento.Text = "$" + _product.descuento.ToString();
             cboMarca.SelectedValue = (int)_product.marca;
             txtNombre.Text = _product.nombre;
             txtDescripcion.Text = _product.descripcion;
@@ -326,46 +331,7 @@ namespace HendrixAccountant.Forms.Directorio
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (this._flagEstadoCrud == (int)EstadoOperacionCrud.Nuevo)
-                {
-                    if (!ValidarCamposEntradaObligatorios())
-                        return;
-                    ObtenerModeloDesdeControlesEntrada();
-                    this._unitOfWork.Products.Add(this._product);
-                    _product.estado = true;
-                    _product.creado_en = DateTime.Now;
-                    _product.usuario_crea = "developer";
-                }
-                else if (this._flagEstadoCrud == (int)EstadoOperacionCrud.Edicion)
-                {
-                    if (!ValidarCamposEntradaObligatorios())
-                        return;
-                    ObtenerModeloDesdeControlesEntrada();
-                    this._product.modificado_en = DateTime.Now;
-                    this._product.usuario_mod = "developer";
-                    this._unitOfWork.Products.Update(this._product);
-                }
-                var cantidadRegistroAfectados = this._unitOfWork.SaveChanges();
-                if (cantidadRegistroAfectados > 0)
-                {
-                    ResetearComponentes();
-                    HabilitarControlesEntrada(false);
-                    HabilitarBotonera(true, false, false);
-                    MessageBox.Show("Los cambios fueron realizados con éxito.", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                }
-                else
-                {
-                    MessageBox.Show("No se detecto ningún cambio.", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                Utils.GrabarLog("Search", ex.ToString());
-                MessageBox.Show("Error no controlado en el proceso.", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -462,32 +428,7 @@ namespace HendrixAccountant.Forms.Directorio
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this._product.estado = false;
-                this._product.eliminado_en = DateTime.Now;
-                this._product.usuario_elim = "developer";
-                this._unitOfWork.Products.Update(this._product);
-                var cantidadRegistroAfectados = this._unitOfWork.SaveChanges();
-                if (cantidadRegistroAfectados > 0)
-                {
-                    ResetearComponentes();
-                    HabilitarControlesEntrada(false);
-                    HabilitarBotonera(true, false, false);
-                    MessageBox.Show("Los cambios fueron realizados con éxito.", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                }
-                else
-                {
-                    MessageBox.Show("No se detecto ningún cambio.", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                Utils.GrabarLog("Search", ex.ToString());
-                MessageBox.Show("Error no controlado en el proceso.", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
         }
 
         private void btnLimiparBusqueda_Click(object sender, EventArgs e)
@@ -501,7 +442,7 @@ namespace HendrixAccountant.Forms.Directorio
         private void txtValorDescuento_TextChanged(object sender, EventArgs e)
         {
             // new ValidatorTextBox(txtValorDescuento).ValidadorFormatoMoneda(sender, e);
-            ValidadorFormatoMoneda(txtValorDescuento, txtValorDescuento_TextChanged);
+            //ValidadorFormatoMoneda(txtValorDescuento, txtValorDescuento_TextChanged);
         }
 
         private void txtCosto_TextChanged(object sender, EventArgs e)
@@ -522,6 +463,11 @@ namespace HendrixAccountant.Forms.Directorio
         private void txtTalla_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void frmMantProducto_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

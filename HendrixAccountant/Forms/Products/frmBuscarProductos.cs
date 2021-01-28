@@ -47,10 +47,15 @@ namespace HendrixAccountant
         {
             try
             {
-                var products = _rpsProduct.GetAll();
+                var filters = new ProductFilterDto
+                {
+                    IdProducto = String.IsNullOrEmpty(txtCodProducto.Text)? 0 : Convert.ToInt32(txtCodProducto.Text),
+                    NombreProducto = txtNombreProd.Text
+                };
+                var products = _rpsProduct.GetAll(filters);
                 if (products == null)
                 {
-                    MessageBox.Show("No se obtuvieron datos.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No se encontraron productos.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 FillGrid(products);
@@ -68,7 +73,7 @@ namespace HendrixAccountant
             dgvProductos.Rows.Clear();
             dgvProductos.AutoGenerateColumns = false;
             foreach (var item in data.Cast<Product>().ToList())
-                dgvProductos.Rows.Add(item.nombre, item.stock, item.precio_venta, item.marca, item.categoria_id, item.id_producto);
+                dgvProductos.Rows.Add(item.id_producto, item.nombre, item.stock, item.precio_venta, item.marca, item.categoria_id);
         }
 
         private ProductIdentityDto MapRowToProduct(DataGridViewRow row)
@@ -117,6 +122,33 @@ namespace HendrixAccountant
         private void frmBuscarProductos_Activated(object sender, EventArgs e)
         {
             txtNombreProd.Focus();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNombreProd.Clear();
+            txtCodProducto.Clear();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtNombreProd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter){
+                Search();
+                e.Handled = e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtCodProducto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter){
+                Search();
+                e.Handled = e.SuppressKeyPress = true;
+            }
         }
     }
 }

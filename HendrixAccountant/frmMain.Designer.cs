@@ -123,9 +123,9 @@
             // directoriosToolStripMenuItem1
             // 
             this.directoriosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.proveedoresToolStripMenuItem,
             this.clientesToolStripMenuItem,
             this.productosToolStripMenuItem1,
+            this.proveedoresToolStripMenuItem,
             this.usuariosToolStripMenuItem});
             this.directoriosToolStripMenuItem1.Name = "directoriosToolStripMenuItem1";
             this.directoriosToolStripMenuItem1.Size = new System.Drawing.Size(71, 20);

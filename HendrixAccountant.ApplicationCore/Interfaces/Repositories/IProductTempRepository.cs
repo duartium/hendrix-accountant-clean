@@ -1,4 +1,5 @@
-﻿using HendrixAccountant.ApplicationCore.Entities;
+﻿using HendrixAccountant.ApplicationCore.DTOs;
+using HendrixAccountant.ApplicationCore.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
 {
     public interface IProductTempRepository
     {
-        IEnumerable<Product> GetAll();
+        IEnumerable<Product> GetAll(ProductFilterDto filters);
     }
 }
