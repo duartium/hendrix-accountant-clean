@@ -21,4 +21,10 @@ namespace HendrixAccountant.ApplicationCore.DTOs
         public int Stock { get; set; }
         public decimal Total { get; set; }
     }
+
+    public class StockDto
+    {
+        public int IdProducto { get; set; }
+        public int Cantidad { get; set; }
+    }
 }

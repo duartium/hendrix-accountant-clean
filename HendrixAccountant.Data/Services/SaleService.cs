@@ -30,15 +30,15 @@ namespace HendrixAccountant.ApplicationCore.Services
         {
             bool resp = false;
             if (invoice == null) return resp;
-            
+
             string strXmlfactura = CreateXmlInvoice(invoice);
             var parms = new List<SqlParameter>();
-            parms.Add(new SqlParameter { ParameterName="@accion", SqlDbType=SqlDbType.Char, Value='I'});
+            parms.Add(new SqlParameter { ParameterName = "@accion", SqlDbType = SqlDbType.Char, Value = 'I' });
             parms.Add(new SqlParameter { ParameterName = "@id_usuario", SqlDbType = SqlDbType.Int, Value = invoice.Auditoria.IdUser });
             parms.Add(new SqlParameter { ParameterName = "@usuario", SqlDbType = SqlDbType.VarChar, Value = invoice.Auditoria.Username });
-            parms.Add(new SqlParameter { ParameterName="@serial", SqlDbType=SqlDbType.VarChar, Value=invoice.Auditoria.SerialMainboard});
-            parms.Add(new SqlParameter { ParameterName = "@factura", SqlDbType =SqlDbType.VarChar, Value= strXmlfactura });
-            
+            parms.Add(new SqlParameter { ParameterName = "@serial", SqlDbType = SqlDbType.VarChar, Value = invoice.Auditoria.SerialMainboard });
+            parms.Add(new SqlParameter { ParameterName = "@factura", SqlDbType = SqlDbType.VarChar, Value = strXmlfactura });
+
             if (_sqlServer.ExecuteNonQuery(_storeProcedureName, parms) > 0)
                 resp = true;
             return resp;
@@ -82,5 +82,7 @@ namespace HendrixAccountant.ApplicationCore.Services
             }
             return xmlInvoice;
         }
+
+        
     }
 }

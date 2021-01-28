@@ -6,6 +6,7 @@ using HendrixAccountant.ApplicationCore.Models;
 using HendrixAccountant.ApplicationCore.Services;
 using HendrixAccountant.Common;
 using HendrixAccountant.Data;
+using HendrixAccountant.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,6 +27,7 @@ namespace HendrixAccountant
         private ClientIdentity _client;
         private InvoiceDto _invoice;
         private IClientRepository _rpsClient;
+        private IProductTempRepository _rpsProduct;
         public frmPuntoVenta()
         {
             InitializeComponent();
@@ -35,6 +37,7 @@ namespace HendrixAccountant
             _invoice = null;
             _descuento = 0;
             _rpsClient = null;
+            _rpsProduct = new ProductTempRepository();
         }
 
         private void frmPuntoVenta_Load(object sender, EventArgs e)
@@ -103,6 +106,9 @@ namespace HendrixAccountant
                 MessageBox.Show("No hay suficientes productos en stock.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            //actualiza stock
+            _rpsProduct.UpdateStock(new StockDto{ IdProducto = _product.IdProducto, Cantidad = quantity }, true);
+
             _product.Cantidad = quantity;
             decimal total = _product.Precio * quantity;
             _product.Total = Math.Round(total, 2);
@@ -197,13 +203,23 @@ namespace HendrixAccountant
 
         private void RemoveProduct()
         {
-            if (dgvPuntoVenta.SelectedRows.Count <= 0) return;
-            if (MessageBox.Show("¿Está seguro que desea eliminar el artículo seleccionado?", CString.DEFAULT_TITLE, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.Cancel) return;
-
-            foreach (DataGridViewRow row in dgvPuntoVenta.SelectedRows)
+            try
             {
-                _lsProducts.RemoveAt(row.Index);
-                dgvPuntoVenta.Rows.RemoveAt(row.Index);
+                if (dgvPuntoVenta.SelectedRows.Count <= 0) return;
+                if (MessageBox.Show("¿Está seguro que desea eliminar el artículo seleccionado?", CString.DEFAULT_TITLE, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.Cancel) return;
+
+                foreach (DataGridViewRow row in dgvPuntoVenta.SelectedRows)
+                {
+                    var product = _lsProducts[row.Index];
+                    _rpsProduct.UpdateStock(new StockDto { IdProducto = product.IdProducto, Cantidad = product.Cantidad }, false);
+                    _lsProducts.RemoveAt(row.Index);
+                    dgvPuntoVenta.Rows.RemoveAt(row.Index);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("RemoveProduct", ex.ToString());
             }
         }
 

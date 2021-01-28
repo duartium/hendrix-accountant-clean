@@ -11,5 +11,7 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
     public interface IProductTempRepository
     {
         IEnumerable<Product> GetAll(ProductFilterDto filters);
+        void UpdateStock(List<StockDto> stock, bool isDecrease);
+        void UpdateStock(StockDto stock, bool isDecrease);
     }
 }
