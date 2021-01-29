@@ -223,6 +223,27 @@ namespace HendrixAccountant
             }
         }
 
+        private void RemoveAllProducts()
+        {
+            try
+            {
+                if (dgvPuntoVenta.Rows.Count<= 0) return;
+
+                int i = 0;
+                foreach (DataGridViewRow row in dgvPuntoVenta.Rows)
+                {
+                    var product = _lsProducts[i];
+                    _rpsProduct.UpdateStock(new StockDto { IdProducto = product.IdProducto, Cantidad = product.Cantidad }, false);
+                    _lsProducts.RemoveAt(row.Index);
+                    i++;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("RemoveAllProducts", ex.ToString());
+            }
+        }
+
         private void dgvPuntoVenta_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
@@ -310,6 +331,21 @@ namespace HendrixAccountant
         {
             btnEliminar.Enabled = false;
             btnEliminar.BackColor = SystemColors.Control;
+        }
+
+        private void frmPuntoVenta_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(dgvPuntoVenta.Rows.Count > 0)
+            {
+                var result = MessageBox.Show("Si cierra la ventana no se registrará la venta ¿desea continuar?", CString.DEFAULT_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    RemoveAllProducts();
+                    e.Cancel = false;
+                }
+                else e.Cancel = true;
+
+            }
         }
     }
 }

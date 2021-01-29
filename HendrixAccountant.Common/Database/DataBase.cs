@@ -100,13 +100,27 @@ namespace HendrixAccountant.Common
             {
                 if (_sqlConn.State == ConnectionState.Closed)
                 {
-                    this._sqlConn.ConnectionString = GetConnectionData();
+                    this._sqlConn.ConnectionString = GetConnectionString();
                     this._sqlConn.Open();
                 }
             }
             catch (Exception ex)
             {
                 Utils.GrabarLog("Connect", ex.ToString());
+            }
+        }
+
+        private string GetConnectionString()
+        {
+            string conn = String.Empty;
+            try
+            {
+                return ConfigurationManager.ConnectionStrings["HendrixContext"].ConnectionString;
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("GetConnectionString", ex.ToString());
+                return conn;
             }
         }
 
