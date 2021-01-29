@@ -27,7 +27,7 @@ namespace HendrixAccountant.Common
                 string fileName = "Logs_HendrixAccount_" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt";
                 using (StreamWriter sw = File.AppendText(path + fileName))
                 {
-                    sw.WriteLine(DateTime.Now.ToString("yyyy-MM-dd H:i:s") + " " + metodo + ": " + mensaje + "\n\r");
+                    sw.WriteLine(DateTime.Now.ToString("yyyy-MM-dd H:mm:ss") + " " + metodo + ": " + mensaje + "\n\r");
                 }
             }
             catch (Exception)

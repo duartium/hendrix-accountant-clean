@@ -30,5 +30,6 @@ namespace HendrixAccountant.ApplicationCore.DTOs
         public int IdCliente { get; set; }
         public string Identificacion { get; set; }
         public string NombresCompletos { get; set; }
+        public string Direccion { get; set; }
     }
 }

@@ -187,13 +187,17 @@ namespace HendrixAccountant
         {
             dgvPuntoVenta.Rows.Clear();
             dtpFechaEmision.Value = DateTime.Now;
-            txtValorSubtotal.Clear();
-            txtValorDscto.Clear();
-            txtValorIva.Clear();
-            txtTotalPagar.Clear();
+            txtValorSubtotal.Text = "0.00";
+            txtValorDscto.Text = "0.00";
+            txtValorIva.Text = "0.00";
+            txtTotalPagar.Text = "0.00";
             txtNombresCliente.Clear();
             txtIdentCliente.Clear();
             txtDireccionCliente.Clear();
+            _lsProducts.Clear();
+            _client = null;
+            _invoice = null;
+            _product = null;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -289,9 +293,11 @@ namespace HendrixAccountant
             {
                 IdCliente = client.id_cliente,
                 Identificacion = client.identificacion,
-                NombresCompletos = client.nombres + " " + client.apellidos
+                NombresCompletos = client.nombres + " " + client.apellidos,
+                Direccion = client.direccion
             };
             SetClient();
+            btnAgregar.Enabled = true;
         }
 
         private void SetClient()
@@ -299,7 +305,7 @@ namespace HendrixAccountant
             if (_client == null) return;
             txtIdentCliente.Text = _client.Identificacion;
             txtNombresCliente.Text = _client.NombresCompletos;
-            EnableAdd();
+            txtDireccionCliente.Text = _client.Direccion;
             lblInfo.Text = "Cliente seleccionado.";
         }
 

@@ -2,9 +2,11 @@
 using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Enums;
 using HendrixAccountant.ApplicationCore.Interfaces.Forms;
+using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.ApplicationCore.Interfaces.Services;
 using HendrixAccountant.ApplicationCore.Map;
 using HendrixAccountant.ApplicationCore.Models;
+using HendrixAccountant.Data;
 using HendrixAccountant.Data.Dtos;
 using HendrixAccountant.Data.Services;
 using HendrixAccountant.Reports;
@@ -28,6 +30,7 @@ namespace HendrixAccountant.Forms
         private ClientIdentity _client;
         private UserDto _user;
         private TipoReporte _tipoReporte;
+        private IClientRepository _rpsClient;
         public frmVentas()
         {
             InitializeComponent();
@@ -46,7 +49,7 @@ namespace HendrixAccountant.Forms
 
         private void rptVentas_Load(object sender, EventArgs e)
         {
-            
+            EnabledPrint(false);
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
@@ -152,16 +155,14 @@ namespace HendrixAccountant.Forms
                 };
 
                 if (_dsResp != null) _dsResp.Clear();
-
                 _dsResp = _rpsReports.Get(salesFilters);
-                if (!Validator.DatasetIsValid(_dsResp))
+                if (_dsResp == null)
                 {
                     MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                btnImprimir.Enabled = true;
                 FillGrid();
-
+                EnabledPrint(true);
             }
             else if (tabControlVentas.SelectedTab.Name.Equals("tpCIndividual"))
             {
@@ -179,8 +180,8 @@ namespace HendrixAccountant.Forms
                     MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE);
                     return;
                 }
-                btnImprimir.Enabled = true;
                 FillGrid();
+                EnabledPrint(true);
             }
         }
 
@@ -217,6 +218,58 @@ namespace HendrixAccountant.Forms
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtIdentCliente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                GetClient();
+                e.Handled = e.SuppressKeyPress = true;
+            }
+        }
+
+        private void GetClient()
+        {
+            if (txtIdentCliente.Text.Length <= 0)
+            {
+                MessageBox.Show("Ingrese la identifiación para buscar el cliente.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (txtIdentCliente.Text.Length < 10)
+            {
+                MessageBox.Show("Ingrese una identifiación válida.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            _rpsClient = new ClienteRepository();
+            var client = _rpsClient.GetByIdentification(txtIdentCliente.Text);
+            if (client == null)
+            {
+                MessageBox.Show("No se econtró el cliente con la identificación: " + txtIdentCliente.Text + ".", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            _client = new ClientIdentity
+            {
+                IdCliente = client.id_cliente,
+                Identificacion = client.identificacion,
+                NombresCompletos = client.nombres + " " + client.apellidos
+            };
+            SetClient();
+        }
+
+        private void SetClient()
+        {
+            if (_client == null) return;
+            txtIdentCliente.Text = _client.Identificacion;
+            txtNombresCliente.Text = _client.NombresCompletos;
+        }
+
+        private void EnabledPrint(bool valor)
+        {
+            btnImprimir.Enabled = false;
+            btnImprimir.BackColor = Color.DimGray;
         }
     }
 }
