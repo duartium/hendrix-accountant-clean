@@ -22,16 +22,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Color = System.Drawing.Color;
 
-namespace HendrixAccountant.Forms.Directorio
+namespace HendrixAccountant
 {
-    public partial class frmMantProducto : Form
+    public partial class frmProductos : Form
     {
         private IUnitOfWork _unitOfWork;
         private IProductService _productService;
         private readonly ProductoRepository _productoRepository;
         private Product _product;
         private int _flagEstadoCrud = 0;
-        public frmMantProducto()
+        public frmProductos()
         {
             InitializeComponent();
             this._unitOfWork = new UnitOfWork(new AppDbContext());
@@ -39,9 +39,6 @@ namespace HendrixAccountant.Forms.Directorio
             HabilitarControlesEntrada(false);
             HabilitarBotonera(true, false, false);
             ConfigurarComboBoxs();
-            //this.dgvListadoProductos.ReadOnly = true;
-            //this.dgvListadoProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            //this.dgvListadoProductos.MultiSelect = false;
         }
         #region Métodos privados
 
@@ -158,11 +155,9 @@ namespace HendrixAccountant.Forms.Directorio
 
         private void HabilitarBotonera(bool botonNuevo, bool botonGuardar, bool botonEliminar)
         {
-            this.btnNuevo.Enabled = botonNuevo;
             this.btnGuardar.Enabled = botonGuardar;
             this.btnEliminar.Enabled = botonEliminar;
 
-            if (botonNuevo) btnNuevo.BackColor = Color.FromArgb(40, 167, 89); else btnNuevo.BackColor = SystemColors.Control;
             if (botonGuardar) btnGuardar.BackColor = Color.FromArgb(27, 46, 140); else btnGuardar.BackColor = SystemColors.Control;
             if (botonEliminar) btnEliminar.BackColor = Color.FromArgb(220, 53, 69); else btnEliminar.BackColor = SystemColors.Control;
         }
@@ -184,7 +179,6 @@ namespace HendrixAccountant.Forms.Directorio
 
         private void ResetearComponentes()
         {
-            btnNuevo.Text = "Nuevo";
             txtNombre.Text = "";
             txtDescripcion.Text = "";
             txtStock.Text = "";
@@ -197,31 +191,6 @@ namespace HendrixAccountant.Forms.Directorio
             cboProveedor.SelectedIndex = 0;
             cboMarca.SelectedIndex = 0;
         }
-
-        private void BotonNuevo()
-        {
-            if (this.btnNuevo.Text == "Nuevo")
-            {
-                this._product = new Product();
-                this._flagEstadoCrud = (int)EstadoOperacionCrud.Nuevo;
-                ResetearComponentes();
-                HabilitarControlesEntrada(true);
-                HabilitarBotonera(true, true, false);
-                this.btnNuevo.Text = "Cancelar";
-            }
-            else
-            {
-                this._product = null;
-                this._flagEstadoCrud = (int)EstadoOperacionCrud.Edicion;
-                ResetearComponentes();
-                HabilitarControlesEntrada(false);
-                HabilitarBotonera(true, false, false);
-                this.btnNuevo.Text = "Nuevo";
-            }
-
-        }
-
-
 
         private void ObtenerModeloDesdeControlesEntrada()
         {
@@ -274,29 +243,29 @@ namespace HendrixAccountant.Forms.Directorio
             //_product.usuario_crea = "developer";
         }
 
-        private void ConfigurarColumnas()
-        {
-            //int cantidadColumnas = dgvListadoProductos.Columns.Count;
-            //for (int i = 0; i < cantidadColumnas; i++)
-            //{
-            //    dgvListadoProductos.Columns[i].Visible = false;
-            //}
+        //private void ConfigurarColumnas()
+        //{
+        //    int cantidadColumnas = dgvListadoProductos.Columns.Count;
+        //    for (int i = 0; i < cantidadColumnas; i++)
+        //    {
+        //        dgvListadoProductos.Columns[i].Visible = false;
+        //    }
 
-            //// solo mostrar las siguientes columnas
-            //dgvListadoProductos.Columns["nombre"].Visible = true;
-            //dgvListadoProductos.Columns["descripcion"].Visible = true;
-            //dgvListadoProductos.Columns["costo"].Visible = true;
-            //dgvListadoProductos.Columns["precio_venta"].Visible = true;
-            //dgvListadoProductos.Columns["stock"].Visible = true;
+        //    // solo mostrar las siguientes columnas
+        //    dgvListadoProductos.Columns["nombre"].Visible = true;
+        //    dgvListadoProductos.Columns["descripcion"].Visible = true;
+        //    dgvListadoProductos.Columns["costo"].Visible = true;
+        //    dgvListadoProductos.Columns["precio_venta"].Visible = true;
+        //    dgvListadoProductos.Columns["stock"].Visible = true;
 
 
-            //// cambiar nombre de columna por
-            //dgvListadoProductos.Columns["nombre"].HeaderText = "Nombre";
-            //dgvListadoProductos.Columns["descripcion"].HeaderText = "Descripción";
-            //dgvListadoProductos.Columns["costo"].HeaderText = "Costo";
-            //dgvListadoProductos.Columns["precio_venta"].HeaderText = "Precio Vta.";
-            //dgvListadoProductos.Columns["stock"].HeaderText = "Stock";
-        }
+        //    // cambiar nombre de columna por
+        //    dgvListadoProductos.Columns["nombre"].HeaderText = "Nombre";
+        //    dgvListadoProductos.Columns["descripcion"].HeaderText = "Descripción";
+        //    dgvListadoProductos.Columns["costo"].HeaderText = "Costo";
+        //    dgvListadoProductos.Columns["precio_venta"].HeaderText = "Precio Vta.";
+        //    dgvListadoProductos.Columns["stock"].HeaderText = "Stock";
+        //}
 
         private void ValidadorFormatoMoneda(TextBox caja, EventHandler nombreMetodo) {
             string value = caja.Text.Replace(",", "").Replace("$", "").Replace(".", "").TrimStart('0');
@@ -334,11 +303,6 @@ namespace HendrixAccountant.Forms.Directorio
 
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            BotonNuevo();
-        }
-
         private void label13_Click(object sender, EventArgs e)
         {
 
@@ -353,44 +317,7 @@ namespace HendrixAccountant.Forms.Directorio
         {
             try
             {
-                this._productService = new ProductService(this._unitOfWork);
-                List<Product> data = new List<Product>();
-                int opcionComboBuscarPor = cboBuscarPor.SelectedIndex;
-                switch (opcionComboBuscarPor)
-                {
-                    case (int)EnumCriterioBusquedaMantProducto.Nombre:
-                        data = this._unitOfWork.Products.Find(x => x.nombre.Contains(txtValorBuscarPor.Text.Trim()) && x.estado == true).ToList();
-                        break;
-                    case (int)EnumCriterioBusquedaMantProducto.Descripción:
-                        data = this._unitOfWork.Products.Find(x => x.descripcion.Contains(txtValorBuscarPor.Text.Trim()) && x.estado == true).ToList();
-                        break;
-                    case (int)EnumCriterioBusquedaMantProducto.PrecioDeVenta:
-                        data = this._unitOfWork.Products.Find(x => x.precio_venta.Equals(txtValorBuscarPor.Text.Trim()) && x.estado == true).ToList();
-                        break;
-                    case (int)EnumCriterioBusquedaMantProducto.Costo:
-                        data = this._unitOfWork.Products.Find(x => x.costo == Decimal.Parse(txtValorBuscarPor.Text.Trim()) && x.estado == true).ToList();
-                        break;
-                    default:
-                        if (txtValorBuscarPor.Text.Trim().Equals("*"))
-                        {
-                            data = this._unitOfWork.Products.Find(x => x.estado == true).ToList();
-                        }
-                        else
-                        {
-                            return;
-                        }
-                        break;
-                }
 
-                if (data.Count == 0)
-                {
-                    MessageBox.Show("No se obtuvieron datos.", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-                dgvListadoProductos.AutoGenerateColumns = true;
-                dgvListadoProductos.DataSource = data;
-                ConfigurarColumnas();
-                dgvListadoProductos.Refresh();
             }
             catch (Exception ex)
             {
@@ -405,17 +332,6 @@ namespace HendrixAccountant.Forms.Directorio
             {
 
 
-                var objeto = (Product)dgvListadoProductos.CurrentRow.DataBoundItem;
-                if (objeto != null)
-                {
-                    this._flagEstadoCrud = (int)EstadoOperacionCrud.Edicion;
-                    this._product = new Product();
-                    this._product = objeto;
-                    EstablecerModeloHaciaControlesEntrada();
-                    HabilitarControlesEntrada(true);
-                    HabilitarBotonera(true, true, true);
-                    this.btnNuevo.Text = "Cancelar";
-                }
             }
             catch (Exception ex)
             {
@@ -423,7 +339,6 @@ namespace HendrixAccountant.Forms.Directorio
                 MessageBox.Show("Error no controlado en el proceso.", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -433,8 +348,7 @@ namespace HendrixAccountant.Forms.Directorio
 
         private void btnLimiparBusqueda_Click(object sender, EventArgs e)
         {
-            txtValorBuscarPor.Text = "";
-            cboBuscarPor.SelectedIndex = -1;
+            
         }
 
         
@@ -465,7 +379,12 @@ namespace HendrixAccountant.Forms.Directorio
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
-        private void frmMantProducto_Load(object sender, EventArgs e)
+        private void frmProductos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarProveedor_Click(object sender, EventArgs e)
         {
 
         }
