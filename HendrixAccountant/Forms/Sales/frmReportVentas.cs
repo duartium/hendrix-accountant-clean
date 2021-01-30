@@ -37,6 +37,7 @@ namespace HendrixAccountant.Forms
         {
             try
             {
+                if (data == null) return;
                 string pathRoot = Utils.GetValueSetting("reports");
                 var dataSource = new List<ReportDataSource>();
                 this.rptViewerVentas.ProcessingMode = ProcessingMode.Local;

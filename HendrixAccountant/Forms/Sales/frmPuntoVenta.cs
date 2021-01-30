@@ -171,11 +171,12 @@ namespace HendrixAccountant
                 var sale = new SaleService();
                 if (sale.Generate(_invoice))
                 {
-                    Clear();
                     MessageBox.Show("Venta registrada con éxito", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Clear();
+                    DisableAdd();
+                    DisabledRemove();
                 }
-                else
-                    MessageBox.Show("No se pudo procesar la venta.", "Proceso fallido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else MessageBox.Show("No se pudo procesar la venta.", "Proceso fallido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
@@ -297,7 +298,6 @@ namespace HendrixAccountant
                 Direccion = client.direccion
             };
             SetClient();
-            btnAgregar.Enabled = true;
         }
 
         private void SetClient()
@@ -306,6 +306,7 @@ namespace HendrixAccountant
             txtIdentCliente.Text = _client.Identificacion;
             txtNombresCliente.Text = _client.NombresCompletos;
             txtDireccionCliente.Text = _client.Direccion;
+            EnableAdd();
             lblInfo.Text = "Cliente seleccionado.";
         }
 

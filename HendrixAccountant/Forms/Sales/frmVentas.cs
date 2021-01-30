@@ -54,6 +54,16 @@ namespace HendrixAccountant.Forms
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
+            if(consultaVenta == ConsultaVenta.COMP_INDIVIDUAL && dgvComprobanteInd.Rows.Count <= 0)
+            {
+                MessageBox.Show("Realice la consulta para procesar el reporte. No existen datos para imprimir.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }else if (consultaVenta == ConsultaVenta.GENERAL && dgvVentaGeneral.Rows.Count <= 0)
+            {
+                MessageBox.Show("Realice la consulta para procesar el reporte. No existen datos para imprimir.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = _dsResp, TipoReporte = _tipoReporte });
             frmReportVentas.ShowDialog();
         }
@@ -65,12 +75,19 @@ namespace HendrixAccountant.Forms
             dgvVentaGeneral.Rows.Clear();
             dgvComprobanteInd.Rows.Clear();
 
+            if (_dsResp.Tables["Table1"].Rows.Count <= 0)
+            {
+                EnabledPrint(false);
+                return;
+            }
+
             if(consultaVenta == ConsultaVenta.COMP_INDIVIDUAL)
                 foreach (var row in _dsResp.Tables[2].AsEnumerable())
                     dgvComprobanteInd.Rows.Add(row.ItemArray[0], row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[4]);
             else
                 foreach (var row in _dsResp.Tables[1].AsEnumerable())
                     dgvVentaGeneral.Rows.Add(row.ItemArray[1], row.ItemArray[2], row.ItemArray[4], row.ItemArray[7], row.ItemArray[8]);
+            EnabledPrint(true);
         }
 
         private void frmVentas_Activated(object sender, EventArgs e)
@@ -162,7 +179,7 @@ namespace HendrixAccountant.Forms
                     return;
                 }
                 FillGrid();
-                EnabledPrint(true);
+                
             }
             else if (tabControlVentas.SelectedTab.Name.Equals("tpCIndividual"))
             {
@@ -268,8 +285,17 @@ namespace HendrixAccountant.Forms
 
         private void EnabledPrint(bool valor)
         {
-            btnImprimir.Enabled = false;
-            btnImprimir.BackColor = Color.DimGray;
+            if (valor)
+            {
+                btnImprimir.Enabled = valor;
+                btnImprimir.BackColor = Color.FromArgb(253, 184, 39);
+            }
+            else
+            {
+                btnImprimir.Enabled = valor;
+                btnImprimir.BackColor = Color.DimGray;
+            }
+            
         }
     }
 }
