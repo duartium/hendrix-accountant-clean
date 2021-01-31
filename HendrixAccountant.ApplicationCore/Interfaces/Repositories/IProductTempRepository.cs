@@ -13,5 +13,6 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
         IEnumerable<Product> GetAll(ProductFilterDto filters);
         void UpdateStock(List<StockDto> stock, bool isDecrease);
         void UpdateStock(StockDto stock, bool isDecrease);
+        bool Save(ProductDto product, bool isUpdate = false);
     }
 }

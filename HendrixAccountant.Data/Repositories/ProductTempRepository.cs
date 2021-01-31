@@ -57,6 +57,28 @@ namespace HendrixAccountant.Data.Repositories
            int resp = _sqlServer.ExecuteNonQuery(SP_STOCK, parms);
         }
 
+        public bool Save(ProductDto product, bool isUpdate = false)
+        {
+            char action = 'I';
+            if (isUpdate) action = 'M';
+
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", action));
+            parms.Add(new SqlParameter("@usuario", product.Usuario));
+            parms.Add(new SqlParameter("@nombre", product.Nombre));
+            parms.Add(new SqlParameter("@descripcion", product.Descripcion));
+            parms.Add(new SqlParameter("@costo", product.Costo));
+            parms.Add(new SqlParameter("@precioVenta", product.Precio));
+            parms.Add(new SqlParameter("@stock", product.Stock));
+            parms.Add(new SqlParameter("@descuento", product.Descuento));
+            parms.Add(new SqlParameter("@talla", product.IdTalla));
+            parms.Add(new SqlParameter("@idProveedor", product.IdProveedor));
+            parms.Add(new SqlParameter("@idCategoria", product.IdCategoria));
+            if (isUpdate) parms.Add(new SqlParameter("@idProduct", product.IdProducto));
+            int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
+            if (resp > 0) return true; else return false;
+        }
+
         private string CreateXmlProducts(List<StockDto> stock)
         {
             string xmlInvoice = String.Empty;
@@ -86,5 +108,6 @@ namespace HendrixAccountant.Data.Repositories
             }
             return xmlInvoice;
         }
+
     }
 }

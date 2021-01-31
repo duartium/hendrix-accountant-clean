@@ -22,7 +22,7 @@ namespace HendrixAccountant
     public partial class frmBuscarProductos : Form
     {
         private readonly IProductTempRepository _rpsProduct;
-        private IFindElement _callerPOS;
+        private IFindElement _caller;
         public frmBuscarProductos()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace HendrixAccountant
         public frmBuscarProductos(IFindElement caller)
         {
             InitializeComponent();
-            _callerPOS = caller;
+            _caller = caller;
             _rpsProduct = new ProductTempRepository();
         }
 
@@ -72,8 +72,14 @@ namespace HendrixAccountant
             dgvProductos.DataSource = null;
             dgvProductos.Rows.Clear();
             dgvProductos.AutoGenerateColumns = false;
+            int i = 0;
             foreach (var item in data.Cast<Product>().ToList())
+            {
                 dgvProductos.Rows.Add(item.id_producto, item.nombre, item.stock, item.precio_venta, item.marca, item.categoria_id);
+                dgvProductos.Rows[i].Tag = item;
+                i++;
+            }
+                
         }
 
         private ProductIdentityDto MapRowToProduct(DataGridViewRow row)
@@ -104,8 +110,7 @@ namespace HendrixAccountant
 
         private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
-                return;
+            if (e.RowIndex < 0) return;
 
             ProductIdentityDto product = MapRowToProduct(dgvProductos.Rows[e.RowIndex]);
             if (product.Stock <= 0)
@@ -113,8 +118,12 @@ namespace HendrixAccountant
                 MessageBox.Show("Stock insuficiente de artículo: " + product.Nombre, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-                
-            _callerPOS.Selected(product);
+
+            if (_caller.GetType() == typeof(frmProductos))
+                _caller.Selected((dgvProductos.Rows[e.RowIndex].Tag as ProductDto));
+            else
+                _caller.Selected(product);
+            
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
