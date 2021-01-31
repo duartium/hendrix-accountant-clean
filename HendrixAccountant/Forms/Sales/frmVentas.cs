@@ -178,6 +178,11 @@ namespace HendrixAccountant.Forms
                     MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
+                if (_dsResp.Tables["table1"].Rows.Count <= 0)
+                {
+                    MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
                 FillGrid();
                 
             }
