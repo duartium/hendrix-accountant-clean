@@ -137,6 +137,7 @@ namespace HendrixAccountant
         {
             txtNombreProd.Clear();
             txtCodProducto.Clear();
+            dgvProductos.Rows.Clear();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)

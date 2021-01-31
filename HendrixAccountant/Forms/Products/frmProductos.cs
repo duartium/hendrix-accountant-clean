@@ -66,6 +66,7 @@ namespace HendrixAccountant
             Clear();
             DisabledRemove();
             DisabledSearch();
+            txtNombre.Focus();
         }
 
         private void SetProduct()
@@ -80,8 +81,7 @@ namespace HendrixAccountant
             txtNombreProveedor.Text = "";
             cmbTalla.SelectedValue = _product.id_talla;
             cboCategoria.SelectedValue = _product.categoria_id;
-            //EnabledTextboxs(false);
-            //txtIdentificacion.Focus();
+            txtNombre.Focus();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -95,9 +95,13 @@ namespace HendrixAccountant
                 MessageBox.Show("Complete los datos del producto para proceder con su registro.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            if (_product == null) return;
+            bool isUpdate = false;
+            string mensaje = "Producto registrado con éxito.";
             var dataOp = DataOperator.Instance;
             var product = new ProductDto
             {
+                IdProducto = _product.id_producto,
                 Nombre = txtNombre.Text,
                 Descripcion = txtDescripcion.Text,
                 Costo = Convert.ToDecimal(txtCosto.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
@@ -108,14 +112,18 @@ namespace HendrixAccountant
                 IdTalla = Convert.ToInt32(cmbTalla.SelectedValue),
                 Usuario = dataOp.Username
             };
-            if (_rpsProduct.Save(product))
+
+            if (rbnModificar.Checked) { isUpdate = true; mensaje = mensaje.Replace("registrado", "actualizado"); }
+            if (_rpsProduct.Save(product, isUpdate))
             {
-                MessageBox.Show("Producto registrado con éxito.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Clear();
+                MessageBox.Show(mensaje, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNombre.Focus();
                 return;
             }
             else
             {
-                MessageBox.Show("No se pudo registrar el producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No se pudo registrar/modificar el producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
         }
@@ -242,6 +250,23 @@ namespace HendrixAccountant
         private void frmProductos_Activated(object sender, EventArgs e)
         {
             txtNombre.Focus();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (_product == null)
+            {
+                MessageBox.Show("Busque y seleccione un producto para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            bool resp = _rpsProduct.Remove(_product.id_producto, DataOperator.Instance.Username);
+            if (resp)
+            {
+                MessageBox.Show("Producto eliminado con éxito.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Clear();
+            }
+            else MessageBox.Show("No se pudo eliminar el producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
         }
     }
 }

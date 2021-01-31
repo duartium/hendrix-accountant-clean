@@ -74,7 +74,17 @@ namespace HendrixAccountant.Data.Repositories
             parms.Add(new SqlParameter("@talla", product.IdTalla));
             parms.Add(new SqlParameter("@idProveedor", product.IdProveedor));
             parms.Add(new SqlParameter("@idCategoria", product.IdCategoria));
-            if (isUpdate) parms.Add(new SqlParameter("@idProduct", product.IdProducto));
+            if (isUpdate) parms.Add(new SqlParameter("@idProducto", product.IdProducto));
+            int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
+            if (resp > 0) return true; else return false;
+        }
+
+        public bool Remove(int idProduct, string usuario)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", "E"));
+            parms.Add(new SqlParameter("@usuario", usuario));
+            parms.Add(new SqlParameter("@idProducto", idProduct));
             int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
             if (resp > 0) return true; else return false;
         }

@@ -13,8 +13,7 @@ namespace HendrixAccountant.ApplicationCore.Map
     public class ProductMapper
     {
         public List<Product> DatasetToProducts(DataSet data) {
-            if (!Validator.DatasetIsValid(data))
-                return null;
+            if (!Validator.DatasetIsValid(data)) return null;
             
             List<Product> products = null;
             try
@@ -25,6 +24,7 @@ namespace HendrixAccountant.ApplicationCore.Map
                     nombre = field["nombre"].ToString(),
                     descripcion = field["descripcion"].ToString(),
                     stock = Convert.ToInt32(field["stock"].ToString()),
+                    costo = Convert.ToDecimal(field["costo"].ToString(), Utils.GetCulture()),
                     precio_venta = Convert.ToDecimal(field["precio"].ToString(), Utils.GetCulture()),
                     id_talla = Convert.ToInt32(field["idTalla"].ToString()),
                     talla = field["talla"].ToString(),

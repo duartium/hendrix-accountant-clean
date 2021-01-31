@@ -75,6 +75,7 @@ namespace HendrixAccountant
                 return;
             }
             if (_client == null) return;
+            string mensaje = "Cliente registrado con éxito.";
             bool isUpdate = false;
             var dataOp = DataOperator.Instance;
             var client = new ClientDto
@@ -91,11 +92,12 @@ namespace HendrixAccountant
                 Usuario = dataOp.Username,
                 IdCliente = _client.IdCliente
             };
+
+            if (rbnModificar.Checked) { isUpdate = true; mensaje = mensaje.Replace("registrado", "modificado"); }
             
-            if(rbnModificar.Checked) isUpdate = true;
             bool resp = _rpsClient.Save(client, isUpdate);
             if (resp){
-                MessageBox.Show("Cliente registrado con éxito.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(mensaje, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Clear();
             }else
                 MessageBox.Show("No se pudo registrar el cliente.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);

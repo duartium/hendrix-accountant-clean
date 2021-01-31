@@ -14,5 +14,6 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
         void UpdateStock(List<StockDto> stock, bool isDecrease);
         void UpdateStock(StockDto stock, bool isDecrease);
         bool Save(ProductDto product, bool isUpdate = false);
+        bool Remove(int idProduct, string usuario);
     }
 }
