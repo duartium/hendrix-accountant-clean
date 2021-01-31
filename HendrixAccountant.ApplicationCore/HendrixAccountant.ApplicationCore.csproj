@@ -50,6 +50,7 @@
     <Compile Include="Constants\CValue.cs" />
     <Compile Include="DTOs\BrandDTO.cs" />
     <Compile Include="DTOs\CashFlowDto.cs" />
+    <Compile Include="DTOs\CatalogueDto.cs" />
     <Compile Include="DTOs\CategoryDTO.cs" />
     <Compile Include="DTOs\ClientDto.cs" />
     <Compile Include="DTOs\ColorDTO.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Interfaces\Forms\IFindElement.cs" />
     <Compile Include="Interfaces\Repositories\IBrandRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICashRegisterRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICatalogueRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICategoryRepository.cs" />
     <Compile Include="Interfaces\Repositories\IClientRepository.cs" />
     <Compile Include="Interfaces\Repositories\IColorRepository.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Interfaces\Services\ISupplierService.cs" />
     <Compile Include="Interfaces\Shared\IGoogleService.cs" />
     <Compile Include="Interfaces\Shared\IMailService.cs" />
+    <Compile Include="Map\CatalogueMapper.cs" />
     <Compile Include="Map\CompanyMapper.cs" />
     <Compile Include="Map\ProductMapper.cs" />
     <Compile Include="Map\ClientMapper.cs" />

@@ -250,7 +250,7 @@ namespace HendrixAccountant.Forms.Directorio
             _product.descripcion = txtDescripcion.Text.Trim();
             _product.proveedor_id = (int)idproveedor;
             _product.stock = Int32.Parse(txtStock.Text.Trim());
-            _product.talla = (txtTalla.Text.Trim().Equals("")) ? 0 : Int32.Parse(txtTalla.Text.Trim());
+            //_product.talla = (txtTalla.Text.Trim().Equals("")) ? 0 : Int32.Parse(txtTalla.Text.Trim());
             _product.precio_venta = Convert.ToDecimal(txtPrecioVenta.Text.Trim().Substring(1).Replace(",", "").Replace(".", ","), Utils.GetCulture());
         }
         private void EstablecerModeloHaciaControlesEntrada()

@@ -1,5 +1,6 @@
 ﻿using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Entities;
+using HendrixAccountant.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -60,8 +61,9 @@ namespace HendrixAccountant.ApplicationCore.Map
                     email = field["email"].ToString()
                 }).FirstOrDefault();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Utils.GrabarLog("DatasetToClient", ex.ToString());
             }
             return client;
         }

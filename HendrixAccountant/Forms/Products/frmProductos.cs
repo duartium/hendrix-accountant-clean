@@ -12,8 +12,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Color = System.Drawing.Color;
 
 namespace HendrixAccountant
 {
@@ -21,10 +23,13 @@ namespace HendrixAccountant
     {
         private IProductTempRepository _rpsProduct;
         private Product _product;
+        private ICatalogueRepository _rpsCatalogue;
         public frmProductos()
         {
             InitializeComponent();
             _rpsProduct = new ProductTempRepository();
+            _rpsCatalogue = new CatalogueRepository();
+            LoadCatalogs();
         }
 
         public void Selected(ISaleElement entity)
@@ -58,10 +63,9 @@ namespace HendrixAccountant
 
         private void rbnNuevo_CheckedChanged(object sender, EventArgs e)
         {
-            btnBuscar.Enabled = false;
-            btnEliminar.Enabled = true;
-            btnEliminar.BackColor = SystemColors.Control;
-            btnBuscar.BackColor = SystemColors.Control;
+            Clear();
+            DisabledRemove();
+            DisabledSearch();
         }
 
         private void SetProduct()
@@ -74,6 +78,8 @@ namespace HendrixAccountant
             txtStock.Text = _product.stock.ToString();
             txtCodProveedor.Text = "";
             txtNombreProveedor.Text = "";
+            cmbTalla.SelectedValue = _product.id_talla;
+            cboCategoria.SelectedValue = _product.categoria_id;
             //EnabledTextboxs(false);
             //txtIdentificacion.Focus();
         }
@@ -89,16 +95,18 @@ namespace HendrixAccountant
                 MessageBox.Show("Complete los datos del producto para proceder con su registro.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            var dataOp = DataOperator.Instance;
             var product = new ProductDto
             {
                 Nombre = txtNombre.Text,
                 Descripcion = txtDescripcion.Text,
-                Costo = Convert.ToDecimal(txtCosto.Text, Utils.GetCulture()),
-                Precio = Convert.ToDecimal(txtPrecioVenta.Text, Utils.GetCulture()),
+                Costo = Convert.ToDecimal(txtCosto.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
+                Precio = Convert.ToDecimal(txtPrecioVenta.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
                 Stock = Convert.ToInt32(txtStock.Text),
-                IdCategoria = 1,
+                IdCategoria = Convert.ToInt32(cboCategoria.SelectedValue),
                 IdProveedor = 1,
-                IdTalla = 1
+                IdTalla = Convert.ToInt32(cmbTalla.SelectedValue),
+                Usuario = dataOp.Username
             };
             if (_rpsProduct.Save(product))
             {
@@ -110,7 +118,6 @@ namespace HendrixAccountant
                 MessageBox.Show("No se pudo registrar el producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -121,16 +128,120 @@ namespace HendrixAccountant
         {
             txtNombre.Clear();
             txtDescripcion.Clear();
-            txtCosto.Text = "0.00";
-            txtPrecioVenta.Text = "0.00";
+            txtCosto.Clear();
+            txtPrecioVenta.Clear();
             txtCodProveedor.Clear();
             txtNombreProveedor.Clear();
-            txtStock.Text = "0";
+            txtStock.Clear();
         }
 
         private void frmProductos_Load(object sender, EventArgs e)
         {
-           
+            DisabledSearch();
+            DisabledRemove();
+        }
+
+        private void LoadComboBoxTallas()
+        {
+            BindingSource source = new BindingSource();
+            cmbTalla.DisplayMember = "Descripcion";
+            cmbTalla.ValueMember = "Id";
+            var data = _rpsCatalogue.GetByName("tallas");
+            source.DataSource = data;
+            cmbTalla.DataSource = source.DataSource;
+        }
+
+        private void LoadComboBoxCategorias()
+        {
+            BindingSource source = new BindingSource();
+            cboCategoria.DisplayMember = "Descripcion";
+            cboCategoria.ValueMember = "Id";
+            var data = _rpsCatalogue.GetByName("categorias");
+            source.DataSource = data;
+            cboCategoria.DataSource = source.DataSource;
+        }
+
+        private void LoadCatalogs()
+        {
+            LoadComboBoxTallas();
+            LoadComboBoxCategorias();
+            txtNombre.Focus();
+        }
+
+        private void ValidadorFormatoMoneda(TextBox caja, EventHandler nombreMetodo)
+        {
+            string value = caja.Text.Replace(",", "").Replace("$", "").Replace(".", "").TrimStart('0');
+            decimal ul;
+            //Check we are indeed handling a number
+            if (decimal.TryParse(value, out ul))
+            {
+                ul /= 100;
+                //Unsub the event so we don't enter a loop
+                caja.TextChanged -= nombreMetodo;
+                //Format the text as currency
+                caja.Text = string.Format(Utils.GetCulture(), "{0:C2}", ul);
+                caja.TextChanged += nombreMetodo;
+                caja.Select(caja.Text.Length, 0);
+            }
+            bool goodToGo = TextisValid(caja.Text);
+
+            if (!goodToGo)
+            {
+                caja.Text = "$0.00";
+                caja.Select(caja.Text.Length, 0);
+            }
+        }
+
+        private bool TextisValid(string text)
+        {
+            Regex money = new Regex(@"^\$(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?$");
+            return money.IsMatch(text);
+        }
+
+        private void txtCosto_TextChanged(object sender, EventArgs e)
+        {
+            ValidadorFormatoMoneda(txtCosto, txtCosto_TextChanged);
+        }
+
+        private void txtPrecioVenta_TextChanged(object sender, EventArgs e)
+        {
+            ValidadorFormatoMoneda(txtPrecioVenta, txtCosto_TextChanged);
+        }
+
+        private void EnableRemove()
+        {
+            btnEliminar.Enabled = true;
+            btnEliminar.BackColor = Color.FromArgb(220, 53, 69);
+            btnEliminar.Focus();
+        }
+
+        private void DisabledRemove()
+        {
+            btnEliminar.Enabled = false;
+            btnEliminar.BackColor = SystemColors.Control;
+        }
+
+        private void EnableSearch()
+        {
+            btnBuscar.Enabled = true;
+            btnBuscar.BackColor = Color.FromArgb(253, 184, 39);
+        }
+
+        private void DisabledSearch()
+        {
+            btnBuscar.Enabled = false;
+            btnBuscar.BackColor = SystemColors.Control;
+        }
+
+        private void rbnModificar_CheckedChanged(object sender, EventArgs e)
+        {
+            EnableSearch();
+            EnableRemove();
+        }
+
+        private void frmProductos_Activated(object sender, EventArgs e)
+        {
+            txtNombre.Focus();
         }
     }
 }

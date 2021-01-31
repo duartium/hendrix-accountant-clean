@@ -45,7 +45,7 @@
             this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTalla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -195,7 +195,7 @@
             this.colStock,
             this.colPrecio,
             this.colCategoria,
-            this.colMarca});
+            this.colTalla});
             this.dgvProductos.EnableHeadersVisualStyles = false;
             this.dgvProductos.Location = new System.Drawing.Point(5, 95);
             this.dgvProductos.MultiSelect = false;
@@ -239,11 +239,12 @@
             this.colCategoria.ReadOnly = true;
             this.colCategoria.Width = 150;
             // 
-            // colMarca
+            // colTalla
             // 
-            this.colMarca.HeaderText = "Marca";
-            this.colMarca.Name = "colMarca";
-            this.colMarca.ReadOnly = true;
+            this.colTalla.HeaderText = "Talla";
+            this.colTalla.Name = "colTalla";
+            this.colTalla.ReadOnly = true;
+            this.colTalla.Width = 60;
             // 
             // frmBuscarProductos
             // 
@@ -287,6 +288,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTalla;
     }
 }

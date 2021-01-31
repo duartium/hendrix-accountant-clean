@@ -75,7 +75,7 @@ namespace HendrixAccountant
             int i = 0;
             foreach (var item in data.Cast<Product>().ToList())
             {
-                dgvProductos.Rows.Add(item.id_producto, item.nombre, item.stock, item.precio_venta, item.marca, item.categoria_id);
+                dgvProductos.Rows.Add(item.id_producto, item.nombre, item.stock, item.precio_venta, item.categoria, item.talla);
                 dgvProductos.Rows[i].Tag = item;
                 i++;
             }
@@ -120,7 +120,7 @@ namespace HendrixAccountant
             }
 
             if (_caller.GetType() == typeof(frmProductos))
-                _caller.Selected((dgvProductos.Rows[e.RowIndex].Tag as ProductDto));
+                _caller.Selected((dgvProductos.Rows[e.RowIndex].Tag as Product));
             else
                 _caller.Selected(product);
             

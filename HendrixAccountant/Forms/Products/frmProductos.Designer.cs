@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -49,7 +50,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
-            this.txtStock = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -71,6 +71,7 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtStock = new HendrixAccountant.UIControls.NumericInput();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel8.SuspendLayout();
@@ -129,7 +130,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label6.Location = new System.Drawing.Point(363, 222);
+            this.label6.Location = new System.Drawing.Point(363, 215);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 15);
             this.label6.TabIndex = 76;
@@ -211,6 +212,7 @@
             this.rbnModificar.TabIndex = 74;
             this.rbnModificar.Text = "Modificar producto";
             this.rbnModificar.UseVisualStyleBackColor = true;
+            this.rbnModificar.CheckedChanged += new System.EventHandler(this.rbnModificar_CheckedChanged);
             // 
             // rbnNuevo
             // 
@@ -243,7 +245,7 @@
             this.txtCodProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCodProveedor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodProveedor.Location = new System.Drawing.Point(2, 6);
-            this.txtCodProveedor.MaxLength = 13;
+            this.txtCodProveedor.MaxLength = 10;
             this.txtCodProveedor.Name = "txtCodProveedor";
             this.txtCodProveedor.Size = new System.Drawing.Size(65, 19);
             this.txtCodProveedor.TabIndex = 48;
@@ -297,13 +299,13 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 15);
             this.label7.TabIndex = 53;
-            this.label7.Text = "Categoria";
+            this.label7.Text = "Categoría";
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.Control;
-            this.panel5.Controls.Add(this.label20);
             this.panel5.Controls.Add(this.txtStock);
+            this.panel5.Controls.Add(this.label20);
             this.panel5.Location = new System.Drawing.Point(262, 230);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(98, 32);
@@ -317,19 +319,6 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(98, 3);
             this.label20.TabIndex = 9;
-            // 
-            // txtStock
-            // 
-            this.txtStock.BackColor = System.Drawing.SystemColors.Control;
-            this.txtStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtStock.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStock.Location = new System.Drawing.Point(5, 8);
-            this.txtStock.MaxLength = 8;
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(87, 15);
-            this.txtStock.TabIndex = 11;
-            this.txtStock.Text = "0";
-            this.txtStock.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label21
             // 
@@ -351,7 +340,7 @@
             "A",
             "B",
             "C"});
-            this.cboCategoria.Location = new System.Drawing.Point(50, 332);
+            this.cboCategoria.Location = new System.Drawing.Point(50, 336);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(205, 24);
             this.cboCategoria.TabIndex = 54;
@@ -381,11 +370,12 @@
             this.txtPrecioVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrecioVenta.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecioVenta.Location = new System.Drawing.Point(5, 8);
+            this.txtPrecioVenta.MaxLength = 10;
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(87, 15);
             this.txtPrecioVenta.TabIndex = 13;
-            this.txtPrecioVenta.Text = "0.00";
             this.txtPrecioVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPrecioVenta.TextChanged += new System.EventHandler(this.txtPrecioVenta_TextChanged);
             // 
             // label19
             // 
@@ -423,11 +413,12 @@
             this.txtCosto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCosto.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCosto.Location = new System.Drawing.Point(5, 8);
+            this.txtCosto.MaxLength = 10;
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(87, 15);
             this.txtCosto.TabIndex = 12;
-            this.txtCosto.Text = "0.00";
             this.txtCosto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCosto.TextChanged += new System.EventHandler(this.txtCosto_TextChanged);
             // 
             // label17
             // 
@@ -456,6 +447,7 @@
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescripcion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(2, 8);
+            this.txtDescripcion.MaxLength = 150;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(304, 15);
             this.txtDescripcion.TabIndex = 4;
@@ -574,10 +566,22 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // txtStock
+            // 
+            this.txtStock.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStock.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStock.Location = new System.Drawing.Point(3, 8);
+            this.txtStock.MaxLength = 5;
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(92, 15);
+            this.txtStock.TabIndex = 49;
+            // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(520, 427);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbTalla);
@@ -606,12 +610,14 @@
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(5, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "MANTENIMIENTO DE PRODUCTOS";
+            this.Activated += new System.EventHandler(this.frmProductos_Activated);
             this.Load += new System.EventHandler(this.frmProductos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -658,7 +664,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.Panel panel4;
@@ -680,5 +685,6 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
+        private UIControls.NumericInput txtStock;
     }
 }

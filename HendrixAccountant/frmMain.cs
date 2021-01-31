@@ -12,12 +12,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using HendrixAccountant.ApplicationCore.Constants;
 
 namespace HendrixAccountant
 {
     public partial class frmMain : Form
     {
-        private frmMantProducto frmMantProducto = null;
         private frmProductos frmProductos = null;
         private frmClientes frmClientes = null;
         private frmMantProveedor frmMantProveedor = null;
@@ -57,12 +57,7 @@ namespace HendrixAccountant
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (frmProductos != null) return;
-
-            frmProductos = new frmProductos();
-            frmProductos.MdiParent = this;
-            frmProductos.FormClosed += new FormClosedEventHandler(productos_FormClosed);
-            frmProductos.Show();
+            ShowProducts();
         }
 
         private void aperturarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,11 +93,6 @@ namespace HendrixAccountant
         private void frmVentas_FormClosed(object sender, EventArgs e)
         {
             frmVentas = null;
-        }
-
-        private void mantProductos_FormClosed(object sender, EventArgs e)
-        {
-            frmMantProducto = null;
         }
 
         private void mantProveedor_FormClosed(object sender, EventArgs e)
@@ -218,7 +208,7 @@ namespace HendrixAccountant
             if (frmProductos != null) return;
             frmProductos = new frmProductos();
             frmProductos.MdiParent = this;
-            frmProductos.FormClosed += new FormClosedEventHandler(mantProductos_FormClosed);
+            frmProductos.FormClosed += new FormClosedEventHandler(productos_FormClosed);
             frmProductos.Show();
         }
 
@@ -254,11 +244,39 @@ namespace HendrixAccountant
             frmParametros.Show();
         }
 
+        private void ShowProducts()
+        {
+            if (frmProductos != null) return;
+            frmProductos = new frmProductos();
+            frmProductos.MdiParent = this;
+            frmProductos.FormClosed += new FormClosedEventHandler(productos_FormClosed);
+            frmProductos.Show();
+        }
+
         private void parámetrosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowConfiguration();
             DeselectButtons();
             itemConfiguracion.BackColor = Color.FromArgb(253, 184, 39);
+        }
+
+        private void itemProductos_Click(object sender, EventArgs e)
+        {
+            ShowProducts();
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //if (MessageBox.Show("¿Está seguro que desea salir del sistema?", CString.DEFAULT_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            //{
+            //    e.Cancel = false;
+            //    return;
+            //}
+            //else
+            //{
+            //    this.Close();
+            //}
+            
         }
     }
 }

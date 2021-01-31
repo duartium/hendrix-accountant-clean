@@ -26,8 +26,10 @@ namespace HendrixAccountant.ApplicationCore.Map
                     descripcion = field["descripcion"].ToString(),
                     stock = Convert.ToInt32(field["stock"].ToString()),
                     precio_venta = Convert.ToDecimal(field["precio"].ToString(), Utils.GetCulture()),
-                    marca = Convert.ToInt32(field["marca"].ToString()),
-                    categoria_id = Convert.ToInt32(field["categoria"].ToString())
+                    id_talla = Convert.ToInt32(field["idTalla"].ToString()),
+                    talla = field["talla"].ToString(),
+                    categoria_id = Convert.ToInt32(field["idCategoria"].ToString()),
+                    categoria = field["categoria"].ToString()
                 }).ToList();
             }
             catch (Exception ex)
