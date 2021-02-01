@@ -326,6 +326,8 @@
     <Content Include="Resources\Images\HendrixLogoWhite256.png" />
     <Content Include="Resources\Images\HendrixUserCircle.png" />
     <Content Include="Resources\Images\logo.png" />
+    <Content Include="Resources\Images\LogoNovedadesChic.png" />
+    <Content Include="Resources\Images\LogoNovedadesChicWhite.png" />
     <Content Include="Resources\Images\productWhite25.png" />
     <Content Include="Resources\Images\reportWhite25.png" />
     <Content Include="Resources\Images\saveBlue20.png" />

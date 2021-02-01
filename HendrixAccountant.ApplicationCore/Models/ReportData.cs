@@ -1,4 +1,5 @@
-﻿using HendrixAccountant.ApplicationCore.Enums;
+﻿using HendrixAccountant.ApplicationCore.DTOs;
+using HendrixAccountant.ApplicationCore.Enums;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,5 +13,6 @@ namespace HendrixAccountant.ApplicationCore.Models
     {
         public DataSet Data { get; set; }
         public TipoReporte TipoReporte { get; set; }
+        public List<ReportCriteriaDto> Criterios { get; set; }
     }
 }

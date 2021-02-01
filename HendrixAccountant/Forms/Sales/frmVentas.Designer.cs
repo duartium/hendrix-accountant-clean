@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentas));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
@@ -45,11 +45,6 @@
             this.tabControlVentas = new System.Windows.Forms.TabControl();
             this.tpGeneral = new System.Windows.Forms.TabPage();
             this.dgvVentaGeneral = new System.Windows.Forms.DataGridView();
-            this.colSecuencial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpDatosVenta = new System.Windows.Forms.GroupBox();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.lblFechaDesde = new System.Windows.Forms.Label();
@@ -77,6 +72,11 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
+            this.colSecuencial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.tabControlVentas.SuspendLayout();
             this.tpGeneral.SuspendLayout();
@@ -228,48 +228,6 @@
             this.dgvVentaGeneral.Size = new System.Drawing.Size(696, 327);
             this.dgvVentaGeneral.TabIndex = 12;
             // 
-            // colSecuencial
-            // 
-            this.colSecuencial.HeaderText = "Número";
-            this.colSecuencial.Name = "colSecuencial";
-            this.colSecuencial.ReadOnly = true;
-            this.colSecuencial.Width = 80;
-            // 
-            // colFechaEmision
-            // 
-            this.colFechaEmision.HeaderText = "Fecha de emisión";
-            this.colFechaEmision.Name = "colFechaEmision";
-            this.colFechaEmision.ReadOnly = true;
-            this.colFechaEmision.Width = 130;
-            // 
-            // colCliente
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.colCliente.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colCliente.HeaderText = "Nombres de cliente";
-            this.colCliente.Name = "colCliente";
-            this.colCliente.ReadOnly = true;
-            this.colCliente.Width = 280;
-            // 
-            // colTotal
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.NullValue = "0";
-            this.colTotal.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colTotal.HeaderText = "Total";
-            this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
-            this.colTotal.Width = 120;
-            // 
-            // colUsuario
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.colUsuario.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colUsuario.HeaderText = "Usuario";
-            this.colUsuario.Name = "colUsuario";
-            this.colUsuario.ReadOnly = true;
-            this.colUsuario.Width = 140;
-            // 
             // gpDatosVenta
             // 
             this.gpDatosVenta.Controls.Add(this.dtpFechaDesde);
@@ -335,6 +293,7 @@
             this.gbUsuario.TabIndex = 28;
             this.gbUsuario.TabStop = false;
             this.gbUsuario.Text = "Usuario";
+            this.gbUsuario.Visible = false;
             // 
             // lblCodUsuario
             // 
@@ -565,6 +524,48 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "Factura nº";
             // 
+            // colSecuencial
+            // 
+            this.colSecuencial.HeaderText = "Número";
+            this.colSecuencial.Name = "colSecuencial";
+            this.colSecuencial.ReadOnly = true;
+            this.colSecuencial.Width = 80;
+            // 
+            // colFechaEmision
+            // 
+            this.colFechaEmision.HeaderText = "Fecha de emisión";
+            this.colFechaEmision.Name = "colFechaEmision";
+            this.colFechaEmision.ReadOnly = true;
+            this.colFechaEmision.Width = 130;
+            // 
+            // colCliente
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colCliente.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colCliente.HeaderText = "Nombres de cliente";
+            this.colCliente.Name = "colCliente";
+            this.colCliente.ReadOnly = true;
+            this.colCliente.Width = 280;
+            // 
+            // colTotal
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.NullValue = "0";
+            this.colTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colTotal.HeaderText = "Total";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.ReadOnly = true;
+            this.colTotal.Width = 120;
+            // 
+            // colUsuario
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colUsuario.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colUsuario.HeaderText = "Usuario";
+            this.colUsuario.Name = "colUsuario";
+            this.colUsuario.ReadOnly = true;
+            this.colUsuario.Width = 85;
+            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -633,14 +634,14 @@
         private UIControls.Buttons.ItemAsideSmall btnConsultar;
         private UIControls.Buttons.ItemAsideSmall btnImprimir;
         private System.Windows.Forms.DataGridView dgvVentaGeneral;
+        private UIControls.NumericInput txtIdentCliente;
+        private UIControls.NumericInput txtNumSecuencial;
+        private UIControls.Buttons.ItemAsideSmall btnCerrar;
+        private UIControls.Buttons.ItemAsideSmall btnLimpiar;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSecuencial;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFechaEmision;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUsuario;
-        private UIControls.NumericInput txtIdentCliente;
-        private UIControls.NumericInput txtNumSecuencial;
-        private UIControls.Buttons.ItemAsideSmall btnCerrar;
-        private UIControls.Buttons.ItemAsideSmall btnLimpiar;
     }
 }

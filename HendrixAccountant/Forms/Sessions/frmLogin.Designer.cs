@@ -42,6 +42,8 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnAcceder = new System.Windows.Forms.Button();
             this.lblCerrar = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbxLogoCompany = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
@@ -52,6 +54,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -77,22 +81,24 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.label2.Location = new System.Drawing.Point(53, 226);
+            this.label2.Location = new System.Drawing.Point(43, 311);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Accountant";
+            this.label2.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(51, 197);
+            this.label1.Location = new System.Drawing.Point(41, 282);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 34);
             this.label1.TabIndex = 1;
             this.label1.Text = "HENDRIX";
+            this.label1.Visible = false;
             // 
             // txtUsername
             // 
@@ -199,6 +205,31 @@
             this.lblCerrar.Text = "X";
             this.lblCerrar.Click += new System.EventHandler(this.lblCerrar_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.label8.Location = new System.Drawing.Point(43, 215);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(138, 19);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "CHIC BOUTIQUE";
+            this.label8.Visible = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Snow;
+            this.label9.Location = new System.Drawing.Point(41, 186);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(163, 29);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "NOVEDADES";
+            this.label9.Visible = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -211,10 +242,10 @@
             // 
             // pbxLogoCompany
             // 
-            this.pbxLogoCompany.Image = global::HendrixAccountant.Properties.Resources.HendrixLogoWhite;
-            this.pbxLogoCompany.Location = new System.Drawing.Point(73, 98);
+            this.pbxLogoCompany.Image = global::HendrixAccountant.Properties.Resources.LogoNovedadesChicWhite;
+            this.pbxLogoCompany.Location = new System.Drawing.Point(66, 87);
             this.pbxLogoCompany.Name = "pbxLogoCompany";
-            this.pbxLogoCompany.Size = new System.Drawing.Size(97, 85);
+            this.pbxLogoCompany.Size = new System.Drawing.Size(112, 95);
             this.pbxLogoCompany.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxLogoCompany.TabIndex = 0;
             this.pbxLogoCompany.TabStop = false;
@@ -265,5 +296,7 @@
         private System.Windows.Forms.Button btnAcceder;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblCerrar;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

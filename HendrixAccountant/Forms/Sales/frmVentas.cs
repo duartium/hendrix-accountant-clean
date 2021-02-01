@@ -8,6 +8,7 @@ using HendrixAccountant.ApplicationCore.Map;
 using HendrixAccountant.ApplicationCore.Models;
 using HendrixAccountant.Data;
 using HendrixAccountant.Data.Dtos;
+using HendrixAccountant.Data.Repositories;
 using HendrixAccountant.Data.Services;
 using HendrixAccountant.Reports;
 using System;
@@ -31,10 +32,12 @@ namespace HendrixAccountant.Forms
         private UserDto _user;
         private TipoReporte _tipoReporte;
         private IClientRepository _rpsClient;
+        private IParameterRepository _rpsParams;
         public frmVentas()
         {
             InitializeComponent();
             _rpsReports = new SaleReportService();
+            _rpsParams = new CompanyRepository();
             _dsResp = null;
             _client = null;
             _user = null;
@@ -64,7 +67,18 @@ namespace HendrixAccountant.Forms
                 return;
             }
 
-            frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = _dsResp, TipoReporte = _tipoReporte });
+            var criterios = new List<ReportCriteriaDto>()
+            {
+                new ReportCriteriaDto{Nombre = "fechaDesde", Descripcion = dtpFechaDesde.Value.ToString() },
+                new ReportCriteriaDto{ Nombre = "fechaHasta", Descripcion = dtpFechaHasta.Value.ToString()},
+                new ReportCriteriaDto{ Nombre = "identificacion", Descripcion = txtIdentCliente.Text },
+                new ReportCriteriaDto{ Nombre = "nombresCliente", Descripcion = txtNombresCliente.Text}
+            };
+            Company company = _rpsParams.Get() as Company;
+            var dtCompany = new CompanyMapper().JsonCompanyToDataTable(company);
+            if(!_dsResp.Tables.Contains("dtCompany"))
+                _dsResp.Tables.Add(dtCompany);
+            frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = _dsResp, TipoReporte = _tipoReporte, Criterios = criterios });
             frmReportVentas.ShowDialog();
         }
 
@@ -75,17 +89,17 @@ namespace HendrixAccountant.Forms
             dgvVentaGeneral.Rows.Clear();
             dgvComprobanteInd.Rows.Clear();
 
-            if (_dsResp.Tables["Table1"].Rows.Count <= 0)
+            if (_dsResp.Tables["table1"].Rows.Count <= 0)
             {
                 EnabledPrint(false);
                 return;
             }
 
             if(consultaVenta == ConsultaVenta.COMP_INDIVIDUAL)
-                foreach (var row in _dsResp.Tables[2].AsEnumerable())
+                foreach (var row in _dsResp.Tables["table1"].AsEnumerable())
                     dgvComprobanteInd.Rows.Add(row.ItemArray[0], row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[4]);
             else
-                foreach (var row in _dsResp.Tables[1].AsEnumerable())
+                foreach (var row in _dsResp.Tables["table1"].AsEnumerable())
                     dgvVentaGeneral.Rows.Add(row.ItemArray[1], row.ItemArray[2], row.ItemArray[4], row.ItemArray[7], row.ItemArray[8]);
             EnabledPrint(true);
         }
@@ -192,7 +206,8 @@ namespace HendrixAccountant.Forms
                 _tipoReporte = TipoReporte.FACTURA_VENTA;
                 if (txtNumSecuencial.Text.Length <= 0)
                 {
-                    MessageBox.Show("Ingrese en número de factura para realizar la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Ingrese el número de factura para realizar la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNumSecuencial.Focus();
                     return;
                 }
 

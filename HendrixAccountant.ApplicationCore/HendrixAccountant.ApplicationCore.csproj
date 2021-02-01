@@ -58,6 +58,7 @@
     <Compile Include="DTOs\InvoiceDto.cs" />
     <Compile Include="DTOs\FiltersDto.cs" />
     <Compile Include="DTOs\ProductDetailBuyDto.cs" />
+    <Compile Include="DTOs\ReportCriteriaDto.cs" />
     <Compile Include="DTOs\SupplierDTO.cs" />
     <Compile Include="Entities\Brand.cs" />
     <Compile Include="Entities\Category.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Map\CompanyMapper.cs" />
     <Compile Include="Map\ProductMapper.cs" />
     <Compile Include="Map\ClientMapper.cs" />
+    <Compile Include="Map\ReportMapper.cs" />
     <Compile Include="Map\UserMapper.cs" />
     <Compile Include="Map\Validator.cs" />
     <Compile Include="Models\Audit.cs" />
