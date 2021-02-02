@@ -53,14 +53,15 @@
             this.statusBarMain = new System.Windows.Forms.StatusStrip();
             this.lblEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnAside = new System.Windows.Forms.Panel();
-            this.itemProductos = new HendrixAccountant.UIControls.ItemMenu();
             this.pnFooter = new System.Windows.Forms.Panel();
-            this.itemVenta = new HendrixAccountant.UIControls.ItemMenu();
-            this.itemConfiguracion = new HendrixAccountant.UIControls.ItemMenu();
-            this.itemClientes = new HendrixAccountant.UIControls.ItemMenu();
             this.pnHeader = new System.Windows.Forms.Panel();
             this.lblNombreUsuario = new System.Windows.Forms.Label();
             this.lblTipoUsuario = new System.Windows.Forms.Label();
+            this.itemUsuarios = new HendrixAccountant.UIControls.ItemMenu();
+            this.itemProductos = new HendrixAccountant.UIControls.ItemMenu();
+            this.itemVenta = new HendrixAccountant.UIControls.ItemMenu();
+            this.itemConfiguracion = new HendrixAccountant.UIControls.ItemMenu();
+            this.itemClientes = new HendrixAccountant.UIControls.ItemMenu();
             this.p = new System.Windows.Forms.PictureBox();
             this.itemReportes = new HendrixAccountant.UIControls.ItemMenu();
             this.menuStripMain.SuspendLayout();
@@ -135,29 +136,30 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click_1);
             // 
             // productosToolStripMenuItem1
             // 
             this.productosToolStripMenuItem1.Name = "productosToolStripMenuItem1";
-            this.productosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.productosToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
             this.productosToolStripMenuItem1.Text = "Productos";
             this.productosToolStripMenuItem1.Click += new System.EventHandler(this.productosToolStripMenuItem1_Click);
             // 
             // proveedoresToolStripMenuItem
             // 
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
             this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // inventarioToolStripMenuItem
             // 
@@ -255,6 +257,7 @@
             // pnAside
             // 
             this.pnAside.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.pnAside.Controls.Add(this.itemUsuarios);
             this.pnAside.Controls.Add(this.itemProductos);
             this.pnAside.Controls.Add(this.pnFooter);
             this.pnAside.Controls.Add(this.itemVenta);
@@ -268,27 +271,6 @@
             this.pnAside.Size = new System.Drawing.Size(206, 486);
             this.pnAside.TabIndex = 1;
             // 
-            // itemProductos
-            // 
-            this.itemProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.itemProductos.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.itemProductos.FlatAppearance.BorderSize = 0;
-            this.itemProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.itemProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.itemProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.itemProductos.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.itemProductos.ForeColor = System.Drawing.Color.White;
-            this.itemProductos.Image = global::HendrixAccountant.Properties.Resources.productWhite25;
-            this.itemProductos.Location = new System.Drawing.Point(0, 212);
-            this.itemProductos.Name = "itemProductos";
-            this.itemProductos.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
-            this.itemProductos.Size = new System.Drawing.Size(206, 44);
-            this.itemProductos.TabIndex = 9;
-            this.itemProductos.Text = "   PRODUCTOS";
-            this.itemProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.itemProductos.UseVisualStyleBackColor = false;
-            this.itemProductos.Click += new System.EventHandler(this.itemProductos_Click);
-            // 
             // pnFooter
             // 
             this.pnFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
@@ -297,69 +279,6 @@
             this.pnFooter.Name = "pnFooter";
             this.pnFooter.Size = new System.Drawing.Size(206, 5);
             this.pnFooter.TabIndex = 8;
-            // 
-            // itemVenta
-            // 
-            this.itemVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.itemVenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.itemVenta.FlatAppearance.BorderSize = 0;
-            this.itemVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.itemVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.itemVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.itemVenta.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.itemVenta.ForeColor = System.Drawing.Color.White;
-            this.itemVenta.Image = global::HendrixAccountant.Properties.Resources.cartWhite26;
-            this.itemVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.itemVenta.Location = new System.Drawing.Point(0, 106);
-            this.itemVenta.Name = "itemVenta";
-            this.itemVenta.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.itemVenta.Size = new System.Drawing.Size(206, 44);
-            this.itemVenta.TabIndex = 5;
-            this.itemVenta.Text = "   VENTA";
-            this.itemVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.itemVenta.UseVisualStyleBackColor = false;
-            this.itemVenta.Click += new System.EventHandler(this.itemVenta_Click);
-            // 
-            // itemConfiguracion
-            // 
-            this.itemConfiguracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.itemConfiguracion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.itemConfiguracion.FlatAppearance.BorderSize = 0;
-            this.itemConfiguracion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.itemConfiguracion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.itemConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.itemConfiguracion.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.itemConfiguracion.ForeColor = System.Drawing.Color.White;
-            this.itemConfiguracion.Image = global::HendrixAccountant.Properties.Resources.configWhite25;
-            this.itemConfiguracion.Location = new System.Drawing.Point(0, 318);
-            this.itemConfiguracion.Name = "itemConfiguracion";
-            this.itemConfiguracion.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.itemConfiguracion.Size = new System.Drawing.Size(206, 44);
-            this.itemConfiguracion.TabIndex = 7;
-            this.itemConfiguracion.Text = "   CONFIGURACIÓN";
-            this.itemConfiguracion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.itemConfiguracion.UseVisualStyleBackColor = false;
-            this.itemConfiguracion.Click += new System.EventHandler(this.itemConfiguracion_Click);
-            // 
-            // itemClientes
-            // 
-            this.itemClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.itemClientes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.itemClientes.FlatAppearance.BorderSize = 0;
-            this.itemClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.itemClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.itemClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.itemClientes.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.itemClientes.ForeColor = System.Drawing.Color.White;
-            this.itemClientes.Image = global::HendrixAccountant.Properties.Resources.clientsWhite25;
-            this.itemClientes.Location = new System.Drawing.Point(0, 159);
-            this.itemClientes.Name = "itemClientes";
-            this.itemClientes.Size = new System.Drawing.Size(206, 44);
-            this.itemClientes.TabIndex = 6;
-            this.itemClientes.Text = "   CLIENTES";
-            this.itemClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.itemClientes.UseVisualStyleBackColor = false;
-            this.itemClientes.Click += new System.EventHandler(this.itemClientes_Click);
             // 
             // pnHeader
             // 
@@ -394,6 +313,110 @@
             this.lblTipoUsuario.Size = new System.Drawing.Size(88, 16);
             this.lblTipoUsuario.TabIndex = 1;
             this.lblTipoUsuario.Text = "Administrador";
+            // 
+            // itemUsuarios
+            // 
+            this.itemUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.itemUsuarios.FlatAppearance.BorderSize = 0;
+            this.itemUsuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.itemUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.itemUsuarios.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.itemUsuarios.ForeColor = System.Drawing.Color.White;
+            this.itemUsuarios.Image = global::HendrixAccountant.Properties.Resources.usersWhite25;
+            this.itemUsuarios.Location = new System.Drawing.Point(0, 318);
+            this.itemUsuarios.Name = "itemUsuarios";
+            this.itemUsuarios.Size = new System.Drawing.Size(206, 44);
+            this.itemUsuarios.TabIndex = 10;
+            this.itemUsuarios.Text = "   USUARIOS";
+            this.itemUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.itemUsuarios.UseVisualStyleBackColor = false;
+            this.itemUsuarios.Click += new System.EventHandler(this.itemUsuarios_Click);
+            // 
+            // itemProductos
+            // 
+            this.itemProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemProductos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.itemProductos.FlatAppearance.BorderSize = 0;
+            this.itemProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.itemProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.itemProductos.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.itemProductos.ForeColor = System.Drawing.Color.White;
+            this.itemProductos.Image = global::HendrixAccountant.Properties.Resources.productWhite25;
+            this.itemProductos.Location = new System.Drawing.Point(0, 212);
+            this.itemProductos.Name = "itemProductos";
+            this.itemProductos.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.itemProductos.Size = new System.Drawing.Size(206, 44);
+            this.itemProductos.TabIndex = 9;
+            this.itemProductos.Text = "   PRODUCTOS";
+            this.itemProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.itemProductos.UseVisualStyleBackColor = false;
+            this.itemProductos.Click += new System.EventHandler(this.itemProductos_Click);
+            // 
+            // itemVenta
+            // 
+            this.itemVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemVenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.itemVenta.FlatAppearance.BorderSize = 0;
+            this.itemVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.itemVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.itemVenta.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.itemVenta.ForeColor = System.Drawing.Color.White;
+            this.itemVenta.Image = global::HendrixAccountant.Properties.Resources.cartWhite26;
+            this.itemVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.itemVenta.Location = new System.Drawing.Point(0, 106);
+            this.itemVenta.Name = "itemVenta";
+            this.itemVenta.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.itemVenta.Size = new System.Drawing.Size(206, 44);
+            this.itemVenta.TabIndex = 5;
+            this.itemVenta.Text = "   VENTA";
+            this.itemVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.itemVenta.UseVisualStyleBackColor = false;
+            this.itemVenta.Click += new System.EventHandler(this.itemVenta_Click);
+            // 
+            // itemConfiguracion
+            // 
+            this.itemConfiguracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemConfiguracion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.itemConfiguracion.FlatAppearance.BorderSize = 0;
+            this.itemConfiguracion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemConfiguracion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.itemConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.itemConfiguracion.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.itemConfiguracion.ForeColor = System.Drawing.Color.White;
+            this.itemConfiguracion.Image = global::HendrixAccountant.Properties.Resources.configWhite25;
+            this.itemConfiguracion.Location = new System.Drawing.Point(0, 370);
+            this.itemConfiguracion.Name = "itemConfiguracion";
+            this.itemConfiguracion.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.itemConfiguracion.Size = new System.Drawing.Size(206, 44);
+            this.itemConfiguracion.TabIndex = 7;
+            this.itemConfiguracion.Text = "   CONFIGURACIÓN";
+            this.itemConfiguracion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.itemConfiguracion.UseVisualStyleBackColor = false;
+            this.itemConfiguracion.Click += new System.EventHandler(this.itemConfiguracion_Click);
+            // 
+            // itemClientes
+            // 
+            this.itemClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemClientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.itemClientes.FlatAppearance.BorderSize = 0;
+            this.itemClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.itemClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.itemClientes.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.itemClientes.ForeColor = System.Drawing.Color.White;
+            this.itemClientes.Image = global::HendrixAccountant.Properties.Resources.clientsWhite25;
+            this.itemClientes.Location = new System.Drawing.Point(0, 159);
+            this.itemClientes.Name = "itemClientes";
+            this.itemClientes.Size = new System.Drawing.Size(206, 44);
+            this.itemClientes.TabIndex = 6;
+            this.itemClientes.Text = "   CLIENTES";
+            this.itemClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.itemClientes.UseVisualStyleBackColor = false;
+            this.itemClientes.Click += new System.EventHandler(this.itemClientes_Click);
             // 
             // p
             // 
@@ -493,6 +516,7 @@
         private System.Windows.Forms.Panel pnFooter;
         private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem1;
         private UIControls.ItemMenu itemProductos;
+        private UIControls.ItemMenu itemUsuarios;
     }
 }
 

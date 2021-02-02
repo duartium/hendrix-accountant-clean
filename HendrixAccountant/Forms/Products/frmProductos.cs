@@ -243,6 +243,7 @@ namespace HendrixAccountant
 
         private void rbnModificar_CheckedChanged(object sender, EventArgs e)
         {
+            Clear();
             EnableSearch();
             EnableRemove();
         }

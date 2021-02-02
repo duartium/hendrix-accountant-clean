@@ -11,6 +11,9 @@ namespace HendrixAccountant.Data.Dtos
     {
         public int IdUsuario { get; set; }
         public string Usuario { get; set; }
+        public string Clave { get; set; }
+        public int IdRol { get; set; }
+        public string NombreRol { get; set; }
         public string FechaCreacion { get; set; }
     }
 
@@ -20,5 +23,20 @@ namespace HendrixAccountant.Data.Dtos
         public string Usuario { get; set; }
         public int IdRol { get; set; }
         public string NombreRol { get; set; }
+    }
+
+    public class UserSaveDto
+    {
+        public int IdUsuario { get; set; }
+        public string Usuario { get; set; }
+        public string NombreUsuario { get; set; }
+        public int IdRol { get; set; }
+        public string Clave { get; set; }
+    }
+
+    public class Rol
+    {
+        public int IdRol { get; set; }
+        public string Nombre { get; set; }
     }
 }

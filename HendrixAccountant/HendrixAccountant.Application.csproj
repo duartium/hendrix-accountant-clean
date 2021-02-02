@@ -177,6 +177,12 @@
     <Compile Include="Forms\Users\frmBuscarUsuario.Designer.cs">
       <DependentUpon>frmBuscarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Users\frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users\frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\frmBuscarUsuario.resx">
       <DependentUpon>frmBuscarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users\frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -320,7 +329,10 @@
     <Content Include="Resources\Images\cartWhite.png" />
     <Content Include="Resources\Images\cartWhite25.png" />
     <Content Include="Resources\Images\cartWhite26.png" />
+    <Content Include="Resources\Images\cashBlue20.png" />
+    <Content Include="Resources\Images\clearBlue20.png" />
     <Content Include="Resources\Images\clientsWhite25.png" />
+    <Content Include="Resources\Images\CloseBlue20.png" />
     <Content Include="Resources\Images\configWhite25.png" />
     <Content Include="Resources\Images\HendrixLogoWhite.png" />
     <Content Include="Resources\Images\HendrixLogoWhite256.png" />
@@ -328,6 +340,7 @@
     <Content Include="Resources\Images\logo.png" />
     <Content Include="Resources\Images\LogoNovedadesChic.png" />
     <Content Include="Resources\Images\LogoNovedadesChicWhite.png" />
+    <Content Include="Resources\Images\printBlue20.png" />
     <Content Include="Resources\Images\productWhite25.png" />
     <Content Include="Resources\Images\reportWhite25.png" />
     <Content Include="Resources\Images\saveBlue20.png" />
@@ -335,6 +348,9 @@
     <Content Include="Resources\Images\searchBlue20.png" />
     <Content Include="Resources\Images\simpleReportWhite25.png" />
     <Content Include="Resources\Images\trashWhite20.png" />
+    <None Include="Resources\Images\userWhite25.png" />
+    <Content Include="Resources\Images\usersWhite25.png" />
+    <Content Include="Resources\Images\userWhite20.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

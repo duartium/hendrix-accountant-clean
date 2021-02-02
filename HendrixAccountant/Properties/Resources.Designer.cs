@@ -103,9 +103,39 @@ namespace HendrixAccountant.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cashBlue20 {
+            get {
+                object obj = ResourceManager.GetObject("cashBlue20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clearBlue20 {
+            get {
+                object obj = ResourceManager.GetObject("clearBlue20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clientsWhite25 {
             get {
                 object obj = ResourceManager.GetObject("clientsWhite25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CloseBlue20 {
+            get {
+                object obj = ResourceManager.GetObject("CloseBlue20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +196,16 @@ namespace HendrixAccountant.Properties {
         internal static System.Drawing.Bitmap LogoNovedadesChicWhite {
             get {
                 object obj = ResourceManager.GetObject("LogoNovedadesChicWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap printBlue20 {
+            get {
+                object obj = ResourceManager.GetObject("printBlue20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -236,6 +276,36 @@ namespace HendrixAccountant.Properties {
         internal static System.Drawing.Bitmap trashWhite20 {
             get {
                 object obj = ResourceManager.GetObject("trashWhite20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usersWhite25 {
+            get {
+                object obj = ResourceManager.GetObject("usersWhite25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap userWhite20 {
+            get {
+                object obj = ResourceManager.GetObject("userWhite20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap userWhite25 {
+            get {
+                object obj = ResourceManager.GetObject("userWhite25", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

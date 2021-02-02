@@ -13,8 +13,7 @@ namespace HendrixAccountant.ApplicationCore.Map
     {
         public List<UserDto> DatasetToUsers(DataSet data)
         {
-            if (!Validator.DatasetIsValid(data))
-                return null;
+            if (!Validator.DatasetIsValid(data)) return null;
 
             List<UserDto> products = null;
             try
@@ -23,6 +22,9 @@ namespace HendrixAccountant.ApplicationCore.Map
                 {
                     IdUsuario = Convert.ToInt32(field["idUsuario"].ToString()),
                     Usuario = field["usuario"].ToString(),
+                    Clave = field["clave"].ToString(),
+                    IdRol = Convert.ToInt32(field["rolId"].ToString()),
+                    NombreRol = field["nombreRol"].ToString(),
                     FechaCreacion = field["creadoEn"].ToString()
                 }).ToList();
             }
@@ -54,6 +56,26 @@ namespace HendrixAccountant.ApplicationCore.Map
                 Utils.GrabarLog("DatasetToUsers", ex.ToString());
             }
             return user;
+        }
+
+        public List<Rol> DatasetToRol(DataSet data)
+        {
+            if (!Validator.DatasetIsValid(data)) return null;
+
+            List<Rol> rol = null;
+            try
+            {
+                rol = data.Tables[0].AsEnumerable().Select(field => new Rol
+                {
+                    IdRol = Convert.ToInt32(field["idRol"].ToString()),
+                    Nombre = field["nombre"].ToString()
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("DatasetToRol", ex.ToString());
+            }
+            return rol;
         }
     }
 }

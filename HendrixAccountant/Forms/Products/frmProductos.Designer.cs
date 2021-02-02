@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,9 +45,9 @@
             this.txtCodProveedor = new HendrixAccountant.UIControls.NumericInput();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnBuscar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtStock = new HendrixAccountant.UIControls.NumericInput();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
@@ -68,12 +67,12 @@
             this.txtNombre = new HendrixAccountant.UIControls.TextInput();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnBuscar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.txtStock = new HendrixAccountant.UIControls.NumericInput();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -81,6 +80,7 @@
             this.panel3.SuspendLayout();
             this.pnDireccion.SuspendLayout();
             this.pnNombres.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -94,15 +94,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(520, 60);
             this.panel1.TabIndex = 29;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::HendrixAccountant.Properties.Resources.productWhite25;
-            this.pictureBox1.Location = new System.Drawing.Point(189, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 25);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -270,26 +261,6 @@
             this.label3.TabIndex = 71;
             this.label3.Text = "Código";
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnBuscar.Image = global::HendrixAccountant.Properties.Resources.searchBlue20;
-            this.btnBuscar.Location = new System.Drawing.Point(359, 127);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(107, 32);
-            this.btnBuscar.TabIndex = 57;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -310,6 +281,17 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(98, 32);
             this.panel5.TabIndex = 70;
+            // 
+            // txtStock
+            // 
+            this.txtStock.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStock.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStock.Location = new System.Drawing.Point(3, 8);
+            this.txtStock.MaxLength = 5;
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(92, 15);
+            this.txtStock.TabIndex = 49;
             // 
             // label20
             // 
@@ -513,6 +495,26 @@
             this.label11.TabIndex = 59;
             this.label11.Text = "Nombre";
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnBuscar.Image = global::HendrixAccountant.Properties.Resources.searchBlue20;
+            this.btnBuscar.Location = new System.Drawing.Point(359, 127);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(107, 32);
+            this.btnBuscar.TabIndex = 57;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // btnLimpiar
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(192)))), ((int)(((byte)(222)))));
@@ -521,7 +523,7 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
+            this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.userWhite20;
             this.btnLimpiar.Location = new System.Drawing.Point(51, 377);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
@@ -567,16 +569,14 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // txtStock
+            // pictureBox1
             // 
-            this.txtStock.BackColor = System.Drawing.SystemColors.Control;
-            this.txtStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtStock.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStock.Location = new System.Drawing.Point(3, 8);
-            this.txtStock.MaxLength = 5;
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(92, 15);
-            this.txtStock.TabIndex = 49;
+            this.pictureBox1.Image = global::HendrixAccountant.Properties.Resources.productWhite25;
+            this.pictureBox1.Location = new System.Drawing.Point(189, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 25);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // frmProductos
             // 
@@ -622,7 +622,6 @@
             this.Load += new System.EventHandler(this.frmProductos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -637,6 +636,7 @@
             this.pnDireccion.PerformLayout();
             this.pnNombres.ResumeLayout(false);
             this.pnNombres.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -27,6 +27,7 @@ namespace HendrixAccountant
         private frmVentas frmVentas = null;
         private DataOperator _dataOper;
         private frmParametros  frmParametros = null;
+        private frmUsuarios frmUsuarios = null;
 
         #region constructores
         public frmMain()
@@ -73,6 +74,11 @@ namespace HendrixAccountant
         private void clientes_FormClosed(object sender, EventArgs e)
         {
             frmClientes = null;
+        }
+
+        private void usuarios_FormClosed(object sender, EventArgs e)
+        {
+            frmUsuarios = null;
         }
 
         private void productos_FormClosed(object sender, EventArgs e)
@@ -128,6 +134,7 @@ namespace HendrixAccountant
             configuracionToolStripMenuItem.Visible = false;
             inventarioToolStripMenuItem.Visible = false;
             itemConfiguracion.Visible = false;
+            itemUsuarios.Visible = false;
         }
 
         private void btnVenta_Click(object sender, EventArgs e)
@@ -173,6 +180,7 @@ namespace HendrixAccountant
             itemConfiguracion.BackColor = Color.FromArgb(27, 46, 140);
             itemReportes.BackColor = Color.FromArgb(27, 46, 140);
             itemVenta.BackColor = Color.FromArgb(27, 46, 140);
+            itemProductos.BackColor = Color.FromArgb(27, 46, 140);
         }
 
         private void itemClientes_Click(object sender, EventArgs e)
@@ -263,6 +271,8 @@ namespace HendrixAccountant
         private void itemProductos_Click(object sender, EventArgs e)
         {
             ShowProducts();
+            DeselectButtons();
+            itemProductos.BackColor = Color.FromArgb(253, 184, 39);
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -277,6 +287,29 @@ namespace HendrixAccountant
             //    this.Close();
             //}
             
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowUsers();
+            DeselectButtons();
+            itemUsuarios.BackColor = Color.FromArgb(253, 184, 39);
+        }
+
+        private void ShowUsers()
+        {
+            if (frmUsuarios != null) return;
+            frmUsuarios = new frmUsuarios();
+            frmUsuarios.MdiParent = this;
+            frmUsuarios.FormClosed += new FormClosedEventHandler(usuarios_FormClosed);
+            frmUsuarios.Show();
+        }
+
+        private void itemUsuarios_Click(object sender, EventArgs e)
+        {
+            ShowUsers();
+            DeselectButtons();
+            itemUsuarios.BackColor = Color.FromArgb(253, 184, 39);
         }
     }
 }

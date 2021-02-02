@@ -11,5 +11,8 @@ namespace HendrixAccountant.Data
     {
         UserAuthDto Authenticate(string username, string password);
         List<UserDto> GetAll();
+        bool Save(UserSaveDto user, bool isUpdate = false);
+        List<Rol> GetRol();
+        bool Remove(int idUser, string username);
     }
 }

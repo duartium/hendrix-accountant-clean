@@ -57,8 +57,8 @@ namespace HendrixAccountant
         {
             if (e.RowIndex < 0) return;
 
-            UserDto user = MapRowToUser(dgvUsuarios.Rows[e.RowIndex]);
-            _caller.Selected(user);
+            //UserDto user = MapRowToUser(dgvUsuarios.Rows[e.RowIndex]);
+            _caller.Selected(dgvUsuarios.Rows[e.RowIndex].Tag as UserDto);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -85,8 +85,14 @@ namespace HendrixAccountant
         private void FillGrid()
         {
             if (_users == null) return;
+            int i = 0;
             foreach (var user in _users)
+            {
                 dgvUsuarios.Rows.Add(user.IdUsuario, user.Usuario, user.FechaCreacion);
+                dgvUsuarios.Rows[i].Tag = user;
+                i++;
+            }
+                
         }
 
         private UserDto MapRowToUser(DataGridViewRow row)

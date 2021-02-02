@@ -184,8 +184,11 @@
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCerrar.Font = new System.Drawing.Font("Arial", 9F);
             this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnCerrar.Image = global::HendrixAccountant.Properties.Resources.CloseBlue20;
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrar.Location = new System.Drawing.Point(0, 362);
             this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnCerrar.Size = new System.Drawing.Size(127, 35);
             this.btnCerrar.TabIndex = 12;
             this.btnCerrar.Text = "Cerrar";
@@ -202,8 +205,11 @@
             this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9F);
             this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.clearBlue20;
+            this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLimpiar.Location = new System.Drawing.Point(0, 321);
             this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnLimpiar.Size = new System.Drawing.Size(127, 35);
             this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "Limpiar";
@@ -220,8 +226,11 @@
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultar.Font = new System.Drawing.Font("Arial", 9F);
             this.btnConsultar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnConsultar.Image = global::HendrixAccountant.Properties.Resources.searchBlue20;
+            this.btnConsultar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConsultar.Location = new System.Drawing.Point(0, 13);
             this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnConsultar.Size = new System.Drawing.Size(127, 35);
             this.btnConsultar.TabIndex = 10;
             this.btnConsultar.Text = "Consultar";
