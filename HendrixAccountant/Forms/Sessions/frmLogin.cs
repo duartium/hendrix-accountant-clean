@@ -55,6 +55,7 @@ namespace HendrixAccountant.Sessions
         {
             if (e.KeyCode == Keys.Enter)
                 AuthenticateUser();
+                
         }
     }
 }

@@ -64,6 +64,7 @@ namespace HendrixAccountant
         private void rbnNuevo_CheckedChanged(object sender, EventArgs e)
         {
             Clear();
+            EnabledTextboxs(true);
             DisabledRemove();
             DisabledSearch();
             txtNombre.Focus();
@@ -95,13 +96,12 @@ namespace HendrixAccountant
                 MessageBox.Show("Complete los datos del producto para proceder con su registro.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (_product == null) return;
             bool isUpdate = false;
             string mensaje = "Producto registrado con éxito.";
             var dataOp = DataOperator.Instance;
             var product = new ProductDto
             {
-                IdProducto = _product.id_producto,
+                IdProducto = _product == null? -1 :_product.id_producto,
                 Nombre = txtNombre.Text,
                 Descripcion = txtDescripcion.Text,
                 Costo = Convert.ToDecimal(txtCosto.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
@@ -141,6 +141,17 @@ namespace HendrixAccountant
             txtCodProveedor.Clear();
             txtNombreProveedor.Clear();
             txtStock.Clear();
+        }
+
+        private void EnabledTextboxs(bool valor)
+        {
+            txtNombre.Enabled = valor;
+            txtDescripcion.Enabled = valor;
+            txtCosto.Enabled = valor;
+            txtPrecioVenta.Enabled = valor;
+            txtCodProveedor.Enabled = valor;
+            txtNombreProveedor.Enabled = valor;
+            txtStock.Enabled = valor;
         }
 
         private void frmProductos_Load(object sender, EventArgs e)
@@ -244,6 +255,7 @@ namespace HendrixAccountant
         private void rbnModificar_CheckedChanged(object sender, EventArgs e)
         {
             Clear();
+            EnabledTextboxs(false);
             EnableSearch();
             EnableRemove();
         }

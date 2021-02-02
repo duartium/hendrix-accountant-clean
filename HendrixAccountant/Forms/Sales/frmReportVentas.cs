@@ -39,7 +39,8 @@ namespace HendrixAccountant.Forms
             try
             {
                 if (data == null) return;
-                string pathRoot = Utils.GetValueSetting("reports");
+                string pathProd = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86)+"/NeutrinoTech/Report/";
+                string pathRoot = Utils.GetValueSetting("environment").Equals("DEV") ? Utils.GetValueSetting("reports") : pathProd;
                 var dataSource = new List<ReportDataSource>();
                 this.rptViewerVentas.ProcessingMode = ProcessingMode.Local;
                 switch (data.TipoReporte)

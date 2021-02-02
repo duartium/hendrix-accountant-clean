@@ -13,6 +13,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HendrixAccountant.ApplicationCore.Constants;
+using HendrixAccountant.Data.Repositories;
+using HendrixAccountant.ApplicationCore.Models;
 
 namespace HendrixAccountant
 {
@@ -33,11 +35,11 @@ namespace HendrixAccountant
         public frmMain()
         {
             InitializeComponent();
-            DataOperator _operator = DataOperator.Instance;
-            _operator.IdUser = 1;
-            _operator.Username = "admin";
-            _operator.UserRole = 1;
-            _operator.Role = "Administrador";
+            //DataOperator _operator = DataOperator.Instance;
+            //_operator.IdUser = 1;
+            //_operator.Username = "admin";
+            //_operator.UserRole = 1;
+            //_operator.Role = "Administrador";
         }
         #endregion
 
@@ -116,6 +118,11 @@ namespace HendrixAccountant
         }
         #endregion
 
+        private bool CompanyConfigured()
+        {
+            var company = new CompanyRepository().Get() as Company;
+            if (company == null) return false; else return true;
+        }
         private void frmMain_Load(object sender, EventArgs e)
         {
             _dataOper = DataOperator.Instance;
@@ -181,6 +188,7 @@ namespace HendrixAccountant
             itemReportes.BackColor = Color.FromArgb(27, 46, 140);
             itemVenta.BackColor = Color.FromArgb(27, 46, 140);
             itemProductos.BackColor = Color.FromArgb(27, 46, 140);
+            itemUsuarios.BackColor = Color.FromArgb(27, 46, 140);
         }
 
         private void itemClientes_Click(object sender, EventArgs e)
@@ -192,9 +200,14 @@ namespace HendrixAccountant
 
         private void itemReportes_Click(object sender, EventArgs e)
         {
-            ShowReports();
             DeselectButtons();
             itemReportes.BackColor = Color.FromArgb(253, 184, 39);
+            if (!CompanyConfigured())
+            {
+                MessageBox.Show("Por favor, configure los datos de la empresa para habilitar los reportes. Revise el menú \"Configuración\"", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            ShowReports();
         }
 
         private void itemConfiguracion_Click(object sender, EventArgs e)
@@ -310,6 +323,11 @@ namespace HendrixAccountant
             ShowUsers();
             DeselectButtons();
             itemUsuarios.BackColor = Color.FromArgb(253, 184, 39);
+        }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

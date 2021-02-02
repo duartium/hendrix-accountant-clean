@@ -157,6 +157,7 @@ namespace HendrixAccountant
                     Identificacion = row.Cells[colIdentificacion.Index].Value.ToString(),
                     NombresCompletos = row.Cells[colNombres.Index].Value.ToString(),
                     IdCliente = Convert.ToInt32(row.Cells[colCodigo.Index].Value.ToString()),
+                    Direccion = row.Cells[colDireccion.Index].Value.ToString()
                 };
             }
             catch (Exception ex)

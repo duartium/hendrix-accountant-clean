@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,12 +46,10 @@
             this.txtCodProveedor = new HendrixAccountant.UIControls.NumericInput();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtStock = new HendrixAccountant.UIControls.NumericInput();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.txtPrecioVenta = new System.Windows.Forms.TextBox();
@@ -71,8 +70,10 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -80,7 +81,6 @@
             this.panel3.SuspendLayout();
             this.pnDireccion.SuspendLayout();
             this.pnNombres.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -94,6 +94,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(520, 60);
             this.panel1.TabIndex = 29;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::HendrixAccountant.Properties.Resources.productWhite25;
+            this.pictureBox1.Location = new System.Drawing.Point(189, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 25);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -144,22 +153,24 @@
             // btnBuscarProveedor
             // 
             this.btnBuscarProveedor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProveedor.Location = new System.Drawing.Point(405, 280);
+            this.btnBuscarProveedor.Location = new System.Drawing.Point(405, 328);
             this.btnBuscarProveedor.Name = "btnBuscarProveedor";
-            this.btnBuscarProveedor.Size = new System.Drawing.Size(42, 23);
+            this.btnBuscarProveedor.Size = new System.Drawing.Size(42, 10);
             this.btnBuscarProveedor.TabIndex = 75;
             this.btnBuscarProveedor.Text = "...";
             this.btnBuscarProveedor.UseVisualStyleBackColor = true;
+            this.btnBuscarProveedor.Visible = false;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.SystemColors.Control;
             this.panel8.Controls.Add(this.txtNombreProveedor);
             this.panel8.Controls.Add(this.label4);
-            this.panel8.Location = new System.Drawing.Point(129, 280);
+            this.panel8.Location = new System.Drawing.Point(129, 328);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(269, 32);
+            this.panel8.Size = new System.Drawing.Size(269, 11);
             this.panel8.TabIndex = 63;
+            this.panel8.Visible = false;
             // 
             // txtNombreProveedor
             // 
@@ -176,7 +187,7 @@
             // 
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label4.Location = new System.Drawing.Point(0, 29);
+            this.label4.Location = new System.Drawing.Point(0, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(269, 3);
             this.label4.TabIndex = 9;
@@ -186,11 +197,12 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label5.Location = new System.Drawing.Point(126, 265);
+            this.label5.Location = new System.Drawing.Point(126, 313);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(127, 15);
             this.label5.TabIndex = 61;
             this.label5.Text = "Nombre de proveedor";
+            this.label5.Visible = false;
             // 
             // rbnModificar
             // 
@@ -225,10 +237,11 @@
             this.panel7.BackColor = System.Drawing.SystemColors.Control;
             this.panel7.Controls.Add(this.txtCodProveedor);
             this.panel7.Controls.Add(this.label2);
-            this.panel7.Location = new System.Drawing.Point(51, 280);
+            this.panel7.Location = new System.Drawing.Point(51, 328);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(70, 32);
+            this.panel7.Size = new System.Drawing.Size(70, 11);
             this.panel7.TabIndex = 72;
+            this.panel7.Visible = false;
             // 
             // txtCodProveedor
             // 
@@ -245,7 +258,7 @@
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label2.Location = new System.Drawing.Point(0, 29);
+            this.label2.Location = new System.Drawing.Point(0, 8);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 3);
             this.label2.TabIndex = 9;
@@ -255,22 +268,12 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label3.Location = new System.Drawing.Point(48, 265);
+            this.label3.Location = new System.Drawing.Point(48, 313);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 15);
             this.label3.TabIndex = 71;
             this.label3.Text = "Código";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label7.Location = new System.Drawing.Point(47, 316);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 15);
-            this.label7.TabIndex = 53;
-            this.label7.Text = "Categoría";
+            this.label3.Visible = false;
             // 
             // panel5
             // 
@@ -312,20 +315,6 @@
             this.label21.Size = new System.Drawing.Size(37, 15);
             this.label21.TabIndex = 69;
             this.label21.Text = "Stock";
-            // 
-            // cboCategoria
-            // 
-            this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboCategoria.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C"});
-            this.cboCategoria.Location = new System.Drawing.Point(50, 336);
-            this.cboCategoria.Name = "cboCategoria";
-            this.cboCategoria.Size = new System.Drawing.Size(205, 24);
-            this.cboCategoria.TabIndex = 54;
             // 
             // panel4
             // 
@@ -524,7 +513,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.userWhite20;
-            this.btnLimpiar.Location = new System.Drawing.Point(51, 377);
+            this.btnLimpiar.Location = new System.Drawing.Point(51, 348);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar.TabIndex = 58;
@@ -542,7 +531,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
-            this.btnEliminar.Location = new System.Drawing.Point(280, 377);
+            this.btnEliminar.Location = new System.Drawing.Point(280, 348);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar.TabIndex = 56;
@@ -560,7 +549,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGuardar.Image = global::HendrixAccountant.Properties.Resources.saveWhite20;
-            this.btnGuardar.Location = new System.Drawing.Point(376, 377);
+            this.btnGuardar.Location = new System.Drawing.Point(376, 348);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 30);
             this.btnGuardar.TabIndex = 55;
@@ -569,21 +558,39 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // pictureBox1
+            // label7
             // 
-            this.pictureBox1.Image = global::HendrixAccountant.Properties.Resources.productWhite25;
-            this.pictureBox1.Location = new System.Drawing.Point(189, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 25);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label7.Location = new System.Drawing.Point(48, 265);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 15);
+            this.label7.TabIndex = 78;
+            this.label7.Text = "Categoría";
+            // 
+            // cboCategoria
+            // 
+            this.cboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategoria.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboCategoria.FormattingEnabled = true;
+            this.cboCategoria.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C"});
+            this.cboCategoria.Location = new System.Drawing.Point(51, 285);
+            this.cboCategoria.Name = "cboCategoria";
+            this.cboCategoria.Size = new System.Drawing.Size(205, 24);
+            this.cboCategoria.TabIndex = 79;
             // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(520, 427);
+            this.ClientSize = new System.Drawing.Size(520, 402);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbTalla);
             this.Controls.Add(this.btnBuscarProveedor);
@@ -594,10 +601,8 @@
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.panel3);
@@ -622,6 +627,7 @@
             this.Load += new System.EventHandler(this.frmProductos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -636,7 +642,6 @@
             this.pnDireccion.PerformLayout();
             this.pnNombres.ResumeLayout(false);
             this.pnNombres.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -662,11 +667,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private UIControls.Buttons.ItemAsideSmall btnBuscar;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ComboBox cboCategoria;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtPrecioVenta;
@@ -687,5 +690,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnGuardar;
         private UIControls.NumericInput txtStock;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cboCategoria;
     }
 }

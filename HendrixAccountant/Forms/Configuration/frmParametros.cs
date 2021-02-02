@@ -19,6 +19,7 @@ namespace HendrixAccountant
     public partial class frmParametros : Form
     {
         private IParameterRepository _rpsParams;
+        private Company _company;
         public frmParametros()
         {
             InitializeComponent();
@@ -28,7 +29,14 @@ namespace HendrixAccountant
         private void frmParametros_Load(object sender, EventArgs e)
         {
             GetCompany();
-            EnabledTextboxs(false);
+            if(_company != null)
+                EnabledTextboxs(false);
+            else
+            {
+                EnabledTextboxs(true);
+                txtRuc.Focus();
+            }
+                
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -70,8 +78,8 @@ namespace HendrixAccountant
 
         private void GetCompany()
         {
-            var company = _rpsParams.Get() as Company;
-            SetCompany(company);
+            _company = _rpsParams.Get() as Company;
+            SetCompany(_company);
         }
 
         private void SetCompany(Company company)
@@ -81,6 +89,12 @@ namespace HendrixAccountant
             txtRazonSocial.Text = company.RazonSocial;
             txtNombreComercial.Text = company.NombreComercial;
             txtDireccion.Text = company.DirMatriz;
+        }
+
+        private void frmParametros_Activated(object sender, EventArgs e)
+        {
+            if (_company == null)
+                txtRuc.Focus();
         }
     }
 }

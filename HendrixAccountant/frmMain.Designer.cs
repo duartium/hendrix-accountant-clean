@@ -34,14 +34,12 @@
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aperturarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cierreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directoriosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cardexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,15 +51,15 @@
             this.statusBarMain = new System.Windows.Forms.StatusStrip();
             this.lblEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.pnAside = new System.Windows.Forms.Panel();
-            this.pnFooter = new System.Windows.Forms.Panel();
-            this.pnHeader = new System.Windows.Forms.Panel();
-            this.lblNombreUsuario = new System.Windows.Forms.Label();
-            this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.itemUsuarios = new HendrixAccountant.UIControls.ItemMenu();
             this.itemProductos = new HendrixAccountant.UIControls.ItemMenu();
+            this.pnFooter = new System.Windows.Forms.Panel();
             this.itemVenta = new HendrixAccountant.UIControls.ItemMenu();
             this.itemConfiguracion = new HendrixAccountant.UIControls.ItemMenu();
             this.itemClientes = new HendrixAccountant.UIControls.ItemMenu();
+            this.pnHeader = new System.Windows.Forms.Panel();
+            this.lblNombreUsuario = new System.Windows.Forms.Label();
+            this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.p = new System.Windows.Forms.PictureBox();
             this.itemReportes = new HendrixAccountant.UIControls.ItemMenu();
             this.menuStripMain.SuspendLayout();
@@ -97,14 +95,14 @@
             // cerrarSesiónToolStripMenuItem
             // 
             this.cerrarSesiónToolStripMenuItem.Name = "cerrarSesiónToolStripMenuItem";
-            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.cerrarSesiónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cerrarSesiónToolStripMenuItem.Text = "Cerrar sesión";
+            this.cerrarSesiónToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem_Click);
             // 
             // cajaToolStripMenuItem
             // 
             this.cajaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aperturarToolStripMenuItem,
-            this.cierreToolStripMenuItem});
+            this.aperturarToolStripMenuItem});
             this.cajaToolStripMenuItem.Name = "cajaToolStripMenuItem";
             this.cajaToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
             this.cajaToolStripMenuItem.Text = "Caja";
@@ -112,15 +110,9 @@
             // aperturarToolStripMenuItem
             // 
             this.aperturarToolStripMenuItem.Name = "aperturarToolStripMenuItem";
-            this.aperturarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.aperturarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aperturarToolStripMenuItem.Text = "Apertura";
             this.aperturarToolStripMenuItem.Click += new System.EventHandler(this.aperturarToolStripMenuItem_Click);
-            // 
-            // cierreToolStripMenuItem
-            // 
-            this.cierreToolStripMenuItem.Name = "cierreToolStripMenuItem";
-            this.cierreToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.cierreToolStripMenuItem.Text = "Cierre";
             // 
             // directoriosToolStripMenuItem1
             // 
@@ -136,53 +128,47 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click_1);
             // 
             // productosToolStripMenuItem1
             // 
             this.productosToolStripMenuItem1.Name = "productosToolStripMenuItem1";
-            this.productosToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
+            this.productosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.productosToolStripMenuItem1.Text = "Productos";
             this.productosToolStripMenuItem1.Click += new System.EventHandler(this.productosToolStripMenuItem1_Click);
             // 
             // proveedoresToolStripMenuItem
             // 
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            this.proveedoresToolStripMenuItem.Visible = false;
             this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // inventarioToolStripMenuItem
             // 
             this.inventarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.productosToolStripMenuItem,
-            this.cardexToolStripMenuItem,
             this.ingresosToolStripMenuItem,
-            this.comprasToolStripMenuItem});
+            this.comprasToolStripMenuItem,
+            this.cardexToolStripMenuItem});
             this.inventarioToolStripMenuItem.Name = "inventarioToolStripMenuItem";
             this.inventarioToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
             this.inventarioToolStripMenuItem.Text = "Inventario";
-            // 
-            // productosToolStripMenuItem
-            // 
-            this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.productosToolStripMenuItem.Text = "Lista de productos";
-            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
+            this.inventarioToolStripMenuItem.Visible = false;
             // 
             // cardexToolStripMenuItem
             // 
             this.cardexToolStripMenuItem.Name = "cardexToolStripMenuItem";
-            this.cardexToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.cardexToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cardexToolStripMenuItem.Text = "Cardex";
             // 
             // ingresosToolStripMenuItem
@@ -190,21 +176,21 @@
             this.ingresosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.comprasToolStripMenuItem1});
             this.ingresosToolStripMenuItem.Name = "ingresosToolStripMenuItem";
-            this.ingresosToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.ingresosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ingresosToolStripMenuItem.Text = "Entradas";
             this.ingresosToolStripMenuItem.Click += new System.EventHandler(this.ingresosToolStripMenuItem_Click);
             // 
             // comprasToolStripMenuItem1
             // 
             this.comprasToolStripMenuItem1.Name = "comprasToolStripMenuItem1";
-            this.comprasToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
+            this.comprasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.comprasToolStripMenuItem1.Text = "Compras";
             this.comprasToolStripMenuItem1.Click += new System.EventHandler(this.comprasToolStripMenuItem1_Click);
             // 
             // comprasToolStripMenuItem
             // 
             this.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem";
-            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.comprasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.comprasToolStripMenuItem.Text = "Salidas";
             // 
             // reportesToolStripMenuItem
@@ -271,49 +257,6 @@
             this.pnAside.Size = new System.Drawing.Size(206, 486);
             this.pnAside.TabIndex = 1;
             // 
-            // pnFooter
-            // 
-            this.pnFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.pnFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnFooter.Location = new System.Drawing.Point(0, 481);
-            this.pnFooter.Name = "pnFooter";
-            this.pnFooter.Size = new System.Drawing.Size(206, 5);
-            this.pnFooter.TabIndex = 8;
-            // 
-            // pnHeader
-            // 
-            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.pnHeader.Controls.Add(this.lblNombreUsuario);
-            this.pnHeader.Controls.Add(this.lblTipoUsuario);
-            this.pnHeader.Controls.Add(this.p);
-            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnHeader.Name = "pnHeader";
-            this.pnHeader.Size = new System.Drawing.Size(206, 86);
-            this.pnHeader.TabIndex = 5;
-            // 
-            // lblNombreUsuario
-            // 
-            this.lblNombreUsuario.AutoSize = true;
-            this.lblNombreUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreUsuario.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblNombreUsuario.Location = new System.Drawing.Point(70, 29);
-            this.lblNombreUsuario.Name = "lblNombreUsuario";
-            this.lblNombreUsuario.Size = new System.Drawing.Size(56, 16);
-            this.lblNombreUsuario.TabIndex = 2;
-            this.lblNombreUsuario.Text = "Usuario";
-            // 
-            // lblTipoUsuario
-            // 
-            this.lblTipoUsuario.AutoSize = true;
-            this.lblTipoUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.lblTipoUsuario.Location = new System.Drawing.Point(70, 44);
-            this.lblTipoUsuario.Name = "lblTipoUsuario";
-            this.lblTipoUsuario.Size = new System.Drawing.Size(88, 16);
-            this.lblTipoUsuario.TabIndex = 1;
-            this.lblTipoUsuario.Text = "Administrador";
-            // 
             // itemUsuarios
             // 
             this.itemUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
@@ -354,6 +297,15 @@
             this.itemProductos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.itemProductos.UseVisualStyleBackColor = false;
             this.itemProductos.Click += new System.EventHandler(this.itemProductos_Click);
+            // 
+            // pnFooter
+            // 
+            this.pnFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.pnFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnFooter.Location = new System.Drawing.Point(0, 481);
+            this.pnFooter.Name = "pnFooter";
+            this.pnFooter.Size = new System.Drawing.Size(206, 5);
+            this.pnFooter.TabIndex = 8;
             // 
             // itemVenta
             // 
@@ -417,6 +369,40 @@
             this.itemClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.itemClientes.UseVisualStyleBackColor = false;
             this.itemClientes.Click += new System.EventHandler(this.itemClientes_Click);
+            // 
+            // pnHeader
+            // 
+            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.pnHeader.Controls.Add(this.lblNombreUsuario);
+            this.pnHeader.Controls.Add(this.lblTipoUsuario);
+            this.pnHeader.Controls.Add(this.p);
+            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnHeader.Name = "pnHeader";
+            this.pnHeader.Size = new System.Drawing.Size(206, 86);
+            this.pnHeader.TabIndex = 5;
+            // 
+            // lblNombreUsuario
+            // 
+            this.lblNombreUsuario.AutoSize = true;
+            this.lblNombreUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreUsuario.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblNombreUsuario.Location = new System.Drawing.Point(70, 29);
+            this.lblNombreUsuario.Name = "lblNombreUsuario";
+            this.lblNombreUsuario.Size = new System.Drawing.Size(56, 16);
+            this.lblNombreUsuario.TabIndex = 2;
+            this.lblNombreUsuario.Text = "Usuario";
+            // 
+            // lblTipoUsuario
+            // 
+            this.lblTipoUsuario.AutoSize = true;
+            this.lblTipoUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.lblTipoUsuario.Location = new System.Drawing.Point(70, 44);
+            this.lblTipoUsuario.Name = "lblTipoUsuario";
+            this.lblTipoUsuario.Size = new System.Drawing.Size(88, 16);
+            this.lblTipoUsuario.TabIndex = 1;
+            this.lblTipoUsuario.Text = "Administrador";
             // 
             // p
             // 
@@ -488,13 +474,11 @@
         private System.Windows.Forms.ToolStripMenuItem configuracionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem parámetrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inventarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cardexToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusBarMain;
         private System.Windows.Forms.ToolStripStatusLabel lblEstado;
         private System.Windows.Forms.ToolStripMenuItem cajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aperturarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cierreToolStripMenuItem;
         private System.Windows.Forms.Panel pnAside;
         private System.Windows.Forms.ToolStripMenuItem directoriosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;

@@ -35,7 +35,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pbxLogoCompany = new System.Windows.Forms.PictureBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -46,9 +45,10 @@
             this.btnAcceder = new System.Windows.Forms.Button();
             this.lblCerrar = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbxLogoCompany = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCompany)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCompany)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,7 +77,6 @@
             this.label8.Size = new System.Drawing.Size(138, 19);
             this.label8.TabIndex = 4;
             this.label8.Text = "CHIC BOUTIQUE";
-            this.label8.Visible = false;
             // 
             // label9
             // 
@@ -89,7 +88,6 @@
             this.label9.Size = new System.Drawing.Size(163, 29);
             this.label9.TabIndex = 3;
             this.label9.Text = "NOVEDADES";
-            this.label9.Visible = false;
             // 
             // panel2
             // 
@@ -124,16 +122,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "HENDRIX";
             this.label1.Visible = false;
-            // 
-            // pbxLogoCompany
-            // 
-            this.pbxLogoCompany.Image = global::HendrixAccountant.Properties.Resources.LogoNovedadesChicWhite;
-            this.pbxLogoCompany.Location = new System.Drawing.Point(66, 87);
-            this.pbxLogoCompany.Name = "pbxLogoCompany";
-            this.pbxLogoCompany.Size = new System.Drawing.Size(112, 95);
-            this.pbxLogoCompany.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbxLogoCompany.TabIndex = 0;
-            this.pbxLogoCompany.TabStop = false;
             // 
             // txtUsername
             // 
@@ -250,6 +238,16 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
+            // pbxLogoCompany
+            // 
+            this.pbxLogoCompany.Image = global::HendrixAccountant.Properties.Resources.LogoNovedadesChicWhite;
+            this.pbxLogoCompany.Location = new System.Drawing.Point(66, 87);
+            this.pbxLogoCompany.Name = "pbxLogoCompany";
+            this.pbxLogoCompany.Size = new System.Drawing.Size(112, 95);
+            this.pbxLogoCompany.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxLogoCompany.TabIndex = 0;
+            this.pbxLogoCompany.TabStop = false;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,8 +270,8 @@
             this.Text = "frmLogin";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCompany)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCompany)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -266,7 +266,6 @@ namespace HendrixAccountant
                 GetClient();
                 e.Handled = e.SuppressKeyPress = true;
             }
-                
         }
 
         private void GetClient()

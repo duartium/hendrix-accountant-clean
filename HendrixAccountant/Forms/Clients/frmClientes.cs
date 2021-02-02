@@ -32,7 +32,6 @@ namespace HendrixAccountant
             btnEliminar.Enabled = false;
             btnBuscar.BackColor = SystemColors.Control;
             btnEliminar.BackColor = SystemColors.Control;
-            
             txtIdentificacion.Focus();
         }
 
@@ -42,7 +41,9 @@ namespace HendrixAccountant
             btnEliminar.Enabled = true;
             btnEliminar.BackColor = SystemColors.Control;
             btnBuscar.BackColor = SystemColors.Control;
+            EnabledTextboxs(true);
             txtIdentificacion.Focus();
+            _client = null;
         }
 
         private void rbnModificar_CheckedChanged(object sender, EventArgs e)
@@ -74,7 +75,7 @@ namespace HendrixAccountant
                 MessageBox.Show("La identificación debe contener al menos 10 dígitos.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (_client == null) return;
+            
             string mensaje = "Cliente registrado con éxito.";
             bool isUpdate = false;
             var dataOp = DataOperator.Instance;
@@ -90,7 +91,7 @@ namespace HendrixAccountant
                 TipoCliente = 1,
                 TipoIdentificacion = 1,
                 Usuario = dataOp.Username,
-                IdCliente = _client.IdCliente
+                IdCliente = _client == null ? -1 : _client.IdCliente
             };
 
             if (rbnModificar.Checked) { isUpdate = true; mensaje = mensaje.Replace("registrado", "modificado"); }

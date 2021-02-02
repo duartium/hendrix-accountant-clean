@@ -344,6 +344,7 @@
             this.Name = "frmParametros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "PARÁMETROS";
+            this.Activated += new System.EventHandler(this.frmParametros_Activated);
             this.Load += new System.EventHandler(this.frmParametros_Load);
             this.tpEmpresa.ResumeLayout(false);
             this.tpEmpresa.PerformLayout();

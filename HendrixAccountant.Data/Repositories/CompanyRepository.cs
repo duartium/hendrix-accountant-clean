@@ -48,7 +48,7 @@ namespace HendrixAccountant.Data.Repositories
             var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
             if (!Validator.DatasetIsValid(dsResp)) return null;
             string json = dsResp.Tables[0].Rows[0]["dato"].ToString();
-            var company = JsonConvert.DeserializeObject<Company>(json);
+            var company = String.IsNullOrEmpty(json) ? null : JsonConvert.DeserializeObject<Company>(json);
             return company;
         }
     }
