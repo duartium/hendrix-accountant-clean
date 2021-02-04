@@ -29,8 +29,8 @@ namespace HendrixAccountant.Forms.Inventory
 
         private void btnBuscarProveedor_Click(object sender, EventArgs e)
         {
-            frmModalProveedor modal = new frmModalProveedor(this);
-            modal.ShowDialog();
+            //frmModalProveedor modal = new frmModalProveedor(this);
+            //modal.ShowDialog();
         }
 
         public void EstablecerProveedorEnControlesEntrada()

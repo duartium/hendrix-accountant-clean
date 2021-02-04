@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HendrixAccountant.ApplicationCore.DTOs
 {
-    public class SupplierDto
+    public class SupplierDto : ISaleElement
     {
         public int IdProveedor { get; set; }
         public string Ruc { get; set; }

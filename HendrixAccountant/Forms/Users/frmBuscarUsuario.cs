@@ -38,8 +38,6 @@ namespace HendrixAccountant
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             dgvUsuarios.Rows.Clear();
-            txtCodUsuario.Clear();
-            txtNombreUsuario.Clear();
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pnNombres = new System.Windows.Forms.Panel();
@@ -52,13 +53,12 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnNombres.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pnClaves.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,6 +72,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(477, 60);
             this.panel1.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::HendrixAccountant.Properties.Resources.usersWhite25;
+            this.pictureBox1.Location = new System.Drawing.Point(170, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 25);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -102,7 +111,7 @@
             this.pnNombres.Location = new System.Drawing.Point(56, 186);
             this.pnNombres.Name = "pnNombres";
             this.pnNombres.Size = new System.Drawing.Size(168, 32);
-            this.pnNombres.TabIndex = 76;
+            this.pnNombres.TabIndex = 0;
             // 
             // txtUsuario
             // 
@@ -113,7 +122,7 @@
             this.txtUsuario.MaxLength = 20;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(164, 16);
-            this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.TabIndex = 0;
             // 
             // label1
             // 
@@ -143,7 +152,7 @@
             this.panel3.Location = new System.Drawing.Point(28, 22);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(168, 32);
-            this.panel3.TabIndex = 78;
+            this.panel3.TabIndex = 0;
             // 
             // txtClave
             // 
@@ -155,7 +164,7 @@
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '•';
             this.txtClave.Size = new System.Drawing.Size(164, 25);
-            this.txtClave.TabIndex = 2;
+            this.txtClave.TabIndex = 0;
             // 
             // label2
             // 
@@ -196,7 +205,7 @@
             this.cboTipoUsuario.Location = new System.Drawing.Point(246, 190);
             this.cboTipoUsuario.Name = "cboTipoUsuario";
             this.cboTipoUsuario.Size = new System.Drawing.Size(169, 24);
-            this.cboTipoUsuario.TabIndex = 82;
+            this.cboTipoUsuario.TabIndex = 4;
             // 
             // panel4
             // 
@@ -206,7 +215,7 @@
             this.panel4.Location = new System.Drawing.Point(218, 22);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(168, 32);
-            this.panel4.TabIndex = 80;
+            this.panel4.TabIndex = 1;
             // 
             // txtClave2
             // 
@@ -218,7 +227,7 @@
             this.txtClave2.Name = "txtClave2";
             this.txtClave2.PasswordChar = '•';
             this.txtClave2.Size = new System.Drawing.Size(164, 25);
-            this.txtClave2.TabIndex = 2;
+            this.txtClave2.TabIndex = 0;
             // 
             // label4
             // 
@@ -248,7 +257,7 @@
             this.rbnModificar.Location = new System.Drawing.Point(208, 79);
             this.rbnModificar.Name = "rbnModificar";
             this.rbnModificar.Size = new System.Drawing.Size(124, 19);
-            this.rbnModificar.TabIndex = 85;
+            this.rbnModificar.TabIndex = 9;
             this.rbnModificar.Text = "Modificar usuario";
             this.rbnModificar.UseVisualStyleBackColor = true;
             this.rbnModificar.CheckedChanged += new System.EventHandler(this.rbnModificar_CheckedChanged);
@@ -262,7 +271,7 @@
             this.rbnNuevo.Location = new System.Drawing.Point(53, 79);
             this.rbnNuevo.Name = "rbnNuevo";
             this.rbnNuevo.Size = new System.Drawing.Size(106, 19);
-            this.rbnNuevo.TabIndex = 84;
+            this.rbnNuevo.TabIndex = 8;
             this.rbnNuevo.TabStop = true;
             this.rbnNuevo.Text = "Nuevo usuario";
             this.rbnNuevo.UseVisualStyleBackColor = true;
@@ -277,7 +286,7 @@
             this.pnClaves.Location = new System.Drawing.Point(28, 222);
             this.pnClaves.Name = "pnClaves";
             this.pnClaves.Size = new System.Drawing.Size(417, 58);
-            this.pnClaves.TabIndex = 87;
+            this.pnClaves.TabIndex = 1;
             // 
             // btnBuscar
             // 
@@ -293,7 +302,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(308, 115);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(107, 32);
-            this.btnBuscar.TabIndex = 86;
+            this.btnBuscar.TabIndex = 10;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -311,7 +320,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(57, 310);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
-            this.btnLimpiar.TabIndex = 83;
+            this.btnLimpiar.TabIndex = 5;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpiar.UseVisualStyleBackColor = false;
@@ -329,7 +338,7 @@
             this.btnEliminar.Location = new System.Drawing.Point(229, 309);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 30);
-            this.btnEliminar.TabIndex = 80;
+            this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -347,20 +356,11 @@
             this.btnGuardar.Location = new System.Drawing.Point(325, 309);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 30);
-            this.btnGuardar.TabIndex = 79;
+            this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::HendrixAccountant.Properties.Resources.usersWhite25;
-            this.pictureBox1.Location = new System.Drawing.Point(170, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 25);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // frmUsuarios
             // 
@@ -391,6 +391,7 @@
             this.Load += new System.EventHandler(this.frmUsuarios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnNombres.ResumeLayout(false);
             this.pnNombres.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -399,7 +400,6 @@
             this.panel4.PerformLayout();
             this.pnClaves.ResumeLayout(false);
             this.pnClaves.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

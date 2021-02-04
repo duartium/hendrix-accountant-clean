@@ -28,4 +28,10 @@ namespace HendrixAccountant.ApplicationCore.DTOs
         public int IdProducto { get; set; }
         public string NombreProducto { get; set; }
     }
+
+    public class SupplierFilterDto
+    {
+        public int IdProveedor { get; set; }
+        public string NombreProveedor { get; set; }
+    }
 }

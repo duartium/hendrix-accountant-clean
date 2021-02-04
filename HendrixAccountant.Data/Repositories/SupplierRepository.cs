@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace HendrixAccountant.Data.Repositories
 {
-    public class SupplierRepository
+    public class SupplierRepository : ISupplierRepository
     {
         #region  "Nombre de los procedimientos de operación"
         private const string _storeProcedureName = "SP_SUPPLIERS";
@@ -62,5 +62,14 @@ namespace HendrixAccountant.Data.Repositories
             if (resp > 0) return true; else return false;
         }
 
+        public List<SupplierDto> GetAll(SupplierFilterDto dto)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", 'G'));
+            parms.Add(new SqlParameter("@id_proveedor", dto.IdProveedor));
+            parms.Add(new SqlParameter("@nombre", dto.NombreProveedor));
+            var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+            return new SupplierMapper().DatasetToSuppliers(dsResp);
+        }
     }
 }

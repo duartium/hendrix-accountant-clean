@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantProveedor));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -133,6 +134,7 @@
             this.pnRuc.Name = "pnRuc";
             this.pnRuc.Size = new System.Drawing.Size(188, 32);
             this.pnRuc.TabIndex = 45;
+            this.pnRuc.TabStop = true;
             // 
             // txtRUC
             // 
@@ -161,9 +163,9 @@
             this.label9.ForeColor = System.Drawing.SystemColors.GrayText;
             this.label9.Location = new System.Drawing.Point(48, 118);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(34, 15);
+            this.label9.Size = new System.Drawing.Size(61, 15);
             this.label9.TabIndex = 44;
-            this.label9.Text = "RUC";
+            this.label9.Text = "RUC / C.I.";
             // 
             // pnNombre
             // 
@@ -321,6 +323,7 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click_1);
             // 
             // btnGuardar
             // 
@@ -389,7 +392,10 @@
             this.Controls.Add(this.pnRuc);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(5, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmMantProveedor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "MANTENIMIENTO DE PROVEEDORES";

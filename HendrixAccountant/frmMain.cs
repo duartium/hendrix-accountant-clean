@@ -51,7 +51,10 @@ namespace HendrixAccountant
 
         private void ShowClient()
         {
-            if (frmClientes != null) return;
+            if (frmClientes != null) {
+                frmClientes.BringToFront();
+                return;
+            }
             frmClientes = new frmClientes();
             frmClientes.MdiParent = this;
             frmClientes.FormClosed += new FormClosedEventHandler(clientes_FormClosed);
@@ -60,12 +63,17 @@ namespace HendrixAccountant
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            DeselectButtons();
+            itemProductos.BackColor = Color.FromArgb(253, 184, 39);
             ShowProducts();
         }
 
         private void aperturarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (frmCaja != null) return;
+            if (frmCaja != null) {
+                frmCaja.BringToFront();
+                return;
+            }
             frmCaja = new frmAperturaCaja();
             frmCaja.MdiParent = this;
             frmCaja.FormClosed += new FormClosedEventHandler(caja_FormClosed);
@@ -146,7 +154,10 @@ namespace HendrixAccountant
 
         private void btnVenta_Click(object sender, EventArgs e)
         {
-            if (frmPuntoVenta != null)return;
+            if (frmPuntoVenta != null) {
+                frmVentas.BringToFront();
+                return;
+            }
             frmPuntoVenta = new frmPuntoVenta();
             frmPuntoVenta.MdiParent = this;
             frmPuntoVenta.FormClosed += new FormClosedEventHandler(ventas_FormClosed);
@@ -155,14 +166,17 @@ namespace HendrixAccountant
 
         private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowReports();
             DeselectButtons();
             itemReportes.BackColor = Color.FromArgb(253, 184, 39);
+            ShowReports();
         }
 
         private void ShowReports()
         {
-            if (frmVentas != null) return;
+            if (frmVentas != null) {
+                frmVentas.BringToFront();
+                return;
+            }
             frmVentas = new frmVentas();
             frmVentas.MdiParent = this;
             frmVentas.FormClosed += new FormClosedEventHandler(frmVentas_FormClosed);
@@ -171,8 +185,10 @@ namespace HendrixAccountant
 
         private void itemVenta_Click(object sender, EventArgs e)
         {
-            if (frmPuntoVenta != null) return;
-            
+            if (frmPuntoVenta != null) {
+                frmPuntoVenta.BringToFront();
+                return;
+            }
             DeselectButtons();
             itemVenta.BackColor = Color.FromArgb(253, 184, 39);
             frmPuntoVenta = new frmPuntoVenta();
@@ -193,9 +209,9 @@ namespace HendrixAccountant
 
         private void itemClientes_Click(object sender, EventArgs e)
         {
-            ShowClient();
             DeselectButtons();
             itemClientes.BackColor = Color.FromArgb(253, 184, 39);
+            ShowClient();
         }
 
         private void itemReportes_Click(object sender, EventArgs e)
@@ -226,7 +242,10 @@ namespace HendrixAccountant
 
         private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (frmProductos != null) return;
+            if (frmProductos != null) {
+                frmProductos.BringToFront();
+                return;
+            }
             frmProductos = new frmProductos();
             frmProductos.MdiParent = this;
             frmProductos.FormClosed += new FormClosedEventHandler(productos_FormClosed);
@@ -235,7 +254,11 @@ namespace HendrixAccountant
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (frmMantProveedor != null) return;
+            DeselectButtons();
+            if (frmMantProveedor != null) {
+                frmMantProveedor.BringToFront();
+                return;
+            };
             frmMantProveedor = new frmMantProveedor();
             frmMantProveedor.MdiParent = this;
             frmMantProveedor.FormClosed += new FormClosedEventHandler(mantProveedor_FormClosed);
@@ -249,7 +272,9 @@ namespace HendrixAccountant
 
         private void comprasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (frmCompras != null) return;
+            if (frmCompras != null) {
+                return;
+            }
             frmCompras = new frmCompras();
             frmCompras.MdiParent = this;
             frmCompras.FormClosed += new FormClosedEventHandler(compras_FormClosed);
@@ -258,7 +283,10 @@ namespace HendrixAccountant
 
         private void ShowConfiguration()
         {
-            if (frmParametros != null) return;
+            if (frmParametros != null) {
+                frmParametros.BringToFront();
+                return;
+            };
             frmParametros = new frmParametros();
             frmParametros.MdiParent = this;
             frmParametros.FormClosed += new FormClosedEventHandler(configuration_FormClosed);
@@ -267,7 +295,10 @@ namespace HendrixAccountant
 
         private void ShowProducts()
         {
-            if (frmProductos != null) return;
+            if (frmProductos != null) {
+                frmProductos.BringToFront();
+                return;
+            };
             frmProductos = new frmProductos();
             frmProductos.MdiParent = this;
             frmProductos.FormClosed += new FormClosedEventHandler(productos_FormClosed);
@@ -311,7 +342,10 @@ namespace HendrixAccountant
 
         private void ShowUsers()
         {
-            if (frmUsuarios != null) return;
+            if (frmUsuarios != null) {
+                frmUsuarios.BringToFront();
+                return;
+            }
             frmUsuarios = new frmUsuarios();
             frmUsuarios.MdiParent = this;
             frmUsuarios.FormClosed += new FormClosedEventHandler(usuarios_FormClosed);

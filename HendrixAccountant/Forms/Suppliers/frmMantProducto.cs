@@ -133,9 +133,9 @@ namespace HendrixAccountant.Forms.Directorio
         {
             cboProveedor.DisplayMember = "Descripcion";
             cboProveedor.ValueMember = "Id";
-            var data = this._unitOfWork.Suppliers.GetComboBoxProveedorDTOs();
-            var dataset = ConvertToDataSet.FromList<ComboBoxProveedorDTO>(data, "proveedores");
-            cboProveedor.DataSource = dataset.Tables["proveedores"];
+            //var data = this._unitOfWork.Suppliers.GetComboBoxProveedorDTOs();
+            //var dataset = ConvertToDataSet.FromList<ComboBoxProveedorDTO>(data, "proveedores");
+            //cboProveedor.DataSource = dataset.Tables["proveedores"];
         }
 
         private void EstablecerComboBoxColor()

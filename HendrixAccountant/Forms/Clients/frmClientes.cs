@@ -175,8 +175,12 @@ namespace HendrixAccountant
                 MessageBox.Show("Cliente eliminado con éxito.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Clear();
             }
-            else
-                MessageBox.Show("No se pudo eliminar el cliente.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
+            else MessageBox.Show("No se pudo eliminar el cliente.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
     }
 }

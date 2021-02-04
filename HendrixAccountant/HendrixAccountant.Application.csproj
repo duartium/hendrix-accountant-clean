@@ -99,6 +99,12 @@
     <Compile Include="Forms\Configuration\frmParametros.Designer.cs">
       <DependentUpon>frmParametros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Suppliers\frmBuscarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Suppliers\frmBuscarProveedor.Designer.cs">
+      <DependentUpon>frmBuscarProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Suppliers\frmMantProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,12 +128,6 @@
     </Compile>
     <Compile Include="Forms\Inventory\frmModalProductos.designer.cs">
       <DependentUpon>frmModalProductos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Inventory\frmModalProveedor.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Inventory\frmModalProveedor.designer.cs">
-      <DependentUpon>frmModalProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Products\frmBuscarProductos.cs">
       <SubType>Form</SubType>
@@ -215,6 +215,9 @@
     <EmbeddedResource Include="Forms\Configuration\frmParametros.resx">
       <DependentUpon>frmParametros.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Suppliers\frmBuscarProveedor.resx">
+      <DependentUpon>frmBuscarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Suppliers\frmMantProducto.resx">
       <DependentUpon>frmMantProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,9 +229,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory\frmModalProductos.resx">
       <DependentUpon>frmModalProductos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Inventory\frmModalProveedor.resx">
-      <DependentUpon>frmModalProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Products\frmBuscarProductos.resx">
       <DependentUpon>frmBuscarProductos.cs</DependentUpon>

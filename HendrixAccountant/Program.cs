@@ -22,6 +22,7 @@ namespace HendrixAccountant
             if (!Boolean.Parse(Common.Utils.GetValueSetting("skipLogin")))
             {
                 var frmLogin = new frmLogin();
+                frmLogin.BringToFront();
                 frmLogin.ShowDialog();
 
                 if (frmLogin.DialogResult == DialogResult.OK)

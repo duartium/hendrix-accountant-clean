@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
 {
-    public interface ISupplierRepository: IRepository<Supplier>
+    public interface ISupplierRepository
     {
-        List<ComboBoxProveedorDTO> GetComboBoxProveedorDTOs();
+        bool Save(SupplierDto supplier, bool isUpdate);
+        List<SupplierDto> GetAll(SupplierFilterDto dto);
+        bool Remove(int idProveedor, string usuario);
 
     }
 }

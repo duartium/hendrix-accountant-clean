@@ -66,6 +66,7 @@
             this.btnBuscar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnIdentificacion.SuspendLayout();
@@ -138,7 +139,7 @@
             this.pnIdentificacion.Location = new System.Drawing.Point(53, 123);
             this.pnIdentificacion.Name = "pnIdentificacion";
             this.pnIdentificacion.Size = new System.Drawing.Size(188, 32);
-            this.pnIdentificacion.TabIndex = 8;
+            this.pnIdentificacion.TabIndex = 0;
             // 
             // txtIdentificacion
             // 
@@ -149,7 +150,7 @@
             this.txtIdentificacion.MaxLength = 13;
             this.txtIdentificacion.Name = "txtIdentificacion";
             this.txtIdentificacion.Size = new System.Drawing.Size(185, 19);
-            this.txtIdentificacion.TabIndex = 1;
+            this.txtIdentificacion.TabIndex = 0;
             // 
             // label7
             // 
@@ -168,7 +169,7 @@
             this.pnNombres.Location = new System.Drawing.Point(53, 174);
             this.pnNombres.Name = "pnNombres";
             this.pnNombres.Size = new System.Drawing.Size(381, 32);
-            this.pnNombres.TabIndex = 11;
+            this.pnNombres.TabIndex = 1;
             // 
             // txtNombres
             // 
@@ -179,7 +180,7 @@
             this.txtNombres.MaxLength = 100;
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(378, 16);
-            this.txtNombres.TabIndex = 2;
+            this.txtNombres.TabIndex = 0;
             // 
             // label2
             // 
@@ -209,7 +210,7 @@
             this.pnApellidos.Location = new System.Drawing.Point(53, 225);
             this.pnApellidos.Name = "pnApellidos";
             this.pnApellidos.Size = new System.Drawing.Size(381, 32);
-            this.pnApellidos.TabIndex = 14;
+            this.pnApellidos.TabIndex = 2;
             // 
             // txtApellidos
             // 
@@ -220,7 +221,7 @@
             this.txtApellidos.MaxLength = 100;
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(378, 16);
-            this.txtApellidos.TabIndex = 3;
+            this.txtApellidos.TabIndex = 0;
             // 
             // label4
             // 
@@ -250,7 +251,7 @@
             this.pnDireccion.Location = new System.Drawing.Point(53, 277);
             this.pnDireccion.Name = "pnDireccion";
             this.pnDireccion.Size = new System.Drawing.Size(381, 32);
-            this.pnDireccion.TabIndex = 16;
+            this.pnDireccion.TabIndex = 3;
             // 
             // txtDireccion
             // 
@@ -260,7 +261,7 @@
             this.txtDireccion.Location = new System.Drawing.Point(2, 8);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(377, 15);
-            this.txtDireccion.TabIndex = 4;
+            this.txtDireccion.TabIndex = 0;
             // 
             // label6
             // 
@@ -290,7 +291,7 @@
             this.pnEmail.Location = new System.Drawing.Point(53, 329);
             this.pnEmail.Name = "pnEmail";
             this.pnEmail.Size = new System.Drawing.Size(381, 32);
-            this.pnEmail.TabIndex = 19;
+            this.pnEmail.TabIndex = 4;
             // 
             // txtEmail
             // 
@@ -300,7 +301,7 @@
             this.txtEmail.Location = new System.Drawing.Point(2, 8);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(377, 15);
-            this.txtEmail.TabIndex = 5;
+            this.txtEmail.TabIndex = 0;
             // 
             // label9
             // 
@@ -330,7 +331,7 @@
             this.pnCelular.Location = new System.Drawing.Point(53, 382);
             this.pnCelular.Name = "pnCelular";
             this.pnCelular.Size = new System.Drawing.Size(188, 32);
-            this.pnCelular.TabIndex = 11;
+            this.pnCelular.TabIndex = 5;
             // 
             // txtCelular
             // 
@@ -341,7 +342,7 @@
             this.txtCelular.MaxLength = 10;
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(185, 19);
-            this.txtCelular.TabIndex = 6;
+            this.txtCelular.TabIndex = 0;
             // 
             // label11
             // 
@@ -371,7 +372,7 @@
             this.pnTelefono.Location = new System.Drawing.Point(247, 382);
             this.pnTelefono.Name = "pnTelefono";
             this.pnTelefono.Size = new System.Drawing.Size(188, 32);
-            this.pnTelefono.TabIndex = 13;
+            this.pnTelefono.TabIndex = 6;
             // 
             // txtTelefono
             // 
@@ -382,7 +383,7 @@
             this.txtTelefono.MaxLength = 10;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(185, 19);
-            this.txtTelefono.TabIndex = 7;
+            this.txtTelefono.TabIndex = 0;
             // 
             // label13
             // 
@@ -413,7 +414,7 @@
             this.rbnNuevo.Location = new System.Drawing.Point(56, 75);
             this.rbnNuevo.Name = "rbnNuevo";
             this.rbnNuevo.Size = new System.Drawing.Size(101, 19);
-            this.rbnNuevo.TabIndex = 20;
+            this.rbnNuevo.TabIndex = 10;
             this.rbnNuevo.TabStop = true;
             this.rbnNuevo.Text = "Nuevo cliente";
             this.rbnNuevo.UseVisualStyleBackColor = true;
@@ -427,7 +428,7 @@
             this.rbnModificar.Location = new System.Drawing.Point(211, 75);
             this.rbnModificar.Name = "rbnModificar";
             this.rbnModificar.Size = new System.Drawing.Size(119, 19);
-            this.rbnModificar.TabIndex = 21;
+            this.rbnModificar.TabIndex = 11;
             this.rbnModificar.Text = "Modificar cliente";
             this.rbnModificar.UseVisualStyleBackColor = true;
             this.rbnModificar.CheckedChanged += new System.EventHandler(this.rbnModificar_CheckedChanged);
@@ -446,7 +447,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(328, 123);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(107, 32);
-            this.btnBuscar.TabIndex = 23;
+            this.btnBuscar.TabIndex = 12;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -461,10 +462,10 @@
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
-            this.btnEliminar.Location = new System.Drawing.Point(247, 431);
+            this.btnEliminar.Location = new System.Drawing.Point(247, 437);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 30);
-            this.btnEliminar.TabIndex = 22;
+            this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -479,14 +480,32 @@
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGuardar.Image = global::HendrixAccountant.Properties.Resources.saveWhite20;
-            this.btnGuardar.Location = new System.Drawing.Point(345, 431);
+            this.btnGuardar.Location = new System.Drawing.Point(345, 437);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 30);
-            this.btnGuardar.TabIndex = 4;
+            this.btnGuardar.TabIndex = 9;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(192)))), ((int)(((byte)(222)))));
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.userWhite20;
+            this.btnLimpiar.Location = new System.Drawing.Point(53, 437);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
+            this.btnLimpiar.TabIndex = 7;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // frmClientes
             // 
@@ -494,6 +513,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(514, 484);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.rbnModificar);
@@ -585,5 +605,6 @@
         private System.Windows.Forms.RadioButton rbnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private UIControls.Buttons.ItemAsideSmall btnBuscar;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

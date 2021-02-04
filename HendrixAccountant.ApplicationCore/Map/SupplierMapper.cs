@@ -33,5 +33,28 @@ namespace HendrixAccountant.ApplicationCore.Map
             }
             return supplier;
         }
+
+        public List<SupplierDto> DatasetToSuppliers(DataSet data)
+        {
+            if (!Validator.DatasetIsValid(data)) return null;
+
+            List<SupplierDto> suppliers = null;
+            try
+            {
+                suppliers = data.Tables[0].AsEnumerable().Select(field => new SupplierDto
+                {
+                    IdProveedor = Convert.ToInt32(field["idProveedor"].ToString()),
+                    Ruc = field["ruc"].ToString(),
+                    Nombre = field["nombre"].ToString(),
+                    Direccion = field["direccion"].ToString(),
+                    Email = field["email"].ToString()
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("DatasetToClient", ex.ToString());
+            }
+            return suppliers;
+        }
     }
 }

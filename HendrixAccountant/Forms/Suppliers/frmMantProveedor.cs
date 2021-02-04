@@ -2,6 +2,7 @@
 using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Entities;
 using HendrixAccountant.ApplicationCore.Enums;
+using HendrixAccountant.ApplicationCore.Interfaces.Forms;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.ApplicationCore.Interfaces.Services;
 using HendrixAccountant.Common;
@@ -23,7 +24,7 @@ using Color = System.Drawing.Color;
 
 namespace HendrixAccountant.Forms.Directorio
 {
-    public partial class frmMantProveedor : Form
+    public partial class frmMantProveedor : Form, IFindElement
     {
         private readonly SupplierRepository _rpsSupplier;
         private SupplierDto _supplier;
@@ -94,7 +95,8 @@ namespace HendrixAccountant.Forms.Directorio
         {
             try
             {
-               
+                frmBuscarProveedor frmBuscarProveedor = new frmBuscarProveedor(this);
+                frmBuscarProveedor.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -111,6 +113,7 @@ namespace HendrixAccountant.Forms.Directorio
         private void frmMantProveedor_Load(object sender, EventArgs e)
         {
             btnBuscar.Visible = false;
+            DisabledRemove();
         }
 
         private void rbnNuevo_CheckedChanged(object sender, EventArgs e)
@@ -119,6 +122,7 @@ namespace HendrixAccountant.Forms.Directorio
             _supplier = null;
             Clear();
             EnabledTextboxs(true);
+            DisabledRemove();
             txtRUC.Focus();
         }
 
@@ -126,6 +130,7 @@ namespace HendrixAccountant.Forms.Directorio
         {
             btnBuscar.Visible = true;
             Clear();
+            EnableRemove();
             EnabledTextboxs(false);
         }
 
@@ -147,16 +152,17 @@ namespace HendrixAccountant.Forms.Directorio
             try
             {
                 if (txtRUC.Text.Length == 0 ||
-              txtNombre.Text.Trim().Length == 0 ||
-              txtDireccion.Text.Trim().Length == 0)
+                txtNombre.Text.Trim().Length == 0 ||
+                txtDireccion.Text.Trim().Length == 0)
                 {
                     MessageBox.Show("Ruc, nombre y dirección son campos obligatorios.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtRUC.Focus();
                     return;
                 }
 
                 if (txtRUC.Text.Trim().Length < 13)
                 {
-                    MessageBox.Show("El RUC debe contener 13 dígitos.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El RUC o cédula debe contener mínimo 10 dígitos.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtRUC.Focus();
                     return;
                 }
@@ -164,7 +170,7 @@ namespace HendrixAccountant.Forms.Directorio
                 string mensaje = "Proveedor registrado con éxito.";
                 bool isUpdate = false;
                 var dataOp = DataOperator.Instance;
-                var client = new SupplierDto
+                var supplier = new SupplierDto
                 {
                     IdProveedor = _supplier == null ? -1 : _supplier.IdProveedor,
                     Ruc = txtRUC.Text,
@@ -176,13 +182,12 @@ namespace HendrixAccountant.Forms.Directorio
 
                 if (rbnModificar.Checked) { isUpdate = true; mensaje = mensaje.Replace("registrado", "modificado"); }
 
-                bool resp = _rpsSupplier.Save(client, isUpdate);
+                bool resp = _rpsSupplier.Save(supplier, isUpdate);
                 if (resp)
                 {
                     MessageBox.Show(mensaje, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clear();
-                }
-                else MessageBox.Show("No se pudo registrar el cliente.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
+                } else MessageBox.Show("No se pudo registrar el proveedor.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
@@ -197,5 +202,62 @@ namespace HendrixAccountant.Forms.Directorio
             pnDireccion.Enabled = valor;
             pnEmail.Enabled = valor;
         }
+
+        public void Selected(ISaleElement entity)
+        {
+            if (entity == null) return;
+            switch (entity.GetType().Name)
+            {
+                case "SupplierDto":
+                    _supplier = entity as SupplierDto;
+                    SetSupplier();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void SetSupplier()
+        {
+            if (_supplier == null) return;
+            txtRUC.Text = _supplier.Ruc;
+            txtNombre.Text = _supplier.Nombre;
+            txtDireccion.Text = _supplier.Direccion;
+            txtCorreoElectronico.Text = _supplier.Direccion;
+            EnabledTextboxs(true);
+            txtRUC.Focus();
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            if (_supplier == null)
+            {
+                MessageBox.Show("Busque y seleccione un proveedor para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnBuscar.Focus();
+                return;
+            }
+
+            bool resp = _rpsSupplier.Remove(_supplier.IdProveedor, DataOperator.Instance.Username);
+            if (resp)
+            {
+                MessageBox.Show("Proveedor eliminado con éxito.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Clear();
+            }
+            else MessageBox.Show("No se pudo eliminar el proveedor.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
+        }
+
+        private void EnableRemove()
+        {
+            btnEliminar.Enabled = true;
+            btnEliminar.BackColor = Color.FromArgb(220, 53, 69);
+            btnEliminar.Focus();
+        }
+
+        private void DisabledRemove()
+        {
+            btnEliminar.Enabled = false;
+            btnEliminar.BackColor = SystemColors.Control;
+        }
+
     }
 }

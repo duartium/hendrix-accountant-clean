@@ -28,13 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.gbUsuario = new System.Windows.Forms.GroupBox();
-            this.lblCodUsuario = new System.Windows.Forms.Label();
-            this.txtNombreUsuario = new System.Windows.Forms.TextBox();
-            this.lblUsuario = new System.Windows.Forms.Label();
-            this.txtCodUsuario = new System.Windows.Forms.TextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarUsuario));
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
@@ -42,59 +38,9 @@
             this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColFechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gbUsuario.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gbUsuario
-            // 
-            this.gbUsuario.Controls.Add(this.lblCodUsuario);
-            this.gbUsuario.Controls.Add(this.txtNombreUsuario);
-            this.gbUsuario.Controls.Add(this.lblUsuario);
-            this.gbUsuario.Controls.Add(this.txtCodUsuario);
-            this.gbUsuario.Location = new System.Drawing.Point(8, 12);
-            this.gbUsuario.Name = "gbUsuario";
-            this.gbUsuario.Size = new System.Drawing.Size(280, 69);
-            this.gbUsuario.TabIndex = 29;
-            this.gbUsuario.TabStop = false;
-            this.gbUsuario.Text = "Usuario";
-            // 
-            // lblCodUsuario
-            // 
-            this.lblCodUsuario.AutoSize = true;
-            this.lblCodUsuario.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodUsuario.Location = new System.Drawing.Point(6, 20);
-            this.lblCodUsuario.Name = "lblCodUsuario";
-            this.lblCodUsuario.Size = new System.Drawing.Size(40, 14);
-            this.lblCodUsuario.TabIndex = 6;
-            this.lblCodUsuario.Text = "Código";
-            // 
-            // txtNombreUsuario
-            // 
-            this.txtNombreUsuario.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreUsuario.Location = new System.Drawing.Point(71, 36);
-            this.txtNombreUsuario.Name = "txtNombreUsuario";
-            this.txtNombreUsuario.Size = new System.Drawing.Size(197, 22);
-            this.txtNombreUsuario.TabIndex = 26;
-            // 
-            // lblUsuario
-            // 
-            this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(68, 20);
-            this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(98, 14);
-            this.lblUsuario.TabIndex = 7;
-            this.lblUsuario.Text = "Nombre de usuario";
-            // 
-            // txtCodUsuario
-            // 
-            this.txtCodUsuario.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodUsuario.Location = new System.Drawing.Point(8, 36);
-            this.txtCodUsuario.Name = "txtCodUsuario";
-            this.txtCodUsuario.Size = new System.Drawing.Size(57, 22);
-            this.txtCodUsuario.TabIndex = 19;
             // 
             // panel1
             // 
@@ -104,7 +50,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(365, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(127, 296);
+            this.panel1.Size = new System.Drawing.Size(127, 299);
             this.panel1.TabIndex = 30;
             // 
             // btnLimpiar
@@ -156,14 +102,14 @@
             this.dgvUsuarios.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUsuarios.ColumnHeadersHeight = 27;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -171,12 +117,12 @@
             this.colUsuario,
             this.ColFechaCreacion});
             this.dgvUsuarios.EnableHeadersVisualStyles = false;
-            this.dgvUsuarios.Location = new System.Drawing.Point(8, 91);
+            this.dgvUsuarios.Location = new System.Drawing.Point(8, 16);
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersVisible = false;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(353, 193);
+            this.dgvUsuarios.Size = new System.Drawing.Size(353, 266);
             this.dgvUsuarios.TabIndex = 31;
             this.dgvUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellDoubleClick);
             // 
@@ -189,8 +135,8 @@
             // 
             // colUsuario
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.colUsuario.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colUsuario.DefaultCellStyle = dataGridViewCellStyle2;
             this.colUsuario.HeaderText = "Nombre de Usuario";
             this.colUsuario.Name = "colUsuario";
             this.colUsuario.ReadOnly = true;
@@ -208,18 +154,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(492, 296);
+            this.ClientSize = new System.Drawing.Size(492, 299);
             this.Controls.Add(this.dgvUsuarios);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.gbUsuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmBuscarUsuario";
             this.Text = "BUSCAR USUARIO";
             this.Load += new System.EventHandler(this.frmBuscarUsuario_Load);
-            this.gbUsuario.ResumeLayout(false);
-            this.gbUsuario.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.ResumeLayout(false);
@@ -227,12 +171,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox gbUsuario;
-        private System.Windows.Forms.Label lblCodUsuario;
-        private System.Windows.Forms.TextBox txtNombreUsuario;
-        private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.TextBox txtCodUsuario;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;

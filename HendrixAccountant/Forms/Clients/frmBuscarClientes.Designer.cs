@@ -372,7 +372,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmBuscarClientes";
-            this.Text = "CLIENTES";
+            this.Text = "BUSCAR CLIENTES";
             this.Activated += new System.EventHandler(this.frmBuscarClientes_Activated);
             this.Load += new System.EventHandler(this.frmClientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();

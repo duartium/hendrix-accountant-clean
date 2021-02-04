@@ -34,6 +34,7 @@ namespace HendrixAccountant
         public frmBuscarClientes(IFindElement caller)
         {
             InitializeComponent();
+            this.txtNombres.Focus();
             _caller = caller;
             _rpsClient = new ClienteRepository();
         }

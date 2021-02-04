@@ -36,13 +36,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cmbTalla = new System.Windows.Forms.ComboBox();
             this.btnBuscarProveedor = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.pnNombreProveedor = new System.Windows.Forms.Panel();
             this.txtNombreProveedor = new HendrixAccountant.UIControls.TextInput();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.rbnModificar = new System.Windows.Forms.RadioButton();
             this.rbnNuevo = new System.Windows.Forms.RadioButton();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.pnCodProveedor = new System.Windows.Forms.Panel();
             this.txtCodProveedor = new HendrixAccountant.UIControls.NumericInput();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -74,8 +74,8 @@
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel8.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.pnNombreProveedor.SuspendLayout();
+            this.pnCodProveedor.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -159,18 +159,17 @@
             this.btnBuscarProveedor.TabIndex = 75;
             this.btnBuscarProveedor.Text = "...";
             this.btnBuscarProveedor.UseVisualStyleBackColor = true;
-            this.btnBuscarProveedor.Visible = false;
+            this.btnBuscarProveedor.Click += new System.EventHandler(this.btnBuscarProveedor_Click);
             // 
-            // panel8
+            // pnNombreProveedor
             // 
-            this.panel8.BackColor = System.Drawing.SystemColors.Control;
-            this.panel8.Controls.Add(this.txtNombreProveedor);
-            this.panel8.Controls.Add(this.label4);
-            this.panel8.Location = new System.Drawing.Point(129, 328);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(269, 32);
-            this.panel8.TabIndex = 63;
-            this.panel8.Visible = false;
+            this.pnNombreProveedor.BackColor = System.Drawing.SystemColors.Control;
+            this.pnNombreProveedor.Controls.Add(this.txtNombreProveedor);
+            this.pnNombreProveedor.Controls.Add(this.label4);
+            this.pnNombreProveedor.Location = new System.Drawing.Point(129, 328);
+            this.pnNombreProveedor.Name = "pnNombreProveedor";
+            this.pnNombreProveedor.Size = new System.Drawing.Size(269, 32);
+            this.pnNombreProveedor.TabIndex = 6;
             // 
             // txtNombreProveedor
             // 
@@ -181,7 +180,7 @@
             this.txtNombreProveedor.MaxLength = 100;
             this.txtNombreProveedor.Name = "txtNombreProveedor";
             this.txtNombreProveedor.Size = new System.Drawing.Size(265, 16);
-            this.txtNombreProveedor.TabIndex = 2;
+            this.txtNombreProveedor.TabIndex = 0;
             // 
             // label4
             // 
@@ -232,16 +231,15 @@
             this.rbnNuevo.UseVisualStyleBackColor = true;
             this.rbnNuevo.CheckedChanged += new System.EventHandler(this.rbnNuevo_CheckedChanged);
             // 
-            // panel7
+            // pnCodProveedor
             // 
-            this.panel7.BackColor = System.Drawing.SystemColors.Control;
-            this.panel7.Controls.Add(this.txtCodProveedor);
-            this.panel7.Controls.Add(this.label2);
-            this.panel7.Location = new System.Drawing.Point(51, 328);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(73, 32);
-            this.panel7.TabIndex = 72;
-            this.panel7.Visible = false;
+            this.pnCodProveedor.BackColor = System.Drawing.SystemColors.Control;
+            this.pnCodProveedor.Controls.Add(this.txtCodProveedor);
+            this.pnCodProveedor.Controls.Add(this.label2);
+            this.pnCodProveedor.Location = new System.Drawing.Point(51, 328);
+            this.pnCodProveedor.Name = "pnCodProveedor";
+            this.pnCodProveedor.Size = new System.Drawing.Size(73, 32);
+            this.pnCodProveedor.TabIndex = 5;
             // 
             // txtCodProveedor
             // 
@@ -252,7 +250,7 @@
             this.txtCodProveedor.MaxLength = 10;
             this.txtCodProveedor.Name = "txtCodProveedor";
             this.txtCodProveedor.Size = new System.Drawing.Size(65, 19);
-            this.txtCodProveedor.TabIndex = 48;
+            this.txtCodProveedor.TabIndex = 0;
             // 
             // label2
             // 
@@ -283,7 +281,7 @@
             this.panel5.Location = new System.Drawing.Point(262, 230);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(98, 32);
-            this.panel5.TabIndex = 70;
+            this.panel5.TabIndex = 4;
             // 
             // txtStock
             // 
@@ -294,7 +292,7 @@
             this.txtStock.MaxLength = 5;
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(92, 15);
-            this.txtStock.TabIndex = 49;
+            this.txtStock.TabIndex = 0;
             // 
             // label20
             // 
@@ -324,7 +322,7 @@
             this.panel4.Location = new System.Drawing.Point(157, 230);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(98, 32);
-            this.panel4.TabIndex = 68;
+            this.panel4.TabIndex = 3;
             // 
             // label18
             // 
@@ -344,7 +342,7 @@
             this.txtPrecioVenta.MaxLength = 10;
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(87, 15);
-            this.txtPrecioVenta.TabIndex = 13;
+            this.txtPrecioVenta.TabIndex = 0;
             this.txtPrecioVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPrecioVenta.TextChanged += new System.EventHandler(this.txtPrecioVenta_TextChanged);
             // 
@@ -367,7 +365,7 @@
             this.panel3.Location = new System.Drawing.Point(51, 230);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(98, 32);
-            this.panel3.TabIndex = 65;
+            this.panel3.TabIndex = 2;
             // 
             // label16
             // 
@@ -387,7 +385,7 @@
             this.txtCosto.MaxLength = 10;
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(87, 15);
-            this.txtCosto.TabIndex = 12;
+            this.txtCosto.TabIndex = 0;
             this.txtCosto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCosto.TextChanged += new System.EventHandler(this.txtCosto_TextChanged);
             // 
@@ -410,7 +408,7 @@
             this.pnDireccion.Location = new System.Drawing.Point(51, 178);
             this.pnDireccion.Name = "pnDireccion";
             this.pnDireccion.Size = new System.Drawing.Size(309, 32);
-            this.pnDireccion.TabIndex = 66;
+            this.pnDireccion.TabIndex = 1;
             // 
             // txtDescripcion
             // 
@@ -421,7 +419,7 @@
             this.txtDescripcion.MaxLength = 150;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(304, 15);
-            this.txtDescripcion.TabIndex = 4;
+            this.txtDescripcion.TabIndex = 0;
             // 
             // label14
             // 
@@ -451,7 +449,7 @@
             this.pnNombres.Location = new System.Drawing.Point(50, 127);
             this.pnNombres.Name = "pnNombres";
             this.pnNombres.Size = new System.Drawing.Size(269, 32);
-            this.pnNombres.TabIndex = 60;
+            this.pnNombres.TabIndex = 0;
             // 
             // txtNombre
             // 
@@ -462,7 +460,7 @@
             this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(265, 16);
-            this.txtNombre.TabIndex = 2;
+            this.txtNombre.TabIndex = 0;
             // 
             // label1
             // 
@@ -594,11 +592,11 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbTalla);
             this.Controls.Add(this.btnBuscarProveedor);
-            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.pnNombreProveedor);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.rbnModificar);
             this.Controls.Add(this.rbnNuevo);
-            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.pnCodProveedor);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.panel5);
@@ -628,10 +626,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
+            this.pnNombreProveedor.ResumeLayout(false);
+            this.pnNombreProveedor.PerformLayout();
+            this.pnCodProveedor.ResumeLayout(false);
+            this.pnCodProveedor.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -656,13 +654,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbTalla;
         private System.Windows.Forms.Button btnBuscarProveedor;
-        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel pnNombreProveedor;
         private UIControls.TextInput txtNombreProveedor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton rbnModificar;
         private System.Windows.Forms.RadioButton rbnNuevo;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel pnCodProveedor;
         private UIControls.NumericInput txtCodProveedor;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

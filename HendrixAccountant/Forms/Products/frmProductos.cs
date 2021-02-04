@@ -24,12 +24,14 @@ namespace HendrixAccountant
         private IProductTempRepository _rpsProduct;
         private Product _product;
         private ICatalogueRepository _rpsCatalogue;
+        private SupplierDto _supplier;
         public frmProductos()
         {
             InitializeComponent();
             _rpsProduct = new ProductTempRepository();
             _rpsCatalogue = new CatalogueRepository();
             LoadCatalogs();
+            _supplier = null;
         }
 
         public void Selected(ISaleElement entity)
@@ -40,7 +42,12 @@ namespace HendrixAccountant
             {
                 case "Product":
                     _product = entity as Product;
+                    _supplier = new SupplierDto { IdProveedor = _product.proveedor_id, Nombre = _product.proveedor };
                     SetProduct();
+                    break;
+                case "SupplierDto":
+                    _supplier = entity as SupplierDto;
+                    SetSupplier();
                     break;
                 default:
                     break;
@@ -65,25 +72,38 @@ namespace HendrixAccountant
         {
             Clear();
             EnabledTextboxs(true);
+            btnBuscarProveedor.Enabled = true;
             DisabledRemove();
             DisabledSearch();
+            EnabledCombos(true);
             txtNombre.Focus();
         }
 
         private void SetProduct()
         {
-            if (_product == null) return;
+            if (_product == null || _supplier == null) return;
             txtNombre.Text = _product.nombre;
             txtDescripcion.Text = _product.descripcion;
             txtCosto.Text = _product.costo.ToString();
             txtPrecioVenta.Text = _product.precio_venta.ToString();
             txtStock.Text = _product.stock.ToString();
-            txtCodProveedor.Text = "";
-            txtNombreProveedor.Text = "";
+            txtCodProveedor.Text = _supplier.IdProveedor.ToString();
+            txtNombreProveedor.Text = _supplier.Nombre;
             cmbTalla.SelectedValue = _product.id_talla;
             cboCategoria.SelectedValue = _product.categoria_id;
+            EnabledTextboxs(true);
+            EnabledCombos(true);
+            btnBuscarProveedor.Enabled = true;
             txtNombre.Focus();
         }
+
+        private void SetSupplier()
+        {
+            if (_supplier == null) return;
+            txtCodProveedor.Text = _supplier.IdProveedor.ToString();
+            txtNombreProveedor.Text = _supplier.Nombre.ToString();
+        }
+
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -94,6 +114,12 @@ namespace HendrixAccountant
                txtStock.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Complete los datos del producto para proceder con su registro.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if(_supplier == null)
+            {
+                MessageBox.Show("Seleccione al proveedor. Campo obligatorio", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             bool isUpdate = false;
@@ -108,7 +134,7 @@ namespace HendrixAccountant
                 Precio = Convert.ToDecimal(txtPrecioVenta.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
                 Stock = Convert.ToInt32(txtStock.Text),
                 IdCategoria = Convert.ToInt32(cboCategoria.SelectedValue),
-                IdProveedor = 1,
+                IdProveedor = _supplier.IdProveedor,
                 IdTalla = Convert.ToInt32(cmbTalla.SelectedValue),
                 Usuario = dataOp.Username
             };
@@ -149,8 +175,6 @@ namespace HendrixAccountant
             txtDescripcion.Enabled = valor;
             txtCosto.Enabled = valor;
             txtPrecioVenta.Enabled = valor;
-            txtCodProveedor.Enabled = valor;
-            txtNombreProveedor.Enabled = valor;
             txtStock.Enabled = valor;
         }
 
@@ -158,6 +182,8 @@ namespace HendrixAccountant
         {
             DisabledSearch();
             DisabledRemove();
+            txtNombreProveedor.Enabled = false;
+            txtCodProveedor.Enabled = false;
         }
 
         private void LoadComboBoxTallas()
@@ -256,8 +282,16 @@ namespace HendrixAccountant
         {
             Clear();
             EnabledTextboxs(false);
+            btnBuscarProveedor.Enabled = false;
             EnableSearch();
             EnableRemove();
+            EnabledCombos(false);
+        }
+
+        private void EnabledCombos(bool valor)
+        {
+            cboCategoria.Enabled = valor;
+            cmbTalla.Enabled = valor;
         }
 
         private void frmProductos_Activated(object sender, EventArgs e)
@@ -280,6 +314,19 @@ namespace HendrixAccountant
                 Clear();
             }
             else MessageBox.Show("No se pudo eliminar el producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
+        }
+
+        private void btnBuscarProveedor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmBuscarProveedor frmBuscarProveedor = new frmBuscarProveedor(this);
+                frmBuscarProveedor.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("btnBuscarProveedor_Click", ex.ToString());
+            }
         }
     }
 }

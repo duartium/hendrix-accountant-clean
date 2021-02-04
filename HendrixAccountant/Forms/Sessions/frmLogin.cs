@@ -53,8 +53,17 @@ namespace HendrixAccountant.Sessions
 
         private void txtPassword_KeyUp(object sender, KeyEventArgs e)
         {
+           
+                
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
             if (e.KeyCode == Keys.Enter)
+            {
                 AuthenticateUser();
+                e.Handled = e.SuppressKeyPress = true;
+            }
                 
         }
     }

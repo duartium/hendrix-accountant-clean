@@ -29,7 +29,9 @@ namespace HendrixAccountant.ApplicationCore.Map
                     id_talla = Convert.ToInt32(field["idTalla"].ToString()),
                     talla = field["talla"].ToString(),
                     categoria_id = Convert.ToInt32(field["idCategoria"].ToString()),
-                    categoria = field["categoria"].ToString()
+                    categoria = field["categoria"].ToString(),
+                    proveedor_id = Convert.ToInt32(field["idProveedor"].ToString()),
+                    proveedor = field["nombreProveedor"].ToString()
                 }).ToList();
             }
             catch (Exception ex)
