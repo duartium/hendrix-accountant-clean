@@ -99,16 +99,16 @@
     <Compile Include="Forms\Configuration\frmParametros.Designer.cs">
       <DependentUpon>frmParametros.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Directorio\frmMantProducto.cs">
+    <Compile Include="Forms\Suppliers\frmMantProducto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Directorio\frmMantProducto.Designer.cs">
+    <Compile Include="Forms\Suppliers\frmMantProducto.Designer.cs">
       <DependentUpon>frmMantProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Directorio\frmMantProveedor.cs">
+    <Compile Include="Forms\Suppliers\frmMantProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Directorio\frmMantProveedor.Designer.cs">
+    <Compile Include="Forms\Suppliers\frmMantProveedor.Designer.cs">
       <DependentUpon>frmMantProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Inventory\frmCompras.cs">
@@ -215,10 +215,10 @@
     <EmbeddedResource Include="Forms\Configuration\frmParametros.resx">
       <DependentUpon>frmParametros.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Directorio\frmMantProducto.resx">
+    <EmbeddedResource Include="Forms\Suppliers\frmMantProducto.resx">
       <DependentUpon>frmMantProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Directorio\frmMantProveedor.resx">
+    <EmbeddedResource Include="Forms\Suppliers\frmMantProveedor.resx">
       <DependentUpon>frmMantProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory\frmCompras.resx">

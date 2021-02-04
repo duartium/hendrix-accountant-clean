@@ -155,7 +155,7 @@
             this.btnBuscarProveedor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarProveedor.Location = new System.Drawing.Point(405, 328);
             this.btnBuscarProveedor.Name = "btnBuscarProveedor";
-            this.btnBuscarProveedor.Size = new System.Drawing.Size(42, 10);
+            this.btnBuscarProveedor.Size = new System.Drawing.Size(42, 32);
             this.btnBuscarProveedor.TabIndex = 75;
             this.btnBuscarProveedor.Text = "...";
             this.btnBuscarProveedor.UseVisualStyleBackColor = true;
@@ -168,7 +168,7 @@
             this.panel8.Controls.Add(this.label4);
             this.panel8.Location = new System.Drawing.Point(129, 328);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(269, 11);
+            this.panel8.Size = new System.Drawing.Size(269, 32);
             this.panel8.TabIndex = 63;
             this.panel8.Visible = false;
             // 
@@ -187,7 +187,7 @@
             // 
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label4.Location = new System.Drawing.Point(0, 8);
+            this.label4.Location = new System.Drawing.Point(0, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(269, 3);
             this.label4.TabIndex = 9;
@@ -239,7 +239,7 @@
             this.panel7.Controls.Add(this.label2);
             this.panel7.Location = new System.Drawing.Point(51, 328);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(70, 11);
+            this.panel7.Size = new System.Drawing.Size(73, 32);
             this.panel7.TabIndex = 72;
             this.panel7.Visible = false;
             // 
@@ -258,9 +258,9 @@
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label2.Location = new System.Drawing.Point(0, 8);
+            this.label2.Location = new System.Drawing.Point(0, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 3);
+            this.label2.Size = new System.Drawing.Size(73, 3);
             this.label2.TabIndex = 9;
             // 
             // label3
@@ -513,7 +513,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.userWhite20;
-            this.btnLimpiar.Location = new System.Drawing.Point(51, 348);
+            this.btnLimpiar.Location = new System.Drawing.Point(51, 376);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar.TabIndex = 58;
@@ -531,7 +531,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
-            this.btnEliminar.Location = new System.Drawing.Point(280, 348);
+            this.btnEliminar.Location = new System.Drawing.Point(280, 376);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar.TabIndex = 56;
@@ -549,7 +549,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGuardar.Image = global::HendrixAccountant.Properties.Resources.saveWhite20;
-            this.btnGuardar.Location = new System.Drawing.Point(376, 348);
+            this.btnGuardar.Location = new System.Drawing.Point(376, 376);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 30);
             this.btnGuardar.TabIndex = 55;
@@ -588,7 +588,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(520, 402);
+            this.ClientSize = new System.Drawing.Size(520, 424);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.label6);

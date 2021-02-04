@@ -104,6 +104,7 @@
     <Compile Include="Map\ProductMapper.cs" />
     <Compile Include="Map\ClientMapper.cs" />
     <Compile Include="Map\ReportMapper.cs" />
+    <Compile Include="Map\SupplierMapper.cs" />
     <Compile Include="Map\UserMapper.cs" />
     <Compile Include="Map\Validator.cs" />
     <Compile Include="Models\Audit.cs" />

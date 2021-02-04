@@ -69,8 +69,8 @@ namespace HendrixAccountant.Data.Repositories
         {
             get
             {
-                if (_suppliers== null)
-                    _suppliers = new SupplierRepository(_context);
+                if (_suppliers == null)
+                    _suppliers = null;
                 return _suppliers;
             }
         }

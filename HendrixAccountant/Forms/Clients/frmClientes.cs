@@ -100,6 +100,7 @@ namespace HendrixAccountant
             if (resp){
                 MessageBox.Show(mensaje, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Clear();
+                txtIdentificacion.Focus();
             }else
                 MessageBox.Show("No se pudo registrar el cliente.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
         }
