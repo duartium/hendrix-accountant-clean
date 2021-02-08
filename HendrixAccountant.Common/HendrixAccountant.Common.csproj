@@ -53,6 +53,7 @@
     <Compile Include="Database\DataBase.cs" />
     <Compile Include="Export\ExportToExcel.cs" />
     <Compile Include="Interfaces\ISqlServer.cs" />
+    <Compile Include="Security\AesOperation.cs" />
     <Compile Include="Security\Encrypt.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

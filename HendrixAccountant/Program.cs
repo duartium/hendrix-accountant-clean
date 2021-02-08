@@ -28,8 +28,7 @@ namespace HendrixAccountant
                 if (frmLogin.DialogResult == DialogResult.OK)
                     Application.Run(new frmMain());
             }
-            else
-                Application.Run(new frmMain());//solo para efecto de pruebas
+            else Application.Run(new frmMain());//solo para efecto de pruebas
         }
     }
 }

@@ -25,5 +25,7 @@ namespace HendrixAccountant.ApplicationCore.Constants
         public const string DEF_FORMAT_DATE = "dd/MM/yyyy";
         //parámetros DB
         public const string COMPANY = "empresa";
+        //Key pass
+        public const string KEY_PASS = "H3ndr1x";
     }
 }

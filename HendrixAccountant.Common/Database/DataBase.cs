@@ -115,7 +115,7 @@ namespace HendrixAccountant.Common
             string conn = String.Empty;
             try
             {
-                return ConfigurationManager.ConnectionStrings["HendrixContext"].ConnectionString;
+                return Encrypt.TripleDecrypt(ConfigurationManager.ConnectionStrings["HendrixContext"].ConnectionString);
             }
             catch (Exception ex)
             {
