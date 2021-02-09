@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace HendrixAccountant.ApplicationCore.DTOs
 {
-    class CategoryDTO
+    public class CategoryDto : ISaleElement
     {
+        public string Usuario { get; set; }
+        public int IdCategoria { get; set; }
+        public string Codigo { get; set; }
+        public string Nombre { get; set; }
     }
 
     public class ComboBoxCategoriaDTO
