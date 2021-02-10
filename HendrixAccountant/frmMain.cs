@@ -30,6 +30,7 @@ namespace HendrixAccountant
         private DataOperator _dataOper;
         private frmParametros  frmParametros = null;
         private frmUsuarios frmUsuarios = null;
+        private frmCategorias frmCategorias = null;
 
         #region constructores
         public frmMain()
@@ -123,6 +124,11 @@ namespace HendrixAccountant
         private void configuration_FormClosed(object sender, EventArgs e)
         {
             frmParametros = null;
+        }
+
+        private void categorias_FormClosed(object sender, EventArgs e)
+        {
+            frmCategorias = null;
         }
         #endregion
 
@@ -362,6 +368,20 @@ namespace HendrixAccountant
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeselectButtons();
+            if (frmCategorias != null)
+            {
+                frmCategorias.BringToFront();
+                return;
+            };
+            frmCategorias = new frmCategorias();
+            frmCategorias.MdiParent = this;
+            frmCategorias.FormClosed += new FormClosedEventHandler(categorias_FormClosed);
+            frmCategorias.Show();
         }
     }
 }

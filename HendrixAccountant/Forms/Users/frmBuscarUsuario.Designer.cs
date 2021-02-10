@@ -116,13 +116,14 @@
             this.colCodigo,
             this.colUsuario,
             this.ColFechaCreacion});
+            this.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUsuarios.EnableHeadersVisualStyles = false;
-            this.dgvUsuarios.Location = new System.Drawing.Point(8, 16);
+            this.dgvUsuarios.Location = new System.Drawing.Point(0, 0);
             this.dgvUsuarios.MultiSelect = false;
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowHeadersVisible = false;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsuarios.Size = new System.Drawing.Size(353, 266);
+            this.dgvUsuarios.Size = new System.Drawing.Size(365, 299);
             this.dgvUsuarios.TabIndex = 31;
             this.dgvUsuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellDoubleClick);
             // 
@@ -159,9 +160,11 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(205, 130);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmBuscarUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "BUSCAR USUARIO";
             this.Load += new System.EventHandler(this.frmBuscarUsuario_Load);
             this.panel1.ResumeLayout(false);

@@ -15,21 +15,21 @@ namespace HendrixAccountant.ApplicationCore.Map
         {
             if (!Validator.DatasetIsValid(data)) return null;
 
-            List<CategoryDto> suppliers = null;
+            List<CategoryDto> categories = null;
             try
             {
-                suppliers = data.Tables[0].AsEnumerable().Select(field => new CategoryDto
+                categories = data.Tables[0].AsEnumerable().Select(field => new CategoryDto
                 {
-                    IdCategoria = Convert.ToInt32(field["idProveedor"].ToString()),
+                    IdCategoria = Convert.ToInt32(field["id"].ToString()),
                     Codigo = field["codigo"].ToString(),
-                    Nombre = field["nombre"].ToString()
+                    Descripcion = field["descripcion"].ToString()
                 }).ToList();
             }
             catch (Exception ex)
             {
                 Utils.GrabarLog("DatasetToCategory", ex.ToString());
             }
-            return suppliers;
+            return categories;
         }
     }
 }

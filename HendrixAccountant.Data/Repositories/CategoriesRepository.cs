@@ -30,20 +30,22 @@ namespace HendrixAccountant.Data.Repositories
 
             var parms = new List<SqlParameter>();
             parms.Add(new SqlParameter("@accion", action));
+            parms.Add(new SqlParameter("@nombre", "categorias"));
             parms.Add(new SqlParameter("@usuario", category.Usuario));
             parms.Add(new SqlParameter("@codigo", category.Codigo));
-            parms.Add(new SqlParameter("@nombre", category.Nombre));
-            if (isUpdate) parms.Add(new SqlParameter("@id_item_catalogo", category.IdCategoria));
+            parms.Add(new SqlParameter("@descripcion", category.Descripcion));
+            if (isUpdate) parms.Add(new SqlParameter("@idItemCatalogo", category.IdCategoria));
             int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
             if (resp > 0) return true; else return false;
         }
 
-        public bool Remove(int idProveedor, string usuario)
+        public bool Remove(int idCategory, string usuario)
         {
             var parms = new List<SqlParameter>();
             parms.Add(new SqlParameter("@accion", "E"));
+            parms.Add(new SqlParameter("@nombre", "categorias"));
             parms.Add(new SqlParameter("@usuario", usuario));
-            parms.Add(new SqlParameter("@id_proveedor", idProveedor));
+            parms.Add(new SqlParameter("@idItemCatalogo", idCategory));
             int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
             if (resp > 0) return true; else return false;
         }
@@ -51,7 +53,7 @@ namespace HendrixAccountant.Data.Repositories
         public List<CategoryDto> GetAll()
         {
             var parms = new List<SqlParameter>();
-            parms.Add(new SqlParameter("@accion", 'G'));
+            parms.Add(new SqlParameter("@accion", 'C'));
             parms.Add(new SqlParameter("@nombre", "categorias"));
             var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
             return new CategoryMapper().DatasetToCategories(dsResp);

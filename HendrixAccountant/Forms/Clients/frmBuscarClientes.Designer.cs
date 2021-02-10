@@ -369,9 +369,11 @@
             this.Controls.Add(this.pnBotones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(210, 150);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmBuscarClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "BUSCAR CLIENTES";
             this.Activated += new System.EventHandler(this.frmBuscarClientes_Activated);
             this.Load += new System.EventHandler(this.frmClientes_Load);

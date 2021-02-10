@@ -35,16 +35,16 @@
             this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.dgvProveedores = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtCodProveedor = new HendrixAccountant.UIControls.NumericInput();
-            this.lblNombreProducto = new System.Windows.Forms.Label();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.txtNombreProv = new System.Windows.Forms.TextBox();
             this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCodProveedor = new HendrixAccountant.UIControls.NumericInput();
+            this.lblNombreProducto = new System.Windows.Forms.Label();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.txtNombreProv = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -158,6 +158,41 @@
             this.dgvProveedores.TabIndex = 10;
             this.dgvProveedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellDoubleClick);
             // 
+            // colCodigo
+            // 
+            this.colCodigo.HeaderText = "Código";
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.ReadOnly = true;
+            this.colCodigo.Width = 60;
+            // 
+            // colRuc
+            // 
+            this.colRuc.HeaderText = "RUC";
+            this.colRuc.Name = "colRuc";
+            this.colRuc.ReadOnly = true;
+            this.colRuc.Width = 90;
+            // 
+            // colNombre
+            // 
+            this.colNombre.HeaderText = "Nombre";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.ReadOnly = true;
+            this.colNombre.Width = 160;
+            // 
+            // colDireccion
+            // 
+            this.colDireccion.HeaderText = "Dirección";
+            this.colDireccion.Name = "colDireccion";
+            this.colDireccion.ReadOnly = true;
+            this.colDireccion.Width = 120;
+            // 
+            // colEmail
+            // 
+            this.colEmail.HeaderText = "Email";
+            this.colEmail.Name = "colEmail";
+            this.colEmail.ReadOnly = true;
+            this.colEmail.Width = 80;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtCodProveedor);
@@ -213,41 +248,6 @@
             this.txtNombreProv.TabIndex = 0;
             this.txtNombreProv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreProv_KeyDown);
             // 
-            // colCodigo
-            // 
-            this.colCodigo.HeaderText = "Código";
-            this.colCodigo.Name = "colCodigo";
-            this.colCodigo.ReadOnly = true;
-            this.colCodigo.Width = 60;
-            // 
-            // colRuc
-            // 
-            this.colRuc.HeaderText = "RUC";
-            this.colRuc.Name = "colRuc";
-            this.colRuc.ReadOnly = true;
-            this.colRuc.Width = 90;
-            // 
-            // colNombre
-            // 
-            this.colNombre.HeaderText = "Nombre";
-            this.colNombre.Name = "colNombre";
-            this.colNombre.ReadOnly = true;
-            this.colNombre.Width = 160;
-            // 
-            // colDireccion
-            // 
-            this.colDireccion.HeaderText = "Dirección";
-            this.colDireccion.Name = "colDireccion";
-            this.colDireccion.ReadOnly = true;
-            this.colDireccion.Width = 120;
-            // 
-            // colEmail
-            // 
-            this.colEmail.HeaderText = "Email";
-            this.colEmail.Name = "colEmail";
-            this.colEmail.ReadOnly = true;
-            this.colEmail.Width = 80;
-            // 
             // frmBuscarProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,9 +259,11 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(230, 150);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmBuscarProveedor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "BUSCAR PROVEEDOR";
             this.Activated += new System.EventHandler(this.frmBuscarProveedor_Activated);
             this.Load += new System.EventHandler(this.frmBuscarProveedor_Load);

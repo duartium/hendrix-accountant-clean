@@ -99,6 +99,18 @@
     <Compile Include="Forms\Configuration\frmParametros.Designer.cs">
       <DependentUpon>frmParametros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Products\frmBuscarCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Products\frmBuscarCategorias.Designer.cs">
+      <DependentUpon>frmBuscarCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Products\frmCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Products\frmCategorias.Designer.cs">
+      <DependentUpon>frmCategorias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Suppliers\frmBuscarProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +227,12 @@
     <EmbeddedResource Include="Forms\Configuration\frmParametros.resx">
       <DependentUpon>frmParametros.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Products\frmBuscarCategorias.resx">
+      <DependentUpon>frmBuscarCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Products\frmCategorias.resx">
+      <DependentUpon>frmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Suppliers\frmBuscarProveedor.resx">
       <DependentUpon>frmBuscarProveedor.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +348,7 @@
     <Content Include="Resources\Images\cartWhite25.png" />
     <Content Include="Resources\Images\cartWhite26.png" />
     <Content Include="Resources\Images\cashBlue20.png" />
+    <Content Include="Resources\Images\categoriasWhite25.png" />
     <Content Include="Resources\Images\clearBlue20.png" />
     <Content Include="Resources\Images\clientsWhite25.png" />
     <Content Include="Resources\Images\CloseBlue20.png" />

@@ -48,6 +48,7 @@ namespace HendrixAccountant
 
         private void rbnModificar_CheckedChanged(object sender, EventArgs e)
         {
+            Clear();
             btnEliminar.Enabled = true;
             btnBuscar.Enabled = true;
             btnEliminar.BackColor = Color.FromArgb(220, 53, 69);
