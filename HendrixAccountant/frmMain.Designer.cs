@@ -36,9 +36,12 @@
             this.aperturarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directoriosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.productosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.productosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.categoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tallasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,9 +65,6 @@
             this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.p = new System.Windows.Forms.PictureBox();
             this.itemReportes = new HendrixAccountant.UIControls.ItemMenu();
-            this.categoríasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tallasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStripMain.SuspendLayout();
             this.statusBarMain.SuspendLayout();
             this.pnAside.SuspendLayout();
@@ -139,13 +139,6 @@
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click_1);
             // 
-            // productosToolStripMenuItem1
-            // 
-            this.productosToolStripMenuItem1.Name = "productosToolStripMenuItem1";
-            this.productosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.productosToolStripMenuItem1.Text = "Productos";
-            this.productosToolStripMenuItem1.Click += new System.EventHandler(this.productosToolStripMenuItem1_Click);
-            // 
             // proveedoresToolStripMenuItem
             // 
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
@@ -159,6 +152,32 @@
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // productosToolStripMenuItem1
+            // 
+            this.productosToolStripMenuItem1.Name = "productosToolStripMenuItem1";
+            this.productosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.productosToolStripMenuItem1.Text = "Productos";
+            this.productosToolStripMenuItem1.Click += new System.EventHandler(this.productosToolStripMenuItem1_Click);
+            // 
+            // categoríasToolStripMenuItem
+            // 
+            this.categoríasToolStripMenuItem.Name = "categoríasToolStripMenuItem";
+            this.categoríasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.categoríasToolStripMenuItem.Text = "Categorías";
+            this.categoríasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
+            // 
+            // tallasToolStripMenuItem
+            // 
+            this.tallasToolStripMenuItem.Name = "tallasToolStripMenuItem";
+            this.tallasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tallasToolStripMenuItem.Text = "Tallas";
+            this.tallasToolStripMenuItem.Click += new System.EventHandler(this.tallasToolStripMenuItem_Click);
             // 
             // inventarioToolStripMenuItem
             // 
@@ -439,24 +458,6 @@
             this.itemReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.itemReportes.UseVisualStyleBackColor = false;
             this.itemReportes.Click += new System.EventHandler(this.itemReportes_Click);
-            // 
-            // categoríasToolStripMenuItem
-            // 
-            this.categoríasToolStripMenuItem.Name = "categoríasToolStripMenuItem";
-            this.categoríasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.categoríasToolStripMenuItem.Text = "Categorías";
-            this.categoríasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
-            // 
-            // tallasToolStripMenuItem
-            // 
-            this.tallasToolStripMenuItem.Name = "tallasToolStripMenuItem";
-            this.tallasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.tallasToolStripMenuItem.Text = "Tallas";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // frmMain
             // 

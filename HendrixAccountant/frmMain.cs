@@ -31,6 +31,7 @@ namespace HendrixAccountant
         private frmParametros  frmParametros = null;
         private frmUsuarios frmUsuarios = null;
         private frmCategorias frmCategorias = null;
+        private frmTallas frmTallas = null;
 
         #region constructores
         public frmMain()
@@ -129,6 +130,11 @@ namespace HendrixAccountant
         private void categorias_FormClosed(object sender, EventArgs e)
         {
             frmCategorias = null;
+        }
+
+        private void tallas_FormClosed(object sender, EventArgs e)
+        {
+            frmTallas = null;
         }
         #endregion
 
@@ -382,6 +388,20 @@ namespace HendrixAccountant
             frmCategorias.MdiParent = this;
             frmCategorias.FormClosed += new FormClosedEventHandler(categorias_FormClosed);
             frmCategorias.Show();
+        }
+
+        private void tallasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeselectButtons();
+            if (frmTallas != null)
+            {
+                frmTallas.BringToFront();
+                return;
+            };
+            frmTallas = new frmTallas();
+            frmTallas.MdiParent = this;
+            frmTallas.FormClosed += new FormClosedEventHandler(tallas_FormClosed);
+            frmTallas.Show();
         }
     }
 }

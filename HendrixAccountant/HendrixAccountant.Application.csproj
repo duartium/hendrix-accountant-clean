@@ -99,11 +99,23 @@
     <Compile Include="Forms\Configuration\frmParametros.Designer.cs">
       <DependentUpon>frmParametros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Products\frmBuscarTallas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Products\frmBuscarTallas.Designer.cs">
+      <DependentUpon>frmBuscarTallas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Products\frmBuscarCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Products\frmBuscarCategorias.Designer.cs">
       <DependentUpon>frmBuscarCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Products\frmTallas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Products\frmTallas.Designer.cs">
+      <DependentUpon>frmTallas.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Products\frmCategorias.cs">
       <SubType>Form</SubType>
@@ -227,8 +239,14 @@
     <EmbeddedResource Include="Forms\Configuration\frmParametros.resx">
       <DependentUpon>frmParametros.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Products\frmBuscarTallas.resx">
+      <DependentUpon>frmBuscarTallas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Products\frmBuscarCategorias.resx">
       <DependentUpon>frmBuscarCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Products\frmTallas.resx">
+      <DependentUpon>frmTallas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Products\frmCategorias.resx">
       <DependentUpon>frmCategorias.cs</DependentUpon>

@@ -15,15 +15,15 @@ using System.Windows.Forms;
 
 namespace HendrixAccountant
 {
-    public partial class frmCategorias : Form, IFindElement
+    public partial class frmTallas : Form, IFindElement
     {
-        private ICategoriesRepository _rpsCategory;
-        private CategoryDto _category;
-        public frmCategorias()
+        private ISizeRepository _rpsSize;
+        private SizeDto _size;
+        public frmTallas()
         {
             InitializeComponent();
-            _category = null;
-            _rpsCategory = new CategoriesRepository();
+            _size = null;
+            _rpsSize = new SizeRepository();
         }
 
         private void frmCategorias_Load(object sender, EventArgs e)
@@ -32,7 +32,7 @@ namespace HendrixAccountant
             EnabledRemove(false);
         }
 
-        private void frmCategorias_Activated(object sender, EventArgs e)
+        private void frmTallas_Activated(object sender, EventArgs e)
         {
             txtCodigo.Focus();
         }
@@ -40,9 +40,9 @@ namespace HendrixAccountant
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Clear();
-            _category = null;
-            frmBuscarCategorias frmBuscarCategorias = new frmBuscarCategorias(this);
-            frmBuscarCategorias.ShowDialog();
+            _size = null;
+            frmBuscarTallas frmBuscarTallas = new frmBuscarTallas(this);
+            frmBuscarTallas.ShowDialog();
         }
 
         private void rbnNuevo_CheckedChanged(object sender, EventArgs e)
@@ -51,7 +51,7 @@ namespace HendrixAccountant
             DisabledSearch();
             EnabledTextboxs(true);
             txtCodigo.Focus();
-            _category = null;
+            _size = null;
         }
 
         private void EnabledTextboxs(bool valor)
@@ -80,20 +80,20 @@ namespace HendrixAccountant
             if (entity == null) return;
             switch (entity.GetType().Name)
             {
-                case "CategoryDto":
-                    _category = entity as CategoryDto;
-                    SetCategory();
+                case "SizeDto":
+                    _size = entity as SizeDto;
+                    SetSize();
                     break;
                 default:
                     break;
             }
         }
 
-        private void SetCategory()
+        private void SetSize()
         {
-            if (_category == null) return;
-            txtCodigo.Text = _category.Codigo;
-            txtNombre.Text = _category.Descripcion;
+            if (_size == null) return;
+            txtCodigo.Text = _size.Codigo;
+            txtNombre.Text = _size.Descripcion;
             EnabledTextboxs(true);
             txtCodigo.Focus();
         }
@@ -126,7 +126,7 @@ namespace HendrixAccountant
         {
             if (txtCodigo.Text.Length == 0 || txtNombre.Text.Trim().Length == 0 )
             {
-                MessageBox.Show("El código y nombre de la categoría son obligatorios.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El código y nombre de la talla son obligatorios.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -137,12 +137,12 @@ namespace HendrixAccountant
                 return;
             }
 
-            string mensaje = "Categoría registrada con éxito.";
+            string mensaje = "talla registrada con éxito.";
             bool isUpdate = false;
             var dataOp = DataOperator.Instance;
-            var category = new CategoryDto
+            var size = new SizeDto
             {
-                IdCategoria = _category == null ? -1 : _category.IdCategoria,
+                IdTalla = _size == null ? -1 : _size.IdTalla,
                 Codigo = txtCodigo.Text,
                 Descripcion = txtNombre.Text,
                 Usuario = dataOp.Username
@@ -150,31 +150,31 @@ namespace HendrixAccountant
 
             if (rbnModificar.Checked) { isUpdate = true; mensaje = mensaje.Replace("registrada", "modificada"); }
 
-            bool resp = _rpsCategory.Save(category, isUpdate);
+            bool resp = _rpsSize.Save(size, isUpdate);
             if (resp)
             {
                 MessageBox.Show(mensaje, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Clear();
                 txtCodigo.Focus();
             }
-            else MessageBox.Show("No se pudo registrar la categoría.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
+            else MessageBox.Show("No se pudo registrar la talla.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (_category == null)
+            if (_size == null)
             {
-                MessageBox.Show("Busque y seleccione una categoría para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Busque y seleccione una talla para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            bool resp = _rpsCategory.Remove(_category.IdCategoria, DataOperator.Instance.Username);
+            bool resp = _rpsSize.Remove(_size.IdTalla, DataOperator.Instance.Username);
             if (resp)
             {
-                MessageBox.Show("Categoría eliminada con éxito.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("talla eliminada con éxito.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Clear();
             }
-            else MessageBox.Show("No se pudo eliminar la categoría.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
+            else MessageBox.Show("No se pudo eliminar la talla.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
         }
     }
 }
