@@ -38,12 +38,13 @@ namespace HendrixAccountant
             _descuento = 0;
             _rpsClient = null;
             _rpsProduct = new ProductTempRepository();
+            SetFinalConsumer();
         }
 
         private void frmPuntoVenta_Load(object sender, EventArgs e)
         {
-            DisableAdd();
-            DisabledRemove();
+            //DisableAdd();
+            //DisabledRemove();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -210,7 +211,11 @@ namespace HendrixAccountant
         {
             try
             {
-                if (dgvPuntoVenta.SelectedRows.Count <= 0) return;
+                if (dgvPuntoVenta.SelectedRows.Count <= 0) {
+                    MessageBox.Show("Níngún producto seleccionado para eliminar.", CString.DEFAULT_TITLE, MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    return;
+                }
+                
                 if (MessageBox.Show("¿Está seguro que desea eliminar el artículo seleccionado?", CString.DEFAULT_TITLE, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.Cancel) return;
 
                 foreach (DataGridViewRow row in dgvPuntoVenta.SelectedRows)
@@ -257,7 +262,7 @@ namespace HendrixAccountant
 
         private void frmPuntoVenta_Activated(object sender, EventArgs e)
         {
-            txtIdentCliente.Focus();
+            btnBuscarCliente.Focus();
         }
 
         private void txtIdentCliente_KeyDown(object sender, KeyEventArgs e)
@@ -352,6 +357,19 @@ namespace HendrixAccountant
                 else e.Cancel = true;
 
             }
+        }
+
+        private void SetFinalConsumer()
+        {
+            _client = new ClientIdentity
+            {
+                IdCliente = 1,
+                Identificacion = "1",
+                NombresCompletos = "CONSUMIDOR FINAL",
+                Direccion = String.Empty
+            };
+            SetClient();
+            btnBuscarCliente.Focus();
         }
     }
 }
