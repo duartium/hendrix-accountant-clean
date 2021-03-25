@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.pnLateralIz = new System.Windows.Forms.Panel();
+            this.lblTitile2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnFooter = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pbxLogoCompany = new System.Windows.Forms.PictureBox();
@@ -46,37 +46,37 @@
             this.btnAcceder = new System.Windows.Forms.Button();
             this.lblCerrar = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.pnLateralIz.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCompany)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnLateralIz
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.pbxLogoCompany);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(244, 385);
-            this.panel1.TabIndex = 0;
+            this.pnLateralIz.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.pnLateralIz.Controls.Add(this.lblTitile2);
+            this.pnLateralIz.Controls.Add(this.label9);
+            this.pnLateralIz.Controls.Add(this.pnFooter);
+            this.pnLateralIz.Controls.Add(this.label2);
+            this.pnLateralIz.Controls.Add(this.label1);
+            this.pnLateralIz.Controls.Add(this.pbxLogoCompany);
+            this.pnLateralIz.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnLateralIz.Location = new System.Drawing.Point(0, 0);
+            this.pnLateralIz.Name = "pnLateralIz";
+            this.pnLateralIz.Size = new System.Drawing.Size(244, 385);
+            this.pnLateralIz.TabIndex = 0;
             // 
-            // label8
+            // lblTitile2
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.label8.Location = new System.Drawing.Point(43, 215);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(138, 19);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "CHIC BOUTIQUE";
+            this.lblTitile2.AutoSize = true;
+            this.lblTitile2.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitile2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitile2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.lblTitile2.Location = new System.Drawing.Point(43, 215);
+            this.lblTitile2.Name = "lblTitile2";
+            this.lblTitile2.Size = new System.Drawing.Size(138, 19);
+            this.lblTitile2.TabIndex = 4;
+            this.lblTitile2.Text = "CHIC BOUTIQUE";
             // 
             // label9
             // 
@@ -89,14 +89,14 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "NOVEDADES";
             // 
-            // panel2
+            // pnFooter
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 380);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(244, 5);
-            this.panel2.TabIndex = 1;
+            this.pnFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.pnFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnFooter.Location = new System.Drawing.Point(0, 380);
+            this.pnFooter.Name = "pnFooter";
+            this.pnFooter.Size = new System.Drawing.Size(244, 5);
+            this.pnFooter.TabIndex = 1;
             // 
             // label2
             // 
@@ -264,14 +264,15 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnLateralIz);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.pnLateralIz.ResumeLayout(false);
+            this.pnLateralIz.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLogoCompany)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -281,11 +282,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnLateralIz;
         private System.Windows.Forms.PictureBox pbxLogoCompany;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnFooter;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -296,7 +297,7 @@
         private System.Windows.Forms.Button btnAcceder;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblCerrar;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblTitile2;
         private System.Windows.Forms.Label label9;
     }
 }

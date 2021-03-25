@@ -202,7 +202,7 @@ namespace HendrixAccountant
                 return;
             }
             DeselectButtons();
-            itemVenta.BackColor = Color.FromArgb(253, 184, 39);
+            itemVenta.BackColor = DataOperator.Instance.ColorSecondary;
             frmPuntoVenta = new frmPuntoVenta();
             frmPuntoVenta.MdiParent = this;
             frmPuntoVenta.FormClosed += new FormClosedEventHandler(ventas_FormClosed);
@@ -211,12 +211,12 @@ namespace HendrixAccountant
 
         private void DeselectButtons()
         {
-            itemClientes.BackColor = Color.FromArgb(27, 46, 140);
-            itemConfiguracion.BackColor = Color.FromArgb(27, 46, 140);
-            itemReportes.BackColor = Color.FromArgb(27, 46, 140);
-            itemVenta.BackColor = Color.FromArgb(27, 46, 140);
-            itemProductos.BackColor = Color.FromArgb(27, 46, 140);
-            itemUsuarios.BackColor = Color.FromArgb(27, 46, 140);
+            itemClientes.BackColor = DataOperator.Instance.ColorPrimary;
+            itemConfiguracion.BackColor = DataOperator.Instance.ColorPrimary;
+            itemReportes.BackColor = DataOperator.Instance.ColorPrimary;
+            itemVenta.BackColor = DataOperator.Instance.ColorPrimary;
+            itemProductos.BackColor = DataOperator.Instance.ColorPrimary;
+            itemUsuarios.BackColor = DataOperator.Instance.ColorPrimary;
         }
 
         private void itemClientes_Click(object sender, EventArgs e)

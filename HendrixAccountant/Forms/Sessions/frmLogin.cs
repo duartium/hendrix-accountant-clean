@@ -1,13 +1,6 @@
 ﻿using HendrixAccountant.ApplicationCore.Constants;
 using HendrixAccountant.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HendrixAccountant.Sessions
@@ -19,6 +12,8 @@ namespace HendrixAccountant.Sessions
         public frmLogin()
         {
             InitializeComponent();
+            pnLateralIz.BackColor = DataOperator.Instance.ColorPrimary;
+            lblTitile2.ForeColor = DataOperator.Instance.ColorSecondary;
             _repUser = new UserRepository();
         }
 
@@ -65,6 +60,11 @@ namespace HendrixAccountant.Sessions
                 e.Handled = e.SuppressKeyPress = true;
             }
                 
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
