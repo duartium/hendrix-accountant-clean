@@ -37,7 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pbxLogoCompany = new System.Windows.Forms.PictureBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -145,16 +145,16 @@
             this.txtUsername.Size = new System.Drawing.Size(284, 22);
             this.txtUsername.TabIndex = 1;
             // 
-            // label3
+            // lblTitulo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(130)))));
-            this.label3.Location = new System.Drawing.Point(299, 32);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 25);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Inicio de sesión";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(26)))), ((int)(((byte)(130)))));
+            this.lblTitulo.Location = new System.Drawing.Point(299, 32);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(168, 25);
+            this.lblTitulo.TabIndex = 3;
+            this.lblTitulo.Text = "Inicio de sesión";
             // 
             // label4
             // 
@@ -262,7 +262,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.pnLateralIz);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -288,7 +288,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnFooter;
         private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

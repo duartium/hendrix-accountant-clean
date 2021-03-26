@@ -22,6 +22,7 @@ namespace HendrixAccountant
         public frmClientes()
         {
             InitializeComponent();
+            pnHeader.BackColor = DataOperator.Instance.ColorPrimary;
             _rpsClient = new ClienteRepository();
             _client = null;
         }

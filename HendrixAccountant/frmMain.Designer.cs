@@ -287,7 +287,7 @@
             this.itemUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(74)))), ((int)(((byte)(159)))));
             this.itemUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
             this.itemUsuarios.FlatAppearance.BorderSize = 0;
-            this.itemUsuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemUsuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(74)))), ((int)(((byte)(159)))));
             this.itemUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
             this.itemUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.itemUsuarios.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
@@ -307,7 +307,7 @@
             this.itemProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(74)))), ((int)(((byte)(159)))));
             this.itemProductos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.itemProductos.FlatAppearance.BorderSize = 0;
-            this.itemProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemProductos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(74)))), ((int)(((byte)(159)))));
             this.itemProductos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
             this.itemProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.itemProductos.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
@@ -337,7 +337,7 @@
             this.itemVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(74)))), ((int)(((byte)(159)))));
             this.itemVenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.itemVenta.FlatAppearance.BorderSize = 0;
-            this.itemVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(74)))), ((int)(((byte)(159)))));
             this.itemVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
             this.itemVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.itemVenta.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
@@ -359,7 +359,7 @@
             this.itemConfiguracion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(74)))), ((int)(((byte)(159)))));
             this.itemConfiguracion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.itemConfiguracion.FlatAppearance.BorderSize = 0;
-            this.itemConfiguracion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemConfiguracion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(74)))), ((int)(((byte)(159)))));
             this.itemConfiguracion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
             this.itemConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.itemConfiguracion.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
@@ -380,7 +380,7 @@
             this.itemClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(74)))), ((int)(((byte)(159)))));
             this.itemClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.itemClientes.FlatAppearance.BorderSize = 0;
-            this.itemClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemClientes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(74)))), ((int)(((byte)(159)))));
             this.itemClientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
             this.itemClientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.itemClientes.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
@@ -431,7 +431,7 @@
             // 
             // p
             // 
-            this.p.Image = global::HendrixAccountant.Properties.Resources.HendrixUserCircle;
+            this.p.Image = global::HendrixAccountant.Properties.Resources.HendrixUserCirclePink;
             this.p.Location = new System.Drawing.Point(12, 19);
             this.p.Name = "p";
             this.p.Size = new System.Drawing.Size(51, 50);
@@ -444,7 +444,7 @@
             this.itemReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(74)))), ((int)(((byte)(159)))));
             this.itemReportes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.itemReportes.FlatAppearance.BorderSize = 0;
-            this.itemReportes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.itemReportes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(74)))), ((int)(((byte)(159)))));
             this.itemReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
             this.itemReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.itemReportes.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);

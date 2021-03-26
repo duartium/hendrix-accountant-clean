@@ -14,6 +14,7 @@ namespace HendrixAccountant.Sessions
             InitializeComponent();
             pnLateralIz.BackColor = DataOperator.Instance.ColorPrimary;
             lblTitile2.ForeColor = DataOperator.Instance.ColorSecondary;
+            lblTitulo.ForeColor = DataOperator.Instance.ColorPrimary;
             _repUser = new UserRepository();
         }
 

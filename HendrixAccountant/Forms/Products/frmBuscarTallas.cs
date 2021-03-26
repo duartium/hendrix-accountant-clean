@@ -23,6 +23,7 @@ namespace HendrixAccountant
         public frmBuscarTallas(IFindElement caller)
         {
             InitializeComponent();
+            SetCompanyColors();
             _caller = caller;
             _rpsSize = new SizeRepository();
         }
@@ -77,6 +78,14 @@ namespace HendrixAccountant
             _caller.Selected((dgvSizes.Rows[e.RowIndex].Tag as SizeDto));
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void SetCompanyColors()
+        {
+            pnAside.BackColor = DataOperator.Instance.ColorPrimary;
+            btnConsultar.BackColor = DataOperator.Instance.ColorSecondary;
+            btnLimpiar.BackColor = DataOperator.Instance.ColorSecondary;
+            dgvSizes.ColumnHeadersDefaultCellStyle.BackColor = DataOperator.Instance.ColorPrimary;
         }
     }
 }

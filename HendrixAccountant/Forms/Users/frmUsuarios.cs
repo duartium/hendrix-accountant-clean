@@ -23,6 +23,7 @@ namespace HendrixAccountant
         public frmUsuarios()
         {
             InitializeComponent();
+            pnHeader.BackColor = DataOperator.Instance.ColorPrimary;
             _rpsUser = new UserRepository();
             _user = null;
         }

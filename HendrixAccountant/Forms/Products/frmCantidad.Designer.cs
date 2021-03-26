@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCantidad));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnHeader = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnOk = new HendrixAccountant.UIControls.Buttons.ItemAside();
             this.txtCantidad = new HendrixAccountant.UIControls.NumericInput();
-            this.panel1.SuspendLayout();
+            this.pnHeader.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnHeader
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(347, 50);
-            this.panel1.TabIndex = 2;
+            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.pnHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnHeader.Controls.Add(this.label1);
+            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnHeader.Name = "pnHeader";
+            this.pnHeader.Size = new System.Drawing.Size(347, 50);
+            this.pnHeader.TabIndex = 2;
             // 
             // label1
             // 
@@ -95,7 +95,7 @@
             this.ClientSize = new System.Drawing.Size(347, 167);
             this.Controls.Add(this.txtCantidad);
             this.Controls.Add(this.btnOk);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -104,15 +104,15 @@
             this.Text = "INGRESE CANTIDAD";
             this.Activated += new System.EventHandler(this.frmCantidad_Activated);
             this.Load += new System.EventHandler(this.frmCantidad_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnHeader.ResumeLayout(false);
+            this.pnHeader.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnHeader;
         private UIControls.Buttons.ItemAside btnOk;
         private UIControls.NumericInput txtCantidad;
         private System.Windows.Forms.Label label1;

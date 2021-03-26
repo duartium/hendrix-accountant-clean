@@ -23,6 +23,7 @@ namespace HendrixAccountant
         public frmParametros()
         {
             InitializeComponent();
+            pnHeader.BackColor = DataOperator.Instance.ColorPrimary;
             _rpsParams = new CompanyRepository();
         }
 

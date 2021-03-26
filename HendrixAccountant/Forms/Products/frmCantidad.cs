@@ -18,6 +18,8 @@ namespace HendrixAccountant
         public frmCantidad(IQuantity caller)
         {
             InitializeComponent();
+            pnHeader.BackColor = DataOperator.Instance.ColorPrimary;
+            btnOk.BackColor = DataOperator.Instance.ColorPrimary;
             _caller = caller;
         }
 

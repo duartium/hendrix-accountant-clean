@@ -31,6 +31,7 @@ namespace HendrixAccountant
         public frmPuntoVenta()
         {
             InitializeComponent();
+            SetCompanyColors();
             _product = null;
             _lsProducts = new List<ProductIdentityDto>();
             _client = null;
@@ -370,6 +371,20 @@ namespace HendrixAccountant
             };
             SetClient();
             btnBuscarCliente.Focus();
+        }
+
+        private void SetCompanyColors()
+        {
+            pnAside.BackColor = DataOperator.Instance.ColorPrimary;
+            pnAside2.BackColor = DataOperator.Instance.ColorPrimary;
+            lblDivisor.BackColor = DataOperator.Instance.ColorSecondary;
+            btnGuardar.BackColor = DataOperator.Instance.ColorSecondary;
+            txtValorDscto.BackColor = DataOperator.Instance.ColorPrimary;
+            txtValorDscto.BackColor = DataOperator.Instance.ColorPrimary;
+            txtValorIva.BackColor = DataOperator.Instance.ColorPrimary;
+            txtTotalPagar.ForeColor = DataOperator.Instance.ColorPrimary;
+            txtValorSubtotal.BackColor = DataOperator.Instance.ColorPrimary;
+            dgvPuntoVenta.ColumnHeadersDefaultCellStyle.BackColor = DataOperator.Instance.ColorPrimary;
         }
     }
 }

@@ -34,11 +34,11 @@
             this.dgvSizes = new System.Windows.Forms.DataGridView();
             this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnAside = new System.Windows.Forms.Panel();
             this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSizes)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnAside.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvSizes
@@ -88,16 +88,16 @@
             this.colCategoria.ReadOnly = true;
             this.colCategoria.Width = 230;
             // 
-            // panel1
+            // pnAside
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.panel1.Controls.Add(this.btnLimpiar);
-            this.panel1.Controls.Add(this.btnConsultar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(308, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(127, 275);
-            this.panel1.TabIndex = 32;
+            this.pnAside.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.pnAside.Controls.Add(this.btnLimpiar);
+            this.pnAside.Controls.Add(this.btnConsultar);
+            this.pnAside.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnAside.Location = new System.Drawing.Point(308, 0);
+            this.pnAside.Name = "pnAside";
+            this.pnAside.Size = new System.Drawing.Size(127, 275);
+            this.pnAside.TabIndex = 32;
             // 
             // btnLimpiar
             // 
@@ -147,7 +147,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(435, 275);
             this.Controls.Add(this.dgvSizes);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnAside);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(250, 150);
             this.Name = "frmBuscarTallas";
@@ -155,7 +155,7 @@
             this.Text = "BUSCAR CATEGORÍAS";
             this.Load += new System.EventHandler(this.frmBuscarCategorias_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSizes)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.pnAside.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -163,7 +163,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvSizes;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnAside;
         private UIControls.Buttons.ItemAsideSmall btnLimpiar;
         private UIControls.Buttons.ItemAsideSmall btnConsultar;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;

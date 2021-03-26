@@ -49,7 +49,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblRuc = new System.Windows.Forms.Label();
             this.tcEmpresa = new System.Windows.Forms.TabControl();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnHeader = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -59,7 +59,7 @@
             this.pnNombreComercial.SuspendLayout();
             this.pnIdentificacion.SuspendLayout();
             this.tcEmpresa.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -288,17 +288,17 @@
             this.tcEmpresa.Size = new System.Drawing.Size(410, 312);
             this.tcEmpresa.TabIndex = 0;
             // 
-            // panel1
+            // pnHeader
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.lblTitulo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(439, 60);
-            this.panel1.TabIndex = 1;
+            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.pnHeader.Controls.Add(this.pictureBox1);
+            this.pnHeader.Controls.Add(this.panel2);
+            this.pnHeader.Controls.Add(this.lblTitulo);
+            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnHeader.Name = "pnHeader";
+            this.pnHeader.Size = new System.Drawing.Size(439, 60);
+            this.pnHeader.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -336,7 +336,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(439, 392);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnHeader);
             this.Controls.Add(this.tcEmpresa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -357,8 +357,8 @@
             this.pnIdentificacion.ResumeLayout(false);
             this.pnIdentificacion.PerformLayout();
             this.tcEmpresa.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnHeader.ResumeLayout(false);
+            this.pnHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -368,7 +368,7 @@
 
         private System.Windows.Forms.TabPage tpEmpresa;
         private System.Windows.Forms.TabControl tcEmpresa;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnHeader;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblTitulo;

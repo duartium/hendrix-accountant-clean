@@ -193,6 +193,16 @@ namespace HendrixAccountant.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HendrixUserCirclePink {
+            get {
+                object obj = ResourceManager.GetObject("HendrixUserCirclePink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LogoNovedadesChic {
             get {
                 object obj = ResourceManager.GetObject("LogoNovedadesChic", resourceCulture);

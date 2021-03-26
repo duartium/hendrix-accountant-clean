@@ -10,15 +10,11 @@ using HendrixAccountant.Data;
 using HendrixAccountant.Data.Dtos;
 using HendrixAccountant.Data.Repositories;
 using HendrixAccountant.Data.Services;
-using HendrixAccountant.Reports;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HendrixAccountant.Forms
@@ -36,6 +32,7 @@ namespace HendrixAccountant.Forms
         public frmVentas()
         {
             InitializeComponent();
+            SetCompanyColors();
             _rpsReports = new SaleReportService();
             _rpsParams = new CompanyRepository();
             _dsResp = null;
@@ -307,17 +304,29 @@ namespace HendrixAccountant.Forms
         {
             if (valor)
             {
-                btnImprimir.Enabled = valor;
-                btnImprimir.BackColor = Color.FromArgb(253, 184, 39);
+                btnImprimir.Visible = true;
+                //btnImprimir.Enabled = valor;
+                //btnImprimir.BackColor = Color.FromArgb(253, 184, 39);
             }
             else
             {
-                btnImprimir.Enabled = valor;
-                btnImprimir.BackColor = Color.DimGray;
+                btnImprimir.Visible = false;
+                //btnImprimir.Enabled = valor;
+                //btnImprimir.BackColor = Color.DimGray;
             }
             
         }
 
-       
+        private void SetCompanyColors()
+        {
+            pnAside.BackColor = DataOperator.Instance.ColorPrimary;
+            dgvComprobanteInd.ColumnHeadersDefaultCellStyle.BackColor = DataOperator.Instance.ColorPrimary;
+            dgvVentaGeneral.ColumnHeadersDefaultCellStyle.BackColor = DataOperator.Instance.ColorPrimary;
+            btnConsultar.BackColor = DataOperator.Instance.ColorSecondary;
+            btnImprimir.BackColor = DataOperator.Instance.ColorSecondary;
+            btnLimpiar.BackColor = DataOperator.Instance.ColorSecondary;
+            btnCerrar.BackColor = DataOperator.Instance.ColorSecondary;
+        }
+
     }
 }

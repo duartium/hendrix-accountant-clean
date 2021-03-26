@@ -28,6 +28,7 @@ namespace HendrixAccountant
         public frmProductos()
         {
             InitializeComponent();
+            pnHeader.BackColor = DataOperator.Instance.ColorPrimary;
             _rpsProduct = new ProductTempRepository();
             _rpsCatalogue = new CatalogueRepository();
             LoadCatalogs();

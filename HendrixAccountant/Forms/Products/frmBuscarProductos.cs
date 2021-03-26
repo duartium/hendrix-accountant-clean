@@ -26,12 +26,14 @@ namespace HendrixAccountant
         public frmBuscarProductos()
         {
             InitializeComponent();
+            SetCompanyColors();
             _rpsProduct = new ProductTempRepository();
         }
 
         public frmBuscarProductos(IFindElement caller)
         {
             InitializeComponent();
+            SetCompanyColors();
             _caller = caller;
             _rpsProduct = new ProductTempRepository();
         }
@@ -159,6 +161,14 @@ namespace HendrixAccountant
                 Search();
                 e.Handled = e.SuppressKeyPress = true;
             }
+        }
+
+        private void SetCompanyColors()
+        {
+            pnAside.BackColor = DataOperator.Instance.ColorPrimary;
+            btnConsultar.BackColor = DataOperator.Instance.ColorSecondary;
+            btnCerrar.BackColor = DataOperator.Instance.ColorSecondary;
+            btnLimpiar.BackColor = DataOperator.Instance.ColorSecondary;
         }
     }
 }

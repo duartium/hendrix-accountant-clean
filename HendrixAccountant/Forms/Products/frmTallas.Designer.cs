@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTallas));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnHeader = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pnDireccion = new System.Windows.Forms.Panel();
@@ -46,21 +46,21 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnBuscar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
-            this.panel1.SuspendLayout();
+            this.pnHeader.SuspendLayout();
             this.pnDireccion.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnHeader
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.lblTitulo);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(379, 60);
-            this.panel1.TabIndex = 2;
+            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.pnHeader.Controls.Add(this.panel2);
+            this.pnHeader.Controls.Add(this.lblTitulo);
+            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnHeader.Name = "pnHeader";
+            this.pnHeader.Size = new System.Drawing.Size(379, 60);
+            this.pnHeader.TabIndex = 2;
             // 
             // panel2
             // 
@@ -283,7 +283,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnDireccion);
             this.Controls.Add(this.lblCodigo);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(5, 5);
@@ -294,8 +294,8 @@
             this.Text = "MANTENIMIENTO DE TALLAS";
             this.Activated += new System.EventHandler(this.frmTallas_Activated);
             this.Load += new System.EventHandler(this.frmCategorias_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnHeader.ResumeLayout(false);
+            this.pnHeader.PerformLayout();
             this.pnDireccion.ResumeLayout(false);
             this.pnDireccion.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -307,7 +307,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnHeader;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Panel pnDireccion;

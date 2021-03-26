@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\NovedadesChicLogo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="HendrixAccountant.Controls">
       <HintPath>..\HendrixAccountant.Controls\obj\Debug\HendrixAccountant.Controls.dll</HintPath>
@@ -374,6 +377,7 @@
     <Content Include="Resources\Images\HendrixLogoWhite.png" />
     <Content Include="Resources\Images\HendrixLogoWhite256.png" />
     <Content Include="Resources\Images\HendrixUserCircle.png" />
+    <Content Include="Resources\Images\HendrixUserCirclePink.png" />
     <Content Include="Resources\Images\logo.png" />
     <Content Include="Resources\Images\LogoNovedadesChic.png" />
     <Content Include="Resources\Images\LogoNovedadesChicWhite.png" />
@@ -388,6 +392,7 @@
     <None Include="Resources\Images\userWhite25.png" />
     <Content Include="Resources\Images\usersWhite25.png" />
     <Content Include="Resources\Images\userWhite20.png" />
+    <Content Include="Resources\NovedadesChicLogo.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

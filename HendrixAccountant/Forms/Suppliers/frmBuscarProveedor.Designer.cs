@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarProveedor));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnAside = new System.Windows.Forms.Panel();
             this.btnCerrar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
@@ -45,22 +45,22 @@
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtNombreProv = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
+            this.pnAside.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnAside
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.panel1.Controls.Add(this.btnCerrar);
-            this.panel1.Controls.Add(this.btnLimpiar);
-            this.panel1.Controls.Add(this.btnConsultar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(488, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(127, 343);
-            this.panel1.TabIndex = 9;
+            this.pnAside.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.pnAside.Controls.Add(this.btnCerrar);
+            this.pnAside.Controls.Add(this.btnLimpiar);
+            this.pnAside.Controls.Add(this.btnConsultar);
+            this.pnAside.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnAside.Location = new System.Drawing.Point(488, 0);
+            this.pnAside.Name = "pnAside";
+            this.pnAside.Size = new System.Drawing.Size(127, 343);
+            this.pnAside.TabIndex = 9;
             // 
             // btnCerrar
             // 
@@ -256,7 +256,7 @@
             this.ClientSize = new System.Drawing.Size(615, 343);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvProveedores);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnAside);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(230, 150);
@@ -267,7 +267,7 @@
             this.Text = "BUSCAR PROVEEDOR";
             this.Activated += new System.EventHandler(this.frmBuscarProveedor_Activated);
             this.Load += new System.EventHandler(this.frmBuscarProveedor_Load);
-            this.panel1.ResumeLayout(false);
+            this.pnAside.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -277,7 +277,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnAside;
         private UIControls.Buttons.ItemAsideSmall btnCerrar;
         private UIControls.Buttons.ItemAsideSmall btnLimpiar;
         private UIControls.Buttons.ItemAsideSmall btnConsultar;

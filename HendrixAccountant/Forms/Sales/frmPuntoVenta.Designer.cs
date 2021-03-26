@@ -45,10 +45,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.pnMontosVenta = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnAside2 = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblDivisor = new System.Windows.Forms.Label();
+            this.pnAside = new System.Windows.Forms.Panel();
             this.txtValorIva = new System.Windows.Forms.TextBox();
             this.txtValorDscto = new System.Windows.Forms.TextBox();
             this.txtValorSubtotal = new System.Windows.Forms.TextBox();
@@ -70,8 +70,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.gpDatosVenta.SuspendLayout();
             this.pnMontosVenta.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnAside2.SuspendLayout();
+            this.pnAside.SuspendLayout();
             this.statusPOS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuntoVenta)).BeginInit();
             this.SuspendLayout();
@@ -186,25 +186,25 @@
             // pnMontosVenta
             // 
             this.pnMontosVenta.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pnMontosVenta.Controls.Add(this.panel2);
-            this.pnMontosVenta.Controls.Add(this.panel1);
+            this.pnMontosVenta.Controls.Add(this.pnAside2);
+            this.pnMontosVenta.Controls.Add(this.pnAside);
             this.pnMontosVenta.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnMontosVenta.Location = new System.Drawing.Point(704, 0);
             this.pnMontosVenta.Name = "pnMontosVenta";
             this.pnMontosVenta.Size = new System.Drawing.Size(205, 505);
             this.pnMontosVenta.TabIndex = 1;
             // 
-            // panel2
+            // pnAside2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.panel2.Controls.Add(this.btnGuardar);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 186);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(205, 319);
-            this.panel2.TabIndex = 5;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.pnAside2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.pnAside2.Controls.Add(this.btnGuardar);
+            this.pnAside2.Controls.Add(this.lblDivisor);
+            this.pnAside2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnAside2.Location = new System.Drawing.Point(0, 186);
+            this.pnAside2.Name = "pnAside2";
+            this.pnAside2.Size = new System.Drawing.Size(205, 319);
+            this.pnAside2.TabIndex = 5;
+            this.pnAside2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnGuardar
             // 
@@ -225,30 +225,30 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // label8
+            // lblDivisor
             // 
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.label8.Location = new System.Drawing.Point(0, 4);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(235, 3);
-            this.label8.TabIndex = 7;
+            this.lblDivisor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.lblDivisor.Location = new System.Drawing.Point(0, 4);
+            this.lblDivisor.Name = "lblDivisor";
+            this.lblDivisor.Size = new System.Drawing.Size(235, 3);
+            this.lblDivisor.TabIndex = 7;
             // 
-            // panel1
+            // pnAside
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.panel1.Controls.Add(this.txtValorIva);
-            this.panel1.Controls.Add(this.txtValorDscto);
-            this.panel1.Controls.Add(this.txtValorSubtotal);
-            this.panel1.Controls.Add(this.txtTotalPagar);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.lblDescuento);
-            this.panel1.Controls.Add(this.lblSubtotal);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(205, 186);
-            this.panel1.TabIndex = 4;
+            this.pnAside.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.pnAside.Controls.Add(this.txtValorIva);
+            this.pnAside.Controls.Add(this.txtValorDscto);
+            this.pnAside.Controls.Add(this.txtValorSubtotal);
+            this.pnAside.Controls.Add(this.txtTotalPagar);
+            this.pnAside.Controls.Add(this.label10);
+            this.pnAside.Controls.Add(this.label6);
+            this.pnAside.Controls.Add(this.lblDescuento);
+            this.pnAside.Controls.Add(this.lblSubtotal);
+            this.pnAside.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnAside.Location = new System.Drawing.Point(0, 0);
+            this.pnAside.Name = "pnAside";
+            this.pnAside.Size = new System.Drawing.Size(205, 186);
+            this.pnAside.TabIndex = 4;
             // 
             // txtValorIva
             // 
@@ -522,9 +522,9 @@
             this.gpDatosVenta.ResumeLayout(false);
             this.gpDatosVenta.PerformLayout();
             this.pnMontosVenta.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnAside2.ResumeLayout(false);
+            this.pnAside.ResumeLayout(false);
+            this.pnAside.PerformLayout();
             this.statusPOS.ResumeLayout(false);
             this.statusPOS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuntoVenta)).EndInit();
@@ -543,9 +543,9 @@
         private System.Windows.Forms.Label lblSubtotal;
         private System.Windows.Forms.Label lblDescuento;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnAside;
+        private System.Windows.Forms.Label lblDivisor;
+        private System.Windows.Forms.Panel pnAside2;
         private System.Windows.Forms.Label lblDireccionCliente;
         private System.Windows.Forms.TextBox txtDireccionCliente;
         private System.Windows.Forms.Label lblFechaEmision;

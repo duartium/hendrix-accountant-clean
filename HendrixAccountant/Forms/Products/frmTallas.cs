@@ -22,6 +22,7 @@ namespace HendrixAccountant
         public frmTallas()
         {
             InitializeComponent();
+            pnHeader.BackColor = DataOperator.Instance.ColorPrimary;
             _size = null;
             _rpsSize = new SizeRepository();
         }

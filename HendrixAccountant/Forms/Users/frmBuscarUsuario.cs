@@ -5,12 +5,6 @@ using HendrixAccountant.Data;
 using HendrixAccountant.Data.Dtos;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HendrixAccountant
@@ -23,6 +17,7 @@ namespace HendrixAccountant
         public frmBuscarUsuario()
         {
             InitializeComponent();
+            SetCompanyColors();
             _rpsUser = new UserRepository();
             _users = new List<UserDto>();
         }
@@ -110,6 +105,14 @@ namespace HendrixAccountant
                 Utils.GrabarLog("MapRowToProduct", ex.ToString());
             }
             return user;
+        }
+
+        private void SetCompanyColors()
+        {
+            pnHeader.BackColor = DataOperator.Instance.ColorPrimary;
+            btnConsultar.BackColor = DataOperator.Instance.ColorSecondary;
+            btnLimpiar.BackColor = DataOperator.Instance.ColorSecondary;
+            dgvUsuarios.ColumnHeadersDefaultCellStyle.BackColor = DataOperator.Instance.ColorPrimary;
         }
     }
 }

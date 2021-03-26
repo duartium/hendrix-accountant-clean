@@ -22,6 +22,7 @@ namespace HendrixAccountant
         public frmCategorias()
         {
             InitializeComponent();
+            pnHeader.BackColor = DataOperator.Instance.ColorPrimary;
             _category = null;
             _rpsCategory = new CategoriesRepository();
         }

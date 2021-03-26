@@ -6,12 +6,6 @@ using HendrixAccountant.Common;
 using HendrixAccountant.Data.Repositories;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HendrixAccountant
@@ -125,6 +119,14 @@ namespace HendrixAccountant
                 Search();
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void SetCompanyColors()
+        {
+            pnAside.BackColor = DataOperator.Instance.ColorPrimary;
+            btnCerrar.BackColor = DataOperator.Instance.ColorSecondary;
+            btnConsultar.BackColor = DataOperator.Instance.ColorSecondary;
+            btnLimpiar.BackColor = DataOperator.Instance.ColorSecondary;
         }
     }
 }

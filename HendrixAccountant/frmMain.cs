@@ -37,11 +37,6 @@ namespace HendrixAccountant
         public frmMain()
         {
             InitializeComponent();
-            //DataOperator _operator = DataOperator.Instance;
-            //_operator.IdUser = 1;
-            //_operator.Username = "admin";
-            //_operator.UserRole = 1;
-            //_operator.Role = "Administrador";
         }
         #endregion
 
@@ -66,7 +61,7 @@ namespace HendrixAccountant
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeselectButtons();
-            itemProductos.BackColor = Color.FromArgb(253, 184, 39);
+            itemProductos.BackColor = DataOperator.Instance.ColorQuaternary;
             ShowProducts();
         }
 
@@ -179,7 +174,7 @@ namespace HendrixAccountant
         private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeselectButtons();
-            itemReportes.BackColor = Color.FromArgb(253, 184, 39);
+            itemReportes.BackColor = DataOperator.Instance.ColorQuaternary;
             ShowReports();
         }
 
@@ -202,7 +197,7 @@ namespace HendrixAccountant
                 return;
             }
             DeselectButtons();
-            itemVenta.BackColor = DataOperator.Instance.ColorSecondary;
+            itemVenta.BackColor = DataOperator.Instance.ColorQuaternary;
             frmPuntoVenta = new frmPuntoVenta();
             frmPuntoVenta.MdiParent = this;
             frmPuntoVenta.FormClosed += new FormClosedEventHandler(ventas_FormClosed);
@@ -222,14 +217,14 @@ namespace HendrixAccountant
         private void itemClientes_Click(object sender, EventArgs e)
         {
             DeselectButtons();
-            itemClientes.BackColor = Color.FromArgb(253, 184, 39);
+            itemClientes.BackColor = DataOperator.Instance.ColorQuaternary;
             ShowClient();
         }
 
         private void itemReportes_Click(object sender, EventArgs e)
         {
             DeselectButtons();
-            itemReportes.BackColor = Color.FromArgb(253, 184, 39);
+            itemReportes.BackColor = DataOperator.Instance.ColorQuaternary;
             if (!CompanyConfigured())
             {
                 MessageBox.Show("Por favor, configure los datos de la empresa para habilitar los reportes. Revise el menú \"Configuración\"", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -242,14 +237,14 @@ namespace HendrixAccountant
         {
             ShowConfiguration();
             DeselectButtons();
-            itemConfiguracion.BackColor = Color.FromArgb(253, 184, 39);
+            itemConfiguracion.BackColor = DataOperator.Instance.ColorQuaternary;
         }
 
         private void clientesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             ShowClient();
             DeselectButtons();
-            itemClientes.BackColor = Color.FromArgb(253, 184, 39);
+            itemClientes.BackColor = DataOperator.Instance.ColorQuaternary;
         }
 
         private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -321,14 +316,14 @@ namespace HendrixAccountant
         {
             ShowConfiguration();
             DeselectButtons();
-            itemConfiguracion.BackColor = Color.FromArgb(253, 184, 39);
+            itemConfiguracion.BackColor = DataOperator.Instance.ColorQuaternary;
         }
 
         private void itemProductos_Click(object sender, EventArgs e)
         {
             ShowProducts();
             DeselectButtons();
-            itemProductos.BackColor = Color.FromArgb(253, 184, 39);
+            itemProductos.BackColor = DataOperator.Instance.ColorQuaternary;
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -349,7 +344,7 @@ namespace HendrixAccountant
         {
             ShowUsers();
             DeselectButtons();
-            itemUsuarios.BackColor = Color.FromArgb(253, 184, 39);
+            itemUsuarios.BackColor = DataOperator.Instance.ColorQuaternary;
         }
 
         private void ShowUsers()
@@ -368,7 +363,7 @@ namespace HendrixAccountant
         {
             ShowUsers();
             DeselectButtons();
-            itemUsuarios.BackColor = Color.FromArgb(253, 184, 39);
+            itemUsuarios.BackColor = DataOperator.Instance.ColorQuaternary;
         }
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)

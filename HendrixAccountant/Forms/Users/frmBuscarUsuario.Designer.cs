@@ -31,27 +31,27 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarUsuario));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnHeader = new System.Windows.Forms.Panel();
             this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColFechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1.SuspendLayout();
+            this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnHeader
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.panel1.Controls.Add(this.btnLimpiar);
-            this.panel1.Controls.Add(this.btnConsultar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(365, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(127, 299);
-            this.panel1.TabIndex = 30;
+            this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.pnHeader.Controls.Add(this.btnLimpiar);
+            this.pnHeader.Controls.Add(this.btnConsultar);
+            this.pnHeader.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnHeader.Location = new System.Drawing.Point(365, 0);
+            this.pnHeader.Name = "pnHeader";
+            this.pnHeader.Size = new System.Drawing.Size(127, 299);
+            this.pnHeader.TabIndex = 30;
             // 
             // btnLimpiar
             // 
@@ -157,7 +157,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(492, 299);
             this.Controls.Add(this.dgvUsuarios);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnHeader);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(205, 130);
@@ -167,14 +167,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "BUSCAR USUARIO";
             this.Load += new System.EventHandler(this.frmBuscarUsuario_Load);
-            this.panel1.ResumeLayout(false);
+            this.pnHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnHeader;
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUsuario;
