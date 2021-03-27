@@ -2,19 +2,18 @@
 using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Interfaces.Forms;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
+using HendrixAccountant.ApplicationCore.Map;
 using HendrixAccountant.ApplicationCore.Models;
 using HendrixAccountant.ApplicationCore.Services;
 using HendrixAccountant.Common;
 using HendrixAccountant.Data;
 using HendrixAccountant.Data.Repositories;
+using HendrixAccountant.Forms;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HendrixAccountant
@@ -28,6 +27,7 @@ namespace HendrixAccountant
         private InvoiceDto _invoice;
         private IClientRepository _rpsClient;
         private IProductTempRepository _rpsProduct;
+        private IParameterRepository _rpsParams;
         public frmPuntoVenta()
         {
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace HendrixAccountant
             _descuento = 0;
             _rpsClient = null;
             _rpsProduct = new ProductTempRepository();
+            _rpsParams = new CompanyRepository();
             SetFinalConsumer();
         }
 
@@ -173,10 +174,11 @@ namespace HendrixAccountant
                 var sale = new SaleService();
                 if (sale.Generate(_invoice))
                 {
-                    MessageBox.Show("Venta registrada con éxito", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clear();
                     DisableAdd();
                     DisabledRemove();
+                    PrintSale();
+                    MessageBox.Show("Venta registrada con éxito", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else MessageBox.Show("No se pudo procesar la venta.", "Proceso fallido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -371,6 +373,23 @@ namespace HendrixAccountant
             };
             SetClient();
             btnBuscarCliente.Focus();
+        }
+
+        private void PrintSale()
+        {
+            
+            //frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = _dsResp, TipoReporte = _tipoReporte, Criterios = criterios });
+            //frmReportVentas.ShowDialog();
+        }
+
+        private void ConvertToInvoice()
+        {
+            DataSet ds = new DataSet("dsReportInvoice");
+            DataTable dtInvoice = new DataTable("dtInvoice");
+            DataTable dtDetails = new DataTable("dtInvoiceDetails");
+            Company company = _rpsParams.Get() as Company;
+            var dtCompany = new CompanyMapper().JsonCompanyToDataTable(company);
+            ds.Tables.Add(dtCompany);
         }
 
         private void SetCompanyColors()
