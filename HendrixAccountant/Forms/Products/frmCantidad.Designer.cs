@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCantidad));
             this.pnHeader = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.btnOk = new HendrixAccountant.UIControls.Buttons.ItemAside();
             this.txtCantidad = new HendrixAccountant.UIControls.NumericInput();
             this.pnHeader.SuspendLayout();
@@ -40,23 +40,23 @@
             // 
             this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
             this.pnHeader.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnHeader.Controls.Add(this.label1);
+            this.pnHeader.Controls.Add(this.lblTitulo);
             this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHeader.Location = new System.Drawing.Point(0, 0);
             this.pnHeader.Name = "pnHeader";
             this.pnHeader.Size = new System.Drawing.Size(347, 50);
             this.pnHeader.TabIndex = 2;
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.label1.Location = new System.Drawing.Point(67, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "¿Cuántos productos?";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.lblTitulo.Location = new System.Drawing.Point(67, 12);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(211, 24);
+            this.lblTitulo.TabIndex = 1;
+            this.lblTitulo.Text = "¿Cuántos productos?";
             // 
             // btnOk
             // 
@@ -115,6 +115,6 @@
         private System.Windows.Forms.Panel pnHeader;
         private UIControls.Buttons.ItemAside btnOk;
         private UIControls.NumericInput txtCantidad;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

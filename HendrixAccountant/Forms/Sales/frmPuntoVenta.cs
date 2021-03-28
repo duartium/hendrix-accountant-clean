@@ -1,5 +1,6 @@
 ﻿using HendrixAccountant.ApplicationCore.Constants;
 using HendrixAccountant.ApplicationCore.DTOs;
+using HendrixAccountant.ApplicationCore.Enums;
 using HendrixAccountant.ApplicationCore.Interfaces.Forms;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.ApplicationCore.Map;
@@ -377,19 +378,28 @@ namespace HendrixAccountant
 
         private void PrintSale()
         {
-            
-            //frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = _dsResp, TipoReporte = _tipoReporte, Criterios = criterios });
-            //frmReportVentas.ShowDialog();
+            DataSet dsInvoice = ConvertToInvoice();
+            frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = dsInvoice, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
+            frmReportVentas.ShowDialog();
         }
 
-        private void ConvertToInvoice()
+        private DataSet ConvertToInvoice()
         {
             DataSet ds = new DataSet("dsReportInvoice");
             DataTable dtInvoice = new DataTable("dtInvoice");
             DataTable dtDetails = new DataTable("dtInvoiceDetails");
+            
+            //datos de compañía
             Company company = _rpsParams.Get() as Company;
             var dtCompany = new CompanyMapper().JsonCompanyToDataTable(company);
             ds.Tables.Add(dtCompany);
+            
+            //cabecera de factura
+
+
+            //detalle de la factura
+            ds.Tables.Add(dtDetails);
+            return ds;
         }
 
         private void SetCompanyColors()

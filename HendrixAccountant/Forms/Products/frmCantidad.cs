@@ -20,6 +20,8 @@ namespace HendrixAccountant
             InitializeComponent();
             pnHeader.BackColor = DataOperator.Instance.ColorPrimary;
             btnOk.BackColor = DataOperator.Instance.ColorPrimary;
+            btnOk.ForeColor = DataOperator.Instance.ColorSecondary;
+            lblTitulo.ForeColor = DataOperator.Instance.ColorSecondary;
             _caller = caller;
         }
 

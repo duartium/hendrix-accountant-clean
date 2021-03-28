@@ -169,6 +169,7 @@ namespace HendrixAccountant
             btnConsultar.BackColor = DataOperator.Instance.ColorSecondary;
             btnCerrar.BackColor = DataOperator.Instance.ColorSecondary;
             btnLimpiar.BackColor = DataOperator.Instance.ColorSecondary;
+            dgvProductos.ColumnHeadersDefaultCellStyle.BackColor = DataOperator.Instance.ColorPrimary;
         }
     }
 }
