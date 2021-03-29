@@ -10,6 +10,6 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Services
 {
     public interface ISales
     {
-        bool Generate(InvoiceDto invoice);
+        int Generate(InvoiceDto invoice);
     }
 }

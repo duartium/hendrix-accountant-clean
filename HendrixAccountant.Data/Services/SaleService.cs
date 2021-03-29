@@ -26,9 +26,9 @@ namespace HendrixAccountant.ApplicationCore.Services
         {
             _sqlServer = new DataBase();
         }
-        public bool Generate(InvoiceDto invoice)
+        public int Generate(InvoiceDto invoice)
         {
-            bool resp = false;
+            int resp = -1;
             if (invoice == null) return resp;
 
             string strXmlfactura = CreateXmlInvoice(invoice);
@@ -39,8 +39,11 @@ namespace HendrixAccountant.ApplicationCore.Services
             parms.Add(new SqlParameter { ParameterName = "@serial", SqlDbType = SqlDbType.VarChar, Value = invoice.Auditoria.SerialMainboard });
             parms.Add(new SqlParameter { ParameterName = "@factura", SqlDbType = SqlDbType.VarChar, Value = strXmlfactura });
 
-            if (_sqlServer.ExecuteNonQuery(_storeProcedureName, parms) > 0)
-                resp = true;
+            int secuencial = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
+            if (secuencial > 0) resp = secuencial;
+
+            //if (_sqlServer.ExecuteNonQuery(_storeProcedureName, parms) > 0)
+            //    resp = true;
             return resp;
         }
 
