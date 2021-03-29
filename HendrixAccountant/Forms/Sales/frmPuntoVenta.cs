@@ -290,7 +290,7 @@ namespace HendrixAccountant
                 return;
             }
                 
-            if (txtIdentCliente.Text.Length < 10)
+            if (!txtIdentCliente.Text.Trim().Equals("1") && txtIdentCliente.Text.Length < 10)
             {
                 MessageBox.Show("Ingrese una identifiación válida.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
