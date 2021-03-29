@@ -168,7 +168,7 @@ namespace HendrixAccountant.Forms
                     return;
                 }
 
-                if (txtIdentCliente.Text.Length > 0 && txtIdentCliente.Text.Length < 10)
+                if (!txtIdentCliente.Text.Trim().Equals("1") && txtIdentCliente.Text.Length > 0 && txtIdentCliente.Text.Length < 10)
                 {
                     MessageBox.Show("Identificación de cliente no válida.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;

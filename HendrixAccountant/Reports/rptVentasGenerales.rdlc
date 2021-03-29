@@ -38,7 +38,7 @@
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
+                                <Color>DimGray</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -50,7 +50,7 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
-                        <BackgroundColor>#1b2e8c</BackgroundColor>
+                        <BackgroundColor>#f1f1f1</BackgroundColor>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -73,7 +73,7 @@
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
+                                <Color>DimGray</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -85,7 +85,7 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
-                        <BackgroundColor>#1b2e8c</BackgroundColor>
+                        <BackgroundColor>#f1f1f1</BackgroundColor>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -108,7 +108,7 @@
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
+                                <Color>DimGray</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -120,7 +120,7 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
-                        <BackgroundColor>#1b2e8c</BackgroundColor>
+                        <BackgroundColor>#f1f1f1</BackgroundColor>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -143,7 +143,7 @@
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
+                                <Color>DimGray</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -155,7 +155,7 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
-                        <BackgroundColor>#1b2e8c</BackgroundColor>
+                        <BackgroundColor>#f1f1f1</BackgroundColor>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -178,7 +178,7 @@
                               <Style>
                                 <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
-                                <Color>White</Color>
+                                <Color>DimGray</Color>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -192,7 +192,7 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
-                        <BackgroundColor>#1b2e8c</BackgroundColor>
+                        <BackgroundColor>#f1f1f1</BackgroundColor>
                         <VerticalAlign>Middle</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -436,7 +436,7 @@
               <Border>
                 <Style>None</Style>
               </Border>
-              <BackgroundColor>#1b2e8c</BackgroundColor>
+              <BackgroundColor>#b84a9f</BackgroundColor>
               <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
@@ -454,23 +454,26 @@
                     <Value>=Sum(Fields!total.Value, "dsVentasGenerales")</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
-                      <Color>#1b2e8c</Color>
+                      <Color>#b84a9f</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
-                <Style />
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox19</rd:DefaultName>
             <Top>0.40481cm</Top>
             <Left>4.21361cm</Left>
             <Height>1.00482cm</Height>
-            <Width>2.31584cm</Width>
+            <Width>2.41589cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
               </Border>
+              <BackgroundColor>#f1f1f1</BackgroundColor>
               <VerticalAlign>Middle</VerticalAlign>
               <PaddingLeft>2pt</PaddingLeft>
               <PaddingRight>2pt</PaddingRight>
@@ -873,7 +876,7 @@
                   <Style>
                     <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>
-                    <Color>#1b2e8c</Color>
+                    <Color>#b84a9f</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
