@@ -3,12 +3,14 @@ using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Enums;
 using HendrixAccountant.ApplicationCore.Interfaces.Forms;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
+using HendrixAccountant.ApplicationCore.Interfaces.Services;
 using HendrixAccountant.ApplicationCore.Map;
 using HendrixAccountant.ApplicationCore.Models;
 using HendrixAccountant.ApplicationCore.Services;
 using HendrixAccountant.Common;
 using HendrixAccountant.Data;
 using HendrixAccountant.Data.Repositories;
+using HendrixAccountant.Data.Services;
 using HendrixAccountant.Forms;
 using System;
 using System.Collections.Generic;
@@ -29,6 +31,7 @@ namespace HendrixAccountant
         private IClientRepository _rpsClient;
         private IProductTempRepository _rpsProduct;
         private IParameterRepository _rpsParams;
+        private readonly IReports _rpsReport;
         public frmPuntoVenta()
         {
             InitializeComponent();
@@ -41,6 +44,7 @@ namespace HendrixAccountant
             _rpsClient = null;
             _rpsProduct = new ProductTempRepository();
             _rpsParams = new CompanyRepository();
+            _rpsReport = new SaleReportService();
             SetFinalConsumer();
         }
 
@@ -173,12 +177,13 @@ namespace HendrixAccountant
                     }
                 };
                 var sale = new SaleService();
-                if (sale.Generate(_invoice))
+                int secuencial = sale.Generate(_invoice);
+                if (secuencial > 0)
                 {
                     Clear();
                     DisableAdd();
                     DisabledRemove();
-                    PrintSale();
+                    PrintSale(secuencial);
                     MessageBox.Show("Venta registrada con éxito", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else MessageBox.Show("No se pudo procesar la venta.", "Proceso fallido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -376,30 +381,14 @@ namespace HendrixAccountant
             btnBuscarCliente.Focus();
         }
 
-        private void PrintSale()
+        private void PrintSale(int secuencial)
         {
-            DataSet dsInvoice = ConvertToInvoice();
-            frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = dsInvoice, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
-            frmReportVentas.ShowDialog();
-        }
-
-        private DataSet ConvertToInvoice()
-        {
-            DataSet ds = new DataSet("dsReportInvoice");
-            DataTable dtInvoice = new DataTable("dtInvoice");
-            DataTable dtDetails = new DataTable("dtInvoiceDetails");
-            
-            //datos de compañía
+            DataSet dsFactura = _rpsReport.GetByInvoice(secuencial.ToString());
             Company company = _rpsParams.Get() as Company;
             var dtCompany = new CompanyMapper().JsonCompanyToDataTable(company);
-            ds.Tables.Add(dtCompany);
-            
-            //cabecera de factura
-
-
-            //detalle de la factura
-            ds.Tables.Add(dtDetails);
-            return ds;
+            dsFactura.Tables.Add(dtCompany);
+            frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = dsFactura, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
+            frmReportVentas.ShowDialog();
         }
 
         private void SetCompanyColors()
