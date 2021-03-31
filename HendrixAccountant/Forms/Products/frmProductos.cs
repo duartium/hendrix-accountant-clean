@@ -3,17 +3,13 @@ using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Entities;
 using HendrixAccountant.ApplicationCore.Interfaces.Forms;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
+using HendrixAccountant.ApplicationCore.Interfaces.Services;
 using HendrixAccountant.Common;
 using HendrixAccountant.Data.Repositories;
+using HendrixAccountant.Data.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Color = System.Drawing.Color;
 
@@ -25,6 +21,7 @@ namespace HendrixAccountant
         private Product _product;
         private ICatalogueRepository _rpsCatalogue;
         private SupplierDto _supplier;
+        private readonly IBarCodeService _barcodeService;
         public frmProductos()
         {
             InitializeComponent();
@@ -33,6 +30,7 @@ namespace HendrixAccountant
             _rpsCatalogue = new CatalogueRepository();
             LoadCatalogs();
             _supplier = null;
+            _barcodeService = new BarCodeService();
         }
 
         public void Selected(ISaleElement entity)
@@ -328,6 +326,11 @@ namespace HendrixAccountant
             {
                 Utils.GrabarLog("btnBuscarProveedor_Click", ex.ToString());
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _barcodeService.Generate(txtCodBarras.Text.Trim());
         }
     }
 }

@@ -72,6 +72,12 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtCodBarras = new HendrixAccountant.UIControls.TextInput();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnNombreProveedor.SuspendLayout();
@@ -81,6 +87,8 @@
             this.panel3.SuspendLayout();
             this.pnDireccion.SuspendLayout();
             this.pnNombres.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnHeader
@@ -130,7 +138,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label6.Location = new System.Drawing.Point(363, 215);
+            this.label6.Location = new System.Drawing.Point(363, 270);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 15);
             this.label6.TabIndex = 76;
@@ -145,7 +153,7 @@
             "A",
             "B",
             "C"});
-            this.cmbTalla.Location = new System.Drawing.Point(366, 238);
+            this.cmbTalla.Location = new System.Drawing.Point(366, 293);
             this.cmbTalla.Name = "cmbTalla";
             this.cmbTalla.Size = new System.Drawing.Size(100, 24);
             this.cmbTalla.TabIndex = 77;
@@ -153,7 +161,7 @@
             // btnBuscarProveedor
             // 
             this.btnBuscarProveedor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProveedor.Location = new System.Drawing.Point(405, 328);
+            this.btnBuscarProveedor.Location = new System.Drawing.Point(405, 383);
             this.btnBuscarProveedor.Name = "btnBuscarProveedor";
             this.btnBuscarProveedor.Size = new System.Drawing.Size(42, 32);
             this.btnBuscarProveedor.TabIndex = 75;
@@ -166,7 +174,7 @@
             this.pnNombreProveedor.BackColor = System.Drawing.SystemColors.Control;
             this.pnNombreProveedor.Controls.Add(this.txtNombreProveedor);
             this.pnNombreProveedor.Controls.Add(this.label4);
-            this.pnNombreProveedor.Location = new System.Drawing.Point(129, 328);
+            this.pnNombreProveedor.Location = new System.Drawing.Point(129, 383);
             this.pnNombreProveedor.Name = "pnNombreProveedor";
             this.pnNombreProveedor.Size = new System.Drawing.Size(269, 32);
             this.pnNombreProveedor.TabIndex = 6;
@@ -196,7 +204,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label5.Location = new System.Drawing.Point(126, 313);
+            this.label5.Location = new System.Drawing.Point(126, 368);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(127, 15);
             this.label5.TabIndex = 61;
@@ -236,7 +244,7 @@
             this.pnCodProveedor.BackColor = System.Drawing.SystemColors.Control;
             this.pnCodProveedor.Controls.Add(this.txtCodProveedor);
             this.pnCodProveedor.Controls.Add(this.label2);
-            this.pnCodProveedor.Location = new System.Drawing.Point(51, 328);
+            this.pnCodProveedor.Location = new System.Drawing.Point(51, 383);
             this.pnCodProveedor.Name = "pnCodProveedor";
             this.pnCodProveedor.Size = new System.Drawing.Size(73, 32);
             this.pnCodProveedor.TabIndex = 5;
@@ -266,7 +274,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label3.Location = new System.Drawing.Point(48, 313);
+            this.label3.Location = new System.Drawing.Point(48, 368);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 15);
             this.label3.TabIndex = 71;
@@ -278,7 +286,7 @@
             this.panel5.BackColor = System.Drawing.SystemColors.Control;
             this.panel5.Controls.Add(this.txtStock);
             this.panel5.Controls.Add(this.label20);
-            this.panel5.Location = new System.Drawing.Point(262, 230);
+            this.panel5.Location = new System.Drawing.Point(262, 285);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(98, 32);
             this.panel5.TabIndex = 4;
@@ -308,7 +316,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label21.Location = new System.Drawing.Point(259, 215);
+            this.label21.Location = new System.Drawing.Point(259, 270);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(37, 15);
             this.label21.TabIndex = 69;
@@ -319,7 +327,7 @@
             this.panel4.BackColor = System.Drawing.SystemColors.Control;
             this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.txtPrecioVenta);
-            this.panel4.Location = new System.Drawing.Point(157, 230);
+            this.panel4.Location = new System.Drawing.Point(157, 285);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(98, 32);
             this.panel4.TabIndex = 3;
@@ -351,7 +359,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label19.Location = new System.Drawing.Point(154, 215);
+            this.label19.Location = new System.Drawing.Point(154, 270);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(91, 15);
             this.label19.TabIndex = 67;
@@ -362,7 +370,7 @@
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.txtCosto);
-            this.panel3.Location = new System.Drawing.Point(51, 230);
+            this.panel3.Location = new System.Drawing.Point(51, 285);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(98, 32);
             this.panel3.TabIndex = 2;
@@ -394,7 +402,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label17.Location = new System.Drawing.Point(48, 215);
+            this.label17.Location = new System.Drawing.Point(48, 270);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(40, 15);
             this.label17.TabIndex = 62;
@@ -405,7 +413,7 @@
             this.pnDireccion.BackColor = System.Drawing.SystemColors.Control;
             this.pnDireccion.Controls.Add(this.txtDescripcion);
             this.pnDireccion.Controls.Add(this.label14);
-            this.pnDireccion.Location = new System.Drawing.Point(51, 178);
+            this.pnDireccion.Location = new System.Drawing.Point(51, 233);
             this.pnDireccion.Name = "pnDireccion";
             this.pnDireccion.Size = new System.Drawing.Size(309, 32);
             this.pnDireccion.TabIndex = 1;
@@ -435,7 +443,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label15.Location = new System.Drawing.Point(48, 163);
+            this.label15.Location = new System.Drawing.Point(48, 218);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(73, 15);
             this.label15.TabIndex = 64;
@@ -446,7 +454,7 @@
             this.pnNombres.BackColor = System.Drawing.SystemColors.Control;
             this.pnNombres.Controls.Add(this.txtNombre);
             this.pnNombres.Controls.Add(this.label1);
-            this.pnNombres.Location = new System.Drawing.Point(50, 127);
+            this.pnNombres.Location = new System.Drawing.Point(50, 182);
             this.pnNombres.Name = "pnNombres";
             this.pnNombres.Size = new System.Drawing.Size(269, 32);
             this.pnNombres.TabIndex = 0;
@@ -476,7 +484,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label11.Location = new System.Drawing.Point(47, 112);
+            this.label11.Location = new System.Drawing.Point(47, 167);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(52, 15);
             this.label11.TabIndex = 59;
@@ -493,7 +501,7 @@
             this.btnBuscar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnBuscar.Image = global::HendrixAccountant.Properties.Resources.searchBlue20;
-            this.btnBuscar.Location = new System.Drawing.Point(359, 127);
+            this.btnBuscar.Location = new System.Drawing.Point(359, 182);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(107, 32);
             this.btnBuscar.TabIndex = 57;
@@ -511,7 +519,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.userWhite20;
-            this.btnLimpiar.Location = new System.Drawing.Point(51, 376);
+            this.btnLimpiar.Location = new System.Drawing.Point(51, 431);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar.TabIndex = 58;
@@ -529,7 +537,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
-            this.btnEliminar.Location = new System.Drawing.Point(280, 376);
+            this.btnEliminar.Location = new System.Drawing.Point(280, 431);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar.TabIndex = 56;
@@ -547,7 +555,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGuardar.Image = global::HendrixAccountant.Properties.Resources.saveWhite20;
-            this.btnGuardar.Location = new System.Drawing.Point(376, 376);
+            this.btnGuardar.Location = new System.Drawing.Point(376, 431);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 30);
             this.btnGuardar.TabIndex = 55;
@@ -561,7 +569,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label7.Location = new System.Drawing.Point(48, 265);
+            this.label7.Location = new System.Drawing.Point(48, 320);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 15);
             this.label7.TabIndex = 78;
@@ -576,17 +584,80 @@
             "A",
             "B",
             "C"});
-            this.cboCategoria.Location = new System.Drawing.Point(51, 285);
+            this.cboCategoria.Location = new System.Drawing.Point(51, 340);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(205, 24);
             this.cboCategoria.TabIndex = 79;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.txtCodBarras);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Location = new System.Drawing.Point(50, 131);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(99, 32);
+            this.panel1.TabIndex = 60;
+            // 
+            // txtCodBarras
+            // 
+            this.txtCodBarras.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCodBarras.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodBarras.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtCodBarras.Location = new System.Drawing.Point(1, 7);
+            this.txtCodBarras.MaxLength = 100;
+            this.txtCodBarras.Name = "txtCodBarras";
+            this.txtCodBarras.Size = new System.Drawing.Size(95, 16);
+            this.txtCodBarras.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
+            this.label8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label8.Location = new System.Drawing.Point(0, 29);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 3);
+            this.label8.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label9.Location = new System.Drawing.Point(47, 116);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(103, 15);
+            this.label9.TabIndex = 61;
+            this.label9.Text = "Código de barras";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(184, 102);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(168, 63);
+            this.pictureBox2.TabIndex = 80;
+            this.pictureBox2.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(359, 102);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 81;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(520, 424);
+            this.ClientSize = new System.Drawing.Size(520, 479);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cboCategoria);
             this.Controls.Add(this.label6);
@@ -640,6 +711,9 @@
             this.pnDireccion.PerformLayout();
             this.pnNombres.ResumeLayout(false);
             this.pnNombres.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -690,5 +764,11 @@
         private UIControls.NumericInput txtStock;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cboCategoria;
+        private System.Windows.Forms.Panel panel1;
+        private UIControls.TextInput txtCodBarras;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button1;
     }
 }
