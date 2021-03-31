@@ -72,7 +72,7 @@
     <Build Include="StoreProcedure\SP_USER_ATHENTICATION.sql" />
     <Build Include="StoreProcedure\SP_REGISTER_SALE.sql" />
     <Build Include="StoreProcedure\SP_GENERATE_SEQUENTIAL.sql" />
-    <Build Include="StoreProcedure\SP_RPT_SALE.sql" />
+    <None Include="StoreProcedure\SP_RPT_SALE.sql" />
     <Build Include="StoreProcedure\SP_QRY_USERS.sql" />
   </ItemGroup>
 </Project>

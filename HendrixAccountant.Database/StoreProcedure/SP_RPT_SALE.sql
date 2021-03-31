@@ -10,6 +10,7 @@
  *                     BITACORA DE MODIFICACIONES                       *
  *      FECHA        AUTOR            RAZON                             *
  *----------------------------------------------------------------------*/
+
 ALTER PROCEDURE [dbo].[SP_REGISTER_SALE]
 	@accion char(1),
     @id_usuario int,

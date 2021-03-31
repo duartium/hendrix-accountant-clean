@@ -1,6 +1,7 @@
 ﻿namespace HendrixAccountant.ApplicationCore.Interfaces.Services
 {
-    public interface IParameter
+    public interface IBarCodeService
     {
+        void Generate(string code);
     }
 }
