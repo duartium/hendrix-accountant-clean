@@ -7,6 +7,7 @@ using HendrixAccountant.ApplicationCore.Interfaces.Services;
 using HendrixAccountant.Common;
 using HendrixAccountant.Data.Repositories;
 using HendrixAccountant.Data.Services;
+using HendrixAccountant.Forms.PdfViewer;
 using HendrixAccountant.Infrastructure.Shared.Services;
 using System;
 using System.Drawing;
@@ -335,7 +336,9 @@ namespace HendrixAccountant
         private void button1_Click(object sender, EventArgs e)
         {
             //_barcodeService.Generate(txtCodBarras.Text.Trim());
-            _pdfService.Generate("asdasd");
+            string pathPdfCreated = _pdfService.Generate("asdasd");
+            frmPdfViewer pdfViewer = new frmPdfViewer(pathPdfCreated);
+            pdfViewer.ShowDialog();
         }
     }
 }
