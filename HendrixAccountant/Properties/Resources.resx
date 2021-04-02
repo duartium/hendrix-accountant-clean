@@ -118,20 +118,62 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="productWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\productWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LogoNovedadesChic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\LogoNovedadesChic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cartWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\cartWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barcodeWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\barcodeWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="configWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\configWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="HendrixUserCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\HendrixUserCircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="productWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\productWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addWhite20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\addWhite20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cartWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\cartWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="trashWhite20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\trashWhite20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HendrixLogoWhite256" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\HendrixLogoWhite256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="categoriasWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\categoriasWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HendrixUserCirclePink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\HendrixUserCirclePink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="searchBlue20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\searchBlue20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clearBlue20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\clearBlue20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="saveWhite20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\saveWhite20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="saveBlue20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\saveBlue20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="userWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\userWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LogoNovedadesChicWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\LogoNovedadesChicWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="HendrixUserCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\HendrixUserCircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="simpleReportWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\simpleReportWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="printBlue20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\printBlue20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usersWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\usersWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,44 +181,14 @@
   <data name="HendrixLogoWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\HendrixLogoWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cashBlue20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\cashBlue20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="userWhite20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\userWhite20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CloseBlue20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\CloseBlue20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogoNovedadesChic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\LogoNovedadesChic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HendrixLogoWhite256" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\HendrixLogoWhite256.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clearBlue20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\clearBlue20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LogoNovedadesChicWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\LogoNovedadesChicWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="categoriasWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\categoriasWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="reportWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\reportWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="saveWhite20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\saveWhite20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="addWhite20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\addWhite20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="printBlue20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\printBlue20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cartWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\cartWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="simpleReportWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\simpleReportWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="userWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\userWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="clientsWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\clientsWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,19 +196,16 @@
   <data name="cartWhite26" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\cartWhite26.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="userWhite20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\userWhite20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="reportWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\reportWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="trashWhite20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\trashWhite20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="barcode2White24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\barcode2White24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="searchBlue20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\searchBlue20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cashBlue20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\cashBlue20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cartWhite25" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\cartWhite25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="HendrixUserCirclePink" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\HendrixUserCirclePink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="printGray20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\printGray20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

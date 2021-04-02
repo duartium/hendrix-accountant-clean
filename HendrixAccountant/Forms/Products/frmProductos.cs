@@ -335,6 +335,11 @@ namespace HendrixAccountant
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
+        }
+
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
             //_barcodeService.Generate(txtCodBarras.Text.Trim());
             string pathPdfCreated = _pdfService.Generate("asdasd");
             frmPdfViewer pdfViewer = new frmPdfViewer(pathPdfCreated);

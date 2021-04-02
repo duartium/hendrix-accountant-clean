@@ -73,6 +73,26 @@ namespace HendrixAccountant.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap barcode2White24 {
+            get {
+                object obj = ResourceManager.GetObject("barcode2White24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap barcodeWhite25 {
+            get {
+                object obj = ResourceManager.GetObject("barcodeWhite25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cartWhite {
             get {
                 object obj = ResourceManager.GetObject("cartWhite", resourceCulture);
@@ -226,6 +246,16 @@ namespace HendrixAccountant.Properties {
         internal static System.Drawing.Bitmap printBlue20 {
             get {
                 object obj = ResourceManager.GetObject("printBlue20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap printGray20 {
+            get {
+                object obj = ResourceManager.GetObject("printGray20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
