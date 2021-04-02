@@ -362,6 +362,10 @@
       <Project>{33aee00c-482a-4ac2-bc7c-a5b95fbb9a8a}</Project>
       <Name>HendrixAccountant.Infrastructure.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HendrixAccountant.Infrastructure.Shared\HendrixAccountant.Infrastructure.Shared.csproj">
+      <Project>{99F6F00D-A958-41BF-86B6-47C6CC811010}</Project>
+      <Name>HendrixAccountant.Infrastructure.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\HendrixIcon.ico" />

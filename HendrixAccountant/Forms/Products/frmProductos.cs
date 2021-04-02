@@ -7,6 +7,7 @@ using HendrixAccountant.ApplicationCore.Interfaces.Services;
 using HendrixAccountant.Common;
 using HendrixAccountant.Data.Repositories;
 using HendrixAccountant.Data.Services;
+using HendrixAccountant.Infrastructure.Shared.Services;
 using System;
 using System.Drawing;
 using System.Text.RegularExpressions;
@@ -22,6 +23,8 @@ namespace HendrixAccountant
         private ICatalogueRepository _rpsCatalogue;
         private SupplierDto _supplier;
         private readonly IBarCodeService _barcodeService;
+        private readonly PdfService _pdfService;
+
         public frmProductos()
         {
             InitializeComponent();
@@ -31,6 +34,7 @@ namespace HendrixAccountant
             LoadCatalogs();
             _supplier = null;
             _barcodeService = new BarCodeService();
+            _pdfService = new PdfService();
         }
 
         public void Selected(ISaleElement entity)
@@ -330,7 +334,8 @@ namespace HendrixAccountant
 
         private void button1_Click(object sender, EventArgs e)
         {
-            _barcodeService.Generate(txtCodBarras.Text.Trim());
+            //_barcodeService.Generate(txtCodBarras.Text.Trim());
+            _pdfService.Generate("asdasd");
         }
     }
 }
