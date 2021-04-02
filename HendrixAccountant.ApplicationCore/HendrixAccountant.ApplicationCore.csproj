@@ -96,6 +96,7 @@
     <Compile Include="Interfaces\Repositories\IUserRepository.cs" />
     <Compile Include="Interfaces\Services\IBarCodeService.cs" />
     <Compile Include="Interfaces\Services\IParameter.cs" />
+    <Compile Include="Interfaces\Services\IParameterService.cs" />
     <Compile Include="Interfaces\Services\IProductService.cs" />
     <Compile Include="Interfaces\Services\IReports.cs" />
     <Compile Include="Interfaces\Services\ISaleReceipt.cs" />

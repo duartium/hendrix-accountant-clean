@@ -11,5 +11,6 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
     {
         bool CreateOrUpdate(IParameter parameter);
         IParameter Get();
+
     }
 }

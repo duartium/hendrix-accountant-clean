@@ -81,6 +81,7 @@
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Services\BarCodeService.cs" />
+    <Compile Include="Services\ParameterServices.cs" />
     <Compile Include="Services\SaleReportService.cs" />
     <Compile Include="Services\SaleService.cs" />
   </ItemGroup>

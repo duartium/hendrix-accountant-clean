@@ -312,6 +312,7 @@
     </Compile>
     <EmbeddedResource Include="Reports\rptFacturaVenta.rdlc" />
     <EmbeddedResource Include="Reports\rptVentasGenerales.rdlc" />
+    <None Include="appsettings.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
