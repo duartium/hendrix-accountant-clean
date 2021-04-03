@@ -14,6 +14,7 @@ namespace HendrixAccountant.ApplicationCore.DTOs
         public string Direccion { get; set; }
         public string Email { get; set; }
         public string Usuario { get; set; }
+        public bool IsDefault { get; set; }
     }
 
     public class ComboBoxProveedorDTO

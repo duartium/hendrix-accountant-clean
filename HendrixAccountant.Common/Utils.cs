@@ -70,6 +70,8 @@ namespace HendrixAccountant.Common
             return Encoding.UTF8.GetString(base64EncodedBytes);
         }
 
+       
+
         public bool DatasetIsValid(System.Data.DataSet data)
         {
             bool resp = true;

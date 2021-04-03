@@ -26,6 +26,7 @@ namespace HendrixAccountant.ApplicationCore.DTOs
     public class ProductFilterDto
     {
         public int IdProducto { get; set; }
+        public string Codigo { get; set; }
         public string NombreProducto { get; set; }
     }
 

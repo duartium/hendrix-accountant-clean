@@ -28,7 +28,7 @@ namespace HendrixAccountant.Infrastructure.Shared.Services
             _rpsParameter = new ParameterServices();
         }
 
-        public void Generate(string pdfName)
+        public string Generate(string pdfName)
         {
             try
             {
@@ -107,11 +107,14 @@ namespace HendrixAccountant.Infrastructure.Shared.Services
                     document.Add(table);
                     document.Close();
                     pdfDocument.Close();
+
+                    return path;
                 }
             }
             catch (Exception ex)
             {
                 Utils.GrabarLog("PdfService>>Generate", ex.ToString());
+                return String.Empty;
             }
         }
     }

@@ -28,6 +28,7 @@ namespace HendrixAccountant.ApplicationCore.Enums
     {
         INICIAL,
         CREACION,
+        MODIFICACION,
         ELIMINACION
     }
 
@@ -70,5 +71,11 @@ namespace HendrixAccountant.ApplicationCore.Enums
         RUC = 1,
         Ciudad = 2,
         Provincia = 3
+    }
+
+    public enum EEstadoPantalla
+    {
+        NUEVO,
+        MODIFICAR
     }
 }

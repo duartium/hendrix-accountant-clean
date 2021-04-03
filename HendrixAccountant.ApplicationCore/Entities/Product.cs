@@ -15,6 +15,7 @@ namespace HendrixAccountant.ApplicationCore.Entities
         //[Key]
         public int id_producto { get; set; }
         public string nombre { get; set; }
+        public string codigo { get; set; }
         public string descripcion { get; set; }
         public decimal costo { get; set; }
         public decimal precio_venta { get; set; }

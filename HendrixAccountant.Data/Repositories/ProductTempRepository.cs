@@ -9,7 +9,6 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace HendrixAccountant.Data.Repositories
@@ -25,12 +24,13 @@ namespace HendrixAccountant.Data.Repositories
         {
             _sqlServer = new DataBase();
         }
-        public IEnumerable<Product> GetAll(ProductFilterDto filters)
+        public List<Product> GetAll(ProductFilterDto filters)
         {
             var parms = new List<SqlParameter>();
             parms.Add(new SqlParameter("@accion", 'G'));
             parms.Add(new SqlParameter("@idProducto", filters.IdProducto));
             parms.Add(new SqlParameter("@nombre", filters.NombreProducto));
+            parms.Add(new SqlParameter("@codigo", filters.Codigo));
             var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
             return new ProductMapper().DatasetToProducts(dsResp);
         }
@@ -65,6 +65,7 @@ namespace HendrixAccountant.Data.Repositories
             var parms = new List<SqlParameter>();
             parms.Add(new SqlParameter("@accion", action));
             parms.Add(new SqlParameter("@usuario", product.Usuario));
+            parms.Add(new SqlParameter("@codigo", product.CodigoBarras));
             parms.Add(new SqlParameter("@nombre", product.Nombre));
             parms.Add(new SqlParameter("@descripcion", product.Descripcion));
             parms.Add(new SqlParameter("@costo", product.Costo));

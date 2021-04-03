@@ -691,7 +691,7 @@
             // 
             this.pbBarcode.Location = new System.Drawing.Point(288, 45);
             this.pbBarcode.Name = "pbBarcode";
-            this.pbBarcode.Size = new System.Drawing.Size(154, 62);
+            this.pbBarcode.Size = new System.Drawing.Size(154, 75);
             this.pbBarcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBarcode.TabIndex = 88;
             this.pbBarcode.TabStop = false;
@@ -828,7 +828,7 @@
             this.btnGenerar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGenerar.Image = global::HendrixAccountant.Properties.Resources.barcode2White24;
-            this.btnGenerar.Location = new System.Drawing.Point(242, 327);
+            this.btnGenerar.Location = new System.Drawing.Point(242, 344);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(90, 30);
             this.btnGenerar.TabIndex = 56;
@@ -847,7 +847,7 @@
             this.btnImprimir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.Black;
             this.btnImprimir.Image = global::HendrixAccountant.Properties.Resources.printGray20;
-            this.btnImprimir.Location = new System.Drawing.Point(347, 327);
+            this.btnImprimir.Location = new System.Drawing.Point(347, 344);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(90, 30);
             this.btnImprimir.TabIndex = 88;
@@ -860,7 +860,7 @@
             this.groupBox1.Controls.Add(this.checkBox3);
             this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Location = new System.Drawing.Point(20, 202);
+            this.groupBox1.Location = new System.Drawing.Point(20, 219);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(418, 100);
             this.groupBox1.TabIndex = 90;
@@ -907,7 +907,7 @@
             // 
             this.pbBarcode2.Location = new System.Drawing.Point(20, 66);
             this.pbBarcode2.Name = "pbBarcode2";
-            this.pbBarcode2.Size = new System.Drawing.Size(165, 62);
+            this.pbBarcode2.Size = new System.Drawing.Size(165, 68);
             this.pbBarcode2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBarcode2.TabIndex = 87;
             this.pbBarcode2.TabStop = false;
@@ -917,7 +917,7 @@
             this.panel6.BackColor = System.Drawing.SystemColors.Control;
             this.panel6.Controls.Add(this.txtCodigo2);
             this.panel6.Controls.Add(this.label12);
-            this.panel6.Location = new System.Drawing.Point(20, 150);
+            this.panel6.Location = new System.Drawing.Point(20, 167);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(99, 32);
             this.panel6.TabIndex = 85;
@@ -936,7 +936,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label13.Location = new System.Drawing.Point(125, 135);
+            this.label13.Location = new System.Drawing.Point(125, 152);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(52, 15);
             this.label13.TabIndex = 84;
@@ -947,7 +947,7 @@
             this.panel7.BackColor = System.Drawing.SystemColors.Control;
             this.panel7.Controls.Add(this.txtNombre2);
             this.panel7.Controls.Add(this.label22);
-            this.panel7.Location = new System.Drawing.Point(128, 150);
+            this.panel7.Location = new System.Drawing.Point(128, 167);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(269, 32);
             this.panel7.TabIndex = 83;
@@ -977,7 +977,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label23.Location = new System.Drawing.Point(17, 135);
+            this.label23.Location = new System.Drawing.Point(17, 152);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(47, 15);
             this.label23.TabIndex = 86;

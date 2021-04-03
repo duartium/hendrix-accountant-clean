@@ -24,17 +24,6 @@ namespace HendrixAccountant.Data.Repositories
             this._sqlServer = new DataBase();
         }
 
-        //public List<SupplierDto> GetAll(SupplierDto supplier)
-        //{
-        //    var parms = new List<SqlParameter>();
-        //    parms.Add(new SqlParameter("@accion", 'G'));
-        //    parms.Add(new SqlParameter("@identificacion", supplier.Identificacion));
-        //    parms.Add(new SqlParameter("@nombres", filters.Nombres));
-        //    parms.Add(new SqlParameter("@apellidos", filters.Apellidos));
-        //    var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
-        //    return new SupplierMapper().DatasetToSupplierS(dsResp); ;
-        //}
-
         public bool Save(SupplierDto supplier, bool isUpdate = false)
         {
             char action = 'I';
@@ -47,6 +36,7 @@ namespace HendrixAccountant.Data.Repositories
             parms.Add(new SqlParameter("@nombre", supplier.Nombre));
             parms.Add(new SqlParameter("@direccion", supplier.Direccion));
             parms.Add(new SqlParameter("@email", supplier.Email));
+            parms.Add(new SqlParameter("@is_default", supplier.IsDefault));
             if (isUpdate) parms.Add(new SqlParameter("@id_proveedor", supplier.IdProveedor));
             int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
             if (resp > 0) return true; else return false;
@@ -70,6 +60,14 @@ namespace HendrixAccountant.Data.Repositories
             parms.Add(new SqlParameter("@nombre", dto.NombreProveedor));
             var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
             return new SupplierMapper().DatasetToSuppliers(dsResp);
+        }
+
+        public SupplierDto GetDefault()
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", 'D'));
+            var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+            return new SupplierMapper().DatasetToSupplier(dsResp);
         }
     }
 }

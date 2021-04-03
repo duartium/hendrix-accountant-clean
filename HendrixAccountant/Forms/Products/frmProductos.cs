@@ -31,6 +31,7 @@ namespace HendrixAccountant
         private readonly PdfService _pdfService;
         private EstadoPantalla _eEstadoPantalla;
         private readonly ISupplierRepository _rpsSupplier;
+        private bool _isSearch;
         public frmProductos()
         {
             InitializeComponent();
@@ -43,6 +44,7 @@ namespace HendrixAccountant
             _pdfService = new PdfService();
             _rpsSupplier = new SupplierRepository();
             _product = null;
+            _isSearch = false;
             LoadSupplierDefault();
         }
 
@@ -115,10 +117,11 @@ namespace HendrixAccountant
                     folderPath = path;
                 }
                 string pathImg = Path.Combine(folderPath, $"PROD_{code}.jpg");
-                pbBarcode.Image = Image.FromFile(pathImg);
+                pbBarcode.Image = GetCopyImage(pathImg);
             }
             catch (Exception ex)
             {
+                pbBarcode.Image = null;
                 Utils.GrabarLog("SetBarcodeImage", ex.ToString());
             }
         }
@@ -194,6 +197,11 @@ namespace HendrixAccountant
             txtCosto.Clear();
             txtPrecioVenta.Clear();
             txtStock.Clear();
+            pbBarcode.Image = null;
+            _product = null;
+            dgvProductos.Rows.Clear();
+            txtCodProducto.Clear();
+            txtNombreProd.Clear();
             if (clearSupplier)
             {
                 txtCodProveedor.Clear();
@@ -212,15 +220,24 @@ namespace HendrixAccountant
             txtStock.Enabled = valor;
             pnProveedor.Enabled = valor;
             EnabledCombos(valor);
-            SetLabelsBottomColor(valor);
         }
 
-        private void SetLabelsBottomColor(bool valor)
+        private void SetLabelsBottomColor(EstadoPantalla estadoPantalla)
         {
-            Color backColor = Color.FromArgb(30, 107, 247);
-            if (valor)
-                backColor = Color.FromArgb(40, 167, 69);
-
+            Color backColor = Color.FromArgb(30, 107, 247); //azul
+            switch (estadoPantalla)
+            {
+                case EstadoPantalla.INICIAL:
+                    Color.FromArgb(30, 107, 247); //azul
+                    break;
+                case EstadoPantalla.CREACION:
+                    backColor = Color.FromArgb(40, 167, 69);//verde
+                    break;
+                case EstadoPantalla.MODIFICACION:
+                    backColor = Color.FromArgb(40, 167, 69);//amarillo
+                    break;
+            }
+            
             lblPnCodigo.BackColor = backColor;
             lblPnNombre.BackColor = backColor;
             lblPnDescripcion.BackColor = backColor;
@@ -346,12 +363,14 @@ namespace HendrixAccountant
                     txtCodBarras.Focus();
                     break;
                 case EstadoPantalla.MODIFICACION:
-                    Clear();
-                    EnabledForm(false);
+                    EnabledForm(true);
+                    btnEliminar.Visible = false;
+                    btnLimpiar.Visible = true;
                     break;
                 case EstadoPantalla.ELIMINACION:
                     break;
             }
+            SetLabelsBottomColor(estadoPantalla);
         }
 
         private void rbnModificar_CheckedChanged(object sender, EventArgs e)
@@ -377,10 +396,12 @@ namespace HendrixAccountant
                 MessageBox.Show("Busque y seleccione un producto para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-
+            _isSearch = false;
+            string code = _product.codigo;
             bool resp = _rpsProduct.Remove(_product.id_producto, DataOperator.Instance.Username);
             if (resp)
             {
+                RemoveBarcodeImage(code);
                 MessageBox.Show("Producto eliminado con éxito.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Clear();
             }
@@ -493,6 +514,7 @@ namespace HendrixAccountant
                 var products = _rpsProduct.GetAll(filters);
                 if (products == null)
                 {
+                    btnEliminar.Visible = false;
                     MessageBox.Show("No se encontraron productos.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
@@ -502,7 +524,9 @@ namespace HendrixAccountant
                     _product = products.First();
                     SetProduct();
                 }
-                SetScreen(EstadoPantalla.INICIAL); 
+                SetScreen(EstadoPantalla.INICIAL);
+                _isSearch = true;
+                btnEliminar.Visible = true;
             }
             catch (Exception ex)
             {
@@ -533,10 +557,44 @@ namespace HendrixAccountant
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
         {
             int indexRow = dgvProductos.CurrentRow.Index;
-            if (indexRow < 0) return;
+            if (indexRow < 0 || !_isSearch) return;
 
             _product = dgvProductos.Rows[indexRow].Tag as Product;
             SetProduct();
+            btnEliminar.Visible = true;
+        }
+
+
+        private void RemoveBarcodeImage(string code)
+        {
+            try
+            {
+                string folderPath = DataOperator.Instance.PathBarcodes;
+                if (String.IsNullOrEmpty(folderPath))
+                {
+                    string path = new ParameterServices().Get(CString.PATH_BARCODES);
+                    DataOperator.Instance.PathBarcodes = path;
+                    folderPath = path;
+                }
+                string pathImg = Path.Combine(folderPath, $"PROD_{code}.jpg");
+                pbBarcode.Image = null;
+                pbBarcode.Refresh();
+                pbBarcode.Dispose();
+                File.Delete(pathImg);
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("RemoveBarcodeImage", ex.ToString());
+            }
+        }
+
+        private Image GetCopyImage(string path)
+        {
+            using (Image im = Image.FromFile(path))
+            {
+                Bitmap bm = new Bitmap(im);
+                return bm;
+            }
         }
     }
 }

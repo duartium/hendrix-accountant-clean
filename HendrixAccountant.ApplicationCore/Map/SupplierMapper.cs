@@ -24,12 +24,13 @@ namespace HendrixAccountant.ApplicationCore.Map
                     Ruc = field["ruc"].ToString(),
                     Nombre = field["nombre"].ToString(),
                     Direccion = field["direccion"].ToString(),
-                    Email = field["email"].ToString()
+                    Email = field["email"].ToString(),
+                    IsDefault = Boolean.Parse(field["is_default"].ToString())
                 }).FirstOrDefault();
             }
             catch (Exception ex)
             {
-                Utils.GrabarLog("DatasetToClient", ex.ToString());
+                Utils.GrabarLog("DatasetToSupplier", ex.ToString());
             }
             return supplier;
         }
@@ -47,12 +48,13 @@ namespace HendrixAccountant.ApplicationCore.Map
                     Ruc = field["ruc"].ToString(),
                     Nombre = field["nombre"].ToString(),
                     Direccion = field["direccion"].ToString(),
-                    Email = field["email"].ToString()
+                    Email = field["email"].ToString(),
+                    IsDefault = Boolean.Parse(field["is_default"].ToString())
                 }).ToList();
             }
             catch (Exception ex)
             {
-                Utils.GrabarLog("DatasetToClient", ex.ToString());
+                Utils.GrabarLog("DatasetToSuppliers", ex.ToString());
             }
             return suppliers;
         }

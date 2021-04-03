@@ -22,6 +22,7 @@ namespace HendrixAccountant.ApplicationCore.Map
                 {
                     id_producto = Convert.ToInt32(field["idProducto"].ToString()),
                     nombre = field["nombre"].ToString(),
+                    codigo = field["codigo"].ToString(),
                     descripcion = field["descripcion"].ToString(),
                     stock = Convert.ToInt32(field["stock"].ToString()),
                     costo = Convert.ToDecimal(field["costo"].ToString(), Utils.GetCulture()),

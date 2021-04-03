@@ -13,6 +13,6 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
         bool Save(SupplierDto supplier, bool isUpdate);
         List<SupplierDto> GetAll(SupplierFilterDto dto);
         bool Remove(int idProveedor, string usuario);
-
+        SupplierDto GetDefault();
     }
 }
