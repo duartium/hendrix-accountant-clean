@@ -31,6 +31,6 @@ namespace HendrixAccountant
         public Color ColorSecondary { get { return Color.FromArgb(255, 218, 192); } }
         public Color ColorTertiary { get { return Color.FromArgb(30, 107, 247); } }
         public Color ColorQuaternary { get { return Color.FromArgb(253, 184, 39); } }
-
+        public string PathBarcodes { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using HendrixAccountant.ApplicationCore.Constants;
 using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Entities;
+using HendrixAccountant.ApplicationCore.Enums;
 using HendrixAccountant.ApplicationCore.Interfaces.Forms;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.ApplicationCore.Interfaces.Services;
@@ -10,7 +11,10 @@ using HendrixAccountant.Data.Services;
 using HendrixAccountant.Forms.PdfViewer;
 using HendrixAccountant.Infrastructure.Shared.Services;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Color = System.Drawing.Color;
@@ -25,17 +29,21 @@ namespace HendrixAccountant
         private SupplierDto _supplier;
         private readonly IBarCodeService _barcodeService;
         private readonly PdfService _pdfService;
-
+        private EstadoPantalla _eEstadoPantalla;
+        private readonly ISupplierRepository _rpsSupplier;
         public frmProductos()
         {
             InitializeComponent();
-            pnHeader.BackColor = DataOperator.Instance.ColorPrimary;
+            SetCompanyColors();
             _rpsProduct = new ProductTempRepository();
             _rpsCatalogue = new CatalogueRepository();
             LoadCatalogs();
             _supplier = null;
             _barcodeService = new BarCodeService();
             _pdfService = new PdfService();
+            _rpsSupplier = new SupplierRepository();
+            _product = null;
+            LoadSupplierDefault();
         }
 
         public void Selected(ISaleElement entity)
@@ -74,18 +82,13 @@ namespace HendrixAccountant
 
         private void rbnNuevo_CheckedChanged(object sender, EventArgs e)
         {
-            Clear();
-            EnabledTextboxs(true);
-            btnBuscarProveedor.Enabled = true;
-            DisabledRemove();
-            DisabledSearch();
-            EnabledCombos(true);
-            txtNombre.Focus();
+           
         }
 
         private void SetProduct()
         {
             if (_product == null || _supplier == null) return;
+            txtCodBarras.Text = _product.codigo;
             txtNombre.Text = _product.nombre;
             txtDescripcion.Text = _product.descripcion;
             txtCosto.Text = _product.costo.ToString();
@@ -95,10 +98,29 @@ namespace HendrixAccountant
             txtNombreProveedor.Text = _supplier.Nombre;
             cmbTalla.SelectedValue = _product.id_talla;
             cboCategoria.SelectedValue = _product.categoria_id;
-            EnabledTextboxs(true);
-            EnabledCombos(true);
-            btnBuscarProveedor.Enabled = true;
-            txtNombre.Focus();
+            SetBarcodeImage(_product.codigo);
+        }
+
+        private void SetBarcodeImage(string code)
+        {
+            if (String.IsNullOrEmpty(code)) return;
+
+            try
+            {
+                string folderPath = DataOperator.Instance.PathBarcodes;
+                if (String.IsNullOrEmpty(folderPath))
+                {
+                    string path = new ParameterServices().Get(CString.PATH_BARCODES);
+                    DataOperator.Instance.PathBarcodes = path;
+                    folderPath = path;
+                }
+                string pathImg = Path.Combine(folderPath, $"PROD_{code}.jpg");
+                pbBarcode.Image = Image.FromFile(pathImg);
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("SetBarcodeImage", ex.ToString());
+            }
         }
 
         private void SetSupplier()
@@ -108,10 +130,10 @@ namespace HendrixAccountant
             txtNombreProveedor.Text = _supplier.Nombre.ToString();
         }
 
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (txtNombre.Text.Length == 0 ||
+            if (txtCodBarras.Text.Trim().Length == 0 ||
+                txtNombre.Text.Length == 0 ||
                txtCosto.Text.Trim().Length == 0 ||
                txtPrecioVenta.Text.Trim().Length == 0 ||
                txtStock.Text.Trim().Length == 0 ||
@@ -132,6 +154,7 @@ namespace HendrixAccountant
             var product = new ProductDto
             {
                 IdProducto = _product == null? -1 :_product.id_producto,
+                CodigoBarras = txtCodBarras.Text.Trim().ToUpper(),
                 Nombre = txtNombre.Text,
                 Descripcion = txtDescripcion.Text,
                 Costo = Convert.ToDecimal(txtCosto.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
@@ -143,12 +166,13 @@ namespace HendrixAccountant
                 Usuario = dataOp.Username
             };
 
-            if (rbnModificar.Checked) { isUpdate = true; mensaje = mensaje.Replace("registrado", "actualizado"); }
+            if (_eEstadoPantalla == EstadoPantalla.MODIFICACION) { isUpdate = true; mensaje = mensaje.Replace("registrado", "actualizado"); }
             if (_rpsProduct.Save(product, isUpdate))
             {
+                _barcodeService.Generate(txtCodBarras.Text.Trim());
                 Clear();
                 MessageBox.Show(mensaje, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtNombre.Focus();
+                txtCodBarras.Focus();
                 return;
             }
             else
@@ -162,32 +186,54 @@ namespace HendrixAccountant
         {
             Clear();
         }
-        private void Clear()
+        private void Clear(bool clearSupplier = false)
         {
             txtNombre.Clear();
+            txtCodBarras.Clear();
             txtDescripcion.Clear();
             txtCosto.Clear();
             txtPrecioVenta.Clear();
-            txtCodProveedor.Clear();
-            txtNombreProveedor.Clear();
             txtStock.Clear();
+            if (clearSupplier)
+            {
+                txtCodProveedor.Clear();
+                txtNombreProveedor.Clear();
+            }
         }
 
-        private void EnabledTextboxs(bool valor)
+        private void EnabledForm(bool valor)
         {
+            pnNombres.Enabled = valor;
+            txtCodBarras.Enabled = valor;
             txtNombre.Enabled = valor;
             txtDescripcion.Enabled = valor;
             txtCosto.Enabled = valor;
             txtPrecioVenta.Enabled = valor;
             txtStock.Enabled = valor;
+            pnProveedor.Enabled = valor;
+            EnabledCombos(valor);
+            SetLabelsBottomColor(valor);
+        }
+
+        private void SetLabelsBottomColor(bool valor)
+        {
+            Color backColor = Color.FromArgb(30, 107, 247);
+            if (valor)
+                backColor = Color.FromArgb(40, 167, 69);
+
+            lblPnCodigo.BackColor = backColor;
+            lblPnNombre.BackColor = backColor;
+            lblPnDescripcion.BackColor = backColor;
+            lblPnCosto.BackColor = backColor;
+            lblPnPrecioVenta.BackColor = backColor;
+            lblPnStock.BackColor = backColor;
+            lblPnCodigoProv.BackColor = backColor;
+            lblPnNombreProv.BackColor = backColor;
         }
 
         private void frmProductos_Load(object sender, EventArgs e)
         {
-            DisabledSearch();
-            DisabledRemove();
-            txtNombreProveedor.Enabled = false;
-            txtCodProveedor.Enabled = false;
+            SetScreen(EstadoPantalla.INICIAL);
         }
 
         private void LoadComboBoxTallas()
@@ -214,7 +260,6 @@ namespace HendrixAccountant
         {
             LoadComboBoxTallas();
             LoadComboBoxCategorias();
-            txtNombre.Focus();
         }
 
         private void ValidadorFormatoMoneda(TextBox caja, EventHandler nombreMetodo)
@@ -270,26 +315,48 @@ namespace HendrixAccountant
             btnEliminar.BackColor = SystemColors.Control;
         }
 
-        private void EnableSearch()
-        {
-            btnBuscar.Enabled = true;
-            btnBuscar.BackColor = Color.FromArgb(253, 184, 39);
-        }
+        //private void EnableSearch()
+        //{
+        //    btnBuscar.Enabled = true;
+        //    btnBuscar.BackColor = Color.FromArgb(253, 184, 39);
+        //}
 
-        private void DisabledSearch()
+        //private void DisabledSearch()
+        //{
+        //    btnBuscar.Enabled = false;
+        //    btnBuscar.BackColor = SystemColors.Control;
+        //}
+
+        private void SetScreen(EstadoPantalla estadoPantalla)
         {
-            btnBuscar.Enabled = false;
-            btnBuscar.BackColor = SystemColors.Control;
+            switch (estadoPantalla)
+            {
+                case EstadoPantalla.INICIAL:
+                    btnLimpiar.Visible = false;
+                    btnGuardar.Visible = false;
+                    btnEliminar.Visible = false;
+                    EnabledForm(false);
+                    txtCodProducto.Focus();
+                    break;
+                case EstadoPantalla.CREACION:
+                    btnLimpiar.Visible = true;
+                    btnGuardar.Visible = true;
+                    Clear();
+                    EnabledForm(true);
+                    txtCodBarras.Focus();
+                    break;
+                case EstadoPantalla.MODIFICACION:
+                    Clear();
+                    EnabledForm(false);
+                    break;
+                case EstadoPantalla.ELIMINACION:
+                    break;
+            }
         }
 
         private void rbnModificar_CheckedChanged(object sender, EventArgs e)
         {
-            Clear();
-            EnabledTextboxs(false);
-            btnBuscarProveedor.Enabled = false;
-            EnableSearch();
-            EnableRemove();
-            EnabledCombos(false);
+           
         }
 
         private void EnabledCombos(bool valor)
@@ -300,7 +367,7 @@ namespace HendrixAccountant
 
         private void frmProductos_Activated(object sender, EventArgs e)
         {
-            txtNombre.Focus();
+            txtNombreProd.Focus();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -341,9 +408,135 @@ namespace HendrixAccountant
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             //_barcodeService.Generate(txtCodBarras.Text.Trim());
-            string pathPdfCreated = _pdfService.Generate("asdasd");
+            if (MessageBox.Show(CString.DEFAULT_TITLE, "¿Desea imprimir el código?") == DialogResult.No)
+            {
+                MessageBox.Show("Su código de barras se ha generado correctamente.");
+                return;
+            }
+                
+            string pathPdfCreated = _pdfService.Generate(txtCodBarras.Text.Trim().ToUpper());
             frmPdfViewer pdfViewer = new frmPdfViewer(pathPdfCreated);
             pdfViewer.ShowDialog();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            _eEstadoPantalla = EstadoPantalla.CREACION;
+            SetScreen(_eEstadoPantalla);
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            _eEstadoPantalla = EstadoPantalla.MODIFICACION;
+            SetScreen(_eEstadoPantalla);
+        }
+
+        private void SetCompanyColors()
+        {
+            pnHeader.BackColor = DataOperator.Instance.ColorPrimary;
+            dgvProductos.ColumnHeadersDefaultCellStyle.BackColor = DataOperator.Instance.ColorPrimary;
+        }
+
+        private void LoadSupplierDefault()
+        {
+            //consulta proveedor por defecto
+            if (_supplier != null) return;
+            _supplier = _rpsSupplier.GetDefault();
+            SetSupplier();
+        }
+
+        private void txtCodProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == '\b' )
+            {
+                if (!e.KeyChar.ToString().Contains("Ñ")){
+                    e.Handled = false;
+                    e.KeyChar = Char.ToUpper(e.KeyChar);
+                }
+                else { e.Handled = true; }
+            }
+            else e.Handled = true;
+        }
+
+        private void txtCodBarras_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == '\b')
+            {
+                if (!e.KeyChar.ToString().Contains("Ñ"))
+                {
+                    e.Handled = false;
+                    e.KeyChar = Char.ToUpper(e.KeyChar);
+                }
+                else { e.Handled = true; }
+            }
+            else e.Handled = true;
+        }
+
+        private void txtNombreProd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Search();
+                e.Handled = e.SuppressKeyPress = true;
+            }
+        }
+
+        private void Search()
+        {
+            try
+            {
+                var filters = new ProductFilterDto
+                {
+                    Codigo = txtCodProducto.Text,
+                    NombreProducto = txtNombreProd.Text
+                };
+                var products = _rpsProduct.GetAll(filters);
+                if (products == null)
+                {
+                    MessageBox.Show("No se encontraron productos.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                FillGrid(products);
+                if (products.Count > 0)
+                {
+                    _product = products.First();
+                    SetProduct();
+                }
+                SetScreen(EstadoPantalla.INICIAL); 
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("Search", ex.ToString());
+                MessageBox.Show("No se pudo obtener los productos.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FillGrid(List<Product> data)
+        {
+            dgvProductos.DataSource = null;
+            dgvProductos.Rows.Clear();
+            dgvProductos.AutoGenerateColumns = false;
+            int i = 0;
+            foreach (var item in data)
+            {
+                dgvProductos.Rows.Add(item.codigo, item.nombre);
+                dgvProductos.Rows[i].Tag = item;
+                i++;
+            }
+        }
+
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvProductos_SelectionChanged(object sender, EventArgs e)
+        {
+            int indexRow = dgvProductos.CurrentRow.Index;
+            if (indexRow < 0) return;
+
+            _product = dgvProductos.Rows[indexRow].Tag as Product;
+            SetProduct();
         }
     }
 }

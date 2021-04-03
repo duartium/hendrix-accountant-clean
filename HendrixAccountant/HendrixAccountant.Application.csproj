@@ -379,6 +379,8 @@
   <ItemGroup>
     <Content Include="Resources\HendrixIcon.ico" />
     <Content Include="Resources\Images\addWhite20.png" />
+    <Content Include="Resources\Images\barcode2White24.png" />
+    <Content Include="Resources\Images\barcodeWhite25.png" />
     <Content Include="Resources\Images\cartWhite.png" />
     <Content Include="Resources\Images\cartWhite25.png" />
     <Content Include="Resources\Images\cartWhite26.png" />
@@ -396,6 +398,7 @@
     <Content Include="Resources\Images\LogoNovedadesChic.png" />
     <Content Include="Resources\Images\LogoNovedadesChicWhite.png" />
     <Content Include="Resources\Images\printBlue20.png" />
+    <Content Include="Resources\Images\printGray20.png" />
     <Content Include="Resources\Images\productWhite25.png" />
     <Content Include="Resources\Images\reportWhite25.png" />
     <Content Include="Resources\Images\saveBlue20.png" />
