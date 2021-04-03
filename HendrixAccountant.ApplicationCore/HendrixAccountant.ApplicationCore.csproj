@@ -51,6 +51,7 @@
     <Compile Include="DTOs\BrandDTO.cs" />
     <Compile Include="DTOs\CashFlowDto.cs" />
     <Compile Include="DTOs\CatalogueDto.cs" />
+    <Compile Include="DTOs\PurchaseMerchandiseDto.cs" />
     <Compile Include="DTOs\SizeDto.cs" />
     <Compile Include="DTOs\CategoryDTO.cs" />
     <Compile Include="DTOs\ClientDto.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Interfaces\Repositories\IBrandRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICashRegisterRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICatalogueRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPurchase.cs" />
     <Compile Include="Interfaces\Repositories\ISizeRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICategoriesRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICategoryRepository.cs" />

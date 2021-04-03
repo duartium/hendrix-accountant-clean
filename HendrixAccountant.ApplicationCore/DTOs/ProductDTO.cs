@@ -43,4 +43,13 @@ namespace HendrixAccountant.ApplicationCore.DTOs
         public int IdProducto { get; set; }
         public int Cantidad { get; set; }
     }
+
+    public class ProductPurchaseDto
+    {
+        public int IdProducto { get; set; }
+        public int Cantidad { get; set; }
+        public int StockActual { get; set; }
+        public int StockNuevo { get; set; }
+        public int Precio { get; set; }
+    }
 }

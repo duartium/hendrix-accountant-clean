@@ -1,20 +1,13 @@
-﻿using HendrixAccountant.ApplicationCore.Enums;
+﻿using HendrixAccountant.ApplicationCore.Constants;
+using HendrixAccountant.ApplicationCore.Enums;
+using HendrixAccountant.ApplicationCore.Models;
+using HendrixAccountant.Data.Repositories;
+using HendrixAccountant.Forms;
 using HendrixAccountant.Forms.Directorio;
 using HendrixAccountant.Forms.Inventory;
-using HendrixAccountant.Data.Dtos;
-using HendrixAccountant.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using HendrixAccountant.ApplicationCore.Constants;
-using HendrixAccountant.Data.Repositories;
-using HendrixAccountant.ApplicationCore.Models;
 
 namespace HendrixAccountant
 {
@@ -397,6 +390,19 @@ namespace HendrixAccountant
             frmTallas.MdiParent = this;
             frmTallas.FormClosed += new FormClosedEventHandler(tallas_FormClosed);
             frmTallas.Show();
+        }
+
+        private void entradasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeselectButtons();
+            if (frmCompras != null)
+            {
+                return;
+            }
+            frmCompras = new frmCompras();
+            frmCompras.MdiParent = this;
+            frmCompras.FormClosed += new FormClosedEventHandler(compras_FormClosed);
+            frmCompras.Show();
         }
     }
 }

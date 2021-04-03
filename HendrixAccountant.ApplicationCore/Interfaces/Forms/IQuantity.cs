@@ -10,4 +10,9 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Forms
     {
         void GetQuantity(int quantity);
     }
+
+    public interface IQuantityPrice
+    {
+        void GetQuantity(int quantity, decimal price);
+    }
 }
