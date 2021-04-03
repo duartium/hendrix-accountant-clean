@@ -39,8 +39,10 @@ namespace HendrixAccountant.ApplicationCore.Services
             parms.Add(new SqlParameter { ParameterName = "@serial", SqlDbType = SqlDbType.VarChar, Value = invoice.Auditoria.SerialMainboard });
             parms.Add(new SqlParameter { ParameterName = "@factura", SqlDbType = SqlDbType.VarChar, Value = strXmlfactura });
 
-            int secuencial = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
-            if (secuencial > 0) resp = secuencial;
+            var data = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+            if (data.Tables.Contains("table"))
+                if (data.Tables["table"].Rows.Count > 0)
+                    resp = Convert.ToInt32(data.Tables["table"].Rows[0]["secuencial"].ToString());
 
             //if (_sqlServer.ExecuteNonQuery(_storeProcedureName, parms) > 0)
             //    resp = true;

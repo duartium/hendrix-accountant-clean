@@ -674,6 +674,12 @@ namespace HendrixAccountant
             {
                 barcodes = _rpsProduct.GetBarcodes();
             }
+            if(barcodes.Count <= 0)
+            {
+                MessageBox.Show("No se encontraron productos para generar su etiqueta.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             string pathPdfCreated = _pdfService.Generate(barcodes);
 
             string execute = new ParameterServices().Get(CString.PDF_EXECUTE);
