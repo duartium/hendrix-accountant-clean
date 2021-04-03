@@ -5,6 +5,7 @@ using HendrixAccountant.ApplicationCore.Enums;
 using HendrixAccountant.ApplicationCore.Interfaces.Forms;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.ApplicationCore.Interfaces.Services;
+using HendrixAccountant.ApplicationCore.Models;
 using HendrixAccountant.Common;
 using HendrixAccountant.Data.Repositories;
 using HendrixAccountant.Data.Services;
@@ -90,6 +91,14 @@ namespace HendrixAccountant
         private void SetProduct()
         {
             if (_product == null || _supplier == null) return;
+            
+            int indexTabPage = tcProductos.SelectedIndex;
+            if(indexTabPage == 1)
+            {
+                txtCodigo2.Text = _product.codigo;
+                txtNombre2.Text = _product.nombre;
+            }
+
             txtCodBarras.Text = _product.codigo;
             txtNombre.Text = _product.nombre;
             txtDescripcion.Text = _product.descripcion;
@@ -117,7 +126,11 @@ namespace HendrixAccountant
                     folderPath = path;
                 }
                 string pathImg = Path.Combine(folderPath, $"PROD_{code}.jpg");
-                pbBarcode.Image = GetCopyImage(pathImg);
+
+                if(tcProductos.SelectedIndex == 0)
+                    pbBarcode.Image = GetCopyImage(pathImg);
+                else
+                    pbBarcode2.Image = GetCopyImage(pathImg);
             }
             catch (Exception ex)
             {
@@ -151,6 +164,7 @@ namespace HendrixAccountant
                 MessageBox.Show("Seleccione al proveedor. Campo obligatorio", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            _isSearch = false;
             bool isUpdate = false;
             string mensaje = "Producto registrado con éxito.";
             var dataOp = DataOperator.Instance;
@@ -174,6 +188,7 @@ namespace HendrixAccountant
             {
                 _barcodeService.Generate(txtCodBarras.Text.Trim());
                 Clear();
+                SetScreen(EstadoPantalla.INICIAL);
                 MessageBox.Show(mensaje, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtCodBarras.Focus();
                 return;
@@ -234,7 +249,7 @@ namespace HendrixAccountant
                     backColor = Color.FromArgb(40, 167, 69);//verde
                     break;
                 case EstadoPantalla.MODIFICACION:
-                    backColor = Color.FromArgb(40, 167, 69);//amarillo
+                    backColor = Color.FromArgb(253, 184, 39);//amarillo
                     break;
             }
             
@@ -366,6 +381,7 @@ namespace HendrixAccountant
                     EnabledForm(true);
                     btnEliminar.Visible = false;
                     btnLimpiar.Visible = true;
+                    btnGuardar.Visible = true;
                     break;
                 case EstadoPantalla.ELIMINACION:
                     break;
@@ -428,26 +444,54 @@ namespace HendrixAccountant
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            //_barcodeService.Generate(txtCodBarras.Text.Trim());
-            if (MessageBox.Show(CString.DEFAULT_TITLE, "¿Desea imprimir el código?") == DialogResult.No)
+            var barcodes = new List<BarcodeCard>();
+            if(rbGenerarIndividual.Checked)
             {
-                MessageBox.Show("Su código de barras se ha generado correctamente.");
-                return;
+                if (_product == null)
+                {
+                    MessageBox.Show("Busque y seleccione un producto para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                _barcodeService.Generate(_product.codigo);
+                barcodes.Add(new BarcodeCard { 
+                    Codigo = _product.codigo, 
+                    Precio = _product.precio_venta.ToString(),
+                    NombreProducto = _product.nombre
+                });
             }
-                
-            string pathPdfCreated = _pdfService.Generate(txtCodBarras.Text.Trim().ToUpper());
-            frmPdfViewer pdfViewer = new frmPdfViewer(pathPdfCreated);
-            pdfViewer.ShowDialog();
+            else
+            {
+                List<BarcodeCard> lsBarcodes = _rpsProduct.GetBarcodes();
+                foreach (var cards in lsBarcodes)
+                    _barcodeService.Generate(cards.Codigo);
+                barcodes = lsBarcodes;
+            }
+
+            if (MessageBox.Show("¿Desea imprimir los códigos generados?", CString.DEFAULT_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+            
+            string pathPdfCreated = _pdfService.Generate(barcodes);
+            frmPdfReader frmPdfReader = new frmPdfReader(pathPdfCreated);
+            frmPdfReader.ShowDialog();
+            //frmPdfViewer pdfViewer = new frmPdfViewer(pathPdfCreated);
+            //pdfViewer.Show();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            _isSearch = false;
             _eEstadoPantalla = EstadoPantalla.CREACION;
             SetScreen(_eEstadoPantalla);
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (_product == null)
+            {
+                MessageBox.Show("Busque y seleccione un producto para proceder a modificarlo.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             _eEstadoPantalla = EstadoPantalla.MODIFICACION;
             SetScreen(_eEstadoPantalla);
         }
@@ -518,14 +562,16 @@ namespace HendrixAccountant
                     MessageBox.Show("No se encontraron productos.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
+
+                
                 FillGrid(products);
                 if (products.Count > 0)
                 {
+                    _isSearch = true;
                     _product = products.First();
                     SetProduct();
                 }
                 SetScreen(EstadoPantalla.INICIAL);
-                _isSearch = true;
                 btnEliminar.Visible = true;
             }
             catch (Exception ex)
@@ -561,6 +607,7 @@ namespace HendrixAccountant
 
             _product = dgvProductos.Rows[indexRow].Tag as Product;
             SetProduct();
+            SetScreen(EstadoPantalla.INICIAL);
             btnEliminar.Visible = true;
         }
 
@@ -594,6 +641,48 @@ namespace HendrixAccountant
             {
                 Bitmap bm = new Bitmap(im);
                 return bm;
+            }
+        }
+
+        private void txtCodProducto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Search();
+                e.Handled = e.SuppressKeyPress = true;
+            }
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            var barcodes = new List<BarcodeCard>();
+            if (rbGenerarIndividual.Checked)
+            {
+                if (_product == null)
+                {
+                    MessageBox.Show("Busque y seleccione un producto para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                barcodes.Add(new BarcodeCard
+                {
+                    Codigo = _product.codigo,
+                    Precio = _product.precio_venta.ToString(),
+                    NombreProducto = _product.nombre
+                });
+            }
+            else
+            {
+                barcodes = _rpsProduct.GetBarcodes();
+            }
+            string pathPdfCreated = _pdfService.Generate(barcodes);
+
+            string execute = new ParameterServices().Get(CString.PDF_EXECUTE);
+            if(execute.Equals("chrome"))
+                System.Diagnostics.Process.Start("chrome.exe", pathPdfCreated);
+            else
+            {
+                frmPdfReader frmPdfReader = new frmPdfReader(pathPdfCreated);
+                frmPdfReader.ShowDialog();
             }
         }
     }

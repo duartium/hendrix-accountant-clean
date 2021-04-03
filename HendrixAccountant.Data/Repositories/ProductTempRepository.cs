@@ -2,6 +2,7 @@
 using HendrixAccountant.ApplicationCore.Entities;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.ApplicationCore.Map;
+using HendrixAccountant.ApplicationCore.Models;
 using HendrixAccountant.Common;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,14 @@ namespace HendrixAccountant.Data.Repositories
             parms.Add(new SqlParameter("@codigo", filters.Codigo));
             var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
             return new ProductMapper().DatasetToProducts(dsResp);
+        }
+
+        public List<BarcodeCard> GetBarcodes()
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", 'B'));
+            var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+            return new ProductMapper().DatasetToBarcodes(dsResp);
         }
 
         public void UpdateStock(List<StockDto> stock, bool isDecrease)

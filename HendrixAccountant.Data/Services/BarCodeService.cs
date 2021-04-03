@@ -30,7 +30,8 @@ namespace HendrixAccountant.Data.Services
                     Directory.CreateDirectory(folderPath);
 
                 string ruta = Path.Combine(folderPath, $"PROD_{code}.jpg");
-                imgBarcode.Save(ruta, ImageFormat.Jpeg);
+                if(!File.Exists(ruta))
+                    imgBarcode.Save(ruta, ImageFormat.Jpeg);
             }
             catch (Exception ex)
 			{

@@ -1,6 +1,7 @@
 ﻿using HendrixAccountant.ApplicationCore.Constants;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.ApplicationCore.Interfaces.Services;
+using HendrixAccountant.ApplicationCore.Models;
 using HendrixAccountant.Common;
 using HendrixAccountant.Data.Services;
 using iText.IO.Font.Constants;
@@ -28,7 +29,7 @@ namespace HendrixAccountant.Infrastructure.Shared.Services
             _rpsParameter = new ParameterServices();
         }
 
-        public string Generate(string pdfName)
+        public string Generate(List<BarcodeCard> barcodes)
         {
             try
             {
@@ -40,14 +41,15 @@ namespace HendrixAccountant.Infrastructure.Shared.Services
                 if (!Directory.Exists(folderPathImgs))
                     Directory.CreateDirectory(folderPathImgs);
 
-                string path = System.IO.Path.Combine(folderPath, $"PROD_{pdfName}.pdf");
-                string pathImg = System.IO.Path.Combine(folderPathImgs, "PROD_asdfasdf.jpg");
+                string path = String.Empty, pathImg = String.Empty;
+                int count = barcodes.Count;
+                if (count == 1)
+                    path = System.IO.Path.Combine(folderPath, $"PROD_{barcodes.First().Codigo}.pdf");
+                else
+                    path = System.IO.Path.Combine(folderPath, $"PROD_TODOS_{DateTime.Now.ToString("yyyy_MM_dd")}.pdf");
 
                 var properties = new WriterProperties();
                 properties.SetPdfVersion(PdfVersion.PDF_2_0);
-
-               
-
 
                 using (PdfWriter wPdf = new PdfWriter(path, properties))
                 {
@@ -59,50 +61,50 @@ namespace HendrixAccountant.Infrastructure.Shared.Services
                     PdfFont fontSubtitle = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
 
                     //contenido
-                    float[] pointColumnWidths = { 120F, 120F, 120F };
+                    float[] pointColumnWidths = null;
+                    if (count == 1)
+                        pointColumnWidths = new float[]{ 120F };
+                    else if(count == 2)
+                        pointColumnWidths = new float[] { 120F, 120F };
+                    else if (count > 2)
+                        pointColumnWidths = new float[] { 120F, 120F, 120F };
+
                     Table table = new Table(pointColumnWidths);
-                    
+
                     //textos
-                    Text productName = new Text("CAMISA TIPO POLO");
-                    productName.SetFont(fontTitle);
-                    productName.SetFontSize(8);
-                    productName.SetTextAlignment(TextAlignment.CENTER);
-
-                    Text price = new Text("$ 45.87");
-                    price.SetFont(fontSubtitle);
-                    price.SetFontSize(9);
-                    price.SetTextAlignment(TextAlignment.CENTER);
-
                     Text company = new Text("NOVEDADES CHIC BOUTIQUE");
                     company.SetFont(fontSubtitle);
                     company.SetFontSize(6);
                     company.SetTextAlignment(TextAlignment.CENTER);
 
-                    //imagen
-                    ImageData imageData = ImageDataFactory.Create(pathImg);
-                    //Image image = new Image(imageData).ScaleAbsolute(300, 120).SetFixedPosition(1, 10, 10);
-                    Image image = new Image(imageData).SetAutoScale(true);
+                    foreach (var card in barcodes)
+                    {
+                        pathImg = System.IO.Path.Combine(folderPathImgs, $"PROD_{card.Codigo}.jpg");
 
-                    Cell column1 = new Cell();
-                    column1.Add(new Paragraph(productName));
-                    column1.Add(new Paragraph(price));
-                    column1.Add(image);
-                    column1.Add(new Paragraph(company));
-                    table.AddCell(column1);
+                        //card title
+                        Text productName = new Text(card.NombreProducto);
+                        productName.SetFont(fontTitle);
+                        productName.SetFontSize(8);
+                        productName.SetTextAlignment(TextAlignment.CENTER);
 
-                    Cell column2 = new Cell();
-                    column2.Add(new Paragraph(productName));
-                    column2.Add(new Paragraph(price));
-                    column2.Add(image);
-                    column2.Add(new Paragraph(company));
-                    table.AddCell(column2);
+                        //card price
+                        Text price = new Text($"$ {card.Precio}");
+                        price.SetFont(fontSubtitle);
+                        price.SetFontSize(9);
+                        price.SetTextAlignment(TextAlignment.CENTER);
 
-                    Cell column3 = new Cell();
-                    column3.Add(new Paragraph(productName));
-                    column3.Add(new Paragraph(price));
-                    column3.Add(image);
-                    column3.Add(new Paragraph(company));
-                    table.AddCell(column3);
+
+                        //imagen
+                        ImageData imageData = ImageDataFactory.Create(pathImg);
+                        Image image = new Image(imageData).SetAutoScale(true);
+
+                        Cell column1 = new Cell();
+                        column1.Add(new Paragraph(productName).SetTextAlignment(TextAlignment.CENTER));
+                        column1.Add(new Paragraph(price).SetTextAlignment(TextAlignment.CENTER));
+                        column1.Add(image);
+                        column1.Add(new Paragraph(company).SetTextAlignment(TextAlignment.CENTER));
+                        table.AddCell(column1);
+                    }
 
                     document.Add(table);
                     document.Close();

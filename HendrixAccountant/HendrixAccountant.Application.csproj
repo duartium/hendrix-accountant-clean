@@ -102,6 +102,12 @@
     <Compile Include="Forms\Configuration\frmParametros.Designer.cs">
       <DependentUpon>frmParametros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PdfViewer\frmPdfReader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PdfViewer\frmPdfReader.Designer.cs">
+      <DependentUpon>frmPdfReader.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PdfViewer\frmPdfViewer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuration\frmParametros.resx">
       <DependentUpon>frmParametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PdfViewer\frmPdfReader.resx">
+      <DependentUpon>frmPdfReader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PdfViewer\frmPdfViewer.resx">
       <DependentUpon>frmPdfViewer.cs</DependentUpon>
@@ -424,6 +433,24 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

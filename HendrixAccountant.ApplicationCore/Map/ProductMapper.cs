@@ -1,4 +1,5 @@
 ﻿using HendrixAccountant.ApplicationCore.Entities;
+using HendrixAccountant.ApplicationCore.Models;
 using HendrixAccountant.Common;
 using System;
 using System.Collections.Generic;
@@ -41,5 +42,28 @@ namespace HendrixAccountant.ApplicationCore.Map
             }
             return products;
         }
+
+
+        public List<BarcodeCard> DatasetToBarcodes(DataSet data)
+        {
+            if (!Validator.DatasetIsValid(data)) return null;
+
+            List<BarcodeCard> barcodes = null;
+            try
+            {
+                barcodes = data.Tables[0].AsEnumerable().Select(field => new BarcodeCard
+                {
+                    Codigo = field["codigo"].ToString(),
+                    NombreProducto = field["nombre"].ToString(),
+                    Precio = field["precio"].ToString()
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("DatasetToBarcodes", ex.ToString());
+            }
+            return barcodes;
+        }
+
     }
 }

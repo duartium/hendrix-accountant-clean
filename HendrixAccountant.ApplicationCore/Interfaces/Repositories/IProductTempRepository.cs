@@ -1,10 +1,7 @@
 ﻿using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Entities;
-using System;
+using HendrixAccountant.ApplicationCore.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
 {
@@ -15,5 +12,6 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
         void UpdateStock(StockDto stock, bool isDecrease);
         bool Save(ProductDto product, bool isUpdate = false);
         bool Remove(int idProduct, string usuario);
+        List<BarcodeCard> GetBarcodes();
     }
 }

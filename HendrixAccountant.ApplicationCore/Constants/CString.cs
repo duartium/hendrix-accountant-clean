@@ -27,6 +27,8 @@ namespace HendrixAccountant.ApplicationCore.Constants
         public const string COMPANY = "empresa";
         public const string PATH_BARCODES = "path_barcodes";
         public const string PATH_PDF_BARCODES = "path_pdf_barcodes";
+        public const string PDF_EXECUTE = "pdf_execute";
+
         //Key pass
         public const string KEY_PASS = "H3ndr1x";
     }

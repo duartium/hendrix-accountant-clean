@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductos));
             this.pnHeader = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -77,24 +76,16 @@
             this.tpProduct = new System.Windows.Forms.TabPage();
             this.txtCodBarras = new System.Windows.Forms.TextBox();
             this.pnProveedor = new System.Windows.Forms.Panel();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.pbBarcode = new System.Windows.Forms.PictureBox();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.tpBarcodes = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.btnGenerar = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
+            this.rbGenerarTodos = new System.Windows.Forms.RadioButton();
+            this.rbGenerarIndividual = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.pbBarcode2 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.txtCodigo2 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -106,9 +97,19 @@
             this.label24 = new System.Windows.Forms.Label();
             this.txtNombreProd = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtCodigo2 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pbBarcode = new System.Windows.Forms.PictureBox();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.pbBarcode2 = new System.Windows.Forms.PictureBox();
+            this.btnGenerar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnNombreProveedor.SuspendLayout();
             this.pnCodProveedor.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -121,14 +122,17 @@
             this.tcProductos.SuspendLayout();
             this.tpProduct.SuspendLayout();
             this.pnProveedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode)).BeginInit();
             this.tpBarcodes.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode2)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnHeader
@@ -142,15 +146,6 @@
             this.pnHeader.Name = "pnHeader";
             this.pnHeader.Size = new System.Drawing.Size(846, 60);
             this.pnHeader.TabIndex = 29;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::HendrixAccountant.Properties.Resources.productWhite25;
-            this.pictureBox1.Location = new System.Drawing.Point(326, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(28, 25);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -468,7 +463,7 @@
             this.pnNombres.Controls.Add(this.lblPnNombre);
             this.pnNombres.Location = new System.Drawing.Point(21, 126);
             this.pnNombres.Name = "pnNombres";
-            this.pnNombres.Size = new System.Drawing.Size(269, 32);
+            this.pnNombres.Size = new System.Drawing.Size(262, 32);
             this.pnNombres.TabIndex = 1;
             // 
             // txtNombre
@@ -479,7 +474,7 @@
             this.txtNombre.Location = new System.Drawing.Point(1, 7);
             this.txtNombre.MaxLength = 100;
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(265, 16);
+            this.txtNombre.Size = new System.Drawing.Size(258, 16);
             this.txtNombre.TabIndex = 1;
             // 
             // lblPnNombre
@@ -488,7 +483,7 @@
             this.lblPnNombre.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblPnNombre.Location = new System.Drawing.Point(0, 29);
             this.lblPnNombre.Name = "lblPnNombre";
-            this.lblPnNombre.Size = new System.Drawing.Size(269, 3);
+            this.lblPnNombre.Size = new System.Drawing.Size(262, 3);
             this.lblPnNombre.TabIndex = 9;
             // 
             // label11
@@ -613,10 +608,10 @@
             // 
             // tpProduct
             // 
+            this.tpProduct.Controls.Add(this.panel8);
             this.tpProduct.Controls.Add(this.txtCodBarras);
             this.tpProduct.Controls.Add(this.pnProveedor);
             this.tpProduct.Controls.Add(this.btnModificar);
-            this.tpProduct.Controls.Add(this.pbBarcode);
             this.tpProduct.Controls.Add(this.btnNuevo);
             this.tpProduct.Controls.Add(this.pnCodigo);
             this.tpProduct.Controls.Add(this.btnGuardar);
@@ -669,116 +664,17 @@
             this.pnProveedor.Size = new System.Drawing.Size(430, 58);
             this.pnProveedor.TabIndex = 90;
             // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnModificar.Image = global::HendrixAccountant.Properties.Resources.addWhite20;
-            this.btnModificar.Location = new System.Drawing.Point(131, 10);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(90, 30);
-            this.btnModificar.TabIndex = 89;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // pbBarcode
-            // 
-            this.pbBarcode.Location = new System.Drawing.Point(288, 45);
-            this.pbBarcode.Name = "pbBarcode";
-            this.pbBarcode.Size = new System.Drawing.Size(154, 75);
-            this.pbBarcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbBarcode.TabIndex = 88;
-            this.pbBarcode.TabStop = false;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevo.FlatAppearance.BorderSize = 0;
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNuevo.Image = global::HendrixAccountant.Properties.Resources.addWhite20;
-            this.btnNuevo.Location = new System.Drawing.Point(21, 10);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(90, 30);
-            this.btnNuevo.TabIndex = 83;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNuevo.UseVisualStyleBackColor = false;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnGuardar.Image = global::HendrixAccountant.Properties.Resources.saveWhite20;
-            this.btnGuardar.Location = new System.Drawing.Point(347, 375);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(90, 30);
-            this.btnGuardar.TabIndex = 55;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
-            this.btnEliminar.Location = new System.Drawing.Point(251, 375);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(90, 30);
-            this.btnEliminar.TabIndex = 56;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(192)))), ((int)(((byte)(222)))));
-            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiar.FlatAppearance.BorderSize = 0;
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.userWhite20;
-            this.btnLimpiar.Location = new System.Drawing.Point(22, 375);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
-            this.btnLimpiar.TabIndex = 58;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
             // tpBarcodes
             // 
+            this.tpBarcodes.Controls.Add(this.panel1);
             this.tpBarcodes.Controls.Add(this.groupBox2);
-            this.tpBarcodes.Controls.Add(this.btnGenerar);
-            this.tpBarcodes.Controls.Add(this.btnImprimir);
             this.tpBarcodes.Controls.Add(this.groupBox1);
-            this.tpBarcodes.Controls.Add(this.pbBarcode2);
             this.tpBarcodes.Controls.Add(this.panel6);
             this.tpBarcodes.Controls.Add(this.label13);
             this.tpBarcodes.Controls.Add(this.panel7);
             this.tpBarcodes.Controls.Add(this.label23);
+            this.tpBarcodes.Controls.Add(this.btnGenerar);
+            this.tpBarcodes.Controls.Add(this.btnImprimir);
             this.tpBarcodes.Location = new System.Drawing.Point(4, 22);
             this.tpBarcodes.Name = "tpBarcodes";
             this.tpBarcodes.Padding = new System.Windows.Forms.Padding(3);
@@ -789,71 +685,35 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.rbGenerarTodos);
+            this.groupBox2.Controls.Add(this.rbGenerarIndividual);
             this.groupBox2.Location = new System.Drawing.Point(20, 11);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(416, 47);
             this.groupBox2.TabIndex = 92;
             this.groupBox2.TabStop = false;
             // 
-            // radioButton2
+            // rbGenerarTodos
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(216, 16);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(182, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "Generar para todos los productos";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbGenerarTodos.AutoSize = true;
+            this.rbGenerarTodos.Location = new System.Drawing.Point(216, 16);
+            this.rbGenerarTodos.Name = "rbGenerarTodos";
+            this.rbGenerarTodos.Size = new System.Drawing.Size(182, 17);
+            this.rbGenerarTodos.TabIndex = 1;
+            this.rbGenerarTodos.Text = "Generar para todos los productos";
+            this.rbGenerarTodos.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbGenerarIndividual
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 16);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(198, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Generar para producto seleccionado";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // btnGenerar
-            // 
-            this.btnGenerar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.btnGenerar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGenerar.FlatAppearance.BorderSize = 0;
-            this.btnGenerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnGenerar.Image = global::HendrixAccountant.Properties.Resources.barcode2White24;
-            this.btnGenerar.Location = new System.Drawing.Point(242, 344);
-            this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(90, 30);
-            this.btnGenerar.TabIndex = 56;
-            this.btnGenerar.Text = "Generar";
-            this.btnGenerar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGenerar.UseVisualStyleBackColor = false;
-            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
-            // 
-            // btnImprimir
-            // 
-            this.btnImprimir.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
-            this.btnImprimir.FlatAppearance.BorderSize = 2;
-            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImprimir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImprimir.ForeColor = System.Drawing.Color.Black;
-            this.btnImprimir.Image = global::HendrixAccountant.Properties.Resources.printGray20;
-            this.btnImprimir.Location = new System.Drawing.Point(347, 344);
-            this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(90, 30);
-            this.btnImprimir.TabIndex = 88;
-            this.btnImprimir.Text = "Imprimir";
-            this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.rbGenerarIndividual.AutoSize = true;
+            this.rbGenerarIndividual.Checked = true;
+            this.rbGenerarIndividual.Location = new System.Drawing.Point(12, 16);
+            this.rbGenerarIndividual.Name = "rbGenerarIndividual";
+            this.rbGenerarIndividual.Size = new System.Drawing.Size(198, 17);
+            this.rbGenerarIndividual.TabIndex = 0;
+            this.rbGenerarIndividual.TabStop = true;
+            this.rbGenerarIndividual.Text = "Generar para producto seleccionado";
+            this.rbGenerarIndividual.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -903,28 +763,31 @@
             this.checkBox1.Text = "Incluir precio";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // pbBarcode2
-            // 
-            this.pbBarcode2.Location = new System.Drawing.Point(20, 66);
-            this.pbBarcode2.Name = "pbBarcode2";
-            this.pbBarcode2.Size = new System.Drawing.Size(165, 68);
-            this.pbBarcode2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbBarcode2.TabIndex = 87;
-            this.pbBarcode2.TabStop = false;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.Control;
             this.panel6.Controls.Add(this.txtCodigo2);
             this.panel6.Controls.Add(this.label12);
+            this.panel6.Enabled = false;
             this.panel6.Location = new System.Drawing.Point(20, 167);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(99, 32);
             this.panel6.TabIndex = 85;
             // 
+            // txtCodigo2
+            // 
+            this.txtCodigo2.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCodigo2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodigo2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo2.Location = new System.Drawing.Point(2, 8);
+            this.txtCodigo2.MaxLength = 20;
+            this.txtCodigo2.Name = "txtCodigo2";
+            this.txtCodigo2.Size = new System.Drawing.Size(95, 15);
+            this.txtCodigo2.TabIndex = 10;
+            // 
             // label12
             // 
-            this.label12.BackColor = System.Drawing.Color.DarkGray;
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label12.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label12.Location = new System.Drawing.Point(0, 29);
             this.label12.Name = "label12";
@@ -947,6 +810,7 @@
             this.panel7.BackColor = System.Drawing.SystemColors.Control;
             this.panel7.Controls.Add(this.txtNombre2);
             this.panel7.Controls.Add(this.label22);
+            this.panel7.Enabled = false;
             this.panel7.Location = new System.Drawing.Point(128, 167);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(269, 32);
@@ -965,7 +829,7 @@
             // 
             // label22
             // 
-            this.label22.BackColor = System.Drawing.Color.DarkGray;
+            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label22.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label22.Location = new System.Drawing.Point(0, 29);
             this.label22.Name = "label22";
@@ -1008,6 +872,7 @@
             this.txtCodProducto.Name = "txtCodProducto";
             this.txtCodProducto.Size = new System.Drawing.Size(88, 24);
             this.txtCodProducto.TabIndex = 93;
+            this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
             this.txtCodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodProducto_KeyPress);
             // 
             // label24
@@ -1044,16 +909,177 @@
             this.label10.TabIndex = 90;
             this.label10.Text = "Código";
             // 
-            // txtCodigo2
+            // panel1
             // 
-            this.txtCodigo2.BackColor = System.Drawing.SystemColors.Control;
-            this.txtCodigo2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCodigo2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo2.Location = new System.Drawing.Point(2, 8);
-            this.txtCodigo2.MaxLength = 20;
-            this.txtCodigo2.Name = "txtCodigo2";
-            this.txtCodigo2.Size = new System.Drawing.Size(95, 15);
-            this.txtCodigo2.TabIndex = 10;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pbBarcode2);
+            this.panel1.Location = new System.Drawing.Point(20, 64);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(177, 81);
+            this.panel1.TabIndex = 93;
+            // 
+            // panel8
+            // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.pbBarcode);
+            this.panel8.Location = new System.Drawing.Point(287, 77);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(166, 81);
+            this.panel8.TabIndex = 94;
+            // 
+            // pbBarcode
+            // 
+            this.pbBarcode.Location = new System.Drawing.Point(4, 3);
+            this.pbBarcode.Name = "pbBarcode";
+            this.pbBarcode.Size = new System.Drawing.Size(157, 74);
+            this.pbBarcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBarcode.TabIndex = 88;
+            this.pbBarcode.TabStop = false;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnModificar.Image = global::HendrixAccountant.Properties.Resources.addWhite20;
+            this.btnModificar.Location = new System.Drawing.Point(131, 10);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(90, 30);
+            this.btnModificar.TabIndex = 89;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNuevo.FlatAppearance.BorderSize = 0;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnNuevo.Image = global::HendrixAccountant.Properties.Resources.addWhite20;
+            this.btnNuevo.Location = new System.Drawing.Point(21, 10);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(90, 30);
+            this.btnNuevo.TabIndex = 83;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnGuardar.Image = global::HendrixAccountant.Properties.Resources.saveWhite20;
+            this.btnGuardar.Location = new System.Drawing.Point(347, 375);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(90, 30);
+            this.btnGuardar.TabIndex = 55;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
+            this.btnEliminar.Location = new System.Drawing.Point(241, 10);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(90, 30);
+            this.btnEliminar.TabIndex = 56;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(192)))), ((int)(((byte)(222)))));
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.userWhite20;
+            this.btnLimpiar.Location = new System.Drawing.Point(22, 375);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
+            this.btnLimpiar.TabIndex = 58;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // pbBarcode2
+            // 
+            this.pbBarcode2.Location = new System.Drawing.Point(5, 6);
+            this.pbBarcode2.Name = "pbBarcode2";
+            this.pbBarcode2.Size = new System.Drawing.Size(165, 68);
+            this.pbBarcode2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBarcode2.TabIndex = 87;
+            this.pbBarcode2.TabStop = false;
+            // 
+            // btnGenerar
+            // 
+            this.btnGenerar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.btnGenerar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGenerar.FlatAppearance.BorderSize = 0;
+            this.btnGenerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnGenerar.Image = global::HendrixAccountant.Properties.Resources.barcode2White24;
+            this.btnGenerar.Location = new System.Drawing.Point(242, 344);
+            this.btnGenerar.Name = "btnGenerar";
+            this.btnGenerar.Size = new System.Drawing.Size(90, 30);
+            this.btnGenerar.TabIndex = 56;
+            this.btnGenerar.Text = "Generar";
+            this.btnGenerar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGenerar.UseVisualStyleBackColor = false;
+            this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnImprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimir.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnImprimir.FlatAppearance.BorderSize = 2;
+            this.btnImprimir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimir.ForeColor = System.Drawing.Color.Black;
+            this.btnImprimir.Image = global::HendrixAccountant.Properties.Resources.printGray20;
+            this.btnImprimir.Location = new System.Drawing.Point(347, 344);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(90, 30);
+            this.btnImprimir.TabIndex = 88;
+            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnImprimir.UseVisualStyleBackColor = false;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::HendrixAccountant.Properties.Resources.productWhite25;
+            this.pictureBox1.Location = new System.Drawing.Point(326, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 25);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // frmProductos
             // 
@@ -1077,7 +1103,6 @@
             this.Load += new System.EventHandler(this.frmProductos_Load);
             this.pnHeader.ResumeLayout(false);
             this.pnHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnNombreProveedor.ResumeLayout(false);
             this.pnNombreProveedor.PerformLayout();
             this.pnCodProveedor.ResumeLayout(false);
@@ -1099,20 +1124,23 @@
             this.tpProduct.PerformLayout();
             this.pnProveedor.ResumeLayout(false);
             this.pnProveedor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode)).EndInit();
             this.tpBarcodes.ResumeLayout(false);
             this.tpBarcodes.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode2)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1184,8 +1212,8 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rbGenerarTodos;
+        private System.Windows.Forms.RadioButton rbGenerarIndividual;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox txtNombreProd;
@@ -1196,5 +1224,7 @@
         private System.Windows.Forms.TextBox txtCodProducto;
         private System.Windows.Forms.TextBox txtCodBarras;
         private System.Windows.Forms.TextBox txtCodigo2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel8;
     }
 }

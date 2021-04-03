@@ -115,6 +115,7 @@
     <Compile Include="Map\UserMapper.cs" />
     <Compile Include="Map\Validator.cs" />
     <Compile Include="Models\Audit.cs" />
+    <Compile Include="Models\Barcode.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\ReportData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
