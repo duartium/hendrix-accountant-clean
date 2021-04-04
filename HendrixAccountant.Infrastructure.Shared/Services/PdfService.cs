@@ -66,8 +66,10 @@ namespace HendrixAccountant.Infrastructure.Shared.Services
                         pointColumnWidths = new float[]{ 120F };
                     else if(count == 2)
                         pointColumnWidths = new float[] { 120F, 120F };
-                    else if (count > 2)
+                    else if (count == 3)
                         pointColumnWidths = new float[] { 120F, 120F, 120F };
+                    else if (count > 3)
+                        pointColumnWidths = new float[] { 120F, 120F, 120F, 120F };
 
                     Table table = new Table(pointColumnWidths);
 

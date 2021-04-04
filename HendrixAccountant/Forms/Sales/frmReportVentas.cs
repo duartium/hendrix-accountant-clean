@@ -49,7 +49,7 @@ namespace HendrixAccountant.Forms
                         var dtCriterios = new ReportMapper().criteriosToDataTable(data.Criterios);
                         rptViewerVentas.LocalReport.ReportPath = pathRoot + "rptVentasGenerales.rdlc";
                         dataSource.Add(new ReportDataSource("dsCompania", data.Data.Tables["dtCompany"]));
-                        dataSource.Add(new ReportDataSource("dsVentasGenerales", data.Data.Tables[1]));
+                        dataSource.Add(new ReportDataSource("dsVentasGenerales", data.Data.Tables[0]));
                         dataSource.Add(new ReportDataSource("dsCriterios", dtCriterios));
                         break;
                     case ApplicationCore.Enums.TipoReporte.FACTURA_VENTA:

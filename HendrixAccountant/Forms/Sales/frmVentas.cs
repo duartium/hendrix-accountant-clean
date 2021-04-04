@@ -6,6 +6,7 @@ using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.ApplicationCore.Interfaces.Services;
 using HendrixAccountant.ApplicationCore.Map;
 using HendrixAccountant.ApplicationCore.Models;
+using HendrixAccountant.Common;
 using HendrixAccountant.Data;
 using HendrixAccountant.Data.Dtos;
 using HendrixAccountant.Data.Repositories;
@@ -86,17 +87,17 @@ namespace HendrixAccountant.Forms
             dgvVentaGeneral.Rows.Clear();
             dgvComprobanteInd.Rows.Clear();
 
-            if (_dsResp.Tables["table1"].Rows.Count <= 0)
+            if (_dsResp.Tables["Table"].Rows.Count <= 0)
             {
                 EnabledPrint(false);
                 return;
             }
 
             if(consultaVenta == ConsultaVenta.COMP_INDIVIDUAL)
-                foreach (var row in _dsResp.Tables["table1"].AsEnumerable())
+                foreach (var row in _dsResp.Tables["Table1"].AsEnumerable())
                     dgvComprobanteInd.Rows.Add(row.ItemArray[0], row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[4]);
             else
-                foreach (var row in _dsResp.Tables["table1"].AsEnumerable())
+                foreach (var row in _dsResp.Tables["Table"].AsEnumerable())
                     dgvVentaGeneral.Rows.Add(row.ItemArray[1], row.ItemArray[2], row.ItemArray[4], row.ItemArray[7], row.ItemArray[8]);
             EnabledPrint(true);
         }
@@ -158,64 +159,89 @@ namespace HendrixAccountant.Forms
 
         private void Search()
         {
-            if (tabControlVentas.SelectedTab.Name.Equals("tpGeneral"))
+            try
             {
-                consultaVenta = ConsultaVenta.GENERAL;
-                _tipoReporte = TipoReporte.VENTAS_GENERALES;
-                if (dtpFechaDesde.Value.Date > dtpFechaHasta.Value.Date)
+                if (tabControlVentas.SelectedTab.Name.Equals("tpGeneral"))
                 {
-                    MessageBox.Show("La 'fecha desde' no puede ser mayor a 'fecha hasta'.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+                    consultaVenta = ConsultaVenta.GENERAL;
+                    _tipoReporte = TipoReporte.VENTAS_GENERALES;
+                    if (dtpFechaDesde.Value.Date > dtpFechaHasta.Value.Date)
+                    {
+                        MessageBox.Show("La 'fecha desde' no puede ser mayor a 'fecha hasta'.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
 
-                if (!txtIdentCliente.Text.Trim().Equals("1") && txtIdentCliente.Text.Length > 0 && txtIdentCliente.Text.Length < 10)
-                {
-                    MessageBox.Show("Identificación de cliente no válida.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
+                    if (!txtIdentCliente.Text.Trim().Equals("1") && txtIdentCliente.Text.Length > 0 && txtIdentCliente.Text.Length < 10)
+                    {
+                        MessageBox.Show("Identificación de cliente no válida.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
 
-                var salesFilters = new SalesFilterDto
-                {
-                    FechaDesde = dtpFechaDesde.Value.Date.ToShortDateString(),
-                    FechaHasta = dtpFechaHasta.Value.Date.ToShortDateString(),
-                    IdCliente = (_client != null) ? _client.IdCliente : -1,
-                    IdUsuario = (_user != null) ? _user.IdUsuario : -1
-                };
+                    var salesFilters = new SalesFilterDto
+                    {
+                        FechaDesde = dtpFechaDesde.Value.Date.ToShortDateString(),
+                        FechaHasta = dtpFechaHasta.Value.Date.ToShortDateString(),
+                        IdCliente = (_client != null) ? _client.IdCliente : -1,
+                        IdUsuario = (_user != null) ? _user.IdUsuario : -1
+                    };
 
-                if (_dsResp != null) _dsResp.Clear();
-                _dsResp = _rpsReports.Get(salesFilters);
-                if (_dsResp == null)
-                {
-                    MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
+                    if (_dsResp != null) _dsResp.Clear();
+                    _dsResp = _rpsReports.Get(salesFilters);
+                    if (_dsResp == null)
+                    {
+                        MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    if (_dsResp.Tables.Contains("Table"))
+                    {
+                        if (_dsResp.Tables["Table"].Rows.Count <= 0)
+                        {
+                            MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                    }
+                    if (_dsResp.Tables.Contains("Table1"))
+                    {
+                        if (_dsResp.Tables["Table1"].Rows.Count <= 0)
+                        {
+                            MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                    }
+                    if (!_dsResp.Tables.Contains("Table")  && !_dsResp.Tables.Contains("Table"))
+                    {
+                        MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    
+                    FillGrid();
+
                 }
-                if (_dsResp.Tables["table1"].Rows.Count <= 0)
+                else if (tabControlVentas.SelectedTab.Name.Equals("tpCIndividual"))
                 {
-                    MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
+                    consultaVenta = ConsultaVenta.COMP_INDIVIDUAL;
+                    _tipoReporte = TipoReporte.FACTURA_VENTA;
+                    if (txtNumSecuencial.Text.Length <= 0)
+                    {
+                        MessageBox.Show("Ingrese el número de factura para realizar la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtNumSecuencial.Focus();
+                        return;
+                    }
+
+                    _dsResp = _rpsReports.GetByInvoice(txtNumSecuencial.Text.Trim());
+                    if (!Validator.DatasetIsValid(_dsResp))
+                    {
+                        MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE);
+                        return;
+                    }
+                    FillGrid();
+                    EnabledPrint(true);
                 }
-                FillGrid();
-                
             }
-            else if (tabControlVentas.SelectedTab.Name.Equals("tpCIndividual"))
+            catch (Exception ex)
             {
-                consultaVenta = ConsultaVenta.COMP_INDIVIDUAL;
-                _tipoReporte = TipoReporte.FACTURA_VENTA;
-                if (txtNumSecuencial.Text.Length <= 0)
-                {
-                    MessageBox.Show("Ingrese el número de factura para realizar la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtNumSecuencial.Focus();
-                    return;
-                }
-
-                _dsResp = _rpsReports.GetByInvoice(txtNumSecuencial.Text.Trim());
-                if (!Validator.DatasetIsValid(_dsResp))
-                {
-                    MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE);
-                    return;
-                }
-                FillGrid();
-                EnabledPrint(true);
+                MessageBox.Show($"Se produjo un error al realizar la búsqueda: {ex.Message}", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Utils.GrabarLog("frmVentas >>Search", ex.ToString());
             }
         }
 

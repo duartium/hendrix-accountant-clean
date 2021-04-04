@@ -470,9 +470,16 @@ namespace HendrixAccountant
             if (MessageBox.Show("¿Desea imprimir los códigos generados?", CString.DEFAULT_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
             
+
             string pathPdfCreated = _pdfService.Generate(barcodes);
-            frmPdfReader frmPdfReader = new frmPdfReader(pathPdfCreated);
-            frmPdfReader.ShowDialog();
+            string execute = new ParameterServices().Get(CString.PDF_EXECUTE);
+            if (execute.Equals("chrome"))
+                System.Diagnostics.Process.Start("chrome.exe", pathPdfCreated);
+            else
+            {
+                frmPdfReader frmPdfReader = new frmPdfReader(pathPdfCreated);
+                frmPdfReader.ShowDialog();
+            }
             //frmPdfViewer pdfViewer = new frmPdfViewer(pathPdfCreated);
             //pdfViewer.Show();
         }

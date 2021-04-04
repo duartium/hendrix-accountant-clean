@@ -16,8 +16,8 @@ namespace HendrixAccountant.Forms.PdfViewer
         public frmPdfReader(string pdfName)
         {
             InitializeComponent();
-            //axAcroPDF1.LoadFile(pdfName);
-            axAcroPDF1.src = pdfName;
+            axAcroPDF1.LoadFile(pdfName);
+            //axAcroPDF1.src = pdfName;
         }
 
         private void frmPdfReader_Load(object sender, EventArgs e)
@@ -32,9 +32,8 @@ namespace HendrixAccountant.Forms.PdfViewer
             if (axAcroPDF1 != null)
             {
                 axAcroPDF1.Dispose();
-                System.Windows.Forms.Application.DoEvents();
+                Application.DoEvents();
                 CoFreeUnusedLibraries();
-                axAcroPDF1.src = "";
 
                 Process[] processes = Process.GetProcessesByName("AcroRd32");
                 foreach (Process process in processes)

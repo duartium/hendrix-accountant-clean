@@ -51,7 +51,7 @@ namespace HendrixAccountant
             {
                 var filters = new ProductFilterDto
                 {
-                    IdProducto = String.IsNullOrEmpty(txtCodProducto.Text)? 0 : Convert.ToInt32(txtCodProducto.Text),
+                    Codigo = txtCodProducto.Text,
                     NombreProducto = txtNombreProd.Text
                 };
                 var products = _rpsProduct.GetAll(filters);
@@ -69,15 +69,15 @@ namespace HendrixAccountant
             }
         }
 
-        private void FillGrid(IEnumerable<Object> data)
+        private void FillGrid(List<Product> data)
         {
             dgvProductos.DataSource = null;
             dgvProductos.Rows.Clear();
             dgvProductos.AutoGenerateColumns = false;
             int i = 0;
-            foreach (var item in data.Cast<Product>().ToList())
+            foreach (var item in data)
             {
-                dgvProductos.Rows.Add(item.id_producto, item.nombre, item.stock, item.precio_venta, item.categoria, item.talla);
+                dgvProductos.Rows.Add(item.codigo, item.nombre, item.stock, item.precio_venta, item.categoria, item.talla);
                 dgvProductos.Rows[i].Tag = item;
                 i++;
             }
@@ -89,12 +89,14 @@ namespace HendrixAccountant
             ProductIdentityDto product = null;
             try
             {
+                var rowProduct = (row.Tag as Product);
                 product = new ProductIdentityDto
                 {
-                    IdProducto = Convert.ToInt32(row.Cells[colCodigo.Index].Value.ToString()),
-                    Nombre = row.Cells[colNombreProd.Index].Value.ToString(),
-                    Precio = Convert.ToDecimal(row.Cells[colPrecio.Index].Value.ToString().Replace(",", "."), Utils.GetCulture()),
-                    Stock = Convert.ToInt32(row.Cells[colStock.Index].Value.ToString())
+                    IdProducto = rowProduct.id_producto,
+                    Codigo = rowProduct.codigo,
+                    Nombre = rowProduct.nombre,
+                    Precio = rowProduct.precio_venta,
+                    Stock = rowProduct.stock
                 };
             }
             catch (Exception ex)
@@ -132,7 +134,7 @@ namespace HendrixAccountant
 
         private void frmBuscarProductos_Activated(object sender, EventArgs e)
         {
-            txtNombreProd.Focus();
+            txtCodProducto.Focus();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -170,6 +172,20 @@ namespace HendrixAccountant
             btnCerrar.BackColor = DataOperator.Instance.ColorSecondary;
             btnLimpiar.BackColor = DataOperator.Instance.ColorSecondary;
             dgvProductos.ColumnHeadersDefaultCellStyle.BackColor = DataOperator.Instance.ColorPrimary;
+        }
+
+        private void txtCodProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == '\b')
+            {
+                if (!e.KeyChar.ToString().Contains("Ñ"))
+                {
+                    e.Handled = false;
+                    e.KeyChar = Char.ToUpper(e.KeyChar);
+                }
+                else { e.Handled = true; }
+            }
+            else e.Handled = true;
         }
     }
 }

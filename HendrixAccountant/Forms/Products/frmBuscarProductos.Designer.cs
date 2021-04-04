@@ -31,7 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarProductos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtCodProducto = new HendrixAccountant.UIControls.NumericInput();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtNombreProd = new System.Windows.Forms.TextBox();
@@ -46,6 +45,7 @@
             this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTalla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCodProducto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.pnAside.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -65,15 +65,6 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criterios de búsqueda";
-            // 
-            // txtCodProducto
-            // 
-            this.txtCodProducto.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtCodProducto.Location = new System.Drawing.Point(10, 40);
-            this.txtCodProducto.Name = "txtCodProducto";
-            this.txtCodProducto.Size = new System.Drawing.Size(88, 23);
-            this.txtCodProducto.TabIndex = 7;
-            this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
             // 
             // lblNombreProducto
             // 
@@ -255,6 +246,19 @@
             this.colTalla.ReadOnly = true;
             this.colTalla.Width = 60;
             // 
+            // txtCodProducto
+            // 
+            this.txtCodProducto.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCodProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCodProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodProducto.Location = new System.Drawing.Point(10, 40);
+            this.txtCodProducto.MaxLength = 20;
+            this.txtCodProducto.Name = "txtCodProducto";
+            this.txtCodProducto.Size = new System.Drawing.Size(88, 24);
+            this.txtCodProducto.TabIndex = 94;
+            this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
+            this.txtCodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodProducto_KeyPress);
+            // 
             // frmBuscarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,7 +294,6 @@
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Label lblNombreProducto;
         private System.Windows.Forms.Label lblCodigo;
-        private UIControls.NumericInput txtCodProducto;
         private UIControls.Buttons.ItemAsideSmall btnConsultar;
         private UIControls.Buttons.ItemAsideSmall btnCerrar;
         private UIControls.Buttons.ItemAsideSmall btnLimpiar;
@@ -300,5 +303,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTalla;
+        private System.Windows.Forms.TextBox txtCodProducto;
     }
 }

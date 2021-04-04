@@ -98,7 +98,7 @@ namespace HendrixAccountant
         private void FillGrid()
         {
             if (_product == null) return;
-            dgvPuntoVenta.Rows.Add(_product.IdProducto, _product.Nombre, _product.Cantidad, _product.Precio, _product.Total);
+            dgvPuntoVenta.Rows.Add(_product.Codigo, _product.Nombre, _product.Cantidad, _product.Precio, _product.Total);
             dgvPuntoVenta.FirstDisplayedScrollingRowIndex = dgvPuntoVenta.RowCount - 1;
             EnableRemove();
         }

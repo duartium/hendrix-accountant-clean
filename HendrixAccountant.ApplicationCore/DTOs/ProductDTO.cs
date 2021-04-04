@@ -15,6 +15,7 @@ namespace HendrixAccountant.ApplicationCore.DTOs
     public class ProductIdentityDto : ISaleElement
     {
         public int IdProducto { get; set; }
+        public string Codigo { get; set; }
         public string Nombre { get; set; }
         public decimal Precio { get; set; }
         public int Cantidad { get; set; }
