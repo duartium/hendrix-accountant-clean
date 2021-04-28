@@ -59,7 +59,7 @@ namespace HendrixAccountant.ApplicationCore.Services
                     XDocument xml = new XDocument(
                     new XElement("factura",
                         new XElement("clienteId", invoice.ClienteId.ToString()),
-                        new XElement("fechaEmision", invoice.FechaEmision.ToString()),
+                        new XElement("fechaEmision", invoice.FechaEmision.ToString("yyyy-MM-dd HH:mm:ss")),
                         new XElement("baseImponible", invoice.BaseImponible),
                         new XElement("iva", invoice.IVA),
                         new XElement("total", invoice.Total),

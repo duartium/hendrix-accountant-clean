@@ -31,18 +31,24 @@ namespace HendrixAccountant.Common
         public DataSet ExecuteProcedure(string nameProcedure, List<SqlParameter> parameters = null)
         {
             DataSet ds = null;
+            string paramsLog = String.Empty;
             SqlDataAdapter adapter = null;
             try
             {
                 using (this.SqlConn = new SqlConnection())
                 {
                     this.Connect();
+                    
                     using (var cmd = new SqlCommand(nameProcedure, this.SqlConn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         if (parameters != null)
                             foreach (var item in parameters)
+                            {
+                                paramsLog += $"| {item.Value} |";
                                 cmd.Parameters.AddWithValue(item.ParameterName, item.Value);
+                            }
+                                
 
                         ds = new DataSet("RESULTS");
                         adapter = new SqlDataAdapter(cmd);
@@ -52,7 +58,8 @@ namespace HendrixAccountant.Common
             }
             catch (Exception ex)
             {
-                Utils.GrabarLog("ExecuteProcedure", ex.ToString());
+                Utils.GrabarLog("ExecuteProcedure", $"MSG: {ex.Message} - TRACE: {ex.StackTrace}");
+                Utils.GrabarLog("INPUT DATA", paramsLog);
             }
             finally
             {
