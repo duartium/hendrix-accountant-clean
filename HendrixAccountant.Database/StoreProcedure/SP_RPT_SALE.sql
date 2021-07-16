@@ -11,80 +11,81 @@
  *      FECHA        AUTOR            RAZON                             *
  *----------------------------------------------------------------------*/
 
-ALTER PROCEDURE [dbo].[SP_REGISTER_SALE]
+ALTER PROCEDURE [dbo].[SP_RPT_SALE]
 	@accion char(1),
-    @id_usuario int,
-	@usuario varchar(20),
-	@serial varchar(50),
-	@factura varchar(max)
+	@secuencial int		= NULL,
+	@fecha_desde varchar(10)	= NULL,
+	@fecha_hasta varchar(10)	= NULL,
+	@id_cliente int		= NULL,
+	@id_usuario int		= NULL
 AS
 BEGIN
-	DECLARE @fecha_actual datetime = GETDATE(),
-			@factura_xml xml,
-			@id_factura int,
-			@secuencial int
+	DECLARE @fecha_actual datetime = GETDATE()
+	DECLARE @fecha_actual_corta date = CONVERT(DATE, GETDATE(), 104)
+	
+	IF(@fecha_desde = '')
+		SET @fecha_desde = NULL
 
-	IF @accion='I'
+	IF(@fecha_hasta = '')
+		SET @fecha_hasta = NULL
+
+	IF(@id_cliente <= 0 )
+		SET @id_cliente = NULL
+
+	IF(@id_usuario <= 0 )
+		SET @id_usuario = NULL
+
+	IF(@secuencial <= 0)
+		SET @secuencial = NULL
+
+	IF @accion='G'
 	BEGIN
-	BEGIN TRANSACTION TR_REGISTER_INVOICE
-	  BEGIN TRY
-		--genera secuencial único
-		EXEC @secuencial = dbo.SP_GENERATE_SEQUENTIAL 'factura'
-		SET @factura_xml = CAST(@factura as XML)
-		
-		--graba cabecera de factura
-		INSERT INTO sale.FACTURA
-		SELECT
-		   @secuencial,
-		   @id_usuario,
-		   factura.value('(clienteId/text())[1]', 'int'),
-		   factura.value('(fechaEmision/text())[1]', 'datetime'),
-		   factura.value('(baseImponible/text())[1]', 'decimal(10,2)'),
-		   factura.value('(iva/text())[1]', 'decimal(10,2)'),
-		   factura.value('(total/text())[1]', 'decimal(10,2)'),
-		   1 as estado,
-		   @usuario as usuarioCrea,
-		   @fecha_actual as creadoEn,
-		   NULL, NULL, NULL, NULL
-		from @factura_xml.nodes('/factura') AS FACTURA_XML(factura);
+		--EXEC SP_PARAMETERS 'J', 'empresa'
+		SELECT fac.id_factura as idFactura,
+			   fac.secuencial,
+			   fac.fecha_emision as fechaEmision,
+			   cl.identificacion,
+			   CONCAT(cl.nombres,' ',cl.apellidos) as nombresCliente,
+			   fac.base_imponible as baseImponible,
+			   fac.iva,
+			   fac.total,
+			   fac.usuario_crea as usuarioCrea
+		FROM sale.FACTURA fac
+		INNER JOIN management.CLIENTES cl ON cl.id_cliente = fac.cliente_id
+		WHERE fac.estado = 1
+		AND CONVERT(DATE, fecha_emision, 104)  BETWEEN ISNULL(CONVERT(DATE, @fecha_desde, 104), @fecha_actual_corta) AND ISNULL(CONVERT(DATE, @fecha_hasta, 104), @fecha_actual_corta)
+		AND fac.secuencial = ISNULL(@secuencial, fac.secuencial)
+		AND fac.cliente_id = ISNULL(@id_cliente, fac.cliente_id)
+		AND fac.usuario_id = ISNULL(@id_usuario, fac.usuario_id)
+	END
+	
+	IF @accion='C'
+	BEGIN
+		--EXEC SP_PARAMETERS 'J', 'empresa'
 
-		SET @id_factura = SCOPE_IDENTITY()
+		SELECT fac.id_factura as idFactura,
+			   fac.secuencial,
+			   fac.fecha_emision as fechaEmision,
+			   cl.identificacion,
+			   CONCAT(cl.nombres,' ',cl.apellidos) as nombresCliente,
+			   fac.base_imponible as baseImponible,
+			   fac.iva,
+			   fac.total,
+			   fac.usuario_crea as usuarioCrea
+		FROM sale.FACTURA fac
+		INNER JOIN management.CLIENTES cl ON cl.id_cliente = fac.cliente_id
+		WHERE secuencial=@secuencial
+		AND fac.estado = 1
 
-		--graba detalles de factura
-		INSERT INTO sale.FACTURA_DETALLE
-		SELECT
-		   @id_factura,
-		   detalle.value('(productoId/text())[1]', 'int'),
-		   detalle.value('(cantidad/text())[1]', 'int'),
-		   detalle.value('(precioUnitario/text())[1]', 'decimal(10,2)'),
-		   detalle.value('(descuento/text())[1]', 'decimal(10,2)'),
-		   1 as estado
-		from @factura_xml.nodes('/factura/detalles/detalle') AS FACTURA_XML(detalle);
-
-		SELECT @secuencial as secuencial
-
-		--disminuye stock
-		--IF OBJECT_ID('tempdb..#tmpProducts') IS NOT NULL DROP TABLE #tmpProducts
-
-		--CREATE TABLE #tmpProducts(id int, quantity int)
-		--SET @factura_xml = CAST(@factura as XML)
-
-		--INSERT INTO #tmpProducts
-		--SELECT detalle.value('(productoId/text())[1]', 'int'),
-		--	   detalle.value('(cantidad/text())[1]', 'int')
-		--from @factura_xml.nodes('/factura/detalles/detalle') AS FACTURA_XML(detalle);
-
-		--UPDATE inventory.PRODUCTOS SET stock = stock - tmp.quantity
-		--FROM inventory.PRODUCTOS p
-		--INNER JOIN #tmpProducts tmp
-		--ON p.id_producto = tmp.id
-
-		--DROP TABLE #tmpProducts
-		COMMIT TRANSACTION TR_REGISTER_INVOICE
-	  END TRY
-	  BEGIN CATCH
-		  ROLLBACK TRANSACTION TR_REGISTER_INVOICE
-	  END CATCH
-		
-    END
+		SELECT pro.id_producto as idProducto,
+			   pro.nombre,
+			   det.cantidad,
+			   det.precio_unitario as precioUnit,
+			   (det.precio_unitario * det.cantidad) as valor
+		FROM sale.FACTURA_DETALLE det
+		INNER JOIN sale.FACTURA fac ON fac.id_factura = det.factura_id
+		INNER JOIN inventory.PRODUCTOS pro ON pro.id_producto = det.producto_id
+		WHERE fac.secuencial = @secuencial
+		AND fac.estado = 1
+	END
 END
