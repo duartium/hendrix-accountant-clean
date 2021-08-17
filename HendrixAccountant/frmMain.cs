@@ -30,6 +30,8 @@ namespace HendrixAccountant
         public frmMain()
         {
             InitializeComponent();
+            pnHeader.BackColor = DataOperator.Instance.ColorSecondary;
+            pnAside.BackColor = DataOperator.Instance.ColorPrimary;
         }
         #endregion
 
