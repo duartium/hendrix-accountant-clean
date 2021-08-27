@@ -300,7 +300,14 @@ namespace HendrixAccountant
             var client = _rpsClient.GetByIdentification(txtIdentCliente.Text);
             if (client == null)
             {
-                MessageBox.Show("No se econtró el cliente con la identificación: " + txtIdentCliente.Text + ".", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var result = MessageBox.Show($"No se encontró el cliente con identificación: {txtIdentCliente.Text}. ¿Desea registrarlo?", CString.DEFAULT_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                if(result == DialogResult.Yes)
+                {
+                    var frmClientes = new frmClientes();
+                    //frmClientes.MdiParent = this.MdiParent;
+                    frmClientes.Location = new Point(300, 60);
+                    frmClientes.ShowDialog();
+                }
                 return;
             }
             _client = new ClientIdentity

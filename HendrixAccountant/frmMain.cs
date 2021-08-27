@@ -144,6 +144,7 @@ namespace HendrixAccountant
             foreach (Control ctrl in this.Controls)
                 if (ctrl is MdiClient)
                     ctrl.BackColor = SystemColors.ControlLight;
+            ShowPOS();
         }
 
         private void RestrictAccess()
@@ -166,12 +167,26 @@ namespace HendrixAccountant
             frmPuntoVenta.Show();
         }
 
+        private void ShowPOS()
+        {
+            if (frmPuntoVenta != null)
+            {
+                frmVentas.BringToFront();
+                return;
+            }
+            frmPuntoVenta = new frmPuntoVenta();
+            frmPuntoVenta.MdiParent = this;
+            frmPuntoVenta.FormClosed += new FormClosedEventHandler(ventas_FormClosed);
+            frmPuntoVenta.Show();
+        }
+
         private void ventaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeselectButtons();
             itemReportes.BackColor = DataOperator.Instance.ColorQuaternary;
             ShowReports();
         }
+
 
         private void ShowReports()
         {
@@ -193,10 +208,7 @@ namespace HendrixAccountant
             }
             DeselectButtons();
             itemVenta.BackColor = DataOperator.Instance.ColorQuaternary;
-            frmPuntoVenta = new frmPuntoVenta();
-            frmPuntoVenta.MdiParent = this;
-            frmPuntoVenta.FormClosed += new FormClosedEventHandler(ventas_FormClosed);
-            frmPuntoVenta.Show();
+            ShowPOS();
         }
 
         private void DeselectButtons()
