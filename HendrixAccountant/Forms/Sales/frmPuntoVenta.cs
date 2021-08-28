@@ -65,6 +65,7 @@ namespace HendrixAccountant
             _client = null;
             txtIdentCliente.Clear();
             txtNombresCliente.Clear();
+            txtDireccionCliente.Clear();
             frmBuscarClientes frmBuscarClientes = new frmBuscarClientes(this);
             frmBuscarClientes.ShowDialog();
         }
@@ -286,13 +287,13 @@ namespace HendrixAccountant
         {
             if (txtIdentCliente.Text.Length <= 0)
             {
-                MessageBox.Show("Ingrese la identifiación para buscar el cliente.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese la identificación para buscar el cliente.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
                 
             if (!txtIdentCliente.Text.Trim().Equals("1") && txtIdentCliente.Text.Length < 10)
             {
-                MessageBox.Show("Ingrese una identifiación válida.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese una identificación válida.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
                 

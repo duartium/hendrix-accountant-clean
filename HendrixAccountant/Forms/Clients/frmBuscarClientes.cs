@@ -7,12 +7,6 @@ using HendrixAccountant.Common;
 using HendrixAccountant.Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -24,9 +18,21 @@ namespace HendrixAccountant
         private IFindElement _caller;
         private TipoBusqueda _tipoBusqueda;
         private ClientFilterDto _filters;
+
+        private void SetColors()
+        {
+            var op = DataOperator.Instance;
+            pnBotones.BackColor = op.ColorPrimary;
+            dgvClientes.ColumnHeadersDefaultCellStyle.BackColor = op.ColorPrimary;
+            btnCerrar.BackColor = op.ColorSecondary;
+            btnConsultar.BackColor = op.ColorSecondary;
+            btnLimpiar.BackColor = op.ColorSecondary;
+            btnSeleccionar.BackColor = op.ColorSecondary;
+        }
         public frmBuscarClientes()
         {
             InitializeComponent();
+            SetColors();
             this.txtNombres.Focus();
             _rpsClient = new ClienteRepository();
         }
@@ -34,6 +40,7 @@ namespace HendrixAccountant
         public frmBuscarClientes(IFindElement caller)
         {
             InitializeComponent();
+            SetColors();
             this.txtNombres.Focus();
             _caller = caller;
             _rpsClient = new ClienteRepository();
