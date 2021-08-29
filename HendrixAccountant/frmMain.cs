@@ -25,6 +25,7 @@ namespace HendrixAccountant
         private frmUsuarios frmUsuarios = null;
         private frmCategorias frmCategorias = null;
         private frmTallas frmTallas = null;
+        private frmKardex frmKardex = null;
 
         #region constructores
         public frmMain()
@@ -110,6 +111,11 @@ namespace HendrixAccountant
         private void compras_FormClosed(object sender, EventArgs e)
         {
             frmCompras = null;
+        }
+
+        private void kardex_FormClosed(object sender, EventArgs e)
+        {
+            frmKardex = null;
         }
 
         private void configuration_FormClosed(object sender, EventArgs e)
@@ -417,6 +423,19 @@ namespace HendrixAccountant
             frmCompras.MdiParent = this;
             frmCompras.FormClosed += new FormClosedEventHandler(compras_FormClosed);
             frmCompras.Show();
+        }
+
+        private void kardexToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeselectButtons();
+            if (frmKardex != null)
+            {
+                return;
+            }
+            frmKardex = new frmKardex();
+            frmKardex.MdiParent = this;
+            frmKardex.FormClosed += new FormClosedEventHandler(kardex_FormClosed);
+            frmKardex.Show();
         }
     }
 }

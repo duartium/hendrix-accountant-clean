@@ -177,7 +177,6 @@ namespace HendrixAccountant.Forms.Inventory
             pnAside.BackColor = DataOperator.Instance.ColorPrimary;
             dgvProductos.ColumnHeadersDefaultCellStyle.BackColor = DataOperator.Instance.ColorPrimary;
             btnGuardar.BackColor = DataOperator.Instance.ColorSecondary;
-            btnImprimir.BackColor = DataOperator.Instance.ColorSecondary;
             btnLimpiar.BackColor = DataOperator.Instance.ColorSecondary;
         }
 

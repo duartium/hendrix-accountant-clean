@@ -102,6 +102,12 @@
     <Compile Include="Forms\Configuration\frmParametros.Designer.cs">
       <DependentUpon>frmParametros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Inventory\frmKardex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Inventory\frmKardex.Designer.cs">
+      <DependentUpon>frmKardex.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PdfViewer\frmPdfReader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuration\frmParametros.resx">
       <DependentUpon>frmParametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Inventory\frmKardex.resx">
+      <DependentUpon>frmKardex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PdfViewer\frmPdfReader.resx">
       <DependentUpon>frmPdfReader.cs</DependentUpon>
