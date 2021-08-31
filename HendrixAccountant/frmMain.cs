@@ -150,6 +150,8 @@ namespace HendrixAccountant
             foreach (Control ctrl in this.Controls)
                 if (ctrl is MdiClient)
                     ctrl.BackColor = SystemColors.ControlLight;
+
+            itemVenta.BackColor = DataOperator.Instance.ColorQuaternary;
             ShowPOS();
         }
 
@@ -208,12 +210,12 @@ namespace HendrixAccountant
 
         private void itemVenta_Click(object sender, EventArgs e)
         {
+            DeselectButtons();
+            itemVenta.BackColor = DataOperator.Instance.ColorQuaternary;
             if (frmPuntoVenta != null) {
                 frmPuntoVenta.BringToFront();
                 return;
             }
-            DeselectButtons();
-            itemVenta.BackColor = DataOperator.Instance.ColorQuaternary;
             ShowPOS();
         }
 

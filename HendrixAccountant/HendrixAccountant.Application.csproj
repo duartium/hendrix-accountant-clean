@@ -36,7 +36,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\NovedadesChicLogo.ico</ApplicationIcon>
+    <ApplicationIcon>HendrixIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="HendrixAccountant.Controls">
@@ -404,6 +408,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HendrixIcon.ico" />
     <Content Include="Resources\HendrixIcon.ico" />
     <Content Include="Resources\Images\addWhite20.png" />
     <Content Include="Resources\Images\barcode2White24.png" />
