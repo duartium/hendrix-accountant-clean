@@ -66,6 +66,7 @@
     <Compile Include="Repositories\BrandRepository.cs" />
     <Compile Include="Repositories\CajaRepository.cs" />
     <Compile Include="Repositories\CatalogueRepository.cs" />
+    <Compile Include="Repositories\KardexRepository.cs" />
     <Compile Include="Repositories\PurchaseRepositorycs.cs" />
     <Compile Include="Repositories\SizeRepository.cs" />
     <Compile Include="Repositories\CategoriesRepository.cs" />

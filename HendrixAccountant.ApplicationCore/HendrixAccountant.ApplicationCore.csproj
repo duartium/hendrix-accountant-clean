@@ -67,6 +67,7 @@
     <Compile Include="Entities\Color.cs" />
     <Compile Include="Entities\Invoice.cs" />
     <Compile Include="Entities\InvoiceDetail.cs" />
+    <Compile Include="Entities\Kardex.cs" />
     <Compile Include="Entities\ProductEntry.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Interfaces\Forms\IQuantity.cs" />
@@ -78,9 +79,11 @@
     <Compile Include="Enums\CustomEnum.cs" />
     <Compile Include="Exceptions\CustomException.cs" />
     <Compile Include="Interfaces\Forms\IFindElement.cs" />
+    <Compile Include="Interfaces\Repositories\IBaseRepository.cs" />
     <Compile Include="Interfaces\Repositories\IBrandRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICashRegisterRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICatalogueRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IKardexRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPurchase.cs" />
     <Compile Include="Interfaces\Repositories\ISizeRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICategoriesRepository.cs" />
@@ -107,6 +110,7 @@
     <Compile Include="Interfaces\Shared\IGoogleService.cs" />
     <Compile Include="Interfaces\Shared\IMailService.cs" />
     <Compile Include="Map\CatalogueMapper.cs" />
+    <Compile Include="Map\KardexMapper.cs" />
     <Compile Include="Map\SizeMapper.cs" />
     <Compile Include="Map\CategoryMapper.cs" />
     <Compile Include="Map\CompanyMapper.cs" />

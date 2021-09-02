@@ -14,7 +14,6 @@ using HendrixAccountant.Data.Services;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -45,8 +44,6 @@ namespace HendrixAccountant.Forms
         {
             Search();
         }
-
-
 
         private void rptVentas_Load(object sender, EventArgs e)
         {
