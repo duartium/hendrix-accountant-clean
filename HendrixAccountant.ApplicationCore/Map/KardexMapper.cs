@@ -21,7 +21,7 @@ namespace HendrixAccountant.ApplicationCore.Map
                     Date = field["fecha"].ToString(),
                     Movement = field["movimiento"].ToString(),
                     Name = field["nombre"].ToString(),
-                    Sequential = field["secuencial"].ToString(),
+                    Sequential = field["numComprobante"].ToString(),
                     Quantity = int.Parse(field["cantidad"].ToString()),
                     UnitValue = Convert.ToDecimal(field["valorUnit"].ToString().Replace(",", "."), Utils.GetCulture()),
                     TotalItem = Convert.ToDecimal(field["totalItem"].ToString().Replace(",", "."), Utils.GetCulture()),

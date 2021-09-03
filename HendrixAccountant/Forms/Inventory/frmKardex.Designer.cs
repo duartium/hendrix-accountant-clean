@@ -38,6 +38,13 @@ namespace HendrixAccountant.Forms.Inventory
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKardex));
             this.dgvKardex = new System.Windows.Forms.DataGridView();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMovimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Secuential = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblFechaEmision = new System.Windows.Forms.Label();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.pnAside = new System.Windows.Forms.Panel();
@@ -60,13 +67,6 @@ namespace HendrixAccountant.Forms.Inventory
             this.cmbTipoMov = new System.Windows.Forms.ComboBox();
             this.gbProductoFiltros = new System.Windows.Forms.GroupBox();
             this.lblTotalRegistros = new System.Windows.Forms.Label();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMovimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Secuential = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKardex)).BeginInit();
             this.pnAside.SuspendLayout();
             this.pnCodProveedor.SuspendLayout();
@@ -114,6 +114,70 @@ namespace HendrixAccountant.Forms.Inventory
             this.dgvKardex.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKardex.Size = new System.Drawing.Size(901, 341);
             this.dgvKardex.TabIndex = 13;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Date.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Date.HeaderText = "Fecha";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // colMovimiento
+            // 
+            this.colMovimiento.DataPropertyName = "Movement";
+            this.colMovimiento.HeaderText = "Movimiento";
+            this.colMovimiento.Name = "colMovimiento";
+            // 
+            // colNombre
+            // 
+            this.colNombre.DataPropertyName = "Name";
+            this.colNombre.HeaderText = "Nombre de producto";
+            this.colNombre.Name = "colNombre";
+            this.colNombre.ReadOnly = true;
+            this.colNombre.Width = 280;
+            // 
+            // Secuential
+            // 
+            this.Secuential.DataPropertyName = "Sequential";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Secuential.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Secuential.HeaderText = "Referencia";
+            this.Secuential.Name = "Secuential";
+            this.Secuential.Width = 80;
+            // 
+            // colCantidad
+            // 
+            this.colCantidad.DataPropertyName = "Quantity";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colCantidad.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colCantidad.HeaderText = "Cantidad";
+            this.colCantidad.Name = "colCantidad";
+            this.colCantidad.ReadOnly = true;
+            this.colCantidad.Width = 80;
+            // 
+            // colDireccion
+            // 
+            this.colDireccion.DataPropertyName = "UnitValue";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colDireccion.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colDireccion.HeaderText = "Valor Unit.";
+            this.colDireccion.Name = "colDireccion";
+            this.colDireccion.ReadOnly = true;
+            this.colDireccion.Width = 140;
+            // 
+            // colTotal
+            // 
+            this.colTotal.DataPropertyName = "TotalItem";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.NullValue = "0";
+            this.colTotal.DefaultCellStyle = dataGridViewCellStyle6;
+            this.colTotal.HeaderText = "Total";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.ReadOnly = true;
+            this.colTotal.Width = 120;
             // 
             // lblFechaEmision
             // 
@@ -270,7 +334,7 @@ namespace HendrixAccountant.Forms.Inventory
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label2.Location = new System.Drawing.Point(88, 15);
+            this.label2.Location = new System.Drawing.Point(145, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 15);
             this.label2.TabIndex = 85;
@@ -283,7 +347,7 @@ namespace HendrixAccountant.Forms.Inventory
             this.pnCodProveedor.Controls.Add(this.lblPnCodigoProv);
             this.pnCodProveedor.Location = new System.Drawing.Point(13, 32);
             this.pnCodProveedor.Name = "pnCodProveedor";
-            this.pnCodProveedor.Size = new System.Drawing.Size(73, 32);
+            this.pnCodProveedor.Size = new System.Drawing.Size(113, 32);
             this.pnCodProveedor.TabIndex = 82;
             // 
             // txtCodProducto
@@ -291,10 +355,10 @@ namespace HendrixAccountant.Forms.Inventory
             this.txtCodProducto.BackColor = System.Drawing.SystemColors.Control;
             this.txtCodProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCodProducto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodProducto.Location = new System.Drawing.Point(2, 6);
+            this.txtCodProducto.Location = new System.Drawing.Point(6, 6);
             this.txtCodProducto.MaxLength = 10;
             this.txtCodProducto.Name = "txtCodProducto";
-            this.txtCodProducto.Size = new System.Drawing.Size(65, 19);
+            this.txtCodProducto.Size = new System.Drawing.Size(100, 19);
             this.txtCodProducto.TabIndex = 6;
             // 
             // lblPnCodigoProv
@@ -303,13 +367,13 @@ namespace HendrixAccountant.Forms.Inventory
             this.lblPnCodigoProv.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblPnCodigoProv.Location = new System.Drawing.Point(0, 29);
             this.lblPnCodigoProv.Name = "lblPnCodigoProv";
-            this.lblPnCodigoProv.Size = new System.Drawing.Size(73, 3);
+            this.lblPnCodigoProv.Size = new System.Drawing.Size(113, 3);
             this.lblPnCodigoProv.TabIndex = 9;
             // 
             // btnBuscarProductos
             // 
             this.btnBuscarProductos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProductos.Location = new System.Drawing.Point(449, 30);
+            this.btnBuscarProductos.Location = new System.Drawing.Point(506, 30);
             this.btnBuscarProductos.Name = "btnBuscarProductos";
             this.btnBuscarProductos.Size = new System.Drawing.Size(42, 34);
             this.btnBuscarProductos.TabIndex = 84;
@@ -322,7 +386,7 @@ namespace HendrixAccountant.Forms.Inventory
             this.pnNombreProveedor.BackColor = System.Drawing.SystemColors.Control;
             this.pnNombreProveedor.Controls.Add(this.txtNombreProducto);
             this.pnNombreProveedor.Controls.Add(this.lblPnNombreProv);
-            this.pnNombreProveedor.Location = new System.Drawing.Point(91, 32);
+            this.pnNombreProveedor.Location = new System.Drawing.Point(148, 32);
             this.pnNombreProveedor.Name = "pnNombreProveedor";
             this.pnNombreProveedor.Size = new System.Drawing.Size(352, 32);
             this.pnNombreProveedor.TabIndex = 83;
@@ -333,10 +397,10 @@ namespace HendrixAccountant.Forms.Inventory
             this.txtNombreProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNombreProducto.Enabled = false;
             this.txtNombreProducto.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtNombreProducto.Location = new System.Drawing.Point(1, 7);
+            this.txtNombreProducto.Location = new System.Drawing.Point(8, 7);
             this.txtNombreProducto.MaxLength = 100;
             this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(348, 16);
+            this.txtNombreProducto.Size = new System.Drawing.Size(335, 16);
             this.txtNombreProducto.TabIndex = 7;
             // 
             // lblPnNombreProv
@@ -403,70 +467,6 @@ namespace HendrixAccountant.Forms.Inventory
             this.lblTotalRegistros.TabIndex = 89;
             this.lblTotalRegistros.Text = "Total registros:";
             // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "Date";
-            dataGridViewCellStyle2.Format = "d";
-            dataGridViewCellStyle2.NullValue = null;
-            this.Date.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Date.HeaderText = "Fecha";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // colMovimiento
-            // 
-            this.colMovimiento.DataPropertyName = "Movement";
-            this.colMovimiento.HeaderText = "Movimiento";
-            this.colMovimiento.Name = "colMovimiento";
-            // 
-            // colNombre
-            // 
-            this.colNombre.DataPropertyName = "Name";
-            this.colNombre.HeaderText = "Nombre de producto";
-            this.colNombre.Name = "colNombre";
-            this.colNombre.ReadOnly = true;
-            this.colNombre.Width = 280;
-            // 
-            // Secuential
-            // 
-            this.Secuential.DataPropertyName = "Sequential";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Secuential.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Secuential.HeaderText = "Referencia";
-            this.Secuential.Name = "Secuential";
-            this.Secuential.Width = 80;
-            // 
-            // colCantidad
-            // 
-            this.colCantidad.DataPropertyName = "Quantity";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colCantidad.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colCantidad.HeaderText = "Cantidad";
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.ReadOnly = true;
-            this.colCantidad.Width = 80;
-            // 
-            // colDireccion
-            // 
-            this.colDireccion.DataPropertyName = "UnitValue";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colDireccion.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colDireccion.HeaderText = "Valor Unit.";
-            this.colDireccion.Name = "colDireccion";
-            this.colDireccion.ReadOnly = true;
-            this.colDireccion.Width = 140;
-            // 
-            // colTotal
-            // 
-            this.colTotal.DataPropertyName = "TotalItem";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.NullValue = "0";
-            this.colTotal.DefaultCellStyle = dataGridViewCellStyle6;
-            this.colTotal.HeaderText = "Total";
-            this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
-            this.colTotal.Width = 120;
-            // 
             // frmKardex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,6 +484,7 @@ namespace HendrixAccountant.Forms.Inventory
             this.MinimizeBox = false;
             this.Name = "frmKardex";
             this.Text = "KARDEX";
+            this.Activated += new System.EventHandler(this.frmKardex_Activated);
             this.Load += new System.EventHandler(this.frmKardex_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKardex)).EndInit();
             this.pnAside.ResumeLayout(false);

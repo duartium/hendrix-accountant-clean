@@ -294,7 +294,9 @@ namespace HendrixAccountant
 
         private void comprasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (frmCompras != null) {
+            DeselectButtons();
+            if (frmCompras != null)
+            {
                 return;
             }
             frmCompras = new frmCompras();
@@ -428,6 +430,19 @@ namespace HendrixAccountant
         }
 
         private void kardexToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeselectButtons();
+            if (frmKardex != null)
+            {
+                return;
+            }
+            frmKardex = new frmKardex();
+            frmKardex.MdiParent = this;
+            frmKardex.FormClosed += new FormClosedEventHandler(kardex_FormClosed);
+            frmKardex.Show();
+        }
+
+        private void cardexToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeselectButtons();
             if (frmKardex != null)

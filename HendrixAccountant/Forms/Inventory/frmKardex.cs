@@ -1,9 +1,11 @@
 ﻿using HendrixAccountant.ApplicationCore.Constants;
 using HendrixAccountant.ApplicationCore.DTOs;
+using HendrixAccountant.ApplicationCore.Entities;
 using HendrixAccountant.ApplicationCore.Interfaces.Forms;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.Data.Repositories;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace HendrixAccountant.Forms.Inventory
@@ -33,7 +35,7 @@ namespace HendrixAccountant.Forms.Inventory
                 return;
             }
 
-            if(_product == null)
+            if(_product == null && cmbTipoMov.SelectedIndex != 0)
             {
                 MessageBox.Show("Seleccione un producto para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -41,7 +43,7 @@ namespace HendrixAccountant.Forms.Inventory
 
             var filters = new KardexFilterDto
             {
-                IdProducto = _product.IdProducto,
+                IdProducto = _product == null ? 0 : _product.IdProducto,
                 FechaDesde = dtpFechaDesde.Value.ToString("yyyy-MM-dd"),
                 FechaHasta = dtpFechaHasta.Value.ToString("yyyy-MM-dd"),
                 TipoMovimiento = cmbTipoMov.SelectedIndex
@@ -52,13 +54,13 @@ namespace HendrixAccountant.Forms.Inventory
                 MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            dgvKardex.AutoGenerateColumns = false;
-            dgvKardex.DataSource = kardex;
+            FillGrid(kardex);
         }
 
         private void frmKardex_Load(object sender, EventArgs e)
         {
             cmbTipoMov.SelectedIndex = 0;
+            txtCodProducto.Focus();
             //var path = $"{Application.StartupPath}\\Resources\\Images\\HendrixIcon.ico";
             //this.Icon = new Icon(path);
         }
@@ -88,6 +90,20 @@ namespace HendrixAccountant.Forms.Inventory
             if (_product == null) return;
             txtCodProducto.Text = _product.Codigo;
             txtNombreProducto.Text = _product.Nombre;
+        }
+
+        private void FillGrid(IEnumerable<Kardex> data)
+        {
+            dgvKardex.DataSource = null;
+
+            dgvKardex.AutoGenerateColumns = false;
+            int i = 0;
+            dgvKardex.DataSource = data;
+        }
+
+        private void frmKardex_Activated(object sender, EventArgs e)
+        {
+            txtCodProducto.Focus();
         }
     }
 }
