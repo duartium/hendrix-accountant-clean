@@ -19,11 +19,12 @@ namespace HendrixAccountant.ApplicationCore.Map
                 kardex = data.Tables[0].AsEnumerable().Select(field => new Kardex
                 {
                     Date = field["fecha"].ToString(),
+                    Movement = field["movimiento"].ToString(),
                     Name = field["nombre"].ToString(),
-                    Secuential = field["secuencial"].ToString(),
+                    Sequential = field["secuencial"].ToString(),
                     Quantity = int.Parse(field["cantidad"].ToString()),
-                    UnitValue = Convert.ToDecimal(field["valorUnit"].ToString(), Utils.GetCulture()),
-                    TotalItem = Convert.ToDecimal(field["totalItem"].ToString(), Utils.GetCulture()),
+                    UnitValue = Convert.ToDecimal(field["valorUnit"].ToString().Replace(",", "."), Utils.GetCulture()),
+                    TotalItem = Convert.ToDecimal(field["totalItem"].ToString().Replace(",", "."), Utils.GetCulture()),
                 }).ToList();
             }
             catch (Exception ex)

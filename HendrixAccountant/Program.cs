@@ -1,6 +1,7 @@
 ﻿using HendrixAccountant.Sessions;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,9 @@ namespace HendrixAccountant
         [STAThread]
         static void Main()
         {
+            CultureInfo.DefaultThreadCurrentCulture = Common.Utils.GetCulture();
+            CultureInfo.DefaultThreadCurrentUICulture = Common.Utils.GetCulture();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

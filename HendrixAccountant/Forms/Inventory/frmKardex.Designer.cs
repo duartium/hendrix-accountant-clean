@@ -30,35 +30,38 @@ namespace HendrixAccountant.Forms.Inventory
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKardex));
             this.dgvKardex = new System.Windows.Forms.DataGridView();
             this.lblFechaEmision = new System.Windows.Forms.Label();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.pnAside = new System.Windows.Forms.Panel();
+            this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
+            this.btnCerrar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
+            this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
+            this.btnImprimir = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnCodProveedor = new System.Windows.Forms.Panel();
+            this.txtCodProducto = new HendrixAccountant.UIControls.NumericInput();
             this.lblPnCodigoProv = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBuscarProductos = new System.Windows.Forms.Button();
             this.pnNombreProveedor = new System.Windows.Forms.Panel();
+            this.txtNombreProducto = new HendrixAccountant.UIControls.TextInput();
             this.lblPnNombreProv = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbTipoMov = new System.Windows.Forms.ComboBox();
             this.gbProductoFiltros = new System.Windows.Forms.GroupBox();
             this.lblTotalRegistros = new System.Windows.Forms.Label();
-            this.txtNombreProducto = new HendrixAccountant.UIControls.TextInput();
-            this.txtCodProducto = new HendrixAccountant.UIControls.NumericInput();
-            this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
-            this.btnCerrar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
-            this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
-            this.btnImprimir = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMovimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Secuential = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,6 +93,7 @@ namespace HendrixAccountant.Forms.Inventory
             this.dgvKardex.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvKardex.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Date,
+            this.colMovimiento,
             this.colNombre,
             this.Secuential,
             this.colCantidad,
@@ -98,17 +102,17 @@ namespace HendrixAccountant.Forms.Inventory
             this.dgvKardex.EnableHeadersVisualStyles = false;
             this.dgvKardex.Location = new System.Drawing.Point(12, 159);
             this.dgvKardex.Name = "dgvKardex";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvKardex.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvKardex.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvKardex.RowHeadersVisible = false;
             this.dgvKardex.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKardex.Size = new System.Drawing.Size(805, 341);
+            this.dgvKardex.Size = new System.Drawing.Size(901, 341);
             this.dgvKardex.TabIndex = 13;
             // 
             // lblFechaEmision
@@ -141,180 +145,10 @@ namespace HendrixAccountant.Forms.Inventory
             this.pnAside.Controls.Add(this.btnLimpiar);
             this.pnAside.Controls.Add(this.btnImprimir);
             this.pnAside.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnAside.Location = new System.Drawing.Point(834, 0);
+            this.pnAside.Location = new System.Drawing.Point(939, 0);
             this.pnAside.Name = "pnAside";
             this.pnAside.Size = new System.Drawing.Size(127, 531);
             this.pnAside.TabIndex = 79;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label1.Location = new System.Drawing.Point(145, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 15);
-            this.label1.TabIndex = 81;
-            this.label1.Text = "Fecha hasta:";
-            // 
-            // dtpFechaHasta
-            // 
-            this.dtpFechaHasta.CalendarFont = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaHasta.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaHasta.Location = new System.Drawing.Point(148, 95);
-            this.dtpFechaHasta.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
-            this.dtpFechaHasta.Name = "dtpFechaHasta";
-            this.dtpFechaHasta.Size = new System.Drawing.Size(113, 25);
-            this.dtpFechaHasta.TabIndex = 80;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label3.Location = new System.Drawing.Point(10, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 15);
-            this.label3.TabIndex = 86;
-            this.label3.Text = "Código";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label2.Location = new System.Drawing.Point(88, 15);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 15);
-            this.label2.TabIndex = 85;
-            this.label2.Text = "Nombre del producto";
-            // 
-            // pnCodProveedor
-            // 
-            this.pnCodProveedor.BackColor = System.Drawing.SystemColors.Control;
-            this.pnCodProveedor.Controls.Add(this.txtCodProducto);
-            this.pnCodProveedor.Controls.Add(this.lblPnCodigoProv);
-            this.pnCodProveedor.Location = new System.Drawing.Point(13, 32);
-            this.pnCodProveedor.Name = "pnCodProveedor";
-            this.pnCodProveedor.Size = new System.Drawing.Size(73, 32);
-            this.pnCodProveedor.TabIndex = 82;
-            // 
-            // lblPnCodigoProv
-            // 
-            this.lblPnCodigoProv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
-            this.lblPnCodigoProv.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblPnCodigoProv.Location = new System.Drawing.Point(0, 29);
-            this.lblPnCodigoProv.Name = "lblPnCodigoProv";
-            this.lblPnCodigoProv.Size = new System.Drawing.Size(73, 3);
-            this.lblPnCodigoProv.TabIndex = 9;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(449, 30);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(42, 34);
-            this.button1.TabIndex = 84;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // pnNombreProveedor
-            // 
-            this.pnNombreProveedor.BackColor = System.Drawing.SystemColors.Control;
-            this.pnNombreProveedor.Controls.Add(this.txtNombreProducto);
-            this.pnNombreProveedor.Controls.Add(this.lblPnNombreProv);
-            this.pnNombreProveedor.Location = new System.Drawing.Point(91, 32);
-            this.pnNombreProveedor.Name = "pnNombreProveedor";
-            this.pnNombreProveedor.Size = new System.Drawing.Size(352, 32);
-            this.pnNombreProveedor.TabIndex = 83;
-            // 
-            // lblPnNombreProv
-            // 
-            this.lblPnNombreProv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
-            this.lblPnNombreProv.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblPnNombreProv.Location = new System.Drawing.Point(0, 29);
-            this.lblPnNombreProv.Name = "lblPnNombreProv";
-            this.lblPnNombreProv.Size = new System.Drawing.Size(352, 3);
-            this.lblPnNombreProv.TabIndex = 9;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label7.Location = new System.Drawing.Point(280, 76);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 15);
-            this.label7.TabIndex = 87;
-            this.label7.Text = "Tipo de movimiento";
-            // 
-            // cmbTipoMov
-            // 
-            this.cmbTipoMov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipoMov.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTipoMov.FormattingEnabled = true;
-            this.cmbTipoMov.Items.AddRange(new object[] {
-            "TODOS",
-            "ENTRADAS",
-            "SALIDAS"});
-            this.cmbTipoMov.Location = new System.Drawing.Point(283, 95);
-            this.cmbTipoMov.Name = "cmbTipoMov";
-            this.cmbTipoMov.Size = new System.Drawing.Size(248, 24);
-            this.cmbTipoMov.TabIndex = 88;
-            // 
-            // gbProductoFiltros
-            // 
-            this.gbProductoFiltros.Controls.Add(this.pnNombreProveedor);
-            this.gbProductoFiltros.Controls.Add(this.label7);
-            this.gbProductoFiltros.Controls.Add(this.dtpFechaDesde);
-            this.gbProductoFiltros.Controls.Add(this.cmbTipoMov);
-            this.gbProductoFiltros.Controls.Add(this.lblFechaEmision);
-            this.gbProductoFiltros.Controls.Add(this.label3);
-            this.gbProductoFiltros.Controls.Add(this.dtpFechaHasta);
-            this.gbProductoFiltros.Controls.Add(this.label2);
-            this.gbProductoFiltros.Controls.Add(this.label1);
-            this.gbProductoFiltros.Controls.Add(this.pnCodProveedor);
-            this.gbProductoFiltros.Controls.Add(this.button1);
-            this.gbProductoFiltros.Location = new System.Drawing.Point(12, 9);
-            this.gbProductoFiltros.Name = "gbProductoFiltros";
-            this.gbProductoFiltros.Size = new System.Drawing.Size(600, 140);
-            this.gbProductoFiltros.TabIndex = 89;
-            this.gbProductoFiltros.TabStop = false;
-            // 
-            // lblTotalRegistros
-            // 
-            this.lblTotalRegistros.AutoSize = true;
-            this.lblTotalRegistros.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalRegistros.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblTotalRegistros.Location = new System.Drawing.Point(11, 508);
-            this.lblTotalRegistros.Name = "lblTotalRegistros";
-            this.lblTotalRegistros.Size = new System.Drawing.Size(92, 15);
-            this.lblTotalRegistros.TabIndex = 89;
-            this.lblTotalRegistros.Text = "Total registros:";
-            // 
-            // txtNombreProducto
-            // 
-            this.txtNombreProducto.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNombreProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombreProducto.Enabled = false;
-            this.txtNombreProducto.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtNombreProducto.Location = new System.Drawing.Point(1, 7);
-            this.txtNombreProducto.MaxLength = 100;
-            this.txtNombreProducto.Name = "txtNombreProducto";
-            this.txtNombreProducto.Size = new System.Drawing.Size(348, 16);
-            this.txtNombreProducto.TabIndex = 7;
-            // 
-            // txtCodProducto
-            // 
-            this.txtCodProducto.BackColor = System.Drawing.SystemColors.Control;
-            this.txtCodProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCodProducto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodProducto.Location = new System.Drawing.Point(2, 6);
-            this.txtCodProducto.MaxLength = 10;
-            this.txtCodProducto.Name = "txtCodProducto";
-            this.txtCodProducto.Size = new System.Drawing.Size(65, 19);
-            this.txtCodProducto.TabIndex = 6;
             // 
             // btnConsultar
             // 
@@ -398,12 +232,192 @@ namespace HendrixAccountant.Forms.Inventory
             this.btnImprimir.UseVisualStyleBackColor = false;
             this.btnImprimir.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label1.Location = new System.Drawing.Point(145, 77);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 15);
+            this.label1.TabIndex = 81;
+            this.label1.Text = "Fecha hasta:";
+            // 
+            // dtpFechaHasta
+            // 
+            this.dtpFechaHasta.CalendarFont = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaHasta.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaHasta.Location = new System.Drawing.Point(148, 95);
+            this.dtpFechaHasta.MinDate = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
+            this.dtpFechaHasta.Name = "dtpFechaHasta";
+            this.dtpFechaHasta.Size = new System.Drawing.Size(113, 25);
+            this.dtpFechaHasta.TabIndex = 80;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label3.Location = new System.Drawing.Point(10, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 15);
+            this.label3.TabIndex = 86;
+            this.label3.Text = "Código";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label2.Location = new System.Drawing.Point(88, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 15);
+            this.label2.TabIndex = 85;
+            this.label2.Text = "Nombre del producto";
+            // 
+            // pnCodProveedor
+            // 
+            this.pnCodProveedor.BackColor = System.Drawing.SystemColors.Control;
+            this.pnCodProveedor.Controls.Add(this.txtCodProducto);
+            this.pnCodProveedor.Controls.Add(this.lblPnCodigoProv);
+            this.pnCodProveedor.Location = new System.Drawing.Point(13, 32);
+            this.pnCodProveedor.Name = "pnCodProveedor";
+            this.pnCodProveedor.Size = new System.Drawing.Size(73, 32);
+            this.pnCodProveedor.TabIndex = 82;
+            // 
+            // txtCodProducto
+            // 
+            this.txtCodProducto.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCodProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodProducto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodProducto.Location = new System.Drawing.Point(2, 6);
+            this.txtCodProducto.MaxLength = 10;
+            this.txtCodProducto.Name = "txtCodProducto";
+            this.txtCodProducto.Size = new System.Drawing.Size(65, 19);
+            this.txtCodProducto.TabIndex = 6;
+            // 
+            // lblPnCodigoProv
+            // 
+            this.lblPnCodigoProv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
+            this.lblPnCodigoProv.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblPnCodigoProv.Location = new System.Drawing.Point(0, 29);
+            this.lblPnCodigoProv.Name = "lblPnCodigoProv";
+            this.lblPnCodigoProv.Size = new System.Drawing.Size(73, 3);
+            this.lblPnCodigoProv.TabIndex = 9;
+            // 
+            // btnBuscarProductos
+            // 
+            this.btnBuscarProductos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProductos.Location = new System.Drawing.Point(449, 30);
+            this.btnBuscarProductos.Name = "btnBuscarProductos";
+            this.btnBuscarProductos.Size = new System.Drawing.Size(42, 34);
+            this.btnBuscarProductos.TabIndex = 84;
+            this.btnBuscarProductos.Text = "...";
+            this.btnBuscarProductos.UseVisualStyleBackColor = true;
+            this.btnBuscarProductos.Click += new System.EventHandler(this.btnBuscarProductos_Click);
+            // 
+            // pnNombreProveedor
+            // 
+            this.pnNombreProveedor.BackColor = System.Drawing.SystemColors.Control;
+            this.pnNombreProveedor.Controls.Add(this.txtNombreProducto);
+            this.pnNombreProveedor.Controls.Add(this.lblPnNombreProv);
+            this.pnNombreProveedor.Location = new System.Drawing.Point(91, 32);
+            this.pnNombreProveedor.Name = "pnNombreProveedor";
+            this.pnNombreProveedor.Size = new System.Drawing.Size(352, 32);
+            this.pnNombreProveedor.TabIndex = 83;
+            // 
+            // txtNombreProducto
+            // 
+            this.txtNombreProducto.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNombreProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombreProducto.Enabled = false;
+            this.txtNombreProducto.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtNombreProducto.Location = new System.Drawing.Point(1, 7);
+            this.txtNombreProducto.MaxLength = 100;
+            this.txtNombreProducto.Name = "txtNombreProducto";
+            this.txtNombreProducto.Size = new System.Drawing.Size(348, 16);
+            this.txtNombreProducto.TabIndex = 7;
+            // 
+            // lblPnNombreProv
+            // 
+            this.lblPnNombreProv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
+            this.lblPnNombreProv.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblPnNombreProv.Location = new System.Drawing.Point(0, 29);
+            this.lblPnNombreProv.Name = "lblPnNombreProv";
+            this.lblPnNombreProv.Size = new System.Drawing.Size(352, 3);
+            this.lblPnNombreProv.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label7.Location = new System.Drawing.Point(280, 76);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(115, 15);
+            this.label7.TabIndex = 87;
+            this.label7.Text = "Tipo de movimiento";
+            // 
+            // cmbTipoMov
+            // 
+            this.cmbTipoMov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoMov.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTipoMov.FormattingEnabled = true;
+            this.cmbTipoMov.Items.AddRange(new object[] {
+            "TODOS",
+            "ENTRADAS",
+            "SALIDAS"});
+            this.cmbTipoMov.Location = new System.Drawing.Point(283, 95);
+            this.cmbTipoMov.Name = "cmbTipoMov";
+            this.cmbTipoMov.Size = new System.Drawing.Size(248, 24);
+            this.cmbTipoMov.TabIndex = 88;
+            // 
+            // gbProductoFiltros
+            // 
+            this.gbProductoFiltros.Controls.Add(this.pnNombreProveedor);
+            this.gbProductoFiltros.Controls.Add(this.label7);
+            this.gbProductoFiltros.Controls.Add(this.dtpFechaDesde);
+            this.gbProductoFiltros.Controls.Add(this.cmbTipoMov);
+            this.gbProductoFiltros.Controls.Add(this.lblFechaEmision);
+            this.gbProductoFiltros.Controls.Add(this.label3);
+            this.gbProductoFiltros.Controls.Add(this.dtpFechaHasta);
+            this.gbProductoFiltros.Controls.Add(this.label2);
+            this.gbProductoFiltros.Controls.Add(this.label1);
+            this.gbProductoFiltros.Controls.Add(this.pnCodProveedor);
+            this.gbProductoFiltros.Controls.Add(this.btnBuscarProductos);
+            this.gbProductoFiltros.Location = new System.Drawing.Point(12, 9);
+            this.gbProductoFiltros.Name = "gbProductoFiltros";
+            this.gbProductoFiltros.Size = new System.Drawing.Size(600, 140);
+            this.gbProductoFiltros.TabIndex = 89;
+            this.gbProductoFiltros.TabStop = false;
+            // 
+            // lblTotalRegistros
+            // 
+            this.lblTotalRegistros.AutoSize = true;
+            this.lblTotalRegistros.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRegistros.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblTotalRegistros.Location = new System.Drawing.Point(11, 508);
+            this.lblTotalRegistros.Name = "lblTotalRegistros";
+            this.lblTotalRegistros.Size = new System.Drawing.Size(92, 15);
+            this.lblTotalRegistros.TabIndex = 89;
+            this.lblTotalRegistros.Text = "Total registros:";
+            // 
             // Date
             // 
             this.Date.DataPropertyName = "Date";
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.Date.DefaultCellStyle = dataGridViewCellStyle2;
             this.Date.HeaderText = "Fecha";
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
+            // 
+            // colMovimiento
+            // 
+            this.colMovimiento.DataPropertyName = "Movement";
+            this.colMovimiento.HeaderText = "Movimiento";
+            this.colMovimiento.Name = "colMovimiento";
             // 
             // colNombre
             // 
@@ -416,6 +430,8 @@ namespace HendrixAccountant.Forms.Inventory
             // Secuential
             // 
             this.Secuential.DataPropertyName = "Sequential";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Secuential.DefaultCellStyle = dataGridViewCellStyle3;
             this.Secuential.HeaderText = "Referencia";
             this.Secuential.Name = "Secuential";
             this.Secuential.Width = 80;
@@ -423,8 +439,8 @@ namespace HendrixAccountant.Forms.Inventory
             // colCantidad
             // 
             this.colCantidad.DataPropertyName = "Quantity";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.colCantidad.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.colCantidad.DefaultCellStyle = dataGridViewCellStyle4;
             this.colCantidad.HeaderText = "Cantidad";
             this.colCantidad.Name = "colCantidad";
             this.colCantidad.ReadOnly = true;
@@ -433,8 +449,8 @@ namespace HendrixAccountant.Forms.Inventory
             // colDireccion
             // 
             this.colDireccion.DataPropertyName = "UnitValue";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colDireccion.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colDireccion.DefaultCellStyle = dataGridViewCellStyle5;
             this.colDireccion.HeaderText = "Valor Unit.";
             this.colDireccion.Name = "colDireccion";
             this.colDireccion.ReadOnly = true;
@@ -443,9 +459,9 @@ namespace HendrixAccountant.Forms.Inventory
             // colTotal
             // 
             this.colTotal.DataPropertyName = "TotalItem";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.NullValue = "0";
-            this.colTotal.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.NullValue = "0";
+            this.colTotal.DefaultCellStyle = dataGridViewCellStyle6;
             this.colTotal.HeaderText = "Total";
             this.colTotal.Name = "colTotal";
             this.colTotal.ReadOnly = true;
@@ -456,7 +472,7 @@ namespace HendrixAccountant.Forms.Inventory
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(961, 531);
+            this.ClientSize = new System.Drawing.Size(1066, 531);
             this.Controls.Add(this.lblTotalRegistros);
             this.Controls.Add(this.gbProductoFiltros);
             this.Controls.Add(this.pnAside);
@@ -498,7 +514,7 @@ namespace HendrixAccountant.Forms.Inventory
         private System.Windows.Forms.Panel pnCodProveedor;
         private UIControls.NumericInput txtCodProducto;
         private System.Windows.Forms.Label lblPnCodigoProv;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuscarProductos;
         private System.Windows.Forms.Panel pnNombreProveedor;
         private UIControls.TextInput txtNombreProducto;
         private System.Windows.Forms.Label lblPnNombreProv;
@@ -508,6 +524,7 @@ namespace HendrixAccountant.Forms.Inventory
         private UIControls.Buttons.ItemAsideSmall btnConsultar;
         private System.Windows.Forms.Label lblTotalRegistros;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMovimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Secuential;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCantidad;

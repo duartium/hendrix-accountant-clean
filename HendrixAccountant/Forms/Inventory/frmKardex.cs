@@ -1,29 +1,23 @@
 ﻿using HendrixAccountant.ApplicationCore.Constants;
 using HendrixAccountant.ApplicationCore.DTOs;
+using HendrixAccountant.ApplicationCore.Interfaces.Forms;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.Data.Repositories;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HendrixAccountant.Forms.Inventory
 {
-    public partial class frmKardex : Form
+    public partial class frmKardex : Form, IFindElement
     {
-        //private ProductDto _product;
+        private ProductIdentityDto _product;
         private IKardexRepository _rpsKardex;
 
         public frmKardex()
         {
             InitializeComponent();
             _rpsKardex = new KardexRepository();
-            //_product = null;
+            _product = null;
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -39,9 +33,15 @@ namespace HendrixAccountant.Forms.Inventory
                 return;
             }
 
+            if(_product == null)
+            {
+                MessageBox.Show("Seleccione un producto para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             var filters = new KardexFilterDto
             {
-                IdProducto = 0,
+                IdProducto = _product.IdProducto,
                 FechaDesde = dtpFechaDesde.Value.ToString("yyyy-MM-dd"),
                 FechaHasta = dtpFechaHasta.Value.ToString("yyyy-MM-dd"),
                 TipoMovimiento = cmbTipoMov.SelectedIndex
@@ -58,9 +58,36 @@ namespace HendrixAccountant.Forms.Inventory
 
         private void frmKardex_Load(object sender, EventArgs e)
         {
-            cmbTipoMov.SelectedIndex = 1;
+            cmbTipoMov.SelectedIndex = 0;
             //var path = $"{Application.StartupPath}\\Resources\\Images\\HendrixIcon.ico";
             //this.Icon = new Icon(path);
+        }
+
+        private void btnBuscarProductos_Click(object sender, EventArgs e)
+        {
+            frmBuscarProductos frmBuscarProductos = new frmBuscarProductos(this);
+            frmBuscarProductos.ShowDialog();
+        }
+
+        public void Selected(ISaleElement entity)
+        {
+            if (entity == null) return;
+
+            switch (entity.GetType().Name)
+            {
+                case "ProductIdentityDto":
+                    _product = entity as ProductIdentityDto;
+                    SetProduct();
+                    break;
+                
+            }
+        }
+
+        private void SetProduct()
+        {
+            if (_product == null) return;
+            txtCodProducto.Text = _product.Codigo;
+            txtNombreProducto.Text = _product.Nombre;
         }
     }
 }
