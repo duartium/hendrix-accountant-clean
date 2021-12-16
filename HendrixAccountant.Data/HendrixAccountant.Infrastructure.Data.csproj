@@ -54,6 +54,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +65,81 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDbContext.cs" />
+    <Compile Include="HendrixContext\ACCIONES.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\CAJA.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\CATALOGOS.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\CLIENTES.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\ENTRADAS.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\ENTRADAS_DETALLE.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\FACTURA.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\FACTURA_DETALLE.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\Hendrix.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hendrix.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\Hendrix.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\Hendrix.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Hendrix.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\ITEM_CATALOGO.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\MODULOS.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\MOVIMIENTOS_CAJA.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\PARAMETROS.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\PRODUCTOS.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\PROVEEDORES.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\ROLES.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\ROL_ACCION.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\SECUENCIAL.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\sysdiagrams.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\USUARIOS.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HendrixContext\VENTAS.cs">
+      <DependentUpon>Hendrix.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\BrandRepository.cs" />
     <Compile Include="Repositories\CajaRepository.cs" />
     <Compile Include="Repositories\CatalogueRepository.cs" />
@@ -98,7 +175,31 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="HendrixContext\Hendrix.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Hendrix.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.config" />
+    <None Include="HendrixContext\Hendrix.edmx.diagram">
+      <DependentUpon>Hendrix.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="HendrixContext\Hendrix.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Hendrix.edmx</DependentUpon>
+      <LastGenOutput>Hendrix.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="HendrixContext\Hendrix.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Hendrix.edmx</DependentUpon>
+      <LastGenOutput>Hendrix.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

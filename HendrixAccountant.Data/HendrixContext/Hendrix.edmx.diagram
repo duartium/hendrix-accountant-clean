@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="31252e31fd80421b8d292ec39f4fae68" Name="Diagram1">
+        <EntityTypeShape EntityType="HENDRIXModel.ACCIONES" Width="1.5" PointX="13" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.MODULOS" Width="1.5" PointX="10.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.ROL_ACCION" Width="1.5" PointX="15.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.ROLES" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.USUARIOS" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.ENTRADAS" Width="1.5" PointX="8" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.ENTRADAS_DETALLE" Width="1.5" PointX="10.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.PRODUCTOS" Width="1.5" PointX="8" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.PROVEEDORES" Width="1.5" PointX="5.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.CATALOGOS" Width="1.5" PointX="10.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.CLIENTES" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.ITEM_CATALOGO" Width="1.5" PointX="13" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.PARAMETROS" Width="1.5" PointX="5.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.CAJA" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.FACTURA" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.FACTURA_DETALLE" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.MOVIMIENTOS_CAJA" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.SECUENCIAL" Width="1.5" PointX="7.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HENDRIXModel.VENTAS" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="HENDRIXModel.FK_ACCIONES_MODULOS" ManuallyRouted="false" />
+        <AssociationConnector Association="HENDRIXModel.FK_ROL_ACCION_ACCIONES" ManuallyRouted="false" />
+        <AssociationConnector Association="HENDRIXModel.FK_USUARIOS_ROLES" ManuallyRouted="false" />
+        <AssociationConnector Association="HENDRIXModel.FK_MOVIMIENTOS_CAJA_USUARIOS" ManuallyRouted="false" />
+        <AssociationConnector Association="HENDRIXModel.FK_ENTRADAS_DETALLE_ENTRADAS" ManuallyRouted="false" />
+        <AssociationConnector Association="HENDRIXModel.FK_ENTRADAS_DETALLE_PRODUCTOS" ManuallyRouted="false" />
+        <AssociationConnector Association="HENDRIXModel.FK_PRODUCTOS_PROVEEDORES" ManuallyRouted="false" />
+        <AssociationConnector Association="HENDRIXModel.FK_CATALOGO_ITEM_CATALOGO" ManuallyRouted="false" />
+        <AssociationConnector Association="HENDRIXModel.FK_MOVIMIENTOS_CAJA_CAJA" ManuallyRouted="false" />
+        <AssociationConnector Association="HENDRIXModel.FK_FACTURA_DETALLE_FACTURA" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

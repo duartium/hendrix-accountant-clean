@@ -97,7 +97,6 @@ namespace HendrixAccountant.Forms.Inventory
             dgvKardex.DataSource = null;
 
             dgvKardex.AutoGenerateColumns = false;
-            int i = 0;
             dgvKardex.DataSource = data;
         }
 
