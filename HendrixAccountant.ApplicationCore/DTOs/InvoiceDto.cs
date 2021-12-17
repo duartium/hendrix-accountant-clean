@@ -1,15 +1,13 @@
 ﻿using HendrixAccountant.ApplicationCore.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HendrixAccountant.ApplicationCore.DTOs
 {
     public class InvoiceDto
     {
         public int ClienteId { get; set; }
+        public int FormaPago { get; set; }
         public DateTime FechaEmision { get; set; }
         public decimal BaseImponible { get; set; }
         public decimal TotalDescuento { get; set; }

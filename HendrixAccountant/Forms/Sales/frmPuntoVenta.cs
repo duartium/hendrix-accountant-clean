@@ -166,6 +166,7 @@ namespace HendrixAccountant
                 {
                     FechaEmision = dtpFechaEmision.Value,
                     ClienteId = _client.IdCliente,
+                    FormaPago = GetPaymentMethod(),
                     BaseImponible = Convert.ToDecimal(txtValorSubtotal.Text, Utils.GetCulture()),
                     TotalDescuento = Convert.ToDecimal(txtValorDscto.Text, Utils.GetCulture()),
                     IVA = Convert.ToDecimal(txtValorIva.Text, Utils.GetCulture()),
@@ -281,6 +282,18 @@ namespace HendrixAccountant
                 GetClient();
                 e.Handled = e.SuppressKeyPress = true;
             }
+        }
+
+        private int GetPaymentMethod()
+        {
+            int idPaymentMethod = 0;
+
+            if (rbEfectivo.Checked)
+                idPaymentMethod = 1;
+            else if (rbTarjeta.Checked)
+                idPaymentMethod = 2;
+
+            return idPaymentMethod;
         }
 
         private void GetClient()

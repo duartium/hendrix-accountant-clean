@@ -74,6 +74,13 @@
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.rbEfectivo = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbTarjeta = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtCodProducto = new HendrixAccountant.UIControls.NumericInput();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.gpDatosVenta.SuspendLayout();
             this.pnDireccion.SuspendLayout();
             this.pnNombres.SuspendLayout();
@@ -83,10 +90,13 @@
             this.pnAside.SuspendLayout();
             this.statusPOS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuntoVenta)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpDatosVenta
             // 
+            this.gpDatosVenta.Controls.Add(this.groupBox1);
             this.gpDatosVenta.Controls.Add(this.pnDireccion);
             this.gpDatosVenta.Controls.Add(this.label8);
             this.gpDatosVenta.Controls.Add(this.pnNombres);
@@ -127,9 +137,9 @@
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(0, 29);
+            this.label1.Location = new System.Drawing.Point(0, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(381, 3);
+            this.label1.Size = new System.Drawing.Size(381, 2);
             this.label1.TabIndex = 9;
             // 
             // label8
@@ -169,9 +179,9 @@
             // 
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label4.Location = new System.Drawing.Point(0, 29);
+            this.label4.Location = new System.Drawing.Point(0, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(381, 3);
+            this.label4.Size = new System.Drawing.Size(381, 2);
             this.label4.TabIndex = 9;
             // 
             // label5
@@ -211,9 +221,9 @@
             // 
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label7.Location = new System.Drawing.Point(0, 29);
+            this.label7.Location = new System.Drawing.Point(0, 30);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(188, 3);
+            this.label7.Size = new System.Drawing.Size(188, 2);
             this.label7.TabIndex = 9;
             // 
             // label3
@@ -268,7 +278,7 @@
             this.pnMontosVenta.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnMontosVenta.Location = new System.Drawing.Point(704, 0);
             this.pnMontosVenta.Name = "pnMontosVenta";
-            this.pnMontosVenta.Size = new System.Drawing.Size(205, 559);
+            this.pnMontosVenta.Size = new System.Drawing.Size(205, 561);
             this.pnMontosVenta.TabIndex = 1;
             // 
             // pnAside2
@@ -279,7 +289,7 @@
             this.pnAside2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnAside2.Location = new System.Drawing.Point(0, 186);
             this.pnAside2.Name = "pnAside2";
-            this.pnAside2.Size = new System.Drawing.Size(205, 373);
+            this.pnAside2.Size = new System.Drawing.Size(205, 375);
             this.pnAside2.TabIndex = 5;
             this.pnAside2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -435,7 +445,7 @@
             this.statusPOS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblInfo,
             this.lblEstadoProceso});
-            this.statusPOS.Location = new System.Drawing.Point(0, 537);
+            this.statusPOS.Location = new System.Drawing.Point(0, 539);
             this.statusPOS.Name = "statusPOS";
             this.statusPOS.Size = new System.Drawing.Size(704, 22);
             this.statusPOS.TabIndex = 4;
@@ -479,7 +489,7 @@
             this.colDireccion,
             this.colTotal});
             this.dgvPuntoVenta.EnableHeadersVisualStyles = false;
-            this.dgvPuntoVenta.Location = new System.Drawing.Point(12, 250);
+            this.dgvPuntoVenta.Location = new System.Drawing.Point(12, 263);
             this.dgvPuntoVenta.Name = "dgvPuntoVenta";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
@@ -545,7 +555,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
-            this.btnEliminar.Location = new System.Drawing.Point(349, 213);
+            this.btnEliminar.Location = new System.Drawing.Point(349, 222);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 32);
             this.btnEliminar.TabIndex = 5;
@@ -564,7 +574,7 @@
             this.btnAgregar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAgregar.Image = global::HendrixAccountant.Properties.Resources.addWhite20;
-            this.btnAgregar.Location = new System.Drawing.Point(253, 213);
+            this.btnAgregar.Location = new System.Drawing.Point(253, 222);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(90, 32);
             this.btnAgregar.TabIndex = 3;
@@ -573,12 +583,92 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // rbEfectivo
+            // 
+            this.rbEfectivo.AutoSize = true;
+            this.rbEfectivo.Checked = true;
+            this.rbEfectivo.ForeColor = System.Drawing.Color.Black;
+            this.rbEfectivo.Location = new System.Drawing.Point(11, 21);
+            this.rbEfectivo.Name = "rbEfectivo";
+            this.rbEfectivo.Size = new System.Drawing.Size(62, 20);
+            this.rbEfectivo.TabIndex = 22;
+            this.rbEfectivo.TabStop = true;
+            this.rbEfectivo.Text = "Efectivo";
+            this.rbEfectivo.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbTarjeta);
+            this.groupBox1.Controls.Add(this.rbEfectivo);
+            this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.groupBox1.Location = new System.Drawing.Point(431, 110);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(218, 48);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Formas de pago";
+            // 
+            // rbTarjeta
+            // 
+            this.rbTarjeta.AutoSize = true;
+            this.rbTarjeta.ForeColor = System.Drawing.Color.Black;
+            this.rbTarjeta.Location = new System.Drawing.Point(84, 21);
+            this.rbTarjeta.Name = "rbTarjeta";
+            this.rbTarjeta.Size = new System.Drawing.Size(129, 20);
+            this.rbTarjeta.TabIndex = 23;
+            this.rbTarjeta.Text = "Tarjeta Débito/Crédito";
+            this.rbTarjeta.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.txtCodProducto);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Location = new System.Drawing.Point(12, 222);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(235, 32);
+            this.panel1.TabIndex = 16;
+            // 
+            // txtCodProducto
+            // 
+            this.txtCodProducto.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCodProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodProducto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodProducto.Location = new System.Drawing.Point(1, 6);
+            this.txtCodProducto.MaxLength = 13;
+            this.txtCodProducto.Name = "txtCodProducto";
+            this.txtCodProducto.Size = new System.Drawing.Size(222, 19);
+            this.txtCodProducto.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label2.Location = new System.Drawing.Point(0, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(235, 2);
+            this.label2.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label9.Location = new System.Drawing.Point(10, 204);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(115, 15);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Código de producto";
+            // 
             // frmPuntoVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(909, 559);
+            this.ClientSize = new System.Drawing.Size(909, 561);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvPuntoVenta);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.statusPOS);
@@ -611,6 +701,10 @@
             this.statusPOS.ResumeLayout(false);
             this.statusPOS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuntoVenta)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -658,5 +752,12 @@
         private System.Windows.Forms.TextBox txtDireccionCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbTarjeta;
+        private System.Windows.Forms.RadioButton rbEfectivo;
+        private System.Windows.Forms.Panel panel1;
+        private UIControls.NumericInput txtCodProducto;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label9;
     }
 }
