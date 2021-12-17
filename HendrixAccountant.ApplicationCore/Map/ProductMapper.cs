@@ -1,4 +1,5 @@
-﻿using HendrixAccountant.ApplicationCore.Entities;
+﻿using HendrixAccountant.ApplicationCore.DTOs;
+using HendrixAccountant.ApplicationCore.Entities;
 using HendrixAccountant.ApplicationCore.Models;
 using HendrixAccountant.Common;
 using System;
@@ -41,6 +42,30 @@ namespace HendrixAccountant.ApplicationCore.Map
                 Utils.GrabarLog("DatasetToProducts", ex.ToString());
             }
             return products;
+        }
+
+        public ProductIdentityDto DatasetToProduct(DataSet data)
+        {
+            if (!Validator.DatasetIsValid(data)) return null;
+
+            ProductIdentityDto product = null;
+            try
+            {
+                product = data.Tables[0].AsEnumerable().Select(field => new ProductIdentityDto
+                {
+                    IdProducto = Convert.ToInt32(field["idProducto"].ToString()),
+                    Nombre = field["nombre"].ToString(),
+                    Codigo = field["codigo"].ToString(),
+                    Stock = Convert.ToInt32(field["stock"].ToString()),
+                    Precio = Convert.ToDecimal(field["precio"].ToString(), Utils.GetCulture()),
+                }).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("DatasetToProduct", ex.ToString());
+            }
+
+            return product;
         }
 
 

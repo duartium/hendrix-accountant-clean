@@ -127,6 +127,21 @@ namespace HendrixAccountant
             lblInfo.Text = "Producto agregado.";
         }
 
+        protected void SearchProduct()
+        {
+            _product = _rpsProduct.GetByCode(txtCodProducto.Text.Trim());
+            if (_product == null)
+            {
+                MessageBox.Show($"No se encontró el producto con código {txtCodProducto.Text}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtCodProducto.Clear();
+                txtCodProducto.Focus();
+                return;
+            }
+            GetQuantity(1);
+            txtCodProducto.Clear();
+            txtCodProducto.Focus();
+        }
+
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
@@ -273,7 +288,7 @@ namespace HendrixAccountant
 
         private void frmPuntoVenta_Activated(object sender, EventArgs e)
         {
-            btnBuscarCliente.Focus();
+            txtCodProducto.Focus();
         }
 
         private void txtIdentCliente_KeyDown(object sender, KeyEventArgs e)
@@ -424,6 +439,14 @@ namespace HendrixAccountant
             txtTotalPagar.ForeColor = DataOperator.Instance.ColorPrimary;
             txtValorSubtotal.BackColor = DataOperator.Instance.ColorPrimary;
             dgvPuntoVenta.ColumnHeadersDefaultCellStyle.BackColor = DataOperator.Instance.ColorPrimary;
+        }
+
+        private void txtCodProducto_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                SearchProduct();
+            }
         }
     }
 }

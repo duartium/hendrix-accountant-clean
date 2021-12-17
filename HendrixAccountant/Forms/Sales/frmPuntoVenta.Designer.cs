@@ -35,6 +35,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPuntoVenta));
             this.gpDatosVenta = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbTarjeta = new System.Windows.Forms.RadioButton();
+            this.rbEfectivo = new System.Windows.Forms.RadioButton();
             this.pnDireccion = new System.Windows.Forms.Panel();
             this.txtDireccionCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -74,14 +77,12 @@
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.rbEfectivo = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbTarjeta = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtCodProducto = new HendrixAccountant.UIControls.NumericInput();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.txtCodProducto = new System.Windows.Forms.TextBox();
             this.gpDatosVenta.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.pnDireccion.SuspendLayout();
             this.pnNombres.SuspendLayout();
             this.pnIdentificacion.SuspendLayout();
@@ -90,7 +91,6 @@
             this.pnAside.SuspendLayout();
             this.statusPOS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuntoVenta)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,16 +108,53 @@
             this.gpDatosVenta.Controls.Add(this.btnBuscarCliente);
             this.gpDatosVenta.Location = new System.Drawing.Point(8, 11);
             this.gpDatosVenta.Name = "gpDatosVenta";
-            this.gpDatosVenta.Size = new System.Drawing.Size(684, 182);
+            this.gpDatosVenta.Size = new System.Drawing.Size(684, 175);
             this.gpDatosVenta.TabIndex = 0;
             this.gpDatosVenta.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbTarjeta);
+            this.groupBox1.Controls.Add(this.rbEfectivo);
+            this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.groupBox1.Location = new System.Drawing.Point(431, 109);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(218, 48);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Formas de pago";
+            // 
+            // rbTarjeta
+            // 
+            this.rbTarjeta.AutoSize = true;
+            this.rbTarjeta.ForeColor = System.Drawing.Color.Black;
+            this.rbTarjeta.Location = new System.Drawing.Point(84, 21);
+            this.rbTarjeta.Name = "rbTarjeta";
+            this.rbTarjeta.Size = new System.Drawing.Size(129, 20);
+            this.rbTarjeta.TabIndex = 23;
+            this.rbTarjeta.Text = "Tarjeta Débito/Crédito";
+            this.rbTarjeta.UseVisualStyleBackColor = true;
+            // 
+            // rbEfectivo
+            // 
+            this.rbEfectivo.AutoSize = true;
+            this.rbEfectivo.Checked = true;
+            this.rbEfectivo.ForeColor = System.Drawing.Color.Black;
+            this.rbEfectivo.Location = new System.Drawing.Point(11, 21);
+            this.rbEfectivo.Name = "rbEfectivo";
+            this.rbEfectivo.Size = new System.Drawing.Size(62, 20);
+            this.rbEfectivo.TabIndex = 22;
+            this.rbEfectivo.TabStop = true;
+            this.rbEfectivo.Text = "Efectivo";
+            this.rbEfectivo.UseVisualStyleBackColor = true;
             // 
             // pnDireccion
             // 
             this.pnDireccion.BackColor = System.Drawing.SystemColors.Control;
             this.pnDireccion.Controls.Add(this.txtDireccionCliente);
             this.pnDireccion.Controls.Add(this.label1);
-            this.pnDireccion.Location = new System.Drawing.Point(18, 124);
+            this.pnDireccion.Location = new System.Drawing.Point(18, 123);
             this.pnDireccion.Name = "pnDireccion";
             this.pnDireccion.Size = new System.Drawing.Size(381, 32);
             this.pnDireccion.TabIndex = 19;
@@ -147,7 +184,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label8.Location = new System.Drawing.Point(15, 109);
+            this.label8.Location = new System.Drawing.Point(15, 108);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 15);
             this.label8.TabIndex = 20;
@@ -489,7 +526,7 @@
             this.colDireccion,
             this.colTotal});
             this.dgvPuntoVenta.EnableHeadersVisualStyles = false;
-            this.dgvPuntoVenta.Location = new System.Drawing.Point(12, 263);
+            this.dgvPuntoVenta.Location = new System.Drawing.Point(12, 260);
             this.dgvPuntoVenta.Name = "dgvPuntoVenta";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
@@ -555,7 +592,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
-            this.btnEliminar.Location = new System.Drawing.Point(349, 222);
+            this.btnEliminar.Location = new System.Drawing.Point(349, 219);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 32);
             this.btnEliminar.TabIndex = 5;
@@ -574,7 +611,7 @@
             this.btnAgregar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAgregar.Image = global::HendrixAccountant.Properties.Resources.addWhite20;
-            this.btnAgregar.Location = new System.Drawing.Point(253, 222);
+            this.btnAgregar.Location = new System.Drawing.Point(253, 219);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(90, 32);
             this.btnAgregar.TabIndex = 3;
@@ -583,63 +620,14 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // rbEfectivo
-            // 
-            this.rbEfectivo.AutoSize = true;
-            this.rbEfectivo.Checked = true;
-            this.rbEfectivo.ForeColor = System.Drawing.Color.Black;
-            this.rbEfectivo.Location = new System.Drawing.Point(11, 21);
-            this.rbEfectivo.Name = "rbEfectivo";
-            this.rbEfectivo.Size = new System.Drawing.Size(62, 20);
-            this.rbEfectivo.TabIndex = 22;
-            this.rbEfectivo.TabStop = true;
-            this.rbEfectivo.Text = "Efectivo";
-            this.rbEfectivo.UseVisualStyleBackColor = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.rbTarjeta);
-            this.groupBox1.Controls.Add(this.rbEfectivo);
-            this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.groupBox1.Location = new System.Drawing.Point(431, 110);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(218, 48);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Formas de pago";
-            // 
-            // rbTarjeta
-            // 
-            this.rbTarjeta.AutoSize = true;
-            this.rbTarjeta.ForeColor = System.Drawing.Color.Black;
-            this.rbTarjeta.Location = new System.Drawing.Point(84, 21);
-            this.rbTarjeta.Name = "rbTarjeta";
-            this.rbTarjeta.Size = new System.Drawing.Size(129, 20);
-            this.rbTarjeta.TabIndex = 23;
-            this.rbTarjeta.Text = "Tarjeta Débito/Crédito";
-            this.rbTarjeta.UseVisualStyleBackColor = true;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.txtCodProducto);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(12, 222);
+            this.panel1.Location = new System.Drawing.Point(12, 219);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(235, 32);
             this.panel1.TabIndex = 16;
-            // 
-            // txtCodProducto
-            // 
-            this.txtCodProducto.BackColor = System.Drawing.SystemColors.Control;
-            this.txtCodProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCodProducto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodProducto.Location = new System.Drawing.Point(1, 6);
-            this.txtCodProducto.MaxLength = 13;
-            this.txtCodProducto.Name = "txtCodProducto";
-            this.txtCodProducto.Size = new System.Drawing.Size(222, 19);
-            this.txtCodProducto.TabIndex = 0;
             // 
             // label2
             // 
@@ -655,11 +643,22 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label9.Location = new System.Drawing.Point(10, 204);
+            this.label9.Location = new System.Drawing.Point(10, 201);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(115, 15);
             this.label9.TabIndex = 24;
             this.label9.Text = "Código de producto";
+            // 
+            // txtCodProducto
+            // 
+            this.txtCodProducto.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCodProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodProducto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodProducto.Location = new System.Drawing.Point(20, 228);
+            this.txtCodProducto.Name = "txtCodProducto";
+            this.txtCodProducto.Size = new System.Drawing.Size(220, 15);
+            this.txtCodProducto.TabIndex = 10;
+            this.txtCodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodProducto_KeyPress_1);
             // 
             // frmPuntoVenta
             // 
@@ -667,6 +666,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(909, 561);
+            this.Controls.Add(this.txtCodProducto);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvPuntoVenta);
@@ -688,6 +688,8 @@
             this.Load += new System.EventHandler(this.frmPuntoVenta_Load);
             this.gpDatosVenta.ResumeLayout(false);
             this.gpDatosVenta.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.pnDireccion.ResumeLayout(false);
             this.pnDireccion.PerformLayout();
             this.pnNombres.ResumeLayout(false);
@@ -701,10 +703,7 @@
             this.statusPOS.ResumeLayout(false);
             this.statusPOS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuntoVenta)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -756,8 +755,8 @@
         private System.Windows.Forms.RadioButton rbTarjeta;
         private System.Windows.Forms.RadioButton rbEfectivo;
         private System.Windows.Forms.Panel panel1;
-        private UIControls.NumericInput txtCodProducto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtCodProducto;
     }
 }

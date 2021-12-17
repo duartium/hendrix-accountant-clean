@@ -13,5 +13,6 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
         bool Save(ProductDto product, bool isUpdate = false);
         bool Remove(int idProduct, string usuario);
         List<BarcodeCard> GetBarcodes();
+        ProductIdentityDto GetByCode(string code);
     }
 }

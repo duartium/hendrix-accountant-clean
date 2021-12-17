@@ -129,5 +129,13 @@ namespace HendrixAccountant.Data.Repositories
             return xmlInvoice;
         }
 
+        public ProductIdentityDto GetByCode(string code)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", 'C'));
+            parms.Add(new SqlParameter("@codigo", code));
+            var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+            return new ProductMapper().DatasetToProduct(dsResp);
+        }
     }
 }
