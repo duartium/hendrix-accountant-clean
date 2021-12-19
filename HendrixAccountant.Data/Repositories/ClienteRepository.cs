@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HendrixAccountant.ApplicationCore.DTOs;
+﻿using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Entities;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.ApplicationCore.Map;
 using HendrixAccountant.Common;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace HendrixAccountant.Data
 {
@@ -64,7 +60,7 @@ namespace HendrixAccountant.Data
             parms.Add(new SqlParameter("@celular", client.Celular));
             if (isUpdate) parms.Add(new SqlParameter("@id_cliente", client.IdCliente));
             int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
-            if (resp > 0) return true; else return false;
+            return(resp > 0);
         }
 
         public bool Remove(int idCliente, string usuario)
@@ -74,7 +70,7 @@ namespace HendrixAccountant.Data
             parms.Add(new SqlParameter("@usuario", usuario));
             parms.Add(new SqlParameter("@id_cliente", idCliente));
             int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
-            if (resp > 0) return true; else return false;
+            return (resp > 0);
         }
 
         public List<ClientDto> GetList()
@@ -82,5 +78,15 @@ namespace HendrixAccountant.Data
 
             throw new NotImplementedException();
         }
+
+        public bool IsDuplicateClient(string identification)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", "D"));
+            parms.Add(new SqlParameter("@identificacion", identification));
+            var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+            return (int.Parse(dsResp.Tables[0].Rows[0]["RESULT"].ToString()) > 0);
+        }
+
     }
 }

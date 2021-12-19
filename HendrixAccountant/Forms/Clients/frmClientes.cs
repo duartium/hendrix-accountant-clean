@@ -4,13 +4,7 @@ using HendrixAccountant.ApplicationCore.Interfaces.Forms;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HendrixAccountant
@@ -25,6 +19,7 @@ namespace HendrixAccountant
             pnHeader.BackColor = DataOperator.Instance.ColorPrimary;
             _rpsClient = new ClienteRepository();
             _client = null;
+            dtpFechaNacimiento.Value = new DateTime(1999, 1, 1);
         }
 
         private void frmClientes_Load(object sender, EventArgs e)
@@ -42,7 +37,7 @@ namespace HendrixAccountant
             btnEliminar.Enabled = true;
             btnEliminar.BackColor = SystemColors.Control;
             btnBuscar.BackColor = SystemColors.Control;
-            EnabledTextboxs(true);
+            EnabledControls(true);
             txtIdentificacion.Focus();
             _client = null;
         }
@@ -54,7 +49,7 @@ namespace HendrixAccountant
             btnBuscar.Enabled = true;
             btnEliminar.BackColor = Color.FromArgb(220, 53, 69);
             btnBuscar.BackColor = Color.FromArgb(253, 184, 39);
-            EnabledTextboxs(false);
+            EnabledControls(false);
             btnBuscar.Focus();
         }
 
@@ -77,7 +72,13 @@ namespace HendrixAccountant
                 MessageBox.Show("La identificación debe contener al menos 10 dígitos.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            
+
+            if (_rpsClient.IsDuplicateClient(txtIdentificacion.Text.Trim())){
+                MessageBox.Show($"ya existe un cliente registrado con identificación {txtIdentificacion.Text}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+
             string mensaje = "Cliente registrado con éxito.";
             bool isUpdate = false;
             var dataOp = DataOperator.Instance;
@@ -89,7 +90,7 @@ namespace HendrixAccountant
                 Direccion = txtDireccion.Text,
                 Email = txtEmail.Text,
                 Celular = txtCelular.Text,
-                Telefono = txtTelefono.Text,
+                FechaNacimiento = dtpFechaNacimiento.Value.ToString("yyyy-MM-dd"),
                 TipoCliente = 1,
                 TipoIdentificacion = 1,
                 Usuario = dataOp.Username,
@@ -114,7 +115,7 @@ namespace HendrixAccountant
             txtApellidos.Clear();
             txtDireccion.Clear();
             txtEmail.Clear();
-            txtTelefono.Clear();
+            dtpFechaNacimiento.Value = DateTime.Today.AddYears(-20);
             txtCelular.Clear();
         }
 
@@ -148,13 +149,13 @@ namespace HendrixAccountant
             txtApellidos.Text = _client.Apellidos;
             txtDireccion.Text = _client.Direccion;
             txtEmail.Text = _client.Email;
-            txtTelefono.Text = _client.Telefono;
+            dtpFechaNacimiento.Value = Convert.ToDateTime(_client.FechaNacimiento);
             txtCelular.Text = _client.Celular;
-            EnabledTextboxs(true);
+            EnabledControls(true);
             txtIdentificacion.Focus();
         }
 
-        private void EnabledTextboxs(bool valor)
+        private void EnabledControls(bool valor)
         {
             pnIdentificacion.Enabled = valor;
             pnNombres.Enabled = valor;
@@ -162,7 +163,7 @@ namespace HendrixAccountant
             pnDireccion.Enabled = valor;
             pnEmail.Enabled = valor;
             pnCelular.Enabled = valor;
-            pnTelefono.Enabled = valor;
+            dtpFechaNacimiento.Enabled = valor;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HendrixAccountant.ApplicationCore.DTOs
 {
@@ -23,6 +19,7 @@ namespace HendrixAccountant.ApplicationCore.DTOs
         public string Direccion { get; set; }
         public string Email { get; set; }
         public string Usuario { get; set; }
+        public string FechaNacimiento { get; set; }
     }
 
     public class ClientIdentity : ISaleElement

@@ -57,9 +57,6 @@
             this.txtCelular = new HendrixAccountant.UIControls.NumericInput();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.pnTelefono = new System.Windows.Forms.Panel();
-            this.txtTelefono = new HendrixAccountant.UIControls.NumericInput();
-            this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.rbnNuevo = new System.Windows.Forms.RadioButton();
             this.rbnModificar = new System.Windows.Forms.RadioButton();
@@ -67,6 +64,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnIdentificacion.SuspendLayout();
@@ -75,7 +73,6 @@
             this.pnDireccion.SuspendLayout();
             this.pnEmail.SuspendLayout();
             this.pnCelular.SuspendLayout();
-            this.pnTelefono.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnHeader
@@ -146,19 +143,19 @@
             this.txtIdentificacion.BackColor = System.Drawing.SystemColors.Control;
             this.txtIdentificacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtIdentificacion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdentificacion.Location = new System.Drawing.Point(1, 6);
+            this.txtIdentificacion.Location = new System.Drawing.Point(7, 6);
             this.txtIdentificacion.MaxLength = 13;
             this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(185, 19);
+            this.txtIdentificacion.Size = new System.Drawing.Size(178, 19);
             this.txtIdentificacion.TabIndex = 0;
             // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label7.Location = new System.Drawing.Point(0, 29);
+            this.label7.Location = new System.Drawing.Point(0, 30);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(188, 3);
+            this.label7.Size = new System.Drawing.Size(188, 2);
             this.label7.TabIndex = 9;
             // 
             // pnNombres
@@ -176,19 +173,19 @@
             this.txtNombres.BackColor = System.Drawing.SystemColors.Control;
             this.txtNombres.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNombres.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtNombres.Location = new System.Drawing.Point(1, 7);
+            this.txtNombres.Location = new System.Drawing.Point(7, 7);
             this.txtNombres.MaxLength = 100;
             this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(378, 16);
+            this.txtNombres.Size = new System.Drawing.Size(361, 16);
             this.txtNombres.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label2.Location = new System.Drawing.Point(0, 29);
+            this.label2.Location = new System.Drawing.Point(0, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(381, 3);
+            this.label2.Size = new System.Drawing.Size(381, 2);
             this.label2.TabIndex = 9;
             // 
             // label3
@@ -217,19 +214,19 @@
             this.txtApellidos.BackColor = System.Drawing.SystemColors.Control;
             this.txtApellidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtApellidos.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtApellidos.Location = new System.Drawing.Point(1, 7);
+            this.txtApellidos.Location = new System.Drawing.Point(7, 7);
             this.txtApellidos.MaxLength = 100;
             this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(378, 16);
+            this.txtApellidos.Size = new System.Drawing.Size(361, 16);
             this.txtApellidos.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label4.Location = new System.Drawing.Point(0, 29);
+            this.label4.Location = new System.Drawing.Point(0, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(381, 3);
+            this.label4.Size = new System.Drawing.Size(381, 2);
             this.label4.TabIndex = 9;
             // 
             // label5
@@ -258,18 +255,18 @@
             this.txtDireccion.BackColor = System.Drawing.SystemColors.Control;
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDireccion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(2, 8);
+            this.txtDireccion.Location = new System.Drawing.Point(7, 8);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(377, 15);
+            this.txtDireccion.Size = new System.Drawing.Size(361, 15);
             this.txtDireccion.TabIndex = 0;
             // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label6.Location = new System.Drawing.Point(0, 29);
+            this.label6.Location = new System.Drawing.Point(0, 30);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(381, 3);
+            this.label6.Size = new System.Drawing.Size(381, 2);
             this.label6.TabIndex = 9;
             // 
             // label8
@@ -298,18 +295,18 @@
             this.txtEmail.BackColor = System.Drawing.SystemColors.Control;
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtEmail.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.Location = new System.Drawing.Point(2, 8);
+            this.txtEmail.Location = new System.Drawing.Point(7, 8);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(377, 15);
+            this.txtEmail.Size = new System.Drawing.Size(361, 15);
             this.txtEmail.TabIndex = 0;
             // 
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label9.Location = new System.Drawing.Point(0, 29);
+            this.label9.Location = new System.Drawing.Point(0, 30);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(381, 3);
+            this.label9.Size = new System.Drawing.Size(381, 2);
             this.label9.TabIndex = 9;
             // 
             // label10
@@ -338,19 +335,19 @@
             this.txtCelular.BackColor = System.Drawing.SystemColors.Control;
             this.txtCelular.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCelular.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCelular.Location = new System.Drawing.Point(1, 6);
+            this.txtCelular.Location = new System.Drawing.Point(7, 6);
             this.txtCelular.MaxLength = 10;
             this.txtCelular.Name = "txtCelular";
-            this.txtCelular.Size = new System.Drawing.Size(185, 19);
+            this.txtCelular.Size = new System.Drawing.Size(168, 19);
             this.txtCelular.TabIndex = 0;
             // 
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label11.Location = new System.Drawing.Point(0, 29);
+            this.label11.Location = new System.Drawing.Point(0, 30);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(188, 3);
+            this.label11.Size = new System.Drawing.Size(188, 2);
             this.label11.TabIndex = 9;
             // 
             // label12
@@ -364,46 +361,16 @@
             this.label12.TabIndex = 10;
             this.label12.Text = "Celular";
             // 
-            // pnTelefono
-            // 
-            this.pnTelefono.BackColor = System.Drawing.SystemColors.Control;
-            this.pnTelefono.Controls.Add(this.txtTelefono);
-            this.pnTelefono.Controls.Add(this.label13);
-            this.pnTelefono.Location = new System.Drawing.Point(247, 382);
-            this.pnTelefono.Name = "pnTelefono";
-            this.pnTelefono.Size = new System.Drawing.Size(188, 32);
-            this.pnTelefono.TabIndex = 6;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.BackColor = System.Drawing.SystemColors.Control;
-            this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTelefono.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefono.Location = new System.Drawing.Point(1, 6);
-            this.txtTelefono.MaxLength = 10;
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(185, 19);
-            this.txtTelefono.TabIndex = 0;
-            // 
-            // label13
-            // 
-            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
-            this.label13.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label13.Location = new System.Drawing.Point(0, 29);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(188, 3);
-            this.label13.TabIndex = 9;
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label14.Location = new System.Drawing.Point(244, 367);
+            this.label14.Location = new System.Drawing.Point(246, 367);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(54, 15);
+            this.label14.Size = new System.Drawing.Size(124, 15);
             this.label14.TabIndex = 12;
-            this.label14.Text = "Telefono";
+            this.label14.Text = "Fecha de Nacimiento";
             // 
             // rbnNuevo
             // 
@@ -507,18 +474,27 @@
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // dtpFechaNacimiento
+            // 
+            this.dtpFechaNacimiento.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(249, 383);
+            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(121, 25);
+            this.dtpFechaNacimiento.TabIndex = 19;
+            // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(500, 484);
+            this.Controls.Add(this.dtpFechaNacimiento);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.rbnModificar);
             this.Controls.Add(this.rbnNuevo);
-            this.Controls.Add(this.pnTelefono);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.pnCelular);
             this.Controls.Add(this.label12);
@@ -559,8 +535,6 @@
             this.pnEmail.PerformLayout();
             this.pnCelular.ResumeLayout(false);
             this.pnCelular.PerformLayout();
-            this.pnTelefono.ResumeLayout(false);
-            this.pnTelefono.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -597,14 +571,12 @@
         private UIControls.NumericInput txtCelular;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel pnTelefono;
-        private UIControls.NumericInput txtTelefono;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.RadioButton rbnNuevo;
         private System.Windows.Forms.RadioButton rbnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private UIControls.Buttons.ItemAsideSmall btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
     }
 }

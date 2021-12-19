@@ -35,7 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPuntoVenta));
             this.gpDatosVenta = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbFromaPago = new System.Windows.Forms.GroupBox();
             this.rbTarjeta = new System.Windows.Forms.RadioButton();
             this.rbEfectivo = new System.Windows.Forms.RadioButton();
             this.pnDireccion = new System.Windows.Forms.Panel();
@@ -82,7 +82,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtCodProducto = new System.Windows.Forms.TextBox();
             this.gpDatosVenta.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbFromaPago.SuspendLayout();
             this.pnDireccion.SuspendLayout();
             this.pnNombres.SuspendLayout();
             this.pnIdentificacion.SuspendLayout();
@@ -96,7 +96,7 @@
             // 
             // gpDatosVenta
             // 
-            this.gpDatosVenta.Controls.Add(this.groupBox1);
+            this.gpDatosVenta.Controls.Add(this.gbFromaPago);
             this.gpDatosVenta.Controls.Add(this.pnDireccion);
             this.gpDatosVenta.Controls.Add(this.label8);
             this.gpDatosVenta.Controls.Add(this.pnNombres);
@@ -112,18 +112,18 @@
             this.gpDatosVenta.TabIndex = 0;
             this.gpDatosVenta.TabStop = false;
             // 
-            // groupBox1
+            // gbFromaPago
             // 
-            this.groupBox1.Controls.Add(this.rbTarjeta);
-            this.groupBox1.Controls.Add(this.rbEfectivo);
-            this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.groupBox1.Location = new System.Drawing.Point(431, 109);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(218, 48);
-            this.groupBox1.TabIndex = 23;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Formas de pago";
+            this.gbFromaPago.Controls.Add(this.rbTarjeta);
+            this.gbFromaPago.Controls.Add(this.rbEfectivo);
+            this.gbFromaPago.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbFromaPago.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.gbFromaPago.Location = new System.Drawing.Point(431, 109);
+            this.gbFromaPago.Name = "gbFromaPago";
+            this.gbFromaPago.Size = new System.Drawing.Size(218, 48);
+            this.gbFromaPago.TabIndex = 23;
+            this.gbFromaPago.TabStop = false;
+            this.gbFromaPago.Text = "Forma de pago";
             // 
             // rbTarjeta
             // 
@@ -164,10 +164,10 @@
             this.txtDireccionCliente.BackColor = System.Drawing.SystemColors.Control;
             this.txtDireccionCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDireccionCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccionCliente.Location = new System.Drawing.Point(2, 8);
+            this.txtDireccionCliente.Location = new System.Drawing.Point(7, 8);
             this.txtDireccionCliente.Name = "txtDireccionCliente";
             this.txtDireccionCliente.ReadOnly = true;
-            this.txtDireccionCliente.Size = new System.Drawing.Size(377, 15);
+            this.txtDireccionCliente.Size = new System.Drawing.Size(366, 15);
             this.txtDireccionCliente.TabIndex = 0;
             // 
             // label1
@@ -205,11 +205,11 @@
             this.txtNombresCliente.BackColor = System.Drawing.SystemColors.Control;
             this.txtNombresCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNombresCliente.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtNombresCliente.Location = new System.Drawing.Point(1, 7);
+            this.txtNombresCliente.Location = new System.Drawing.Point(9, 7);
             this.txtNombresCliente.MaxLength = 100;
             this.txtNombresCliente.Name = "txtNombresCliente";
             this.txtNombresCliente.ReadOnly = true;
-            this.txtNombresCliente.Size = new System.Drawing.Size(378, 16);
+            this.txtNombresCliente.Size = new System.Drawing.Size(369, 16);
             this.txtNombresCliente.TabIndex = 0;
             // 
             // label4
@@ -247,10 +247,10 @@
             this.txtIdentCliente.BackColor = System.Drawing.SystemColors.Control;
             this.txtIdentCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtIdentCliente.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdentCliente.Location = new System.Drawing.Point(1, 6);
+            this.txtIdentCliente.Location = new System.Drawing.Point(8, 6);
             this.txtIdentCliente.MaxLength = 13;
             this.txtIdentCliente.Name = "txtIdentCliente";
-            this.txtIdentCliente.Size = new System.Drawing.Size(185, 19);
+            this.txtIdentCliente.Size = new System.Drawing.Size(177, 19);
             this.txtIdentCliente.TabIndex = 0;
             this.txtIdentCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdentCliente_KeyDown);
             // 
@@ -654,9 +654,9 @@
             this.txtCodProducto.BackColor = System.Drawing.SystemColors.Control;
             this.txtCodProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCodProducto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodProducto.Location = new System.Drawing.Point(20, 228);
+            this.txtCodProducto.Location = new System.Drawing.Point(21, 228);
             this.txtCodProducto.Name = "txtCodProducto";
-            this.txtCodProducto.Size = new System.Drawing.Size(220, 15);
+            this.txtCodProducto.Size = new System.Drawing.Size(215, 15);
             this.txtCodProducto.TabIndex = 10;
             this.txtCodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodProducto_KeyPress_1);
             // 
@@ -688,8 +688,8 @@
             this.Load += new System.EventHandler(this.frmPuntoVenta_Load);
             this.gpDatosVenta.ResumeLayout(false);
             this.gpDatosVenta.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbFromaPago.ResumeLayout(false);
+            this.gbFromaPago.PerformLayout();
             this.pnDireccion.ResumeLayout(false);
             this.pnDireccion.PerformLayout();
             this.pnNombres.ResumeLayout(false);
@@ -751,7 +751,7 @@
         private System.Windows.Forms.TextBox txtDireccionCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbFromaPago;
         private System.Windows.Forms.RadioButton rbTarjeta;
         private System.Windows.Forms.RadioButton rbEfectivo;
         private System.Windows.Forms.Panel panel1;
