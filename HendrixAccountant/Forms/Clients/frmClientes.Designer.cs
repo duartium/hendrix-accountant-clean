@@ -65,6 +65,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cboTipoIdentif = new System.Windows.Forms.ComboBox();
             this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnIdentificacion.SuspendLayout();
@@ -122,7 +124,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label1.Location = new System.Drawing.Point(50, 108);
+            this.label1.Location = new System.Drawing.Point(189, 121);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 15);
             this.label1.TabIndex = 5;
@@ -133,9 +135,9 @@
             this.pnIdentificacion.BackColor = System.Drawing.SystemColors.Control;
             this.pnIdentificacion.Controls.Add(this.txtIdentificacion);
             this.pnIdentificacion.Controls.Add(this.label7);
-            this.pnIdentificacion.Location = new System.Drawing.Point(53, 123);
+            this.pnIdentificacion.Location = new System.Drawing.Point(192, 136);
             this.pnIdentificacion.Name = "pnIdentificacion";
-            this.pnIdentificacion.Size = new System.Drawing.Size(188, 32);
+            this.pnIdentificacion.Size = new System.Drawing.Size(155, 32);
             this.pnIdentificacion.TabIndex = 0;
             // 
             // txtIdentificacion
@@ -146,7 +148,7 @@
             this.txtIdentificacion.Location = new System.Drawing.Point(7, 6);
             this.txtIdentificacion.MaxLength = 13;
             this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(178, 19);
+            this.txtIdentificacion.Size = new System.Drawing.Size(142, 19);
             this.txtIdentificacion.TabIndex = 0;
             // 
             // label7
@@ -155,7 +157,7 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label7.Location = new System.Drawing.Point(0, 30);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(188, 2);
+            this.label7.Size = new System.Drawing.Size(155, 2);
             this.label7.TabIndex = 9;
             // 
             // pnNombres
@@ -163,7 +165,7 @@
             this.pnNombres.BackColor = System.Drawing.SystemColors.Control;
             this.pnNombres.Controls.Add(this.txtNombres);
             this.pnNombres.Controls.Add(this.label2);
-            this.pnNombres.Location = new System.Drawing.Point(53, 174);
+            this.pnNombres.Location = new System.Drawing.Point(53, 184);
             this.pnNombres.Name = "pnNombres";
             this.pnNombres.Size = new System.Drawing.Size(381, 32);
             this.pnNombres.TabIndex = 1;
@@ -193,7 +195,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label3.Location = new System.Drawing.Point(50, 159);
+            this.label3.Location = new System.Drawing.Point(50, 169);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 15);
             this.label3.TabIndex = 10;
@@ -204,7 +206,7 @@
             this.pnApellidos.BackColor = System.Drawing.SystemColors.Control;
             this.pnApellidos.Controls.Add(this.txtApellidos);
             this.pnApellidos.Controls.Add(this.label4);
-            this.pnApellidos.Location = new System.Drawing.Point(53, 225);
+            this.pnApellidos.Location = new System.Drawing.Point(53, 235);
             this.pnApellidos.Name = "pnApellidos";
             this.pnApellidos.Size = new System.Drawing.Size(381, 32);
             this.pnApellidos.TabIndex = 2;
@@ -234,7 +236,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label5.Location = new System.Drawing.Point(50, 210);
+            this.label5.Location = new System.Drawing.Point(50, 220);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 15);
             this.label5.TabIndex = 13;
@@ -245,7 +247,7 @@
             this.pnDireccion.BackColor = System.Drawing.SystemColors.Control;
             this.pnDireccion.Controls.Add(this.txtDireccion);
             this.pnDireccion.Controls.Add(this.label6);
-            this.pnDireccion.Location = new System.Drawing.Point(53, 277);
+            this.pnDireccion.Location = new System.Drawing.Point(53, 287);
             this.pnDireccion.Name = "pnDireccion";
             this.pnDireccion.Size = new System.Drawing.Size(381, 32);
             this.pnDireccion.TabIndex = 3;
@@ -274,7 +276,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label8.Location = new System.Drawing.Point(50, 262);
+            this.label8.Location = new System.Drawing.Point(50, 272);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 15);
             this.label8.TabIndex = 15;
@@ -285,7 +287,7 @@
             this.pnEmail.BackColor = System.Drawing.SystemColors.Control;
             this.pnEmail.Controls.Add(this.txtEmail);
             this.pnEmail.Controls.Add(this.label9);
-            this.pnEmail.Location = new System.Drawing.Point(53, 329);
+            this.pnEmail.Location = new System.Drawing.Point(53, 339);
             this.pnEmail.Name = "pnEmail";
             this.pnEmail.Size = new System.Drawing.Size(381, 32);
             this.pnEmail.TabIndex = 4;
@@ -314,7 +316,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label10.Location = new System.Drawing.Point(50, 314);
+            this.label10.Location = new System.Drawing.Point(50, 324);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(39, 15);
             this.label10.TabIndex = 18;
@@ -325,7 +327,7 @@
             this.pnCelular.BackColor = System.Drawing.SystemColors.Control;
             this.pnCelular.Controls.Add(this.txtCelular);
             this.pnCelular.Controls.Add(this.label11);
-            this.pnCelular.Location = new System.Drawing.Point(53, 382);
+            this.pnCelular.Location = new System.Drawing.Point(53, 392);
             this.pnCelular.Name = "pnCelular";
             this.pnCelular.Size = new System.Drawing.Size(188, 32);
             this.pnCelular.TabIndex = 5;
@@ -355,7 +357,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label12.Location = new System.Drawing.Point(50, 367);
+            this.label12.Location = new System.Drawing.Point(50, 377);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(47, 15);
             this.label12.TabIndex = 10;
@@ -366,7 +368,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label14.Location = new System.Drawing.Point(246, 367);
+            this.label14.Location = new System.Drawing.Point(246, 377);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(124, 15);
             this.label14.TabIndex = 12;
@@ -411,9 +413,9 @@
             this.btnBuscar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnBuscar.Image = global::HendrixAccountant.Properties.Resources.searchBlue20;
-            this.btnBuscar.Location = new System.Drawing.Point(328, 123);
+            this.btnBuscar.Location = new System.Drawing.Point(354, 136);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(107, 32);
+            this.btnBuscar.Size = new System.Drawing.Size(93, 32);
             this.btnBuscar.TabIndex = 12;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -429,7 +431,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
-            this.btnEliminar.Location = new System.Drawing.Point(247, 437);
+            this.btnEliminar.Location = new System.Drawing.Point(247, 447);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar.TabIndex = 8;
@@ -447,7 +449,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGuardar.Image = global::HendrixAccountant.Properties.Resources.saveWhite20;
-            this.btnGuardar.Location = new System.Drawing.Point(345, 437);
+            this.btnGuardar.Location = new System.Drawing.Point(345, 447);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 30);
             this.btnGuardar.TabIndex = 9;
@@ -465,7 +467,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.userWhite20;
-            this.btnLimpiar.Location = new System.Drawing.Point(53, 437);
+            this.btnLimpiar.Location = new System.Drawing.Point(53, 447);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar.TabIndex = 7;
@@ -478,17 +480,44 @@
             // 
             this.dtpFechaNacimiento.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(249, 383);
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(249, 393);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(121, 25);
             this.dtpFechaNacimiento.TabIndex = 19;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label13.Location = new System.Drawing.Point(51, 121);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(106, 15);
+            this.label13.TabIndex = 20;
+            this.label13.Text = "Tipo Identificación";
+            // 
+            // cboTipoIdentif
+            // 
+            this.cboTipoIdentif.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoIdentif.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTipoIdentif.FormattingEnabled = true;
+            this.cboTipoIdentif.Items.AddRange(new object[] {
+            "RUC",
+            "CÉDULA"});
+            this.cboTipoIdentif.Location = new System.Drawing.Point(53, 138);
+            this.cboTipoIdentif.Name = "cboTipoIdentif";
+            this.cboTipoIdentif.Size = new System.Drawing.Size(131, 24);
+            this.cboTipoIdentif.TabIndex = 80;
+            this.cboTipoIdentif.SelectedIndexChanged += new System.EventHandler(this.cboTipoIdentif_SelectedIndexChanged);
             // 
             // frmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(500, 484);
+            this.ClientSize = new System.Drawing.Size(500, 493);
+            this.Controls.Add(this.cboTipoIdentif);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.dtpFechaNacimiento);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
@@ -578,5 +607,7 @@
         private UIControls.Buttons.ItemAsideSmall btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cboTipoIdentif;
     }
 }

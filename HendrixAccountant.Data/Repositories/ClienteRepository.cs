@@ -58,6 +58,7 @@ namespace HendrixAccountant.Data
             parms.Add(new SqlParameter("@email", client.Email));
             parms.Add(new SqlParameter("@telefono", client.Telefono));
             parms.Add(new SqlParameter("@celular", client.Celular));
+            parms.Add(new SqlParameter("@fecha_nacimiento", client.FechaNacimiento));
             if (isUpdate) parms.Add(new SqlParameter("@id_cliente", client.IdCliente));
             int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
             return(resp > 0);

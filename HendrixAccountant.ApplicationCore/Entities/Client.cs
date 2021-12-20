@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HendrixAccountant.ApplicationCore.Entities
 {
@@ -18,6 +14,7 @@ namespace HendrixAccountant.ApplicationCore.Entities
         public string celular { get; set; }
         public string direccion { get; set; }
         public string email { get; set; }
+        public string fecha_nacimiento { get; set; }
         public string estado { get; set; }
         public string usuario_crea { get; set; }
         public DateTime creado_en { get; set; }

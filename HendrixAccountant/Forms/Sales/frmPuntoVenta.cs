@@ -409,7 +409,7 @@ namespace HendrixAccountant
             _client = new ClientIdentity
             {
                 IdCliente = 1,
-                Identificacion = "1",
+                Identificacion = "9999999999",
                 NombresCompletos = "CONSUMIDOR FINAL",
                 Direccion = String.Empty
             };

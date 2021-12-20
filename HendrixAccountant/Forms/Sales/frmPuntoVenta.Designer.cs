@@ -163,10 +163,10 @@
             // 
             this.txtDireccionCliente.BackColor = System.Drawing.SystemColors.Control;
             this.txtDireccionCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDireccionCliente.Enabled = false;
             this.txtDireccionCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccionCliente.Location = new System.Drawing.Point(7, 8);
             this.txtDireccionCliente.Name = "txtDireccionCliente";
-            this.txtDireccionCliente.ReadOnly = true;
             this.txtDireccionCliente.Size = new System.Drawing.Size(366, 15);
             this.txtDireccionCliente.TabIndex = 0;
             // 
@@ -204,11 +204,11 @@
             // 
             this.txtNombresCliente.BackColor = System.Drawing.SystemColors.Control;
             this.txtNombresCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombresCliente.Enabled = false;
             this.txtNombresCliente.Font = new System.Drawing.Font("Arial", 10F);
             this.txtNombresCliente.Location = new System.Drawing.Point(9, 7);
             this.txtNombresCliente.MaxLength = 100;
             this.txtNombresCliente.Name = "txtNombresCliente";
-            this.txtNombresCliente.ReadOnly = true;
             this.txtNombresCliente.Size = new System.Drawing.Size(369, 16);
             this.txtNombresCliente.TabIndex = 0;
             // 

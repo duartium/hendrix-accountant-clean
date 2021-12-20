@@ -120,7 +120,8 @@ namespace HendrixAccountant
                         Direccion = client.direccion,
                         Email = client.email,
                         Telefono = client.telefono,
-                        TipoIdentificacion = client.tipo_identificacion
+                        TipoIdentificacion = client.tipo_identificacion,
+                        FechaNacimiento = client.fecha_nacimiento
                     });
                 }
                 else
@@ -165,7 +166,7 @@ namespace HendrixAccountant
                     Identificacion = row.Cells[colIdentificacion.Index].Value.ToString(),
                     NombresCompletos = row.Cells[colNombres.Index].Value.ToString(),
                     IdCliente = Convert.ToInt32(row.Cells[colCodigo.Index].Value.ToString()),
-                    Direccion = row.Cells[colDireccion.Index].Value.ToString()
+                    Direccion = row.Cells[colDireccion.Index].Value.ToString(),
                 };
             }
             catch (Exception ex)

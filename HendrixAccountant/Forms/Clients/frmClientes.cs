@@ -20,6 +20,8 @@ namespace HendrixAccountant
             _rpsClient = new ClienteRepository();
             _client = null;
             dtpFechaNacimiento.Value = new DateTime(1999, 1, 1);
+            cboTipoIdentif.SelectedIndex = 1;
+            txtIdentificacion.MaxLength = 10;
         }
 
         private void frmClientes_Load(object sender, EventArgs e)
@@ -73,12 +75,15 @@ namespace HendrixAccountant
                 return;
             }
 
-            if (_rpsClient.IsDuplicateClient(txtIdentificacion.Text.Trim())){
-                MessageBox.Show($"ya existe un cliente registrado con identificación {txtIdentificacion.Text}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+            if (rbnNuevo.Checked)
+            {
+                if (_rpsClient.IsDuplicateClient(txtIdentificacion.Text.Trim()))
+                {
+                    MessageBox.Show($"ya existe un cliente registrado con identificación {txtIdentificacion.Text}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
             }
-
-
+            
             string mensaje = "Cliente registrado con éxito.";
             bool isUpdate = false;
             var dataOp = DataOperator.Instance;
@@ -92,7 +97,7 @@ namespace HendrixAccountant
                 Celular = txtCelular.Text,
                 FechaNacimiento = dtpFechaNacimiento.Value.ToString("yyyy-MM-dd"),
                 TipoCliente = 1,
-                TipoIdentificacion = 1,
+                TipoIdentificacion = cboTipoIdentif.SelectedIndex == 1 ? 1 : 2,
                 Usuario = dataOp.Username,
                 IdCliente = _client == null ? -1 : _client.IdCliente
             };
@@ -115,7 +120,8 @@ namespace HendrixAccountant
             txtApellidos.Clear();
             txtDireccion.Clear();
             txtEmail.Clear();
-            dtpFechaNacimiento.Value = DateTime.Today.AddYears(-20);
+            dtpFechaNacimiento.Value = new DateTime(1999, 1, 1);
+            cboTipoIdentif.SelectedIndex = 1;
             txtCelular.Clear();
         }
 
@@ -184,6 +190,20 @@ namespace HendrixAccountant
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void cboTipoIdentif_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboTipoIdentif.SelectedIndex == 0)//RUC
+            {
+                txtIdentificacion.MaxLength = 13;
+            }
+            else//CÉDULA
+            {
+                txtIdentificacion.MaxLength = 10;
+            }
+            txtIdentificacion.Clear();
+            txtIdentificacion.Focus();
         }
     }
 }

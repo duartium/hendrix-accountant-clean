@@ -30,7 +30,8 @@ namespace HendrixAccountant.ApplicationCore.Map
                     Telefono = field["telefono"].ToString(),
                     Celular = field["celular"].ToString(),
                     Direccion = field["direccion"].ToString(),
-                    Email = field["email"].ToString()
+                    Email = field["email"].ToString(),
+                    FechaNacimiento = field["fecha_nacimiento"].ToString()
                 }).ToList();
             }
             catch (Exception)
@@ -58,7 +59,8 @@ namespace HendrixAccountant.ApplicationCore.Map
                     telefono = field["telefono"].ToString(),
                     celular = field["celular"].ToString(),
                     direccion = field["direccion"].ToString(),
-                    email = field["email"].ToString()
+                    email = field["email"].ToString(),
+                    fecha_nacimiento = field["fecha_nacimiento"].ToString()
                 }).FirstOrDefault();
             }
             catch (Exception ex)
