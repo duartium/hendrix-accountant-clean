@@ -5,6 +5,7 @@ using HendrixAccountant.ApplicationCore.Map;
 using HendrixAccountant.Common;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace HendrixAccountant.Data
@@ -87,6 +88,14 @@ namespace HendrixAccountant.Data
             parms.Add(new SqlParameter("@identificacion", identification));
             var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
             return (int.Parse(dsResp.Tables[0].Rows[0]["RESULT"].ToString()) > 0);
+        }
+
+        public DataTable GetBirthdayCustomers(int month)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@mes", month));
+            var dsResp = _sqlServer.ExecuteProcedure("SP_BIRTHDAY_CUSTOMERS", parms);
+            return dsResp.Tables[0];
         }
 
     }

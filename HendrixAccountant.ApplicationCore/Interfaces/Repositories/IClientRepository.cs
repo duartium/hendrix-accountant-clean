@@ -1,6 +1,7 @@
 ﻿using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Entities;
 using System.Collections.Generic;
+using System.Data;
 
 namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
 {
@@ -12,5 +13,6 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
         bool Remove(int idClient, string username);
         List<ClientDto> GetList();
         bool IsDuplicateClient(string identification);
+        DataTable GetBirthdayCustomers(int month);
     }
 }

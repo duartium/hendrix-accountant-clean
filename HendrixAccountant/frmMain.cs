@@ -3,6 +3,7 @@ using HendrixAccountant.ApplicationCore.Enums;
 using HendrixAccountant.ApplicationCore.Models;
 using HendrixAccountant.Data.Repositories;
 using HendrixAccountant.Forms;
+using HendrixAccountant.Forms.Clients;
 using HendrixAccountant.Forms.Directorio;
 using HendrixAccountant.Forms.Inventory;
 using System;
@@ -26,6 +27,7 @@ namespace HendrixAccountant
         private frmCategorias frmCategorias = null;
         private frmTallas frmTallas = null;
         private frmKardex frmKardex = null;
+        private frmCumpleaneros frmCumpleaneros = null;
 
         #region constructores
         public frmMain()
@@ -77,6 +79,11 @@ namespace HendrixAccountant
         private void clientes_FormClosed(object sender, EventArgs e)
         {
             frmClientes = null;
+        }
+
+        private void cumpleaneros_FormClosed(object sender, EventArgs e)
+        {
+            frmCumpleaneros = null;
         }
 
         private void usuarios_FormClosed(object sender, EventArgs e)
@@ -453,6 +460,19 @@ namespace HendrixAccountant
             frmKardex.MdiParent = this;
             frmKardex.FormClosed += new FormClosedEventHandler(kardex_FormClosed);
             frmKardex.Show();
+        }
+
+        private void cumpleanerosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (frmCumpleaneros != null)
+            {
+                frmCumpleaneros.BringToFront();
+                return;
+            }
+            frmCumpleaneros = new frmCumpleaneros();
+            frmCumpleaneros.MdiParent = this;
+            frmCumpleaneros.FormClosed += new FormClosedEventHandler(cumpleaneros_FormClosed);
+            frmCumpleaneros.Show();
         }
     }
 }

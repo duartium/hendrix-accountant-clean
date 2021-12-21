@@ -65,6 +65,7 @@
             this.lblTipoUsuario = new System.Windows.Forms.Label();
             this.p = new System.Windows.Forms.PictureBox();
             this.itemReportes = new HendrixAccountant.UIControls.ItemMenu();
+            this.cumpleanerosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.statusBarMain.SuspendLayout();
             this.pnAside.SuspendLayout();
@@ -114,7 +115,7 @@
             // aperturarToolStripMenuItem
             // 
             this.aperturarToolStripMenuItem.Name = "aperturarToolStripMenuItem";
-            this.aperturarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aperturarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.aperturarToolStripMenuItem.Text = "Apertura";
             this.aperturarToolStripMenuItem.Click += new System.EventHandler(this.aperturarToolStripMenuItem_Click);
             // 
@@ -124,6 +125,7 @@
             this.clientesToolStripMenuItem,
             this.proveedoresToolStripMenuItem,
             this.usuariosToolStripMenuItem,
+            this.cumpleanerosToolStripMenuItem,
             this.toolStripSeparator1,
             this.productosToolStripMenuItem1,
             this.categoríasToolStripMenuItem,
@@ -201,7 +203,7 @@
             // comprasToolStripMenuItem1
             // 
             this.comprasToolStripMenuItem1.Name = "comprasToolStripMenuItem1";
-            this.comprasToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.comprasToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
             this.comprasToolStripMenuItem1.Text = "Compras";
             this.comprasToolStripMenuItem1.Click += new System.EventHandler(this.comprasToolStripMenuItem1_Click);
             // 
@@ -459,6 +461,13 @@
             this.itemReportes.UseVisualStyleBackColor = false;
             this.itemReportes.Click += new System.EventHandler(this.itemReportes_Click);
             // 
+            // cumpleanerosToolStripMenuItem
+            // 
+            this.cumpleanerosToolStripMenuItem.Name = "cumpleanerosToolStripMenuItem";
+            this.cumpleanerosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cumpleanerosToolStripMenuItem.Text = "Cumpleañeros";
+            this.cumpleanerosToolStripMenuItem.Click += new System.EventHandler(this.cumpleanerosToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -529,6 +538,7 @@
         private System.Windows.Forms.ToolStripMenuItem categoríasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tallasToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem cumpleanerosToolStripMenuItem;
     }
 }
 
