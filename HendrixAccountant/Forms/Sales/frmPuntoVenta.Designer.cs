@@ -757,6 +757,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtCodProducto;
+        public System.Windows.Forms.TextBox txtCodProducto;
     }
 }

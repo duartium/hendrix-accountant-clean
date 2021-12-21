@@ -176,8 +176,8 @@ namespace HendrixAccountant.Forms
 
                     var salesFilters = new SalesFilterDto
                     {
-                        FechaDesde = dtpFechaDesde.Value.Date.ToShortDateString(),
-                        FechaHasta = dtpFechaHasta.Value.Date.ToShortDateString(),
+                        FechaDesde = dtpFechaDesde.Value.Date.ToString("dd/MM/yyyy"),
+                        FechaHasta = dtpFechaHasta.Value.Date.ToString("dd/MM/yyyy"),
                         IdCliente = (_client != null) ? _client.IdCliente : -1,
                         IdUsuario = (_user != null) ? _user.IdUsuario : -1
                     };

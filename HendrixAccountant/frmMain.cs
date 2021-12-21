@@ -186,7 +186,9 @@ namespace HendrixAccountant
         {
             if (frmPuntoVenta != null)
             {
-                frmVentas.BringToFront();
+                frmPuntoVenta.BringToFront();
+                frmPuntoVenta.Activate();
+                frmPuntoVenta.txtCodProducto.Focus();
                 return;
             }
             frmPuntoVenta = new frmPuntoVenta();
@@ -219,10 +221,6 @@ namespace HendrixAccountant
         {
             DeselectButtons();
             itemVenta.BackColor = DataOperator.Instance.ColorQuaternary;
-            if (frmPuntoVenta != null) {
-                frmPuntoVenta.BringToFront();
-                return;
-            }
             ShowPOS();
         }
 
