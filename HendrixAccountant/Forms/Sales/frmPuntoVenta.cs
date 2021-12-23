@@ -18,6 +18,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Telerik.Reporting.Processing;
+using Telerik.Reporting.Drawing;
+using System.Drawing.Printing;
+using HendrixAccountant.Reports.Tickets;
+using HendrixAccountant.Forms.Sales;
 
 namespace HendrixAccountant
 {
@@ -423,8 +428,42 @@ namespace HendrixAccountant
             Company company = _rpsParams.Get() as Company;
             var dtCompany = new CompanyMapper().JsonCompanyToDataTable(company);
             dsFactura.Tables.Add(dtCompany);
-            frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = dsFactura, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
-            frmReportVentas.ShowDialog();
+
+            var document = new PrintDocument();
+            document.PrinterSettings.PrinterName = document.DefaultPageSettings.PrinterSettings.PrinterName;
+            if (!document.PrinterSettings.IsValid)
+            {
+                MessageBox.Show($"No se pudo conectar con la impresora {document.PrinterSettings.PrinterName}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var printerSettings = new PrinterSettings
+            {
+                PrinterName = document.PrinterSettings.PrinterName
+            };
+
+            var objectDataSource = new Telerik.Reporting.ObjectDataSource();
+            objectDataSource.DataSource = objectDataSource;
+
+            var ticketVenta = new ticketVenta();
+            //ticketVenta.nombres_cliente.DocumentMapText = "Byron Duarte";
+            ticketVenta.DataSource = dsFactura;
+            ticketVenta.Report.DataSource = dsFactura;
+
+            //Telerik.Reporting.TextBox txt = ticketVenta.Report.Items.Find("identificacion", true)[0] as Telerik.Reporting.TextBox;
+            //txt.Value = "set through app";
+
+            var reportSource = new Telerik.Reporting.InstanceReportSource();
+            reportSource.ReportDocument = ticketVenta;
+
+            //ReportProcessor reportProcessor = new ReportProcessor();
+            //reportProcessor.PrintReport(reportSource ,printerSettings);
+
+            var x = new frmTicketVenta(reportSource);
+            x.ShowDialog();
+
+            //frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = dsFactura, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
+            //frmReportVentas.ShowDialog();
         }
 
         private void SetCompanyColors()

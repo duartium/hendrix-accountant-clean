@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBuscarProductos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCodProducto = new System.Windows.Forms.TextBox();
             this.lblNombreProducto = new System.Windows.Forms.Label();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.txtNombreProd = new System.Windows.Forms.TextBox();
@@ -45,7 +46,6 @@
             this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTalla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtCodProducto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.pnAside.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -65,6 +65,19 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criterios de búsqueda";
+            // 
+            // txtCodProducto
+            // 
+            this.txtCodProducto.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCodProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCodProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodProducto.Location = new System.Drawing.Point(10, 40);
+            this.txtCodProducto.MaxLength = 20;
+            this.txtCodProducto.Name = "txtCodProducto";
+            this.txtCodProducto.Size = new System.Drawing.Size(88, 24);
+            this.txtCodProducto.TabIndex = 94;
+            this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
+            this.txtCodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodProducto_KeyPress);
             // 
             // lblNombreProducto
             // 
@@ -245,19 +258,6 @@
             this.colTalla.Name = "colTalla";
             this.colTalla.ReadOnly = true;
             this.colTalla.Width = 60;
-            // 
-            // txtCodProducto
-            // 
-            this.txtCodProducto.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCodProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCodProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodProducto.Location = new System.Drawing.Point(10, 40);
-            this.txtCodProducto.MaxLength = 20;
-            this.txtCodProducto.Name = "txtCodProducto";
-            this.txtCodProducto.Size = new System.Drawing.Size(88, 24);
-            this.txtCodProducto.TabIndex = 94;
-            this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
-            this.txtCodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodProducto_KeyPress);
             // 
             // frmBuscarProductos
             // 
