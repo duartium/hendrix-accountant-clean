@@ -53,7 +53,7 @@ namespace HendrixAccountant.Forms
                         dataSource.Add(new ReportDataSource("dsCriterios", dtCriterios));
                         break;
                     case ApplicationCore.Enums.TipoReporte.FACTURA_VENTA:
-                        rptViewerVentas.LocalReport.ReportPath = pathRoot+"rptFacturaVenta.rdlc";
+                        rptViewerVentas.LocalReport.ReportPath = pathRoot+"rptTicketVenta.rdlc";
                         dataSource.Add(new ReportDataSource("dsCompania", data.Data.Tables["dtCompany"]));
                         dataSource.Add(new ReportDataSource("dsFactura", data.Data.Tables[0]));
                         dataSource.Add(new ReportDataSource("dsFacturaDetalle", data.Data.Tables[1]));

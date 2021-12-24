@@ -442,25 +442,25 @@ namespace HendrixAccountant
                 PrinterName = document.PrinterSettings.PrinterName
             };
 
-            var objectDataSource = new Telerik.Reporting.ObjectDataSource();
-            objectDataSource.DataSource = objectDataSource;
+            frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = dsFactura, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
+            frmReportVentas.ShowDialog();
 
-            var ticketVenta = new ticketVenta();
-            //ticketVenta.nombres_cliente.DocumentMapText = "Byron Duarte";
-            ticketVenta.DataSource = dsFactura;
-            ticketVenta.Report.DataSource = dsFactura;
+            //var objectDataSource = new Telerik.Reporting.ObjectDataSource();
+            //objectDataSource.DataSource = objectDataSource;
 
-            //Telerik.Reporting.TextBox txt = ticketVenta.Report.Items.Find("identificacion", true)[0] as Telerik.Reporting.TextBox;
-            //txt.Value = "set through app";
+            //var ticketVenta = new ticketVenta();
+            //ticketVenta.DataSource = dsFactura;
+            //ticketVenta.Report.DataSource = dsFactura;
 
-            var reportSource = new Telerik.Reporting.InstanceReportSource();
-            reportSource.ReportDocument = ticketVenta;
+            //var reportSource = new Telerik.Reporting.InstanceReportSource();
+            //reportSource.ReportDocument = ticketVenta;
 
+            //IMPRIMIR DIRECTO
             //ReportProcessor reportProcessor = new ReportProcessor();
             //reportProcessor.PrintReport(reportSource ,printerSettings);
 
-            var x = new frmTicketVenta(reportSource);
-            x.ShowDialog();
+            //var x = new frmTicketVenta(reportSource);
+            //x.ShowDialog();
 
             //frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = dsFactura, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
             //frmReportVentas.ShowDialog();

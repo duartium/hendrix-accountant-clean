@@ -375,6 +375,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\rptFacturaVenta.rdlc" />
+    <EmbeddedResource Include="Reports\rptTicketVenta.rdlc" />
     <EmbeddedResource Include="Reports\rptVentasGenerales.rdlc" />
     <EmbeddedResource Include="Reports\Tickets\ticketVenta.resx">
       <DependentUpon>ticketVenta.cs</DependentUpon>
