@@ -20,11 +20,13 @@
     public class ProductDto : ISaleElement
     {
         public int IdProducto { get; set; }
+        public bool EsServicio { get; set; }
         public string CodigoBarras { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public decimal Costo { get; set; }
         public decimal Precio { get; set; }
+        public int TarifaIva { get; set; }
         public int Stock { get; set; }
         public int IdTalla { get; set; }
         public int IdProveedor { get; set; }

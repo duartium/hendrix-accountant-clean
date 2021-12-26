@@ -14,5 +14,6 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
         bool Remove(int idProduct, string usuario);
         List<BarcodeCard> GetBarcodes();
         ProductIdentityDto GetByCode(string code);
+        bool IsDuplicateCode(string code);
     }
 }

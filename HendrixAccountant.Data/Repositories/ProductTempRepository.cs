@@ -36,6 +36,15 @@ namespace HendrixAccountant.Data.Repositories
             return new ProductMapper().DatasetToProducts(dsResp);
         }
 
+        public bool IsDuplicateCode(string code)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", "D"));
+            parms.Add(new SqlParameter("@codigo", code));
+            var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+            return (int.Parse(dsResp.Tables[0].Rows[0]["RESULT"].ToString()) > 0);
+        }
+
         public List<BarcodeCard> GetBarcodes()
         {
             var parms = new List<SqlParameter>();
@@ -82,8 +91,10 @@ namespace HendrixAccountant.Data.Repositories
             parms.Add(new SqlParameter("@stock", product.Stock));
             parms.Add(new SqlParameter("@descuento", product.Descuento));
             parms.Add(new SqlParameter("@talla", product.IdTalla));
+            parms.Add(new SqlParameter("@tarifaIva", product.TarifaIva));
             parms.Add(new SqlParameter("@idProveedor", product.IdProveedor));
             parms.Add(new SqlParameter("@idCategoria", product.IdCategoria));
+            parms.Add(new SqlParameter("@es_servicio", product.EsServicio));
             if (isUpdate) parms.Add(new SqlParameter("@idProducto", product.IdProducto));
             int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
             if (resp > 0) return true; else return false;

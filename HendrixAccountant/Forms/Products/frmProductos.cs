@@ -104,7 +104,7 @@ namespace HendrixAccountant
             txtDescripcion.Text = _product.descripcion;
             txtCosto.Text = _product.costo.ToString();
             txtPrecioVenta.Text = _product.precio_venta.ToString();
-            txtStock.Text = _product.stock.ToString();
+            //txtStock.Text = _product.stock.ToString();
             txtCodProveedor.Text = _supplier.IdProveedor.ToString();
             txtNombreProveedor.Text = _supplier.Nombre;
             cmbTalla.SelectedValue = _product.id_talla;
@@ -151,9 +151,7 @@ namespace HendrixAccountant
             if (txtCodBarras.Text.Trim().Length == 0 ||
                 txtNombre.Text.Length == 0 ||
                txtCosto.Text.Trim().Length == 0 ||
-               txtPrecioVenta.Text.Trim().Length == 0 ||
-               txtStock.Text.Trim().Length == 0 ||
-               txtStock.Text.Trim().Length == 0)
+               txtPrecioVenta.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Complete los datos del producto para proceder con su registro.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -170,20 +168,32 @@ namespace HendrixAccountant
             var dataOp = DataOperator.Instance;
             var product = new ProductDto
             {
-                IdProducto = _product == null? -1 :_product.id_producto,
+                IdProducto = _product == null ? -1 : _product.id_producto,
                 CodigoBarras = txtCodBarras.Text.Trim().ToUpper(),
+                EsServicio = rbServicio.Checked,
                 Nombre = txtNombre.Text,
                 Descripcion = txtDescripcion.Text,
                 Costo = Convert.ToDecimal(txtCosto.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
                 Precio = Convert.ToDecimal(txtPrecioVenta.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
-                Stock = Convert.ToInt32(txtStock.Text),
+                TarifaIva = cmbTarifaIva.SelectedIndex == 0 ? 0 : 12,
+                Stock = 0,
                 IdCategoria = Convert.ToInt32(cboCategoria.SelectedValue),
                 IdProveedor = _supplier.IdProveedor,
                 IdTalla = Convert.ToInt32(cmbTalla.SelectedValue),
                 Usuario = dataOp.Username
             };
 
+            if (rbServicio.Checked) 
+                mensaje = "Servicio registrado con éxito.";
+
             if (_eEstadoPantalla == EstadoPantalla.MODIFICACION) { isUpdate = true; mensaje = mensaje.Replace("registrado", "actualizado"); }
+
+            if (!isUpdate && _rpsProduct.IsDuplicateCode(product.CodigoBarras))
+            {
+                MessageBox.Show($"Ya existe un producto registrado con el código {product.CodigoBarras}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (_rpsProduct.Save(product, isUpdate))
             {
                 _barcodeService.Generate(txtCodBarras.Text.Trim());
@@ -211,7 +221,7 @@ namespace HendrixAccountant
             txtDescripcion.Clear();
             txtCosto.Clear();
             txtPrecioVenta.Clear();
-            txtStock.Clear();
+            //txtStock.Clear();
             pbBarcode.Image = null;
             _product = null;
             dgvProductos.Rows.Clear();
@@ -232,7 +242,9 @@ namespace HendrixAccountant
             txtDescripcion.Enabled = valor;
             txtCosto.Enabled = valor;
             txtPrecioVenta.Enabled = valor;
-            txtStock.Enabled = valor;
+            //txtStock.Enabled = valor;
+            gbTipo.Enabled = valor;
+            cmbTarifaIva.Enabled = valor;
             pnProveedor.Enabled = valor;
             EnabledCombos(valor);
         }
@@ -258,7 +270,7 @@ namespace HendrixAccountant
             lblPnDescripcion.BackColor = backColor;
             lblPnCosto.BackColor = backColor;
             lblPnPrecioVenta.BackColor = backColor;
-            lblPnStock.BackColor = backColor;
+            //lblPnStock.BackColor = backColor;
             lblPnCodigoProv.BackColor = backColor;
             lblPnNombreProv.BackColor = backColor;
         }
@@ -367,6 +379,7 @@ namespace HendrixAccountant
                     btnLimpiar.Visible = false;
                     btnGuardar.Visible = false;
                     btnEliminar.Visible = false;
+                    cmbTarifaIva.SelectedIndex = 0;
                     EnabledForm(false);
                     txtCodProducto.Focus();
                     break;
@@ -402,7 +415,7 @@ namespace HendrixAccountant
 
         private void frmProductos_Activated(object sender, EventArgs e)
         {
-            txtNombreProd.Focus();
+            txtCodProducto.Focus();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -532,16 +545,7 @@ namespace HendrixAccountant
 
         private void txtCodBarras_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == '\b')
-            {
-                if (!e.KeyChar.ToString().Contains("Ñ"))
-                {
-                    e.Handled = false;
-                    e.KeyChar = Char.ToUpper(e.KeyChar);
-                }
-                else { e.Handled = true; }
-            }
-            else e.Handled = true;
+            
         }
 
         private void txtNombreProd_KeyDown(object sender, KeyEventArgs e)
@@ -697,6 +701,63 @@ namespace HendrixAccountant
                 frmPdfReader frmPdfReader = new frmPdfReader(pathPdfCreated);
                 frmPdfReader.ShowDialog();
             }
+        }
+
+        private void txtCodBarras_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtNombre.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+            //if (Char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == '\b')
+            //{
+            //    if (!e.KeyChar.ToString().Contains("Ñ"))
+            //    {
+            //        e.Handled = false;
+            //        e.KeyChar = Char.ToUpper(e.KeyChar);
+            //    }
+            //    else { e.Handled = true; }
+            //}
+            //else e.Handled = true;
+        }
+
+        private void rbServicio_CheckedChanged(object sender, EventArgs e)
+        {
+            pnlCosto.Visible = false;
+            lblCosto.Visible = false;
+
+            lblPrecioVenta.Location = new Point(19, 214);
+            pnlPrecioVenta.Location = new Point(22, 229);
+            lblTarifaIva.Location = new Point(125, 214);
+            cmbTarifaIva.Location = new Point(128, 237);
+            pnProveedor.Visible = false;
+            txtNombre.Focus();
+        }
+
+        private void rbProducto_CheckedChanged(object sender, EventArgs e)
+        {
+            pnlCosto.Visible = true;
+            lblCosto.Visible = true;
+
+            lblPrecioVenta.Location = new Point(125, 214);
+            pnlPrecioVenta.Location = new Point(128, 229);
+            lblTarifaIva.Location = new Point(231, 214);
+            cmbTarifaIva.Location = new Point(234, 237);
+
+            pnProveedor.Visible = true;
+            txtNombre.Focus();
+        }
+
+        private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cboCategoria_DropDown(object sender, EventArgs e)
+        {
+            LoadComboBoxCategorias();
         }
     }
 }

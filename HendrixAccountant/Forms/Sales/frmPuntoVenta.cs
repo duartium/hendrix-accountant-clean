@@ -1,6 +1,5 @@
 ﻿using HendrixAccountant.ApplicationCore.Constants;
 using HendrixAccountant.ApplicationCore.DTOs;
-using HendrixAccountant.ApplicationCore.Enums;
 using HendrixAccountant.ApplicationCore.Interfaces.Forms;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.ApplicationCore.Interfaces.Services;
@@ -11,9 +10,8 @@ using HendrixAccountant.Common;
 using HendrixAccountant.Data;
 using HendrixAccountant.Data.Repositories;
 using HendrixAccountant.Data.Services;
-using HendrixAccountant.Forms;
 using HendrixAccountant.Forms.Sales;
-using Microsoft.Reporting.WinForms;
+using HendrixAccountant.Reports.Tickets;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -22,8 +20,6 @@ using System.Drawing.Printing;
 using System.Linq;
 using System.Windows.Forms;
 using Telerik.Reporting.Processing;
-using HendrixAccountant.Reports.Tickets;
-using Telerik.Reporting.Drawing;
 
 namespace HendrixAccountant
 {
@@ -455,13 +451,13 @@ namespace HendrixAccountant
 
             var reportSource = new Telerik.Reporting.InstanceReportSource();
             reportSource.ReportDocument = ticketVenta;
-            
-            //IMPRIMIR DIRECTO
-            ReportProcessor reportProcessor = new ReportProcessor();
-            reportProcessor.PrintReport(reportSource, printerSettings);
 
-            //var x = new frmTicketVenta(reportSource);
-            //x.ShowDialog();
+            //IMPRIMIR DIRECTO
+            //ReportProcessor reportProcessor = new ReportProcessor();
+            //reportProcessor.PrintReport(reportSource, printerSettings);
+
+            var x = new frmTicketVenta(reportSource);
+            x.ShowDialog();
 
             //frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = dsFactura, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
             //frmReportVentas.ShowDialog();
