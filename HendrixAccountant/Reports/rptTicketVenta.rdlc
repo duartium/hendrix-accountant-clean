@@ -6,16 +6,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.24083cm</Width>
+              <Width>0.87544cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.05021cm</Width>
+              <Width>0.59157cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.60042cm</Width>
+              <Width>0.9125cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.73271cm</Width>
+              <Width>1.38875cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -306,10 +306,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsFacturaDetalle</DataSetName>
-        <Top>0.31433cm</Top>
-        <Left>0.127cm</Left>
+        <Top>0.63183cm</Top>
+        <Left>0.762cm</Left>
         <Height>1.2cm</Height>
-        <Width>8.62417cm</Width>
+        <Width>3.76827cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -317,13 +317,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.70833in</Height>
+    <Height>0.98958in</Height>
     <Style />
   </Body>
-  <Width>3.54331in</Width>
+  <Width>2.24691in</Width>
   <Page>
     <PageHeader>
-      <Height>2.54cm</Height>
+      <Height>3.12208cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -346,10 +346,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.66661cm</Top>
-          <Left>1.67573cm</Left>
+          <Top>0.59782cm</Top>
+          <Left>0.5209cm</Left>
           <Height>0.49417cm</Height>
-          <Width>5.80729cm</Width>
+          <Width>4.58789cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -380,10 +380,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>1.19606cm</Top>
-          <Left>0.65554cm</Left>
+          <Top>1.41831cm</Top>
+          <Left>0.4445cm</Left>
           <Height>0.83813cm</Height>
-          <Width>8.09562cm</Width>
+          <Width>4.85479cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -404,7 +404,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.9525cm</Height>
+      <Height>1.42875cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -427,10 +427,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.17639cm</Top>
-          <Left>1.59636cm</Left>
+          <Top>0.14111cm</Top>
+          <Left>0.37928cm</Left>
           <Height>0.49417cm</Height>
-          <Width>5.80729cm</Width>
+          <Width>4.71721cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -449,12 +449,12 @@
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
-    <LeftMargin>1cm</LeftMargin>
-    <RightMargin>1cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <PageHeight>9cm</PageHeight>
+    <PageWidth>5.8cm</PageWidth>
+    <LeftMargin>0cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
+    <TopMargin>0cm</TopMargin>
+    <BottomMargin>0cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

@@ -12,17 +12,18 @@ using HendrixAccountant.Data;
 using HendrixAccountant.Data.Repositories;
 using HendrixAccountant.Data.Services;
 using HendrixAccountant.Forms;
+using HendrixAccountant.Forms.Sales;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Windows.Forms;
 using Telerik.Reporting.Processing;
-using Telerik.Reporting.Drawing;
-using System.Drawing.Printing;
 using HendrixAccountant.Reports.Tickets;
-using HendrixAccountant.Forms.Sales;
+using Telerik.Reporting.Drawing;
 
 namespace HendrixAccountant
 {
@@ -206,13 +207,16 @@ namespace HendrixAccountant
                     DisableAdd();
                     DisabledRemove();
                     PrintSale(secuencial);
-                    MessageBox.Show("Venta registrada con éxito", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    SetFinalConsumer();
+                    MessageBox.Show($"Venta nº {secuencial} registrada con éxito.", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtCodProducto.Focus();
                 }
                 else MessageBox.Show("No se pudo procesar la venta.", "Proceso fallido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {
                 Utils.GrabarLog("btnGuardar_Click", ex.ToString());
+                MessageBox.Show(ex.Message, "Proceso fallido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -442,22 +446,19 @@ namespace HendrixAccountant
                 PrinterName = document.PrinterSettings.PrinterName
             };
 
-            frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = dsFactura, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
-            frmReportVentas.ShowDialog();
+            //var frmReportVentas = new frmReportVentas(new ReportData { Data = dsFactura, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
+            //frmReportVentas.ShowDialog();
 
-            //var objectDataSource = new Telerik.Reporting.ObjectDataSource();
-            //objectDataSource.DataSource = objectDataSource;
+            var ticketVenta = new ticketVenta();
+            ticketVenta.DataSource = dsFactura.Tables["table"];
+            ticketVenta.tblDetailInvoice.DataSource = dsFactura.Tables["table1"];
 
-            //var ticketVenta = new ticketVenta();
-            //ticketVenta.DataSource = dsFactura;
-            //ticketVenta.Report.DataSource = dsFactura;
-
-            //var reportSource = new Telerik.Reporting.InstanceReportSource();
-            //reportSource.ReportDocument = ticketVenta;
-
+            var reportSource = new Telerik.Reporting.InstanceReportSource();
+            reportSource.ReportDocument = ticketVenta;
+            
             //IMPRIMIR DIRECTO
-            //ReportProcessor reportProcessor = new ReportProcessor();
-            //reportProcessor.PrintReport(reportSource ,printerSettings);
+            ReportProcessor reportProcessor = new ReportProcessor();
+            reportProcessor.PrintReport(reportSource, printerSettings);
 
             //var x = new frmTicketVenta(reportSource);
             //x.ShowDialog();

@@ -69,6 +69,7 @@ namespace HendrixAccountant.Forms
                 this.rptViewerVentas.ZoomMode = ZoomMode.Percent;
                 this.rptViewerVentas.ZoomPercent = 100;
                 this.rptViewerVentas.RefreshReport();
+                rptViewerVentas.PrintDialog();
             }
             catch (Exception ex)
             {

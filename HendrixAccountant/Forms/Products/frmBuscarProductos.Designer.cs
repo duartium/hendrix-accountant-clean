@@ -58,7 +58,7 @@
             this.groupBox1.Controls.Add(this.lblCodigo);
             this.groupBox1.Controls.Add(this.txtNombreProd);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.Black;
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.GrayText;
             this.groupBox1.Location = new System.Drawing.Point(5, 9);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(538, 80);
@@ -83,6 +83,7 @@
             // 
             this.lblNombreProducto.AutoSize = true;
             this.lblNombreProducto.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreProducto.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblNombreProducto.Location = new System.Drawing.Point(105, 24);
             this.lblNombreProducto.Name = "lblNombreProducto";
             this.lblNombreProducto.Size = new System.Drawing.Size(97, 14);
@@ -93,6 +94,7 @@
             // 
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCodigo.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblCodigo.Location = new System.Drawing.Point(7, 24);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(40, 14);
