@@ -101,6 +101,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCantidad";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "INGRESE CANTIDAD";
             this.Activated += new System.EventHandler(this.frmCantidad_Activated);
             this.Load += new System.EventHandler(this.frmCantidad_Load);

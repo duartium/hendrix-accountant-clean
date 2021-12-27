@@ -19,7 +19,6 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
 using System.Windows.Forms;
-using Telerik.Reporting.Processing;
 
 namespace HendrixAccountant
 {
@@ -111,14 +110,17 @@ namespace HendrixAccountant
         {
             if (_product == null) return;
 
-            if (quantity > _product.Stock)
+            if (!_product.EsServicio)
             {
-                _product = null;
-                MessageBox.Show("No hay suficientes productos en stock.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if (quantity > _product.Stock)
+                {
+                    _product = null;
+                    MessageBox.Show("No hay suficientes productos en stock.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                //actualiza stock
+                _rpsProduct.UpdateStock(new StockDto { IdProducto = _product.IdProducto, Cantidad = quantity }, true);
             }
-            //actualiza stock
-            _rpsProduct.UpdateStock(new StockDto{ IdProducto = _product.IdProducto, Cantidad = quantity }, true);
 
             _product.Cantidad = quantity;
             decimal total = _product.Precio * quantity;
@@ -126,7 +128,7 @@ namespace HendrixAccountant
             _lsProducts.Add(_product);
             FillGrid();
             CalcularTotales();
-            lblInfo.Text = "Producto agregado.";
+            lblInfo.Text = _product.EsServicio ? "Servicio agregado." : "Producto agregado.";
         }
 
         protected void SearchProduct()
@@ -153,10 +155,17 @@ namespace HendrixAccountant
         {
             if (_lsProducts == null) return;
             if (_lsProducts.Count <= 0) return;
-            decimal subtotal = _lsProducts.Select(x => x.Total).Sum();
-            decimal totalGeneral = subtotal - _descuento;
 
-            txtValorSubtotal.Text = subtotal.ToString().Replace(",", ".");
+            decimal subtotal0 = _lsProducts.Where(x => x.TarifaIva == 0).Select(x => x.Total).Sum();
+            decimal subtotal12 = _lsProducts.Where(x => x.TarifaIva == 12).Select(x => x.Total).Sum();
+            decimal subtotal = subtotal0 + subtotal12;
+            decimal totalGeneral = subtotal - _descuento;
+            decimal iva = Math.Round((subtotal12 * 0.12M), 2);
+
+            txtValorSubtotal0.Text = subtotal0.ToString().Replace(",", ".");
+            txtValorSubtotal.Text = subtotal12.ToString().Replace(",", ".");
+            txtValorSubtotalGral.Text = subtotal.ToString().Replace(",", ".");
+            txtValorIva.Text = iva.ToString().Replace(",", ".");
             txtTotalPagar.Text = totalGeneral.ToString().Replace(",", ".");
         }
 
@@ -224,6 +233,9 @@ namespace HendrixAccountant
             txtValorDscto.Text = "0.00";
             txtValorIva.Text = "0.00";
             txtTotalPagar.Text = "0.00";
+            txtValorSubtotal0.Text = "0.00";
+            txtValorSubtotalGral.Text = "0.00";
+
             txtNombresCliente.Clear();
             txtIdentCliente.Clear();
             txtDireccionCliente.Clear();

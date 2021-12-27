@@ -14,6 +14,8 @@
         public decimal Precio { get; set; }
         public int Cantidad { get; set; }
         public int Stock { get; set; }
+        public int TarifaIva { get; set; }
+        public bool EsServicio { get; set; }
         public decimal Total { get; set; }
     }
 

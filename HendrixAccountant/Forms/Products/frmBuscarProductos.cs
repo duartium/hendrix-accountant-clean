@@ -15,6 +15,7 @@ namespace HendrixAccountant
     {
         private readonly IProductTempRepository _rpsProduct;
         private IFindElement _caller;
+        private bool _esRegistroCompra;
         public frmBuscarProductos()
         {
             InitializeComponent();
@@ -22,12 +23,13 @@ namespace HendrixAccountant
             _rpsProduct = new ProductTempRepository();
         }
 
-        public frmBuscarProductos(IFindElement caller)
+        public frmBuscarProductos(IFindElement caller, bool esRegistroCompra = false)
         {
             InitializeComponent();
             SetCompanyColors();
             _caller = caller;
             _rpsProduct = new ProductTempRepository();
+            _esRegistroCompra = esRegistroCompra;
         }
 
         private void frmBuscarProductos_Load(object sender, EventArgs e)
@@ -88,7 +90,9 @@ namespace HendrixAccountant
                     Codigo = rowProduct.codigo,
                     Nombre = rowProduct.nombre,
                     Precio = rowProduct.precio_venta,
-                    Stock = rowProduct.stock
+                    Stock = rowProduct.stock,
+                    TarifaIva = rowProduct.tarifa_iva,
+                    EsServicio = rowProduct.es_servicio
                 };
             }
             catch (Exception ex)
@@ -109,10 +113,14 @@ namespace HendrixAccountant
             if (e.RowIndex < 0) return;
 
             ProductIdentityDto product = MapRowToProduct(dgvProductos.Rows[e.RowIndex]);
-            if (product.Stock <= 0)
+
+            if (!_esRegistroCompra && !product.EsServicio)
             {
-                MessageBox.Show("Stock insuficiente de artículo: " + product.Nombre, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if (product.Stock <= 0)
+                {
+                    MessageBox.Show("Stock insuficiente de artículo: " + product.Nombre, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
 
             if (_caller.GetType() == typeof(frmProductos))

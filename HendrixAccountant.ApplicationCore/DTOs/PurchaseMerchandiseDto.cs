@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace HendrixAccountant.ApplicationCore.DTOs
 {
@@ -7,7 +6,7 @@ namespace HendrixAccountant.ApplicationCore.DTOs
     {
         public int IdEntrada { get; set; }
         public string NumComprobante { get; set; }
-        public DateTime FechaEmision { get; set; }
+        public string FechaEmision { get; set; }
         public int IdProveedor { get; set; }
         public string Observaciones { get; set; }
         public string Usuario { get; set; }

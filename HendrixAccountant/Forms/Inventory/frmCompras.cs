@@ -81,7 +81,7 @@ namespace HendrixAccountant.Forms.Inventory
                 var dataOp = DataOperator.Instance;
                 _purchase = new PurchaseMerchandiseDto
                 {
-                    FechaEmision = dtpFechaEmision.Value,
+                    FechaEmision = dtpFechaEmision.Value.ToString("yyyy-MM-dd HH:mm:ss"),
                     NumComprobante = txtNumComprobante.Text.Trim(),
                     IdProveedor = Convert.ToInt32(txtCodProveedor.Text.Trim()),
                     Observaciones = txtObservaciones.Text,
@@ -123,7 +123,7 @@ namespace HendrixAccountant.Forms.Inventory
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            frmBuscarProductos frmBuscarProductos = new frmBuscarProductos(this);
+            frmBuscarProductos frmBuscarProductos = new frmBuscarProductos(this, true);
             frmBuscarProductos.ShowDialog();
         }
 

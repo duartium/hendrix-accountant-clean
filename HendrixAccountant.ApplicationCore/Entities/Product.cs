@@ -1,11 +1,5 @@
 ﻿using HendrixAccountant.ApplicationCore.DTOs;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HendrixAccountant.ApplicationCore.Entities
 {
@@ -36,5 +30,7 @@ namespace HendrixAccountant.ApplicationCore.Entities
         public string usuario_mod { get; set; }
         public DateTime eliminado_en { get; set; }
         public string usuario_elim { get; set; }
+        public bool es_servicio { get; set; }
+        public int tarifa_iva { get; set; }
     }
 }

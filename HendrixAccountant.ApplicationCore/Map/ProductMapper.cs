@@ -34,7 +34,9 @@ namespace HendrixAccountant.ApplicationCore.Map
                     categoria_id = Convert.ToInt32(field["idCategoria"].ToString()),
                     categoria = field["categoria"].ToString(),
                     proveedor_id = Convert.ToInt32(field["idProveedor"].ToString()),
-                    proveedor = field["nombreProveedor"].ToString()
+                    proveedor = field["nombreProveedor"].ToString(),
+                    es_servicio = Convert.ToBoolean(field["es_servicio"].ToString()),
+                    tarifa_iva = Convert.ToInt32(field["tarifa_iva"].ToString())
                 }).ToList();
             }
             catch (Exception ex)
@@ -58,6 +60,8 @@ namespace HendrixAccountant.ApplicationCore.Map
                     Codigo = field["codigo"].ToString(),
                     Stock = Convert.ToInt32(field["stock"].ToString()),
                     Precio = Convert.ToDecimal(field["precio"].ToString(), Utils.GetCulture()),
+                    EsServicio = Convert.ToBoolean(field["es_servicio"].ToString()),
+                    TarifaIva = Convert.ToInt32(field["tarifa_iva"].ToString())
                 }).FirstOrDefault();
             }
             catch (Exception ex)
