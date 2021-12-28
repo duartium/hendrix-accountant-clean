@@ -11,11 +11,13 @@ using HendrixAccountant.Data;
 using HendrixAccountant.Data.Dtos;
 using HendrixAccountant.Data.Repositories;
 using HendrixAccountant.Data.Services;
+using HendrixAccountant.Forms.Sales;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using HendrixAccountant.Reports.Tickets;
 
 namespace HendrixAccountant.Forms
 {
@@ -73,8 +75,33 @@ namespace HendrixAccountant.Forms
             var dtCompany = new CompanyMapper().JsonCompanyToDataTable(company);
             if(!_dsResp.Tables.Contains("dtCompany"))
                 _dsResp.Tables.Add(dtCompany);
-            frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = _dsResp, TipoReporte = _tipoReporte, Criterios = criterios });
-            frmReportVentas.ShowDialog();
+
+
+            if (consultaVenta == ConsultaVenta.COMP_INDIVIDUAL)
+            {
+                //var document = new PrintDocument();
+                //document.PrinterSettings.PrinterName = document.DefaultPageSettings.PrinterSettings.PrinterName;
+                //if (!document.PrinterSettings.IsValid)
+                //{
+                //    MessageBox.Show($"No se pudo conectar con la impresora {document.PrinterSettings.PrinterName}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    return;
+                //}
+
+                var ticketVenta = new ticketVenta();
+                ticketVenta.DataSource = _dsResp.Tables["table"];
+                ticketVenta.tblDetailInvoice.DataSource = _dsResp.Tables["table1"];
+
+                var reportSource = new Telerik.Reporting.InstanceReportSource();
+                reportSource.ReportDocument = ticketVenta;
+
+                var frmTicketVenta = new frmTicketVenta(reportSource);
+                frmTicketVenta.ShowDialog();
+            }
+            else
+            {
+                frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = _dsResp, TipoReporte = _tipoReporte, Criterios = criterios });
+                frmReportVentas.ShowDialog();
+            }
         }
 
         private void FillGrid()
@@ -244,8 +271,12 @@ namespace HendrixAccountant.Forms
 
         private void txtNumSecuencial_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            
+            if (e.KeyCode == Keys.Enter)
+            {
                 Search();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

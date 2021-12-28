@@ -230,7 +230,12 @@ namespace HendrixAccountant
                     BaseImponible = Convert.ToDecimal(txtValorSubtotal.Text, Utils.GetCulture()),
                     TotalDescuento = Convert.ToDecimal(txtValorDscto.Text, Utils.GetCulture()),
                     IVA = Convert.ToDecimal(txtValorIva.Text, Utils.GetCulture()),
+                    Subtotal0 = Convert.ToDecimal(txtValorSubtotal0.Text, Utils.GetCulture()),
+                    Subtotal2 = Convert.ToDecimal(txtValorSubtotal.Text, Utils.GetCulture()),
+                    SubtotaGeneral = Convert.ToDecimal(txtValorSubtotalGral.Text, Utils.GetCulture()),
                     Total = Convert.ToDecimal(txtTotalPagar.Text, Utils.GetCulture()),
+                    Pago = Convert.ToDecimal(txtPago.Text.Replace("$", ""), Utils.GetCulture()),
+                    Cambio = Convert.ToDecimal(txtCambio.Text, Utils.GetCulture()),
                     Detalle = _lsProducts,
                     Auditoria = new Audit{
                         IdUser = dataOp.IdUser,
@@ -238,16 +243,17 @@ namespace HendrixAccountant
                         SerialMainboard = Utils.GetSerial()
                     }
                 };
+
                 var sale = new SaleService();
                 int secuencial = sale.Generate(_invoice);
                 if (secuencial > 0)
                 {
+                    PrintSale(secuencial);
+                    MessageBox.Show($"Se registró la venta con comprobante nº {secuencial}.", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clear();
                     DisableAdd();
                     DisabledRemove();
-                    PrintSale(secuencial);
                     SetFinalConsumer();
-                    MessageBox.Show($"Venta nº {secuencial} registrada con éxito.", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtCodProducto.Focus();
                 }
                 else MessageBox.Show("No se pudo procesar la venta.", "Proceso fallido", MessageBoxButtons.OK, MessageBoxIcon.Warning);

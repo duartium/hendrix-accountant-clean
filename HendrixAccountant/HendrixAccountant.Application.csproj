@@ -45,6 +45,7 @@
   <ItemGroup>
     <Reference Include="HendrixAccountant.Controls">
       <HintPath>..\HendrixAccountant.Controls\obj\Debug\HendrixAccountant.Controls.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="HendrixAccountant.UIControls">
       <HintPath>..\HendrixAccountant.UIControls\obj\Debug\HendrixAccountant.UIControls.dll</HintPath>
@@ -117,12 +118,6 @@
     </Compile>
     <Compile Include="Forms\Inventory\frmKardex.Designer.cs">
       <DependentUpon>frmKardex.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\PdfViewer\frmPdfReader.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\PdfViewer\frmPdfReader.Designer.cs">
-      <DependentUpon>frmPdfReader.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PdfViewer\frmPdfViewer.cs">
       <SubType>Form</SubType>
@@ -294,9 +289,6 @@
     <EmbeddedResource Include="Forms\Inventory\frmKardex.resx">
       <DependentUpon>frmKardex.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PdfViewer\frmPdfReader.resx">
-      <DependentUpon>frmPdfReader.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PdfViewer\frmPdfViewer.resx">
       <DependentUpon>frmPdfViewer.cs</DependentUpon>
     </EmbeddedResource>
@@ -454,6 +446,8 @@
     <Content Include="Resources\Images\HendrixLogoWhite256.png" />
     <Content Include="Resources\Images\HendrixUserCircle.png" />
     <Content Include="Resources\Images\HendrixUserCirclePink.png" />
+    <Content Include="Resources\Images\instagram.png" />
+    <Content Include="Resources\Images\instagram_ticket.jpg" />
     <Content Include="Resources\Images\logo.png" />
     <Content Include="Resources\Images\LogoNovedadesChic.png" />
     <Content Include="Resources\Images\LogoNovedadesChicWhite.png" />
@@ -465,10 +459,12 @@
     <Content Include="Resources\Images\saveWhite20.png" />
     <Content Include="Resources\Images\searchBlue20.png" />
     <Content Include="Resources\Images\simpleReportWhite25.png" />
+    <Content Include="Resources\Images\tiktok_ticket.jpg" />
     <Content Include="Resources\Images\trashWhite20.png" />
     <None Include="Resources\Images\userWhite25.png" />
     <Content Include="Resources\Images\usersWhite25.png" />
     <Content Include="Resources\Images\userWhite20.png" />
+    <Content Include="Resources\Images\whatsapp_ticket.jpg" />
     <Content Include="Resources\NovedadesChicLogo.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

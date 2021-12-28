@@ -10,9 +10,14 @@ namespace HendrixAccountant.ApplicationCore.DTOs
         public int FormaPago { get; set; }
         public DateTime FechaEmision { get; set; }
         public decimal BaseImponible { get; set; }
+        public decimal Subtotal0 { get; set; }
+        public decimal Subtotal2 { get; set; }
+        public decimal SubtotaGeneral { get; set; }
         public decimal TotalDescuento { get; set; }
         public decimal IVA { get; set; }
         public decimal Total { get; set; }
+        public decimal Pago { get; set; }
+        public decimal Cambio { get; set; }
         public List<ProductIdentityDto> Detalle { get; set; }
         public Audit Auditoria { get; set; }
     }

@@ -63,7 +63,13 @@ namespace HendrixAccountant.ApplicationCore.Services
                         new XElement("fechaEmision", invoice.FechaEmision.ToString("yyyy-MM-dd HH:mm:ss")),
                         new XElement("baseImponible", invoice.BaseImponible),
                         new XElement("iva", invoice.IVA),
+                        new XElement("subtotal0", invoice.Subtotal0),
+                        new XElement("subtotal12", invoice.Subtotal2),
+                        new XElement("subtotal", invoice.SubtotaGeneral),
                         new XElement("total", invoice.Total),
+                        new XElement("pago", invoice.Pago),
+                        new XElement("cambio", invoice.Cambio),
+                        new XElement("descuento", invoice.TotalDescuento),
                         new XElement("detalles",
                             (from det in invoice.Detalle
                              select new XElement("detalle",

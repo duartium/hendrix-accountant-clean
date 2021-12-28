@@ -36,11 +36,14 @@ namespace HendrixAccountant.Forms.Sales
             // rptViewerTicket
             // 
             this.rptViewerTicket.AccessibilityKeyMap = null;
+            this.rptViewerTicket.AutoSize = true;
             this.rptViewerTicket.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rptViewerTicket.Location = new System.Drawing.Point(0, 0);
             this.rptViewerTicket.Name = "rptViewerTicket";
             this.rptViewerTicket.Size = new System.Drawing.Size(800, 450);
             this.rptViewerTicket.TabIndex = 0;
+            this.rptViewerTicket.ViewMode = Telerik.ReportViewer.WinForms.ViewMode.PrintPreview;
+            this.rptViewerTicket.ZoomPercent = 140;
             // 
             // frmTicketVenta
             // 
@@ -51,8 +54,10 @@ namespace HendrixAccountant.Forms.Sales
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmTicketVenta";
             this.Text = "TICKET DE VENTA";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmTicketVenta_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

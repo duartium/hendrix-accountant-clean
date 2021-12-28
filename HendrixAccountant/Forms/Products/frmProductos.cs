@@ -496,8 +496,8 @@ namespace HendrixAccountant
                 System.Diagnostics.Process.Start("chrome.exe", pathPdfCreated);
             else
             {
-                frmPdfReader frmPdfReader = new frmPdfReader(pathPdfCreated);
-                frmPdfReader.ShowDialog();
+                //frmPdfReader frmPdfReader = new frmPdfReader(pathPdfCreated);
+                //frmPdfReader.ShowDialog();
             }
             //frmPdfViewer pdfViewer = new frmPdfViewer(pathPdfCreated);
             //pdfViewer.Show();
@@ -704,8 +704,8 @@ namespace HendrixAccountant
                 System.Diagnostics.Process.Start("chrome.exe", pathPdfCreated);
             else
             {
-                frmPdfReader frmPdfReader = new frmPdfReader(pathPdfCreated);
-                frmPdfReader.ShowDialog();
+                //frmPdfReader frmPdfReader = new frmPdfReader(pathPdfCreated);
+                //frmPdfReader.ShowDialog();
             }
         }
 

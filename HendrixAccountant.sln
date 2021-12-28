@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HendrixAccountant.Common", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HendrixAccountant.Infrastructure.Data", "HendrixAccountant.Data\HendrixAccountant.Infrastructure.Data.csproj", "{33AEE00C-482A-4AC2-BC7C-A5B95FBB9A8A}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HendrixAccountant.Database", "HendrixAccountant.Database\HendrixAccountant.Database.sqlproj", "{B1C78E72-B9F6-497F-A896-11431ABD5A4C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HendrixAccountant.ApplicationCore", "HendrixAccountant.ApplicationCore\HendrixAccountant.ApplicationCore.csproj", "{A0AFDEC2-CD63-4685-8DD8-20CB5111D68A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{7715FF6A-0232-4FBE-A819-0E67ACAE9CC9}"
@@ -39,12 +37,6 @@ Global
 		{33AEE00C-482A-4AC2-BC7C-A5B95FBB9A8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33AEE00C-482A-4AC2-BC7C-A5B95FBB9A8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33AEE00C-482A-4AC2-BC7C-A5B95FBB9A8A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1C78E72-B9F6-497F-A896-11431ABD5A4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B1C78E72-B9F6-497F-A896-11431ABD5A4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B1C78E72-B9F6-497F-A896-11431ABD5A4C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{B1C78E72-B9F6-497F-A896-11431ABD5A4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B1C78E72-B9F6-497F-A896-11431ABD5A4C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B1C78E72-B9F6-497F-A896-11431ABD5A4C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{A0AFDEC2-CD63-4685-8DD8-20CB5111D68A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A0AFDEC2-CD63-4685-8DD8-20CB5111D68A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0AFDEC2-CD63-4685-8DD8-20CB5111D68A}.Release|Any CPU.ActiveCfg = Release|Any CPU
