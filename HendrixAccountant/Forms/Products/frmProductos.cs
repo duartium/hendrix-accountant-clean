@@ -105,11 +105,17 @@ namespace HendrixAccountant
             txtCosto.Text = _product.costo.ToString();
             txtPrecioVenta.Text = _product.precio_venta.ToString();
             //txtStock.Text = _product.stock.ToString();
-            txtCodProveedor.Text = _supplier.IdProveedor.ToString();
-            txtNombreProveedor.Text = _supplier.Nombre;
+            //txtCodProveedor.Text = _supplier.IdProveedor.ToString();
+            //txtNombreProveedor.Text = _supplier.Nombre;
             cmbTalla.SelectedValue = _product.id_talla;
             cboCategoria.SelectedValue = _product.categoria_id;
             SetBarcodeImage(_product.codigo);
+            cmbTarifaIva.SelectedItem = _product.tarifa_iva;
+
+            if (_product.es_servicio)
+                rbServicio.Checked = true;
+            else
+                rbProducto.Checked = true;
         }
 
         private void SetBarcodeImage(string code)
@@ -142,8 +148,8 @@ namespace HendrixAccountant
         private void SetSupplier()
         {
             if (_supplier == null) return;
-            txtCodProveedor.Text = _supplier.IdProveedor.ToString();
-            txtNombreProveedor.Text = _supplier.Nombre.ToString();
+            //txtCodProveedor.Text = _supplier.IdProveedor.ToString();
+            //txtNombreProveedor.Text = _supplier.Nombre.ToString();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -229,8 +235,8 @@ namespace HendrixAccountant
             txtNombreProd.Clear();
             if (clearSupplier)
             {
-                txtCodProveedor.Clear();
-                txtNombreProveedor.Clear();
+                //txtCodProveedor.Clear();
+                //txtNombreProveedor.Clear();
             }
         }
 
@@ -245,7 +251,7 @@ namespace HendrixAccountant
             //txtStock.Enabled = valor;
             gbTipo.Enabled = valor;
             cmbTarifaIva.Enabled = valor;
-            pnProveedor.Enabled = valor;
+            //pnProveedor.Enabled = valor;
             EnabledCombos(valor);
         }
 
@@ -271,8 +277,8 @@ namespace HendrixAccountant
             lblPnCosto.BackColor = backColor;
             lblPnPrecioVenta.BackColor = backColor;
             //lblPnStock.BackColor = backColor;
-            lblPnCodigoProv.BackColor = backColor;
-            lblPnNombreProv.BackColor = backColor;
+            //lblPnCodigoProv.BackColor = backColor;
+            //lblPnNombreProv.BackColor = backColor;
         }
 
         private void frmProductos_Load(object sender, EventArgs e)
@@ -732,7 +738,7 @@ namespace HendrixAccountant
             pnlPrecioVenta.Location = new Point(22, 229);
             lblTarifaIva.Location = new Point(125, 214);
             cmbTarifaIva.Location = new Point(128, 237);
-            pnProveedor.Visible = false;
+            //pnProveedor.Visible = false;
             txtNombre.Focus();
         }
 
@@ -746,7 +752,7 @@ namespace HendrixAccountant
             lblTarifaIva.Location = new Point(231, 214);
             cmbTarifaIva.Location = new Point(234, 237);
 
-            pnProveedor.Visible = true;
+            //pnProveedor.Visible = true;
             txtNombre.Focus();
         }
 

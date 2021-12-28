@@ -58,6 +58,15 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblDivisor = new System.Windows.Forms.Label();
             this.pnAside = new System.Windows.Forms.Panel();
+            this.txtCambio = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtPago = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtValorSubtotalGral = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtValorSubtotal0 = new System.Windows.Forms.TextBox();
+            this.lblSubtotal0 = new System.Windows.Forms.Label();
+            this.txtValorIva = new System.Windows.Forms.TextBox();
             this.txtValorDscto = new System.Windows.Forms.TextBox();
             this.txtValorSubtotal = new System.Windows.Forms.TextBox();
             this.txtTotalPagar = new System.Windows.Forms.TextBox();
@@ -80,11 +89,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCodProducto = new System.Windows.Forms.TextBox();
-            this.txtValorIva = new System.Windows.Forms.TextBox();
-            this.txtValorSubtotal0 = new System.Windows.Forms.TextBox();
-            this.lblSubtotal0 = new System.Windows.Forms.Label();
-            this.txtValorSubtotalGral = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.gpDatosVenta.SuspendLayout();
             this.gbFromaPago.SuspendLayout();
             this.pnDireccion.SuspendLayout();
@@ -328,9 +332,9 @@
             this.pnAside2.Controls.Add(this.btnGuardar);
             this.pnAside2.Controls.Add(this.lblDivisor);
             this.pnAside2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnAside2.Location = new System.Drawing.Point(0, 243);
+            this.pnAside2.Location = new System.Drawing.Point(0, 372);
             this.pnAside2.Name = "pnAside2";
-            this.pnAside2.Size = new System.Drawing.Size(219, 318);
+            this.pnAside2.Size = new System.Drawing.Size(219, 189);
             this.pnAside2.TabIndex = 5;
             this.pnAside2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -342,13 +346,11 @@
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnGuardar.Image = global::HendrixAccountant.Properties.Resources.saveBlue20;
-            this.btnGuardar.Location = new System.Drawing.Point(0, 32);
+            this.btnGuardar.Location = new System.Drawing.Point(0, 28);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnGuardar.Size = new System.Drawing.Size(219, 40);
             this.btnGuardar.TabIndex = 4;
-            this.btnGuardar.Text = " Guardar";
+            this.btnGuardar.Text = "VENDER";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -364,6 +366,10 @@
             // pnAside
             // 
             this.pnAside.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.pnAside.Controls.Add(this.txtCambio);
+            this.pnAside.Controls.Add(this.label13);
+            this.pnAside.Controls.Add(this.txtPago);
+            this.pnAside.Controls.Add(this.label12);
             this.pnAside.Controls.Add(this.txtValorSubtotalGral);
             this.pnAside.Controls.Add(this.label11);
             this.pnAside.Controls.Add(this.txtValorSubtotal0);
@@ -379,8 +385,126 @@
             this.pnAside.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnAside.Location = new System.Drawing.Point(0, 0);
             this.pnAside.Name = "pnAside";
-            this.pnAside.Size = new System.Drawing.Size(219, 243);
+            this.pnAside.Size = new System.Drawing.Size(219, 372);
             this.pnAside.TabIndex = 4;
+            // 
+            // txtCambio
+            // 
+            this.txtCambio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCambio.Enabled = false;
+            this.txtCambio.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCambio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.txtCambio.Location = new System.Drawing.Point(16, 316);
+            this.txtCambio.MaxLength = 13;
+            this.txtCambio.Name = "txtCambio";
+            this.txtCambio.Size = new System.Drawing.Size(191, 37);
+            this.txtCambio.TabIndex = 23;
+            this.txtCambio.Text = "0.00";
+            this.txtCambio.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.Control;
+            this.label13.Location = new System.Drawing.Point(13, 296);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 16);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "CAMBIO";
+            // 
+            // txtPago
+            // 
+            this.txtPago.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPago.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPago.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.txtPago.Location = new System.Drawing.Point(16, 251);
+            this.txtPago.MaxLength = 13;
+            this.txtPago.Name = "txtPago";
+            this.txtPago.Size = new System.Drawing.Size(191, 37);
+            this.txtPago.TabIndex = 21;
+            this.txtPago.Text = "0.00";
+            this.txtPago.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPago.TextChanged += new System.EventHandler(this.txtPago_TextChanged);
+            this.txtPago.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPago_KeyDown);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.Control;
+            this.label12.Location = new System.Drawing.Point(13, 231);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(45, 16);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "PAGO";
+            // 
+            // txtValorSubtotalGral
+            // 
+            this.txtValorSubtotalGral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.txtValorSubtotalGral.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtValorSubtotalGral.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorSubtotalGral.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtValorSubtotalGral.Location = new System.Drawing.Point(115, 91);
+            this.txtValorSubtotalGral.MaxLength = 13;
+            this.txtValorSubtotalGral.Name = "txtValorSubtotalGral";
+            this.txtValorSubtotalGral.ReadOnly = true;
+            this.txtValorSubtotalGral.Size = new System.Drawing.Size(86, 19);
+            this.txtValorSubtotalGral.TabIndex = 19;
+            this.txtValorSubtotalGral.Text = "0.00";
+            this.txtValorSubtotalGral.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.Control;
+            this.label11.Location = new System.Drawing.Point(13, 92);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 18);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Subtotal";
+            // 
+            // txtValorSubtotal0
+            // 
+            this.txtValorSubtotal0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.txtValorSubtotal0.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtValorSubtotal0.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorSubtotal0.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtValorSubtotal0.Location = new System.Drawing.Point(115, 18);
+            this.txtValorSubtotal0.MaxLength = 13;
+            this.txtValorSubtotal0.Name = "txtValorSubtotal0";
+            this.txtValorSubtotal0.ReadOnly = true;
+            this.txtValorSubtotal0.Size = new System.Drawing.Size(86, 19);
+            this.txtValorSubtotal0.TabIndex = 17;
+            this.txtValorSubtotal0.Text = "0.00";
+            this.txtValorSubtotal0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblSubtotal0
+            // 
+            this.lblSubtotal0.AutoSize = true;
+            this.lblSubtotal0.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtotal0.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblSubtotal0.Location = new System.Drawing.Point(13, 19);
+            this.lblSubtotal0.Name = "lblSubtotal0";
+            this.lblSubtotal0.Size = new System.Drawing.Size(92, 18);
+            this.lblSubtotal0.TabIndex = 16;
+            this.lblSubtotal0.Text = "Subtotal 0%";
+            // 
+            // txtValorIva
+            // 
+            this.txtValorIva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.txtValorIva.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtValorIva.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValorIva.ForeColor = System.Drawing.SystemColors.Window;
+            this.txtValorIva.Location = new System.Drawing.Point(115, 115);
+            this.txtValorIva.MaxLength = 13;
+            this.txtValorIva.Name = "txtValorIva";
+            this.txtValorIva.ReadOnly = true;
+            this.txtValorIva.Size = new System.Drawing.Size(86, 19);
+            this.txtValorIva.TabIndex = 15;
+            this.txtValorIva.Text = "0.00";
+            this.txtValorIva.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtValorDscto
             // 
@@ -533,6 +657,7 @@
             this.dgvPuntoVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPuntoVenta.Size = new System.Drawing.Size(680, 268);
             this.dgvPuntoVenta.TabIndex = 6;
+            this.dgvPuntoVenta.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvPuntoVenta_UserDeletingRow);
             // 
             // colCodigo
             // 
@@ -653,73 +778,6 @@
             this.txtCodProducto.TabIndex = 10;
             this.txtCodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodProducto_KeyPress_1);
             // 
-            // txtValorIva
-            // 
-            this.txtValorIva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.txtValorIva.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtValorIva.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorIva.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtValorIva.Location = new System.Drawing.Point(115, 115);
-            this.txtValorIva.MaxLength = 13;
-            this.txtValorIva.Name = "txtValorIva";
-            this.txtValorIva.ReadOnly = true;
-            this.txtValorIva.Size = new System.Drawing.Size(86, 19);
-            this.txtValorIva.TabIndex = 15;
-            this.txtValorIva.Text = "0.00";
-            this.txtValorIva.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtValorSubtotal0
-            // 
-            this.txtValorSubtotal0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.txtValorSubtotal0.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtValorSubtotal0.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorSubtotal0.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtValorSubtotal0.Location = new System.Drawing.Point(115, 18);
-            this.txtValorSubtotal0.MaxLength = 13;
-            this.txtValorSubtotal0.Name = "txtValorSubtotal0";
-            this.txtValorSubtotal0.ReadOnly = true;
-            this.txtValorSubtotal0.Size = new System.Drawing.Size(86, 19);
-            this.txtValorSubtotal0.TabIndex = 17;
-            this.txtValorSubtotal0.Text = "0.00";
-            this.txtValorSubtotal0.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lblSubtotal0
-            // 
-            this.lblSubtotal0.AutoSize = true;
-            this.lblSubtotal0.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtotal0.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblSubtotal0.Location = new System.Drawing.Point(13, 19);
-            this.lblSubtotal0.Name = "lblSubtotal0";
-            this.lblSubtotal0.Size = new System.Drawing.Size(92, 18);
-            this.lblSubtotal0.TabIndex = 16;
-            this.lblSubtotal0.Text = "Subtotal 0%";
-            // 
-            // txtValorSubtotalGral
-            // 
-            this.txtValorSubtotalGral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.txtValorSubtotalGral.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtValorSubtotalGral.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtValorSubtotalGral.ForeColor = System.Drawing.SystemColors.Window;
-            this.txtValorSubtotalGral.Location = new System.Drawing.Point(115, 91);
-            this.txtValorSubtotalGral.MaxLength = 13;
-            this.txtValorSubtotalGral.Name = "txtValorSubtotalGral";
-            this.txtValorSubtotalGral.ReadOnly = true;
-            this.txtValorSubtotalGral.Size = new System.Drawing.Size(86, 19);
-            this.txtValorSubtotalGral.TabIndex = 19;
-            this.txtValorSubtotalGral.Text = "0.00";
-            this.txtValorSubtotalGral.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.Control;
-            this.label11.Location = new System.Drawing.Point(13, 92);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 18);
-            this.label11.TabIndex = 18;
-            this.label11.Text = "Subtotal";
-            // 
             // frmPuntoVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -822,5 +880,9 @@
         private System.Windows.Forms.Label lblSubtotal0;
         private System.Windows.Forms.TextBox txtValorSubtotalGral;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtCambio;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtPago;
+        private System.Windows.Forms.Label label12;
     }
 }

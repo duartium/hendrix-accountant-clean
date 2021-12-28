@@ -18,6 +18,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace HendrixAccountant
@@ -128,6 +129,7 @@ namespace HendrixAccountant
             _lsProducts.Add(_product);
             FillGrid();
             CalcularTotales();
+            CalcularCambio();
             lblInfo.Text = _product.EsServicio ? "Servicio agregado." : "Producto agregado.";
         }
 
@@ -154,7 +156,10 @@ namespace HendrixAccountant
         private void CalcularTotales()
         {
             if (_lsProducts == null) return;
-            if (_lsProducts.Count <= 0) return;
+            if (_lsProducts.Count <= 0) {
+                ResetTotals();
+                return;
+            }
 
             decimal subtotal0 = _lsProducts.Where(x => x.TarifaIva == 0).Select(x => x.Total).Sum();
             decimal subtotal12 = _lsProducts.Where(x => x.TarifaIva == 12).Select(x => x.Total).Sum();
@@ -169,6 +174,18 @@ namespace HendrixAccountant
             txtTotalPagar.Text = totalGeneral.ToString().Replace(",", ".");
         }
 
+        private void CalcularCambio()
+        {
+            decimal pago = Convert.ToDecimal(txtPago.Text.Replace("$", "").Replace(",", "."), Utils.GetCulture());
+            decimal totalPagar = Convert.ToDecimal(txtTotalPagar.Text.Replace(",", "."), Utils.GetCulture());
+            
+            if(pago > totalPagar)
+            {
+                decimal cambio = Math.Round(pago - totalPagar, 2);
+                txtCambio.Text = cambio.ToString().Replace(",", ".");
+            }
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if(_client == null){
@@ -179,6 +196,23 @@ namespace HendrixAccountant
                 
             if (_lsProducts == null || dgvPuntoVenta.Rows.Count <= 0){
                 MessageBox.Show("Ingrese al menos un producto para registrar la venta.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCodProducto.Focus();
+                return;
+            }
+
+            if(txtPago.Text.Equals("0.00") || txtPago.Text.Length == 0)
+            {
+                MessageBox.Show("Ingrese el valor que paga el cliente.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPago.Focus();
+                return;
+            }
+
+            decimal pago = Convert.ToDecimal(txtPago.Text.Replace("$", "").Replace(",", "."), Utils.GetCulture());
+            decimal totalPagar = Convert.ToDecimal(txtTotalPagar.Text.Replace(",", "."), Utils.GetCulture());
+            if (pago < totalPagar)
+            {
+                MessageBox.Show($"El pago del cliente ${pago}, no puede ser menor al Total a pagar ${totalPagar}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPago.Focus();
                 return;
             }
 
@@ -235,6 +269,8 @@ namespace HendrixAccountant
             txtTotalPagar.Text = "0.00";
             txtValorSubtotal0.Text = "0.00";
             txtValorSubtotalGral.Text = "0.00";
+            txtPago.Text = "0.00";
+            txtCambio.Text = "0.00";
 
             txtNombresCliente.Clear();
             txtIdentCliente.Clear();
@@ -243,6 +279,18 @@ namespace HendrixAccountant
             _client = null;
             _invoice = null;
             _product = null;
+        }
+
+        private void ResetTotals()
+        {
+            txtValorSubtotal.Text = "0.00";
+            txtValorDscto.Text = "0.00";
+            txtValorIva.Text = "0.00";
+            txtTotalPagar.Text = "0.00";
+            txtValorSubtotal0.Text = "0.00";
+            txtValorSubtotalGral.Text = "0.00";
+            txtPago.Text = "0.00";
+            txtCambio.Text = "0.00";
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -255,7 +303,7 @@ namespace HendrixAccountant
             try
             {
                 if (dgvPuntoVenta.SelectedRows.Count <= 0) {
-                    MessageBox.Show("Níngún producto seleccionado para eliminar.", CString.DEFAULT_TITLE, MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    MessageBox.Show("Ningún producto seleccionado para eliminar.", CString.DEFAULT_TITLE, MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                     return;
                 }
                 
@@ -269,6 +317,8 @@ namespace HendrixAccountant
                     dgvPuntoVenta.Rows.RemoveAt(row.Index);
 
                 }
+                CalcularTotales();
+                CalcularCambio();
             }
             catch (Exception ex)
             {
@@ -299,8 +349,9 @@ namespace HendrixAccountant
 
         private void dgvPuntoVenta_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete)
-                RemoveProduct();
+            //if (e.KeyCode == Keys.Delete)
+            //    RemoveProduct();
+            
         }
 
         private void frmPuntoVenta_Activated(object sender, EventArgs e)
@@ -495,6 +546,54 @@ namespace HendrixAccountant
             {
                 SearchProduct();
             }
+        }
+
+        private void txtPago_TextChanged(object sender, EventArgs e)
+        {
+            ValidadorFormatoMoneda(txtPago, txtPago_TextChanged);
+            CalcularCambio();
+        }
+
+        private void ValidadorFormatoMoneda(TextBox caja, EventHandler nombreMetodo)
+        {
+            string value = caja.Text.Replace(",", "").Replace("$", "").Replace(".", "").TrimStart('0');
+            decimal ul;
+            //Check we are indeed handling a number
+            if (decimal.TryParse(value, out ul))
+            {
+                ul /= 100;
+                //Unsub the event so we don't enter a loop
+                caja.TextChanged -= nombreMetodo;
+                //Format the text as currency
+                caja.Text = string.Format(Utils.GetCulture(), "{0:C2}", ul).Replace(",", "");
+                caja.TextChanged += nombreMetodo;
+                caja.Select(caja.Text.Length, 0);
+            }
+            bool goodToGo = TextisValid(caja.Text);
+
+            if (!goodToGo)
+            {
+                caja.Text = "0.00";
+                caja.Select(caja.Text.Length, 0);
+            }
+        }
+
+        private bool TextisValid(string text)
+        {
+            Regex money = new Regex(@"^\$(\d{1,3}(\d{3})*|(\d+))(\.\d{2})?$");
+            return money.IsMatch(text);
+        }
+
+        private void txtPago_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+                e.Handled = e.SuppressKeyPress = true;
+        }
+
+        private void dgvPuntoVenta_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            e.Cancel = true;
+            //RemoveProduct();
         }
     }
 }
