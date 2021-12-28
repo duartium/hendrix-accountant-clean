@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -37,7 +38,7 @@ namespace HendrixAccountant
                 EnabledTextboxs(true);
                 txtRuc.Focus();
             }
-                
+            LoadPrintersList();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -63,6 +64,21 @@ namespace HendrixAccountant
             chkEditar.Checked = false;
         }
 
+        private void LoadPrintersList()
+        {
+            var printers = GetAllPrinterList();
+            cmbImpresoras.DataSource = printers;
+        }
+
+        private List<string> GetAllPrinterList()
+        {
+            var printers = new List<string>();
+            var printerQuery = new ManagementObjectSearcher("SELECT * from Win32_Printer");
+            foreach (var printer in printerQuery.Get())
+                printers.Add(printer.GetPropertyValue("Name").ToString());
+            return printers;
+        }
+
         private void EnabledTextboxs(bool value)
         {
             txtRuc.Enabled = value;
@@ -73,8 +89,13 @@ namespace HendrixAccountant
 
         private void chkEditar_CheckedChanged(object sender, EventArgs e)
         {
-            EnabledTextboxs(true);
-            txtRuc.Focus();
+            if (chkEditar.Checked)
+            {
+                EnabledTextboxs(true);
+                txtRuc.Focus();
+            }
+            else
+                EnabledTextboxs(false);
         }
 
         private void GetCompany()
