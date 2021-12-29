@@ -1,15 +1,14 @@
 ﻿using HendrixAccountant.ApplicationCore.Interfaces.Services;
-using System;
+using HendrixAccountant.ApplicationCore.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
 {
     public interface IParameterRepository
     {
         bool CreateOrUpdate(IParameter parameter);
+        bool CreateOrUpdate(List<Parameters> parameters);
+        List<Parameters> GetPrintParams();
         IParameter Get();
 
     }

@@ -33,45 +33,45 @@
             this.chkEditar = new System.Windows.Forms.CheckBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pnDireccionEstablecimiento = new System.Windows.Forms.Panel();
-            this.txtDireccion = new HendrixAccountant.UIControls.TextInput();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pnRazonSocial = new System.Windows.Forms.Panel();
-            this.txtRazonSocial = new HendrixAccountant.UIControls.TextInput();
+            this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pnNombreComercial = new System.Windows.Forms.Panel();
-            this.txtNombreComercial = new HendrixAccountant.UIControls.TextInput();
+            this.txtNombreComercial = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblRazonSocial = new System.Windows.Forms.Label();
             this.pnIdentificacion = new System.Windows.Forms.Panel();
             this.txtRuc = new HendrixAccountant.UIControls.NumericInput();
             this.label7 = new System.Windows.Forms.Label();
             this.lblRuc = new System.Windows.Forms.Label();
-            this.tcEmpresa = new System.Windows.Forms.TabControl();
+            this.tcParametros = new System.Windows.Forms.TabControl();
+            this.tpImpresora = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmbImpresoras = new System.Windows.Forms.ComboBox();
+            this.btnGuardarParamsImp = new System.Windows.Forms.Button();
+            this.lblTarifaIva = new System.Windows.Forms.Label();
+            this.cmbModoImpresion = new System.Windows.Forms.ComboBox();
+            this.gbTipo = new System.Windows.Forms.GroupBox();
+            this.rbTicket = new System.Windows.Forms.RadioButton();
+            this.rbA4 = new System.Windows.Forms.RadioButton();
             this.pnHeader = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
-            this.tpImpresora = new System.Windows.Forms.TabPage();
-            this.gbTipo = new System.Windows.Forms.GroupBox();
-            this.rbServicio = new System.Windows.Forms.RadioButton();
-            this.rbProducto = new System.Windows.Forms.RadioButton();
-            this.lblTarifaIva = new System.Windows.Forms.Label();
-            this.cmbTarifaIva = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmbImpresoras = new System.Windows.Forms.ComboBox();
             this.tpEmpresa.SuspendLayout();
             this.pnDireccionEstablecimiento.SuspendLayout();
             this.pnRazonSocial.SuspendLayout();
             this.pnNombreComercial.SuspendLayout();
             this.pnIdentificacion.SuspendLayout();
-            this.tcEmpresa.SuspendLayout();
-            this.pnHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tcParametros.SuspendLayout();
             this.tpImpresora.SuspendLayout();
             this.gbTipo.SuspendLayout();
+            this.pnHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tpEmpresa
@@ -139,12 +139,12 @@
             // 
             this.txtDireccion.BackColor = System.Drawing.SystemColors.Control;
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDireccion.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtDireccion.Location = new System.Drawing.Point(3, 7);
-            this.txtDireccion.MaxLength = 100;
+            this.txtDireccion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Location = new System.Drawing.Point(8, 8);
+            this.txtDireccion.MaxLength = 150;
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(376, 16);
-            this.txtDireccion.TabIndex = 2;
+            this.txtDireccion.Size = new System.Drawing.Size(362, 15);
+            this.txtDireccion.TabIndex = 21;
             // 
             // label4
             // 
@@ -180,12 +180,12 @@
             // 
             this.txtRazonSocial.BackColor = System.Drawing.SystemColors.Control;
             this.txtRazonSocial.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtRazonSocial.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtRazonSocial.Location = new System.Drawing.Point(7, 7);
-            this.txtRazonSocial.MaxLength = 100;
+            this.txtRazonSocial.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRazonSocial.Location = new System.Drawing.Point(8, 8);
+            this.txtRazonSocial.MaxLength = 150;
             this.txtRazonSocial.Name = "txtRazonSocial";
-            this.txtRazonSocial.Size = new System.Drawing.Size(362, 16);
-            this.txtRazonSocial.TabIndex = 2;
+            this.txtRazonSocial.Size = new System.Drawing.Size(362, 15);
+            this.txtRazonSocial.TabIndex = 20;
             // 
             // label1
             // 
@@ -221,12 +221,12 @@
             // 
             this.txtNombreComercial.BackColor = System.Drawing.SystemColors.Control;
             this.txtNombreComercial.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombreComercial.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtNombreComercial.Location = new System.Drawing.Point(7, 7);
-            this.txtNombreComercial.MaxLength = 100;
+            this.txtNombreComercial.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreComercial.Location = new System.Drawing.Point(7, 8);
+            this.txtNombreComercial.MaxLength = 150;
             this.txtNombreComercial.Name = "txtNombreComercial";
-            this.txtNombreComercial.Size = new System.Drawing.Size(372, 16);
-            this.txtNombreComercial.TabIndex = 2;
+            this.txtNombreComercial.Size = new System.Drawing.Size(362, 15);
+            this.txtNombreComercial.TabIndex = 19;
             // 
             // label2
             // 
@@ -289,16 +289,140 @@
             this.lblRuc.TabIndex = 9;
             this.lblRuc.Text = "R.U.C";
             // 
-            // tcEmpresa
+            // tcParametros
             // 
-            this.tcEmpresa.Controls.Add(this.tpEmpresa);
-            this.tcEmpresa.Controls.Add(this.tpImpresora);
-            this.tcEmpresa.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcEmpresa.Location = new System.Drawing.Point(17, 80);
-            this.tcEmpresa.Name = "tcEmpresa";
-            this.tcEmpresa.SelectedIndex = 0;
-            this.tcEmpresa.Size = new System.Drawing.Size(442, 345);
-            this.tcEmpresa.TabIndex = 0;
+            this.tcParametros.Controls.Add(this.tpEmpresa);
+            this.tcParametros.Controls.Add(this.tpImpresora);
+            this.tcParametros.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcParametros.Location = new System.Drawing.Point(17, 80);
+            this.tcParametros.Name = "tcParametros";
+            this.tcParametros.SelectedIndex = 0;
+            this.tcParametros.Size = new System.Drawing.Size(442, 345);
+            this.tcParametros.TabIndex = 0;
+            this.tcParametros.SelectedIndexChanged += new System.EventHandler(this.tcEmpresa_SelectedIndexChanged);
+            // 
+            // tpImpresora
+            // 
+            this.tpImpresora.Controls.Add(this.label6);
+            this.tpImpresora.Controls.Add(this.cmbImpresoras);
+            this.tpImpresora.Controls.Add(this.btnGuardarParamsImp);
+            this.tpImpresora.Controls.Add(this.lblTarifaIva);
+            this.tpImpresora.Controls.Add(this.cmbModoImpresion);
+            this.tpImpresora.Controls.Add(this.gbTipo);
+            this.tpImpresora.Location = new System.Drawing.Point(4, 24);
+            this.tpImpresora.Name = "tpImpresora";
+            this.tpImpresora.Padding = new System.Windows.Forms.Padding(3);
+            this.tpImpresora.Size = new System.Drawing.Size(434, 317);
+            this.tpImpresora.TabIndex = 1;
+            this.tpImpresora.Text = "Impresión";
+            this.tpImpresora.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label6.Location = new System.Drawing.Point(20, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 15);
+            this.label6.TabIndex = 103;
+            this.label6.Text = "Impresora";
+            // 
+            // cmbImpresoras
+            // 
+            this.cmbImpresoras.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbImpresoras.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbImpresoras.FormattingEnabled = true;
+            this.cmbImpresoras.Items.AddRange(new object[] {
+            "Impresión directa",
+            "Previsualizar comprobante",
+            "Impresión directa y luego Previsualizar"});
+            this.cmbImpresoras.Location = new System.Drawing.Point(23, 39);
+            this.cmbImpresoras.Name = "cmbImpresoras";
+            this.cmbImpresoras.Size = new System.Drawing.Size(262, 24);
+            this.cmbImpresoras.TabIndex = 102;
+            // 
+            // btnGuardarParamsImp
+            // 
+            this.btnGuardarParamsImp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(89)))));
+            this.btnGuardarParamsImp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarParamsImp.FlatAppearance.BorderSize = 0;
+            this.btnGuardarParamsImp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarParamsImp.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarParamsImp.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnGuardarParamsImp.Image = global::HendrixAccountant.Properties.Resources.saveWhite20;
+            this.btnGuardarParamsImp.Location = new System.Drawing.Point(316, 255);
+            this.btnGuardarParamsImp.Name = "btnGuardarParamsImp";
+            this.btnGuardarParamsImp.Size = new System.Drawing.Size(90, 30);
+            this.btnGuardarParamsImp.TabIndex = 101;
+            this.btnGuardarParamsImp.Text = "Guardar";
+            this.btnGuardarParamsImp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardarParamsImp.UseVisualStyleBackColor = false;
+            this.btnGuardarParamsImp.Click += new System.EventHandler(this.btnGuardarParamsImp_Click);
+            // 
+            // lblTarifaIva
+            // 
+            this.lblTarifaIva.AutoSize = true;
+            this.lblTarifaIva.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTarifaIva.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblTarifaIva.Location = new System.Drawing.Point(20, 166);
+            this.lblTarifaIva.Name = "lblTarifaIva";
+            this.lblTarifaIva.Size = new System.Drawing.Size(140, 15);
+            this.lblTarifaIva.TabIndex = 100;
+            this.lblTarifaIva.Text = "Modalidad de impresión";
+            this.lblTarifaIva.Visible = false;
+            // 
+            // cmbModoImpresion
+            // 
+            this.cmbModoImpresion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbModoImpresion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbModoImpresion.FormattingEnabled = true;
+            this.cmbModoImpresion.Items.AddRange(new object[] {
+            "Impresión directa",
+            "Previsualizar comprobante",
+            "Impresión directa y luego previsualizar"});
+            this.cmbModoImpresion.Location = new System.Drawing.Point(23, 185);
+            this.cmbModoImpresion.Name = "cmbModoImpresion";
+            this.cmbModoImpresion.Size = new System.Drawing.Size(262, 24);
+            this.cmbModoImpresion.TabIndex = 99;
+            this.cmbModoImpresion.Visible = false;
+            // 
+            // gbTipo
+            // 
+            this.gbTipo.Controls.Add(this.rbTicket);
+            this.gbTipo.Controls.Add(this.rbA4);
+            this.gbTipo.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbTipo.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.gbTipo.Location = new System.Drawing.Point(23, 85);
+            this.gbTipo.Name = "gbTipo";
+            this.gbTipo.Size = new System.Drawing.Size(181, 63);
+            this.gbTipo.TabIndex = 98;
+            this.gbTipo.TabStop = false;
+            this.gbTipo.Text = "Formato comprobante de venta";
+            // 
+            // rbTicket
+            // 
+            this.rbTicket.AutoSize = true;
+            this.rbTicket.Checked = true;
+            this.rbTicket.ForeColor = System.Drawing.Color.Black;
+            this.rbTicket.Location = new System.Drawing.Point(77, 28);
+            this.rbTicket.Name = "rbTicket";
+            this.rbTicket.Size = new System.Drawing.Size(84, 20);
+            this.rbTicket.TabIndex = 4;
+            this.rbTicket.TabStop = true;
+            this.rbTicket.Text = "Ticket 80mm";
+            this.rbTicket.UseVisualStyleBackColor = true;
+            // 
+            // rbA4
+            // 
+            this.rbA4.AutoSize = true;
+            this.rbA4.ForeColor = System.Drawing.Color.Black;
+            this.rbA4.Location = new System.Drawing.Point(14, 28);
+            this.rbA4.Name = "rbA4";
+            this.rbA4.Size = new System.Drawing.Size(39, 20);
+            this.rbA4.TabIndex = 3;
+            this.rbA4.Text = "A4";
+            this.rbA4.UseVisualStyleBackColor = true;
             // 
             // pnHeader
             // 
@@ -342,126 +466,6 @@
             this.lblTitulo.Text = "Parámetros de configuración";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tpImpresora
-            // 
-            this.tpImpresora.Controls.Add(this.label6);
-            this.tpImpresora.Controls.Add(this.cmbImpresoras);
-            this.tpImpresora.Controls.Add(this.button1);
-            this.tpImpresora.Controls.Add(this.lblTarifaIva);
-            this.tpImpresora.Controls.Add(this.cmbTarifaIva);
-            this.tpImpresora.Controls.Add(this.gbTipo);
-            this.tpImpresora.Location = new System.Drawing.Point(4, 24);
-            this.tpImpresora.Name = "tpImpresora";
-            this.tpImpresora.Padding = new System.Windows.Forms.Padding(3);
-            this.tpImpresora.Size = new System.Drawing.Size(434, 317);
-            this.tpImpresora.TabIndex = 1;
-            this.tpImpresora.Text = "Impresión";
-            this.tpImpresora.UseVisualStyleBackColor = true;
-            // 
-            // gbTipo
-            // 
-            this.gbTipo.Controls.Add(this.rbServicio);
-            this.gbTipo.Controls.Add(this.rbProducto);
-            this.gbTipo.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbTipo.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.gbTipo.Location = new System.Drawing.Point(23, 85);
-            this.gbTipo.Name = "gbTipo";
-            this.gbTipo.Size = new System.Drawing.Size(181, 63);
-            this.gbTipo.TabIndex = 98;
-            this.gbTipo.TabStop = false;
-            this.gbTipo.Text = "Formato comprobante de venta";
-            // 
-            // rbServicio
-            // 
-            this.rbServicio.AutoSize = true;
-            this.rbServicio.Checked = true;
-            this.rbServicio.ForeColor = System.Drawing.Color.Black;
-            this.rbServicio.Location = new System.Drawing.Point(77, 28);
-            this.rbServicio.Name = "rbServicio";
-            this.rbServicio.Size = new System.Drawing.Size(84, 20);
-            this.rbServicio.TabIndex = 4;
-            this.rbServicio.TabStop = true;
-            this.rbServicio.Text = "Ticket 80mm";
-            this.rbServicio.UseVisualStyleBackColor = true;
-            // 
-            // rbProducto
-            // 
-            this.rbProducto.AutoSize = true;
-            this.rbProducto.ForeColor = System.Drawing.Color.Black;
-            this.rbProducto.Location = new System.Drawing.Point(14, 28);
-            this.rbProducto.Name = "rbProducto";
-            this.rbProducto.Size = new System.Drawing.Size(39, 20);
-            this.rbProducto.TabIndex = 3;
-            this.rbProducto.Text = "A4";
-            this.rbProducto.UseVisualStyleBackColor = true;
-            // 
-            // lblTarifaIva
-            // 
-            this.lblTarifaIva.AutoSize = true;
-            this.lblTarifaIva.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTarifaIva.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblTarifaIva.Location = new System.Drawing.Point(20, 166);
-            this.lblTarifaIva.Name = "lblTarifaIva";
-            this.lblTarifaIva.Size = new System.Drawing.Size(140, 15);
-            this.lblTarifaIva.TabIndex = 100;
-            this.lblTarifaIva.Text = "Modalidad de impresión";
-            // 
-            // cmbTarifaIva
-            // 
-            this.cmbTarifaIva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTarifaIva.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbTarifaIva.FormattingEnabled = true;
-            this.cmbTarifaIva.Items.AddRange(new object[] {
-            "Impresión directa",
-            "Previsualizar comprobante",
-            "Impresión directa y luego previsualizar"});
-            this.cmbTarifaIva.Location = new System.Drawing.Point(23, 185);
-            this.cmbTarifaIva.Name = "cmbTarifaIva";
-            this.cmbTarifaIva.Size = new System.Drawing.Size(262, 24);
-            this.cmbTarifaIva.TabIndex = 99;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(89)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Image = global::HendrixAccountant.Properties.Resources.saveWhite20;
-            this.button1.Location = new System.Drawing.Point(316, 255);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 30);
-            this.button1.TabIndex = 101;
-            this.button1.Text = "Guardar";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label6.Location = new System.Drawing.Point(20, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 15);
-            this.label6.TabIndex = 103;
-            this.label6.Text = "Impresora";
-            // 
-            // cmbImpresoras
-            // 
-            this.cmbImpresoras.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbImpresoras.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbImpresoras.FormattingEnabled = true;
-            this.cmbImpresoras.Items.AddRange(new object[] {
-            "Impresión directa",
-            "Previsualizar comprobante",
-            "Impresión directa y luego Previsualizar"});
-            this.cmbImpresoras.Location = new System.Drawing.Point(23, 39);
-            this.cmbImpresoras.Name = "cmbImpresoras";
-            this.cmbImpresoras.Size = new System.Drawing.Size(262, 24);
-            this.cmbImpresoras.TabIndex = 102;
-            // 
             // frmParametros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,7 +473,7 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(479, 451);
             this.Controls.Add(this.pnHeader);
-            this.Controls.Add(this.tcEmpresa);
+            this.Controls.Add(this.tcParametros);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(5, 5);
@@ -488,14 +492,14 @@
             this.pnNombreComercial.PerformLayout();
             this.pnIdentificacion.ResumeLayout(false);
             this.pnIdentificacion.PerformLayout();
-            this.tcEmpresa.ResumeLayout(false);
-            this.pnHeader.ResumeLayout(false);
-            this.pnHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tcParametros.ResumeLayout(false);
             this.tpImpresora.ResumeLayout(false);
             this.tpImpresora.PerformLayout();
             this.gbTipo.ResumeLayout(false);
             this.gbTipo.PerformLayout();
+            this.pnHeader.ResumeLayout(false);
+            this.pnHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -503,7 +507,7 @@
         #endregion
 
         private System.Windows.Forms.TabPage tpEmpresa;
-        private System.Windows.Forms.TabControl tcEmpresa;
+        private System.Windows.Forms.TabControl tcParametros;
         private System.Windows.Forms.Panel pnHeader;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
@@ -513,27 +517,27 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblRuc;
         private System.Windows.Forms.Panel pnRazonSocial;
-        private UIControls.TextInput txtRazonSocial;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel pnNombreComercial;
-        private UIControls.TextInput txtNombreComercial;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblRazonSocial;
         private System.Windows.Forms.Panel pnDireccionEstablecimiento;
-        private UIControls.TextInput txtDireccion;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.CheckBox chkEditar;
         private System.Windows.Forms.TabPage tpImpresora;
         private System.Windows.Forms.GroupBox gbTipo;
-        private System.Windows.Forms.RadioButton rbServicio;
-        private System.Windows.Forms.RadioButton rbProducto;
+        private System.Windows.Forms.RadioButton rbTicket;
+        private System.Windows.Forms.RadioButton rbA4;
         private System.Windows.Forms.Label lblTarifaIva;
-        private System.Windows.Forms.ComboBox cmbTarifaIva;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cmbModoImpresion;
+        private System.Windows.Forms.Button btnGuardarParamsImp;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbImpresoras;
+        private System.Windows.Forms.TextBox txtNombreComercial;
+        private System.Windows.Forms.TextBox txtRazonSocial;
+        private System.Windows.Forms.TextBox txtDireccion;
     }
 }

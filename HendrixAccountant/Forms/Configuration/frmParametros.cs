@@ -3,6 +3,7 @@ using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.ApplicationCore.Interfaces.Services;
 using HendrixAccountant.ApplicationCore.Map;
 using HendrixAccountant.ApplicationCore.Models;
+using HendrixAccountant.Common;
 using HendrixAccountant.Data.Repositories;
 using System;
 using System.Collections.Generic;
@@ -49,8 +50,8 @@ namespace HendrixAccountant
                 return;
             }
 
-            IParameter company = new Company
-            {
+           IParameter company = new Company
+            { 
                 Ruc = txtRuc.Text.Trim(),
                 NombreComercial = txtNombreComercial.Text,
                 RazonSocial = txtRazonSocial.Text,
@@ -118,5 +119,50 @@ namespace HendrixAccountant
             if (_company == null)
                 txtRuc.Focus();
         }
+
+        private void btnGuardarParamsImp_Click(object sender, EventArgs e)
+        {
+            var parameters = new List<Parameters>();
+            parameters.Add(new Parameters { Nombre = "impresora", Valor= cmbImpresoras.SelectedItem.ToString() });
+            parameters.Add(new Parameters { Nombre = "formato_comprobante", Valor = rbA4.Checked ? "1" :  "2" });
+
+            if (_rpsParams.CreateOrUpdate(parameters))
+                MessageBox.Show("Se guardaron los datos de impresión.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("No se pudo grabar los datos de impresión.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void tcEmpresa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tcParametros.SelectedTab == tcParametros.TabPages[tpImpresora.Name])
+                {
+                    SetPrintParams();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("SetPrintParams", ex.ToString());
+                MessageBox.Show(ex.Message, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void SetPrintParams()
+        {
+            var printParams = _rpsParams.GetPrintParams();
+            cmbImpresoras.SelectedItem = printParams.Where(x => x.Nombre.Equals("impresora"))
+                .Select(x => x.Valor).FirstOrDefault();
+            
+            int formatoComprobante = int.Parse(printParams.Where(x => x.Nombre.Equals("formato_comprobante"))
+                .Select(x => x.Valor).FirstOrDefault().ToString());
+
+            if (formatoComprobante == 1)
+                rbA4.Checked = true;
+            else
+                rbTicket.Checked = true;
+        }
+
     }
 }

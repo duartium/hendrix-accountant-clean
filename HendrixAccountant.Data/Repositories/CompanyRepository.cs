@@ -8,9 +8,6 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HendrixAccountant.Data.Repositories
 {
@@ -36,7 +33,31 @@ namespace HendrixAccountant.Data.Repositories
             parms.Add(new SqlParameter("@valor", DBNull.Value));
             parms.Add(new SqlParameter("@json", jsonCompany));
             int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
-            return resp > 0 ? true : false;
+            return (resp > 0);
+        }
+
+        public bool CreateOrUpdate(string xmlParameters)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", 'F'));
+            parms.Add(new SqlParameter("@parameters", xmlParameters));
+            int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
+            return (resp > 0);
+        }
+
+        public bool CreateOrUpdate(List<Parameters> parameters)
+        {
+            int resp = 0;
+            foreach (var item in parameters)
+            {
+                var parms = new List<SqlParameter>();
+                parms.Add(new SqlParameter("@accion", 'I'));
+                parms.Add(new SqlParameter("@nombre", item.Nombre));
+                parms.Add(new SqlParameter("@valor", item.Valor));
+                parms.Add(new SqlParameter("@json", DBNull.Value));
+                resp += _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
+            }
+            return (resp == parameters.Count);
         }
 
         public IParameter Get()
@@ -50,6 +71,14 @@ namespace HendrixAccountant.Data.Repositories
             string json = dsResp.Tables[0].Rows[0]["dato"].ToString();
             var company = String.IsNullOrEmpty(json) ? null : JsonConvert.DeserializeObject<Company>(json);
             return company;
+        }
+
+        public List<Parameters> GetPrintParams()
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", 'P'));
+            var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+            return new ParameterMapper().DatasetToParameters(dsResp);
         }
     }
 }
