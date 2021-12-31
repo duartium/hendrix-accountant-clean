@@ -1,6 +1,7 @@
 ﻿using HendrixAccountant.ApplicationCore.Constants;
 using HendrixAccountant.Data;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace HendrixAccountant.Sessions
@@ -43,6 +44,8 @@ namespace HendrixAccountant.Sessions
                 _operator.UserRole = user.IdRol;
                 _operator.Role = user.NombreRol;
                 this.DialogResult = DialogResult.OK;
+
+
                 this.Close();
             }
         }

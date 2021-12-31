@@ -29,7 +29,7 @@ namespace HendrixAccountant
                 frmLogin.BringToFront();
                 frmLogin.ShowDialog();
 
-                if (frmLogin.DialogResult == DialogResult.OK)
+                if (frmLogin.DialogResult == DialogResult.OK) { }
                     Application.Run(new frmMain());
             }
             else Application.Run(new frmMain());//solo para efecto de pruebas

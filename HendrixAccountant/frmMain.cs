@@ -6,6 +6,7 @@ using HendrixAccountant.Forms;
 using HendrixAccountant.Forms.Clients;
 using HendrixAccountant.Forms.Directorio;
 using HendrixAccountant.Forms.Inventory;
+using HendrixAccountant.Sessions;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -390,7 +391,9 @@ namespace HendrixAccountant
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            if(MessageBox.Show("¿Está seguro de cerrar sesión?", CString.DEFAULT_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes){
+                Application.Restart();
+            }
         }
 
         private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -471,6 +474,13 @@ namespace HendrixAccountant
             frmCumpleaneros.MdiParent = this;
             frmCumpleaneros.FormClosed += new FormClosedEventHandler(cumpleaneros_FormClosed);
             frmCumpleaneros.Show();
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Está seguro de salir? La aplicación y todos sus procesos se cerrarán.", CString.DEFAULT_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes) {
+                Environment.Exit(0);
+            }
         }
     }
 }
