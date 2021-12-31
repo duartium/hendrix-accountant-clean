@@ -69,6 +69,7 @@ namespace HendrixAccountant
         {
             var printers = GetAllPrinterList();
             cmbImpresoras.DataSource = printers;
+            cmbImpresoraEtiquetas.DataSource = printers.ToList();
         }
 
         private List<string> GetAllPrinterList()
@@ -124,6 +125,7 @@ namespace HendrixAccountant
         {
             var parameters = new List<Parameters>();
             parameters.Add(new Parameters { Nombre = "impresora", Valor= cmbImpresoras.SelectedItem.ToString() });
+            parameters.Add(new Parameters { Nombre = "impresora_etiquetas", Valor = cmbImpresoraEtiquetas.SelectedItem.ToString() });
             parameters.Add(new Parameters { Nombre = "formato_comprobante", Valor = rbA4.Checked ? "1" :  "2" });
 
             if (_rpsParams.CreateOrUpdate(parameters))
@@ -154,7 +156,10 @@ namespace HendrixAccountant
             var printParams = _rpsParams.GetPrintParams();
             cmbImpresoras.SelectedItem = printParams.Where(x => x.Nombre.Equals("impresora"))
                 .Select(x => x.Valor).FirstOrDefault();
-            
+
+            cmbImpresoraEtiquetas.SelectedItem = printParams.Where(x => x.Nombre.Equals("impresora_etiquetas"))
+                .Select(x => x.Valor).FirstOrDefault();
+
             int formatoComprobante = int.Parse(printParams.Where(x => x.Nombre.Equals("formato_comprobante"))
                 .Select(x => x.Valor).FirstOrDefault().ToString());
 

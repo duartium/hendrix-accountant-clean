@@ -11,14 +11,17 @@ using HendrixAccountant.Data.Repositories;
 using HendrixAccountant.Data.Services;
 using HendrixAccountant.Forms.PdfViewer;
 using HendrixAccountant.Infrastructure.Shared.Services;
+using HendrixAccountant.Reports.Labels;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Color = System.Drawing.Color;
+using HendrixAccountant.Forms.Sales;
 
 namespace HendrixAccountant
 {
@@ -168,6 +171,7 @@ namespace HendrixAccountant
                 MessageBox.Show("Seleccione al proveedor. Campo obligatorio", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            
             _isSearch = false;
             bool isUpdate = false;
             string mensaje = "Producto registrado con éxito.";
@@ -200,20 +204,18 @@ namespace HendrixAccountant
                 return;
             }
 
-            if (_rpsProduct.Save(product, isUpdate))
-            {
-                _barcodeService.Generate(txtCodBarras.Text.Trim());
-                Clear();
-                SetScreen(EstadoPantalla.INICIAL);
-                MessageBox.Show(mensaje, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtCodBarras.Focus();
-                return;
-            }
-            else
+            if (!_rpsProduct.Save(product, isUpdate))
             {
                 MessageBox.Show("No se pudo registrar/modificar el producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
+            _barcodeService.Generate(txtCodBarras.Text.Trim());
+            Clear();
+            SetScreen(EstadoPantalla.INICIAL);
+            MessageBox.Show(mensaje, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            txtCodBarras.Focus();
+            return;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -680,33 +682,49 @@ namespace HendrixAccountant
                     MessageBox.Show("Busque y seleccione un producto para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
+
                 barcodes.Add(new BarcodeCard
                 {
                     Codigo = _product.codigo,
                     Precio = _product.precio_venta.ToString(),
                     NombreProducto = _product.nombre
                 });
+
             }
             else
             {
                 barcodes = _rpsProduct.GetBarcodes();
             }
+
             if(barcodes.Count <= 0)
             {
                 MessageBox.Show("No se encontraron productos para generar su etiqueta.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            string pathPdfCreated = _pdfService.Generate(barcodes);
+            var printParams = new CompanyRepository().GetPrintParams();
+            string printer = printParams.Where(x => x.Nombre.Equals("impresora_etiquetas"))
+                .Select(x => x.Valor).FirstOrDefault();
 
-            string execute = new ParameterServices().Get(CString.PDF_EXECUTE);
-            if(execute.Equals("chrome"))
-                System.Diagnostics.Process.Start("chrome.exe", pathPdfCreated);
-            else
-            {
-                //frmPdfReader frmPdfReader = new frmPdfReader(pathPdfCreated);
-                //frmPdfReader.ShowDialog();
-            }
+            var printerSettings = new System.Drawing.Printing.PrinterSettings();
+            printerSettings.PrinterName = printer;
+
+            //Imprimir en etiquetadora
+            var rptLabelSingle = new RptLabelSingle();
+            rptLabelSingle.DataSource = barcodes.FirstOrDefault();
+            
+            var reportSource = new Telerik.Reporting.InstanceReportSource();
+            reportSource.ReportDocument = rptLabelSingle;
+            
+            var frmTicketVenta = new frmTicketVenta(reportSource);
+            frmTicketVenta.ShowDialog();
+
+            //Imprimir en A4
+            //string pathPdfCreated = _pdfService.Generate(barcodes);
+            //string execute = new ParameterServices().Get(CString.PDF_EXECUTE);
+            //if(execute.Equals("chrome"))
+            //    System.Diagnostics.Process.Start("chrome.exe", pathPdfCreated);
+
         }
 
         private void txtCodBarras_KeyDown(object sender, KeyEventArgs e)
@@ -764,6 +782,11 @@ namespace HendrixAccountant
         private void cboCategoria_DropDown(object sender, EventArgs e)
         {
             LoadComboBoxCategorias();
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

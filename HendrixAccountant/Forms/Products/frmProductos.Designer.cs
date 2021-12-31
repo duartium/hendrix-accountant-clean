@@ -814,27 +814,28 @@
             this.panel6.Enabled = false;
             this.panel6.Location = new System.Drawing.Point(20, 167);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(99, 32);
+            this.panel6.Size = new System.Drawing.Size(120, 32);
             this.panel6.TabIndex = 85;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // txtCodigo2
             // 
             this.txtCodigo2.BackColor = System.Drawing.SystemColors.Control;
             this.txtCodigo2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCodigo2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo2.Location = new System.Drawing.Point(2, 8);
+            this.txtCodigo2.Location = new System.Drawing.Point(6, 8);
             this.txtCodigo2.MaxLength = 20;
             this.txtCodigo2.Name = "txtCodigo2";
-            this.txtCodigo2.Size = new System.Drawing.Size(95, 15);
+            this.txtCodigo2.Size = new System.Drawing.Size(111, 15);
             this.txtCodigo2.TabIndex = 10;
             // 
             // label12
             // 
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label12.Location = new System.Drawing.Point(0, 29);
+            this.label12.Location = new System.Drawing.Point(0, 30);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(99, 3);
+            this.label12.Size = new System.Drawing.Size(120, 2);
             this.label12.TabIndex = 9;
             // 
             // label13
@@ -842,7 +843,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label13.Location = new System.Drawing.Point(125, 152);
+            this.label13.Location = new System.Drawing.Point(146, 152);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(52, 15);
             this.label13.TabIndex = 84;
@@ -854,9 +855,9 @@
             this.panel7.Controls.Add(this.txtNombre2);
             this.panel7.Controls.Add(this.label22);
             this.panel7.Enabled = false;
-            this.panel7.Location = new System.Drawing.Point(128, 167);
+            this.panel7.Location = new System.Drawing.Point(149, 167);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(269, 32);
+            this.panel7.Size = new System.Drawing.Size(287, 32);
             this.panel7.TabIndex = 83;
             // 
             // txtNombre2
@@ -864,19 +865,19 @@
             this.txtNombre2.BackColor = System.Drawing.SystemColors.Control;
             this.txtNombre2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNombre2.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtNombre2.Location = new System.Drawing.Point(1, 7);
+            this.txtNombre2.Location = new System.Drawing.Point(9, 7);
             this.txtNombre2.MaxLength = 100;
             this.txtNombre2.Name = "txtNombre2";
-            this.txtNombre2.Size = new System.Drawing.Size(265, 16);
+            this.txtNombre2.Size = new System.Drawing.Size(275, 16);
             this.txtNombre2.TabIndex = 0;
             // 
             // label22
             // 
             this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label22.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label22.Location = new System.Drawing.Point(0, 29);
+            this.label22.Location = new System.Drawing.Point(0, 30);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(269, 3);
+            this.label22.Size = new System.Drawing.Size(287, 2);
             this.label22.TabIndex = 9;
             // 
             // label23

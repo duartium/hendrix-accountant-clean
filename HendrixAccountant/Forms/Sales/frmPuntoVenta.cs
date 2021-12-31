@@ -498,18 +498,18 @@ namespace HendrixAccountant
             var dtCompany = new CompanyMapper().JsonCompanyToDataTable(company);
             dsFactura.Tables.Add(dtCompany);
 
-            var document = new PrintDocument();
-            document.PrinterSettings.PrinterName = document.DefaultPageSettings.PrinterSettings.PrinterName;
-            if (!document.PrinterSettings.IsValid)
-            {
-                MessageBox.Show($"No se pudo conectar con la impresora {document.PrinterSettings.PrinterName}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
+            var printParams = _rpsParams.GetPrintParams();
             var printerSettings = new PrinterSettings
             {
-                PrinterName = document.PrinterSettings.PrinterName
+                PrinterName = printParams.Where(x => x.Nombre.Equals("impresora"))
+                .Select(x => x.Valor).FirstOrDefault()
             };
+
+            if (!printerSettings.IsValid)
+            {
+                MessageBox.Show($"No se pudo conectar con la impresora {printerSettings.PrinterName}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
             //var frmReportVentas = new frmReportVentas(new ReportData { Data = dsFactura, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
             //frmReportVentas.ShowDialog();
@@ -522,11 +522,11 @@ namespace HendrixAccountant
             reportSource.ReportDocument = ticketVenta;
 
             //IMPRIMIR DIRECTO
-            //ReportProcessor reportProcessor = new ReportProcessor();
-            //reportProcessor.PrintReport(reportSource, printerSettings);
+            var reportProcessor = new Telerik.Reporting.Processing.ReportProcessor();
+            reportProcessor.PrintReport(reportSource, printerSettings);
 
-            var x = new frmTicketVenta(reportSource);
-            x.ShowDialog();
+            //var x = new frmTicketVenta(reportSource);
+            //x.ShowDialog();
 
             //frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = dsFactura, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
             //frmReportVentas.ShowDialog();
