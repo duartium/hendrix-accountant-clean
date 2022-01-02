@@ -6,6 +6,7 @@ using HendrixAccountant.Forms;
 using HendrixAccountant.Forms.Clients;
 using HendrixAccountant.Forms.Directorio;
 using HendrixAccountant.Forms.Inventory;
+using HendrixAccountant.Forms.Sales;
 using HendrixAccountant.Sessions;
 using System;
 using System.Drawing;
@@ -29,6 +30,7 @@ namespace HendrixAccountant
         private frmTallas frmTallas = null;
         private frmKardex frmKardex = null;
         private frmCumpleaneros frmCumpleaneros = null;
+        private frmAnulacionComprobante frmAnulacionComprobante = null;
 
         #region constructores
         public frmMain()
@@ -55,6 +57,19 @@ namespace HendrixAccountant
             frmClientes.MdiParent = this;
             frmClientes.FormClosed += new FormClosedEventHandler(clientes_FormClosed);
             frmClientes.Show();
+        }
+
+        private void ShowAnulacion()
+        {
+            if (frmAnulacionComprobante != null)
+            {
+                frmAnulacionComprobante.BringToFront();
+                return;
+            }
+            frmAnulacionComprobante = new frmAnulacionComprobante();
+            frmAnulacionComprobante.MdiParent = this;
+            frmAnulacionComprobante.FormClosed += new FormClosedEventHandler(anulacion_FormClosed);
+            frmAnulacionComprobante.Show();
         }
 
         private void productosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,6 +113,11 @@ namespace HendrixAccountant
         }
 
         private void caja_FormClosed(object sender, EventArgs e)
+        {
+            frmCaja = null;
+        }
+
+        private void anulacion_FormClosed(object sender, EventArgs e)
         {
             frmCaja = null;
         }
@@ -481,6 +501,12 @@ namespace HendrixAccountant
             if (MessageBox.Show("¿Está seguro de salir? La aplicación y todos sus procesos se cerrarán.", CString.DEFAULT_TITLE, MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes) {
                 Environment.Exit(0);
             }
+        }
+
+        private void anulacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeselectButtons();
+            ShowAnulacion();
         }
     }
 }

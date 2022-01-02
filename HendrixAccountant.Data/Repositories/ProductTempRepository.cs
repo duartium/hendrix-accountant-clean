@@ -27,11 +27,18 @@ namespace HendrixAccountant.Data.Repositories
         }
         public List<Product> GetAll(ProductFilterDto filters)
         {
+
             var parms = new List<SqlParameter>();
             parms.Add(new SqlParameter("@accion", 'G'));
             parms.Add(new SqlParameter("@idProducto", filters.IdProducto));
             parms.Add(new SqlParameter("@nombre", filters.NombreProducto));
             parms.Add(new SqlParameter("@codigo", filters.Codigo));
+
+            if(filters.EsServicio >= 0)
+                parms.Add(new SqlParameter("@es_servicio", filters.EsServicio));
+            else
+                parms.Add(new SqlParameter("@es_servicio", DBNull.Value));
+
             var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
             return new ProductMapper().DatasetToProducts(dsResp);
         }

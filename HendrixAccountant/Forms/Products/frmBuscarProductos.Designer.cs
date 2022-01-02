@@ -45,7 +45,6 @@
             this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTalla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.pnAside.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -75,7 +74,7 @@
             this.txtCodProducto.MaxLength = 20;
             this.txtCodProducto.Name = "txtCodProducto";
             this.txtCodProducto.Size = new System.Drawing.Size(88, 24);
-            this.txtCodProducto.TabIndex = 94;
+            this.txtCodProducto.TabIndex = 0;
             this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
             this.txtCodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodProducto_KeyPress);
             // 
@@ -109,7 +108,7 @@
             this.txtNombreProd.MaxLength = 100;
             this.txtNombreProd.Name = "txtNombreProd";
             this.txtNombreProd.Size = new System.Drawing.Size(366, 24);
-            this.txtNombreProd.TabIndex = 0;
+            this.txtNombreProd.TabIndex = 1;
             this.txtNombreProd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreProd_KeyDown);
             // 
             // pnAside
@@ -209,8 +208,7 @@
             this.colNombreProd,
             this.colStock,
             this.colPrecio,
-            this.colCategoria,
-            this.colTalla});
+            this.colCategoria});
             this.dgvProductos.EnableHeadersVisualStyles = false;
             this.dgvProductos.Location = new System.Drawing.Point(5, 95);
             this.dgvProductos.MultiSelect = false;
@@ -254,13 +252,6 @@
             this.colCategoria.ReadOnly = true;
             this.colCategoria.Width = 150;
             // 
-            // colTalla
-            // 
-            this.colTalla.HeaderText = "Talla";
-            this.colTalla.Name = "colTalla";
-            this.colTalla.ReadOnly = true;
-            this.colTalla.Width = 60;
-            // 
             // frmBuscarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,12 +290,11 @@
         private UIControls.Buttons.ItemAsideSmall btnConsultar;
         private UIControls.Buttons.ItemAsideSmall btnCerrar;
         private UIControls.Buttons.ItemAsideSmall btnLimpiar;
+        private System.Windows.Forms.TextBox txtCodProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombreProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTalla;
-        private System.Windows.Forms.TextBox txtCodProducto;
     }
 }

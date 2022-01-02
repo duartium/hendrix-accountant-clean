@@ -1,7 +1,5 @@
-﻿using HendrixAccountant.ApplicationCore.Constants;
-using HendrixAccountant.ApplicationCore.DTOs;
+﻿using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Interfaces.Services;
-using HendrixAccountant.ApplicationCore.Models;
 using HendrixAccountant.Common;
 using System;
 using System.Collections.Generic;
@@ -10,8 +8,6 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
 using System.Xml.Linq;
 
 namespace HendrixAccountant.ApplicationCore.Services
@@ -47,6 +43,17 @@ namespace HendrixAccountant.ApplicationCore.Services
             //if (_sqlServer.ExecuteNonQuery(_storeProcedureName, parms) > 0)
             //    resp = true;
             return resp;
+        }
+
+        public bool CancelInvoice(int secuencial, string motivoAnulacion)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter { ParameterName = "@accion", SqlDbType = SqlDbType.Char, Value = 'A' });
+            parms.Add(new SqlParameter { ParameterName = "@secuencial", SqlDbType = SqlDbType.Int, Value = secuencial });
+            parms.Add(new SqlParameter { ParameterName = "@motivo_anulacion", SqlDbType = SqlDbType.VarChar, Value = motivoAnulacion });
+            
+            int resp = _sqlServer.ExecuteNonQuery("SP_QRY_SALE", parms);
+            return (resp > 0);
         }
 
         private string CreateXmlInvoice(InvoiceDto invoice)
