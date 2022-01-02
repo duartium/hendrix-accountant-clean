@@ -179,7 +179,7 @@ namespace HendrixAccountant
             decimal pago = Convert.ToDecimal(txtPago.Text.Replace("$", "").Replace(",", "."), Utils.GetCulture());
             decimal totalPagar = Convert.ToDecimal(txtTotalPagar.Text.Replace(",", "."), Utils.GetCulture());
             
-            if(pago > totalPagar)
+            if(pago >= totalPagar)
             {
                 decimal cambio = Math.Round(pago - totalPagar, 2);
                 txtCambio.Text = cambio.ToString().Replace(",", ".");
@@ -211,7 +211,7 @@ namespace HendrixAccountant
             decimal totalPagar = Convert.ToDecimal(txtTotalPagar.Text.Replace(",", "."), Utils.GetCulture());
             if (pago < totalPagar)
             {
-                MessageBox.Show($"El pago del cliente ${pago}, no puede ser menor al Total a pagar ${totalPagar}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"El pago del cliente ${pago} no puede ser menor al Total a pagar ${totalPagar}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPago.Focus();
                 return;
             }

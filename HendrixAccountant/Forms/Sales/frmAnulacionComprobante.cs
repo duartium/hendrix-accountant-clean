@@ -34,12 +34,14 @@ namespace HendrixAccountant.Forms.Sales
                     return;
                 }
 
-                bool resp = _rpsSale.CancelInvoice(int.Parse(txtMotivoAnulacion.Text.Trim()), txtMotivoAnulacion.Text);
+                bool resp = _rpsSale.CancelInvoice(int.Parse(txtNumSecuencial.Text.Trim()), txtMotivoAnulacion.Text);
                 if (resp) {
-                    MessageBox.Show($"Se anuló el comprobante de venta número {txtMotivoAnulacion.Text}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Se anuló el comprobante de venta número {txtNumSecuencial.Text}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtNumSecuencial.Clear();
                     txtMotivoAnulacion.Clear();
                     txtNumSecuencial.Focus();
+                    dgvComprobanteInd.DataSource = null;
+                    dgvComprobanteInd.Rows.Clear();
                 }
                 else
                 {
@@ -48,6 +50,7 @@ namespace HendrixAccountant.Forms.Sales
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Utils.GrabarLog("btnAnular", ex.ToString());
             }
         }

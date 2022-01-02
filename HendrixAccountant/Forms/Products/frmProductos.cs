@@ -572,8 +572,10 @@ namespace HendrixAccountant
                 var filters = new ProductFilterDto
                 {
                     Codigo = txtCodProducto.Text,
-                    NombreProducto = txtNombreProd.Text
+                    NombreProducto = txtNombreProd.Text,
+                    EsServicio = -1
                 };
+
                 var products = _rpsProduct.GetAll(filters);
                 if (products == null)
                 {
@@ -608,7 +610,7 @@ namespace HendrixAccountant
             int i = 0;
             foreach (var item in data)
             {
-                dgvProductos.Rows.Add(item.codigo, item.nombre);
+                dgvProductos.Rows.Add(item.codigo, item.nombre, item.stock);
                 dgvProductos.Rows[i].Tag = item;
                 i++;
             }
