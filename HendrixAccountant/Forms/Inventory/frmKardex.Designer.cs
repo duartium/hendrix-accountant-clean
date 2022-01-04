@@ -365,9 +365,9 @@ namespace HendrixAccountant.Forms.Inventory
             // 
             this.lblPnCodigoProv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.lblPnCodigoProv.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblPnCodigoProv.Location = new System.Drawing.Point(0, 29);
+            this.lblPnCodigoProv.Location = new System.Drawing.Point(0, 30);
             this.lblPnCodigoProv.Name = "lblPnCodigoProv";
-            this.lblPnCodigoProv.Size = new System.Drawing.Size(113, 3);
+            this.lblPnCodigoProv.Size = new System.Drawing.Size(113, 2);
             this.lblPnCodigoProv.TabIndex = 9;
             // 
             // btnBuscarProductos
@@ -407,9 +407,9 @@ namespace HendrixAccountant.Forms.Inventory
             // 
             this.lblPnNombreProv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.lblPnNombreProv.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblPnNombreProv.Location = new System.Drawing.Point(0, 29);
+            this.lblPnNombreProv.Location = new System.Drawing.Point(0, 30);
             this.lblPnNombreProv.Name = "lblPnNombreProv";
-            this.lblPnNombreProv.Size = new System.Drawing.Size(352, 3);
+            this.lblPnNombreProv.Size = new System.Drawing.Size(352, 2);
             this.lblPnNombreProv.TabIndex = 9;
             // 
             // label7

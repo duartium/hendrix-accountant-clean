@@ -290,14 +290,7 @@ namespace HendrixAccountant
 
         private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            if (frmProductos != null) {
-                frmProductos.BringToFront();
-                return;
-            }
-            frmProductos = new frmProductos();
-            frmProductos.MdiParent = this;
-            frmProductos.FormClosed += new FormClosedEventHandler(productos_FormClosed);
-            frmProductos.Show();
+            
         }
 
         private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
@@ -507,6 +500,24 @@ namespace HendrixAccountant
         {
             DeselectButtons();
             ShowAnulacion();
+        }
+
+        private void productosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (frmProductos != null)
+            {
+                frmProductos.BringToFront();
+                return;
+            }
+            frmProductos = new frmProductos();
+            frmProductos.MdiParent = this;
+            frmProductos.FormClosed += new FormClosedEventHandler(productos_FormClosed);
+            frmProductos.Show();
+        }
+
+        private void bajaDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

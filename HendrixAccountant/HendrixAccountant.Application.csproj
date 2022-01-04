@@ -126,6 +126,12 @@
     <Compile Include="Forms\PdfViewer\frmPdfViewer.Designer.cs">
       <DependentUpon>frmPdfViewer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Products\frmBajaProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Products\frmBajaProductos.Designer.cs">
+      <DependentUpon>frmBajaProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Products\frmBuscarTallas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -304,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PdfViewer\frmPdfViewer.resx">
       <DependentUpon>frmPdfViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Products\frmBajaProductos.resx">
+      <DependentUpon>frmBajaProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Products\frmBuscarTallas.resx">
       <DependentUpon>frmBuscarTallas.cs</DependentUpon>
