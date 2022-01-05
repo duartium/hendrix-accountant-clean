@@ -6,5 +6,6 @@
         public int Cantidad { get; set; }
         public int IdMotivo { get; set; }
         public string OtroMotivo { get; set; }
+        public string Usuario { get; set; }
     }
 }

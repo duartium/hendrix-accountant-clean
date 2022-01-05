@@ -48,7 +48,7 @@ namespace HendrixAccountant.Forms.Products
             this.pnDireccion = new System.Windows.Forms.Panel();
             this.txtOtroMotivo = new System.Windows.Forms.TextBox();
             this.lblPnDescripcion = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblOtroMotivo = new System.Windows.Forms.Label();
             this.btnBuscarProductos = new System.Windows.Forms.Button();
             this.pnIdentificacion.SuspendLayout();
             this.pnCodProveedor.SuspendLayout();
@@ -130,12 +130,13 @@ namespace HendrixAccountant.Forms.Products
             // 
             this.txtCodProducto.BackColor = System.Drawing.SystemColors.Control;
             this.txtCodProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCodProducto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodProducto.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodProducto.Location = new System.Drawing.Point(6, 6);
             this.txtCodProducto.MaxLength = 10;
             this.txtCodProducto.Name = "txtCodProducto";
-            this.txtCodProducto.Size = new System.Drawing.Size(100, 19);
+            this.txtCodProducto.Size = new System.Drawing.Size(100, 18);
             this.txtCodProducto.TabIndex = 6;
+            this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
             // 
             // lblPnCodigoProv
             // 
@@ -187,7 +188,7 @@ namespace HendrixAccountant.Forms.Products
             "Producto vencido",
             "Extravío",
             "Otros"});
-            this.cboMotivo.Location = new System.Drawing.Point(195, 120);
+            this.cboMotivo.Location = new System.Drawing.Point(177, 114);
             this.cboMotivo.Name = "cboMotivo";
             this.cboMotivo.Size = new System.Drawing.Size(267, 24);
             this.cboMotivo.TabIndex = 95;
@@ -208,7 +209,7 @@ namespace HendrixAccountant.Forms.Products
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label7.Location = new System.Drawing.Point(192, 102);
+            this.label7.Location = new System.Drawing.Point(174, 96);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 15);
             this.label7.TabIndex = 96;
@@ -234,6 +235,7 @@ namespace HendrixAccountant.Forms.Products
             this.pnDireccion.Name = "pnDireccion";
             this.pnDireccion.Size = new System.Drawing.Size(309, 32);
             this.pnDireccion.TabIndex = 97;
+            this.pnDireccion.Visible = false;
             // 
             // txtOtroMotivo
             // 
@@ -255,16 +257,17 @@ namespace HendrixAccountant.Forms.Products
             this.lblPnDescripcion.Size = new System.Drawing.Size(309, 2);
             this.lblPnDescripcion.TabIndex = 9;
             // 
-            // label15
+            // lblOtroMotivo
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label15.Location = new System.Drawing.Point(26, 151);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(69, 15);
-            this.label15.TabIndex = 98;
-            this.label15.Text = "Otro motivo";
+            this.lblOtroMotivo.AutoSize = true;
+            this.lblOtroMotivo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOtroMotivo.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblOtroMotivo.Location = new System.Drawing.Point(26, 151);
+            this.lblOtroMotivo.Name = "lblOtroMotivo";
+            this.lblOtroMotivo.Size = new System.Drawing.Size(69, 15);
+            this.lblOtroMotivo.TabIndex = 98;
+            this.lblOtroMotivo.Text = "Otro motivo";
+            this.lblOtroMotivo.Visible = false;
             // 
             // btnBuscarProductos
             // 
@@ -275,6 +278,7 @@ namespace HendrixAccountant.Forms.Products
             this.btnBuscarProductos.TabIndex = 101;
             this.btnBuscarProductos.Text = "...";
             this.btnBuscarProductos.UseVisualStyleBackColor = true;
+            this.btnBuscarProductos.Click += new System.EventHandler(this.btnBuscarProductos_Click);
             // 
             // frmBajaProductos
             // 
@@ -292,13 +296,14 @@ namespace HendrixAccountant.Forms.Products
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pnDireccion);
-            this.Controls.Add(this.label15);
+            this.Controls.Add(this.lblOtroMotivo);
             this.Controls.Add(this.btnBuscarProductos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(5, 5);
             this.Name = "frmBajaProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "BAJA DE PRODUCTOS";
+            this.Activated += new System.EventHandler(this.frmBajaProductos_Activated);
             this.Load += new System.EventHandler(this.frmBajaProductos_Load);
             this.pnIdentificacion.ResumeLayout(false);
             this.pnIdentificacion.PerformLayout();
@@ -333,7 +338,7 @@ namespace HendrixAccountant.Forms.Products
         private System.Windows.Forms.Panel pnDireccion;
         private System.Windows.Forms.TextBox txtOtroMotivo;
         private System.Windows.Forms.Label lblPnDescripcion;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblOtroMotivo;
         private System.Windows.Forms.Button btnBuscarProductos;
     }
 }

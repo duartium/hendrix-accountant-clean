@@ -6,6 +6,7 @@ using HendrixAccountant.Forms;
 using HendrixAccountant.Forms.Clients;
 using HendrixAccountant.Forms.Directorio;
 using HendrixAccountant.Forms.Inventory;
+using HendrixAccountant.Forms.Products;
 using HendrixAccountant.Forms.Sales;
 using HendrixAccountant.Sessions;
 using System;
@@ -31,7 +32,8 @@ namespace HendrixAccountant
         private frmKardex frmKardex = null;
         private frmCumpleaneros frmCumpleaneros = null;
         private frmAnulacionComprobante frmAnulacionComprobante = null;
-
+        private frmBajaProductos frmBajaProductos = null;
+        
         #region constructores
         public frmMain()
         {
@@ -110,6 +112,11 @@ namespace HendrixAccountant
         private void productos_FormClosed(object sender, EventArgs e)
         {
             frmProductos = null;
+        }
+
+        private void bajaProductos_FormClosed(object sender, EventArgs e)
+        {
+            frmBajaProductos = null;
         }
 
         private void caja_FormClosed(object sender, EventArgs e)
@@ -517,7 +524,15 @@ namespace HendrixAccountant
 
         private void bajaDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (frmBajaProductos != null)
+            {
+                frmBajaProductos.BringToFront();
+                return;
+            }
+            frmBajaProductos = new frmBajaProductos();
+            frmBajaProductos.MdiParent = this;
+            frmBajaProductos.FormClosed += new FormClosedEventHandler(bajaProductos_FormClosed);
+            frmBajaProductos.Show();
         }
     }
 }

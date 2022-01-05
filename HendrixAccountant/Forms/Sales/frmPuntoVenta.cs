@@ -548,10 +548,7 @@ namespace HendrixAccountant
 
         private void txtCodProducto_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                SearchProduct();
-            }
+            
         }
 
         private void txtPago_TextChanged(object sender, EventArgs e)
@@ -600,6 +597,15 @@ namespace HendrixAccountant
         {
             e.Cancel = true;
             //RemoveProduct();
+        }
+
+        private void txtCodProducto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchProduct();
+                e.Handled = e.SuppressKeyPress = true;
+            }
         }
     }
 }

@@ -155,5 +155,18 @@ namespace HendrixAccountant.Data.Repositories
             var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
             return new ProductMapper().DatasetToProduct(dsResp);
         }
+
+        public bool UnsuscribeProduct(ProductWithdrawal product)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", "U"));
+            parms.Add(new SqlParameter("@idProducto", product.IdProducto));
+            parms.Add(new SqlParameter("@idMotivo", product.IdMotivo));
+            parms.Add(new SqlParameter("@cantidad", product.Cantidad));
+            parms.Add(new SqlParameter("@otroMotivo", product.OtroMotivo));
+            parms.Add(new SqlParameter("@usuario", product.Usuario));
+            int resp = _sqlServer.ExecuteNonQuery("SP_UNSUSCRIBE_PRODUCT", parms);
+            if (resp > 0) return true; else return false;
+        }
     }
 }
