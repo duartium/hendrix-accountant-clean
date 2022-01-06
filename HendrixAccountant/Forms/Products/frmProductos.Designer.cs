@@ -171,7 +171,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label6.Location = new System.Drawing.Point(339, 214);
+            this.label6.Location = new System.Drawing.Point(339, 215);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 15);
             this.label6.TabIndex = 76;
@@ -187,7 +187,7 @@
             "A",
             "B",
             "C"});
-            this.cmbTalla.Location = new System.Drawing.Point(342, 237);
+            this.cmbTalla.Location = new System.Drawing.Point(342, 238);
             this.cmbTalla.Name = "cmbTalla";
             this.cmbTalla.Size = new System.Drawing.Size(100, 24);
             this.cmbTalla.TabIndex = 77;
@@ -198,7 +198,7 @@
             this.pnlPrecioVenta.BackColor = System.Drawing.SystemColors.Control;
             this.pnlPrecioVenta.Controls.Add(this.lblPnPrecioVenta);
             this.pnlPrecioVenta.Controls.Add(this.txtPrecioVenta);
-            this.pnlPrecioVenta.Location = new System.Drawing.Point(128, 229);
+            this.pnlPrecioVenta.Location = new System.Drawing.Point(128, 230);
             this.pnlPrecioVenta.Name = "pnlPrecioVenta";
             this.pnlPrecioVenta.Size = new System.Drawing.Size(98, 32);
             this.pnlPrecioVenta.TabIndex = 4;
@@ -221,7 +221,7 @@
             this.txtPrecioVenta.MaxLength = 10;
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(85, 15);
-            this.txtPrecioVenta.TabIndex = 8;
+            this.txtPrecioVenta.TabIndex = 6;
             this.txtPrecioVenta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPrecioVenta.TextChanged += new System.EventHandler(this.txtPrecioVenta_TextChanged);
             // 
@@ -230,7 +230,7 @@
             this.lblPrecioVenta.AutoSize = true;
             this.lblPrecioVenta.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioVenta.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblPrecioVenta.Location = new System.Drawing.Point(125, 214);
+            this.lblPrecioVenta.Location = new System.Drawing.Point(125, 215);
             this.lblPrecioVenta.Name = "lblPrecioVenta";
             this.lblPrecioVenta.Size = new System.Drawing.Size(91, 15);
             this.lblPrecioVenta.TabIndex = 67;
@@ -241,7 +241,7 @@
             this.pnlCosto.BackColor = System.Drawing.SystemColors.Control;
             this.pnlCosto.Controls.Add(this.lblPnCosto);
             this.pnlCosto.Controls.Add(this.txtCosto);
-            this.pnlCosto.Location = new System.Drawing.Point(22, 229);
+            this.pnlCosto.Location = new System.Drawing.Point(22, 230);
             this.pnlCosto.Name = "pnlCosto";
             this.pnlCosto.Size = new System.Drawing.Size(98, 32);
             this.pnlCosto.TabIndex = 3;
@@ -264,7 +264,7 @@
             this.txtCosto.MaxLength = 10;
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(82, 15);
-            this.txtCosto.TabIndex = 7;
+            this.txtCosto.TabIndex = 5;
             this.txtCosto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtCosto.TextChanged += new System.EventHandler(this.txtCosto_TextChanged);
             // 
@@ -273,7 +273,7 @@
             this.lblCosto.AutoSize = true;
             this.lblCosto.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCosto.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblCosto.Location = new System.Drawing.Point(19, 214);
+            this.lblCosto.Location = new System.Drawing.Point(19, 215);
             this.lblCosto.Name = "lblCosto";
             this.lblCosto.Size = new System.Drawing.Size(40, 15);
             this.lblCosto.TabIndex = 62;
@@ -287,18 +287,19 @@
             this.pnDireccion.Location = new System.Drawing.Point(22, 177);
             this.pnDireccion.Name = "pnDireccion";
             this.pnDireccion.Size = new System.Drawing.Size(309, 32);
-            this.pnDireccion.TabIndex = 2;
+            this.pnDireccion.TabIndex = 3;
             // 
             // txtDescripcion
             // 
             this.txtDescripcion.BackColor = System.Drawing.SystemColors.Control;
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescripcion.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(7, 8);
             this.txtDescripcion.MaxLength = 150;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(299, 15);
-            this.txtDescripcion.TabIndex = 6;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // lblPnDescripcion
             // 
@@ -334,12 +335,13 @@
             // 
             this.txtNombre.BackColor = System.Drawing.SystemColors.Control;
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(8, 8);
             this.txtNombre.MaxLength = 150;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(262, 15);
-            this.txtNombre.TabIndex = 5;
+            this.txtNombre.TabIndex = 1;
             // 
             // lblPnNombre
             // 
@@ -366,7 +368,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label7.Location = new System.Drawing.Point(19, 266);
+            this.label7.Location = new System.Drawing.Point(19, 268);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 15);
             this.label7.TabIndex = 78;
@@ -381,7 +383,7 @@
             "A",
             "B",
             "C"});
-            this.cboCategoria.Location = new System.Drawing.Point(22, 284);
+            this.cboCategoria.Location = new System.Drawing.Point(22, 286);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(205, 24);
             this.cboCategoria.TabIndex = 10;
@@ -533,7 +535,7 @@
             this.rbServicio.Location = new System.Drawing.Point(84, 21);
             this.rbServicio.Name = "rbServicio";
             this.rbServicio.Size = new System.Drawing.Size(64, 20);
-            this.rbServicio.TabIndex = 4;
+            this.rbServicio.TabIndex = 8;
             this.rbServicio.Text = "Servicio";
             this.rbServicio.UseVisualStyleBackColor = true;
             this.rbServicio.CheckedChanged += new System.EventHandler(this.rbServicio_CheckedChanged);
@@ -546,7 +548,7 @@
             this.rbProducto.Location = new System.Drawing.Point(11, 21);
             this.rbProducto.Name = "rbProducto";
             this.rbProducto.Size = new System.Drawing.Size(68, 20);
-            this.rbProducto.TabIndex = 3;
+            this.rbProducto.TabIndex = 7;
             this.rbProducto.TabStop = true;
             this.rbProducto.Text = "Producto";
             this.rbProducto.UseVisualStyleBackColor = true;
@@ -557,7 +559,7 @@
             this.lblTarifaIva.AutoSize = true;
             this.lblTarifaIva.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTarifaIva.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblTarifaIva.Location = new System.Drawing.Point(231, 214);
+            this.lblTarifaIva.Location = new System.Drawing.Point(231, 215);
             this.lblTarifaIva.Name = "lblTarifaIva";
             this.lblTarifaIva.Size = new System.Drawing.Size(56, 15);
             this.lblTarifaIva.TabIndex = 95;
@@ -568,10 +570,7 @@
             this.cmbTarifaIva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTarifaIva.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTarifaIva.FormattingEnabled = true;
-            this.cmbTarifaIva.Items.AddRange(new object[] {
-            "0%",
-            "12%"});
-            this.cmbTarifaIva.Location = new System.Drawing.Point(234, 237);
+            this.cmbTarifaIva.Location = new System.Drawing.Point(234, 238);
             this.cmbTarifaIva.Name = "cmbTarifaIva";
             this.cmbTarifaIva.Size = new System.Drawing.Size(100, 24);
             this.cmbTarifaIva.TabIndex = 9;
@@ -580,7 +579,7 @@
             // 
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel8.Controls.Add(this.pbBarcode);
-            this.panel8.Location = new System.Drawing.Point(311, 77);
+            this.panel8.Location = new System.Drawing.Point(315, 77);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(166, 81);
             this.panel8.TabIndex = 94;
@@ -598,12 +597,13 @@
             // 
             this.txtCodBarras.BackColor = System.Drawing.SystemColors.Control;
             this.txtCodBarras.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodBarras.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodBarras.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodBarras.Location = new System.Drawing.Point(29, 83);
             this.txtCodBarras.MaxLength = 20;
             this.txtCodBarras.Name = "txtCodBarras";
             this.txtCodBarras.Size = new System.Drawing.Size(97, 15);
-            this.txtCodBarras.TabIndex = 2;
+            this.txtCodBarras.TabIndex = 0;
             this.txtCodBarras.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodBarras_KeyDown);
             this.txtCodBarras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodBarras_KeyPress);
             // 
@@ -711,7 +711,7 @@
             this.tpBarcodes.Location = new System.Drawing.Point(4, 22);
             this.tpBarcodes.Name = "tpBarcodes";
             this.tpBarcodes.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBarcodes.Size = new System.Drawing.Size(499, 420);
+            this.tpBarcodes.Size = new System.Drawing.Size(499, 414);
             this.tpBarcodes.TabIndex = 1;
             this.tpBarcodes.Text = "Generador código de barras";
             this.tpBarcodes.UseVisualStyleBackColor = true;

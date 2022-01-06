@@ -15,7 +15,6 @@ namespace HendrixAccountant.Reports.Tickets
             Telerik.Reporting.TableGroup tableGroup3 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup4 = new Telerik.Reporting.TableGroup();
             Telerik.Reporting.TableGroup tableGroup5 = new Telerik.Reporting.TableGroup();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ticketVenta));
             Telerik.Reporting.Drawing.StyleRule styleRule1 = new Telerik.Reporting.Drawing.StyleRule();
             this.textBox7 = new Telerik.Reporting.TextBox();
             this.textBox9 = new Telerik.Reporting.TextBox();
@@ -52,16 +51,15 @@ namespace HendrixAccountant.Reports.Tickets
             this.total = new Telerik.Reporting.TextBox();
             this.textBox20 = new Telerik.Reporting.TextBox();
             this.textBox19 = new Telerik.Reporting.TextBox();
-            this.textBox21 = new Telerik.Reporting.TextBox();
             this.textBox24 = new Telerik.Reporting.TextBox();
-            this.textBox25 = new Telerik.Reporting.TextBox();
+            this.textBox21 = new Telerik.Reporting.TextBox();
             this.textBox26 = new Telerik.Reporting.TextBox();
-            this.instagram = new Telerik.Reporting.PictureBox();
+            this.textBox25 = new Telerik.Reporting.TextBox();
             this.igUsername = new Telerik.Reporting.TextBox();
+            this.textBox29 = new Telerik.Reporting.TextBox();
+            this.textBox30 = new Telerik.Reporting.TextBox();
+            this.textBox31 = new Telerik.Reporting.TextBox();
             this.textBox27 = new Telerik.Reporting.TextBox();
-            this.textBox28 = new Telerik.Reporting.TextBox();
-            this.whatsapp = new Telerik.Reporting.PictureBox();
-            this.tiktok = new Telerik.Reporting.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // textBox7
@@ -333,12 +331,11 @@ namespace HendrixAccountant.Reports.Tickets
             this.textBox21,
             this.textBox26,
             this.textBox25,
-            this.instagram,
             this.igUsername,
-            this.textBox27,
-            this.textBox28,
-            this.whatsapp,
-            this.tiktok});
+            this.textBox29,
+            this.textBox30,
+            this.textBox31,
+            this.textBox27});
             this.pageFooterSection1.Name = "pageFooterSection1";
             // 
             // textBox15
@@ -423,15 +420,6 @@ namespace HendrixAccountant.Reports.Tickets
             this.textBox19.Value = "---------------------------------------------------------------------------------" +
     "------";
             // 
-            // textBox21
-            // 
-            this.textBox21.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(2.4D), Telerik.Reporting.Drawing.Unit.Cm(1D));
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.376D), Telerik.Reporting.Drawing.Unit.Cm(0.3D));
-            this.textBox21.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(6D);
-            this.textBox21.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
-            this.textBox21.Value = "=Fields.iva";
-            // 
             // textBox24
             // 
             this.textBox24.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.4D), Telerik.Reporting.Drawing.Unit.Cm(1D));
@@ -441,14 +429,14 @@ namespace HendrixAccountant.Reports.Tickets
             this.textBox24.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.textBox24.Value = "IVA:";
             // 
-            // textBox25
+            // textBox21
             // 
-            this.textBox25.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(2.397D), Telerik.Reporting.Drawing.Unit.Cm(1.3D));
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.376D), Telerik.Reporting.Drawing.Unit.Cm(0.3D));
-            this.textBox25.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(6D);
-            this.textBox25.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
-            this.textBox25.Value = "=Fields.descuento";
+            this.textBox21.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(2.4D), Telerik.Reporting.Drawing.Unit.Cm(1D));
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.376D), Telerik.Reporting.Drawing.Unit.Cm(0.3D));
+            this.textBox21.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(6D);
+            this.textBox21.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
+            this.textBox21.Value = "=Fields.iva";
             // 
             // textBox26
             // 
@@ -459,59 +447,56 @@ namespace HendrixAccountant.Reports.Tickets
             this.textBox26.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
             this.textBox26.Value = "DESCUENTO:";
             // 
-            // instagram
+            // textBox25
             // 
-            this.instagram.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.2D), Telerik.Reporting.Drawing.Unit.Cm(2.9D));
-            this.instagram.MimeType = "image/jpeg";
-            this.instagram.Name = "instagram";
-            this.instagram.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(0.55D), Telerik.Reporting.Drawing.Unit.Cm(0.5D));
-            this.instagram.Sizing = Telerik.Reporting.Drawing.ImageSizeMode.Stretch;
-            this.instagram.Value = ((object)(resources.GetObject("instagram.Value")));
+            this.textBox25.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(2.397D), Telerik.Reporting.Drawing.Unit.Cm(1.3D));
+            this.textBox25.Name = "textBox25";
+            this.textBox25.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(4.376D), Telerik.Reporting.Drawing.Unit.Cm(0.3D));
+            this.textBox25.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(6D);
+            this.textBox25.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Right;
+            this.textBox25.Value = "=Fields.descuento";
             // 
             // igUsername
             // 
-            this.igUsername.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.4D), Telerik.Reporting.Drawing.Unit.Cm(3.472D));
+            this.igUsername.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.4D), Telerik.Reporting.Drawing.Unit.Cm(3.1D));
             this.igUsername.Name = "igUsername";
             this.igUsername.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.303D), Telerik.Reporting.Drawing.Unit.Cm(0.3D));
             this.igUsername.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(6D);
             this.igUsername.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
             this.igUsername.Value = "mariaestherpeluqueria";
             // 
+            // textBox29
+            // 
+            this.textBox29.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.4D), Telerik.Reporting.Drawing.Unit.Cm(2.7D));
+            this.textBox29.Name = "textBox29";
+            this.textBox29.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(6.4D), Telerik.Reporting.Drawing.Unit.Cm(0.2D));
+            this.textBox29.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(5D);
+            this.textBox29.Value = "SIGUENOS EN:";
+            // 
+            // textBox30
+            // 
+            this.textBox30.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.4D), Telerik.Reporting.Drawing.Unit.Cm(2.9D));
+            this.textBox30.Name = "textBox30";
+            this.textBox30.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.303D), Telerik.Reporting.Drawing.Unit.Cm(0.2D));
+            this.textBox30.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(5D);
+            this.textBox30.Value = "INSTAGRAM";
+            // 
+            // textBox31
+            // 
+            this.textBox31.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(3.2D), Telerik.Reporting.Drawing.Unit.Cm(3.128D));
+            this.textBox31.Name = "textBox31";
+            this.textBox31.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.303D), Telerik.Reporting.Drawing.Unit.Cm(0.272D));
+            this.textBox31.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(6D);
+            this.textBox31.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Left;
+            this.textBox31.Value = "0985290914";
+            // 
             // textBox27
             // 
-            this.textBox27.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(2.9D), Telerik.Reporting.Drawing.Unit.Cm(3.472D));
+            this.textBox27.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(3.2D), Telerik.Reporting.Drawing.Unit.Cm(2.928D));
             this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.4D), Telerik.Reporting.Drawing.Unit.Cm(0.3D));
-            this.textBox27.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(6D);
-            this.textBox27.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
-            this.textBox27.Value = "0985290914";
-            // 
-            // textBox28
-            // 
-            this.textBox28.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(4.497D), Telerik.Reporting.Drawing.Unit.Cm(3.472D));
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.303D), Telerik.Reporting.Drawing.Unit.Cm(0.3D));
-            this.textBox28.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(6D);
-            this.textBox28.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
-            this.textBox28.Value = "mariaestherpeluqueria";
-            // 
-            // whatsapp
-            // 
-            this.whatsapp.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(3.4D), Telerik.Reporting.Drawing.Unit.Cm(2.9D));
-            this.whatsapp.MimeType = "image/jpeg";
-            this.whatsapp.Name = "whatsapp";
-            this.whatsapp.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(0.55D), Telerik.Reporting.Drawing.Unit.Cm(0.5D));
-            this.whatsapp.Sizing = Telerik.Reporting.Drawing.ImageSizeMode.Stretch;
-            this.whatsapp.Value = ((object)(resources.GetObject("whatsapp.Value")));
-            // 
-            // tiktok
-            // 
-            this.tiktok.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(5.444D), Telerik.Reporting.Drawing.Unit.Cm(2.944D));
-            this.tiktok.MimeType = "image/jpeg";
-            this.tiktok.Name = "tiktok";
-            this.tiktok.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(0.5D), Telerik.Reporting.Drawing.Unit.Cm(0.472D));
-            this.tiktok.Sizing = Telerik.Reporting.Drawing.ImageSizeMode.Stretch;
-            this.tiktok.Value = ((object)(resources.GetObject("tiktok.Value")));
+            this.textBox27.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(2.303D), Telerik.Reporting.Drawing.Unit.Cm(0.2D));
+            this.textBox27.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(5D);
+            this.textBox27.Value = "WHATSAPP";
             // 
             // ticketVenta
             // 
@@ -578,11 +563,10 @@ namespace HendrixAccountant.Reports.Tickets
         private Telerik.Reporting.TextBox textBox21;
         private Telerik.Reporting.TextBox textBox26;
         private Telerik.Reporting.TextBox textBox25;
-        private Telerik.Reporting.PictureBox instagram;
         private Telerik.Reporting.TextBox igUsername;
+        private Telerik.Reporting.TextBox textBox29;
+        private Telerik.Reporting.TextBox textBox30;
+        private Telerik.Reporting.TextBox textBox31;
         private Telerik.Reporting.TextBox textBox27;
-        private Telerik.Reporting.TextBox textBox28;
-        private Telerik.Reporting.PictureBox whatsapp;
-        private Telerik.Reporting.PictureBox tiktok;
     }
 }

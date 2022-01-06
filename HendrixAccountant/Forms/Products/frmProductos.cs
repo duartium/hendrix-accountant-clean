@@ -50,7 +50,8 @@ namespace HendrixAccountant
             _product = null;
             _isSearch = false;
             LoadSupplierDefault();
-            cmbTarifaIva.DataSource = new List<string> { "0%", "12%" };
+            cmbTarifaIva.Items.Add("0%");
+            cmbTarifaIva.Items.Add("12%");
         }
 
         public void Selected(ISaleElement entity)
@@ -114,8 +115,7 @@ namespace HendrixAccountant
             cmbTalla.SelectedValue = _product.id_talla;
             cboCategoria.SelectedValue = _product.categoria_id;
             SetBarcodeImage(_product.codigo);
-            cmbTarifaIva.SelectedIndex = 1;
-
+            cmbTarifaIva.SelectedIndex = _product.tarifa_iva == 0 ? 0 : 1;
 
             if (_product.es_servicio)
                 rbServicio.Checked = true;
@@ -168,7 +168,12 @@ namespace HendrixAccountant
                 return;
             }
 
-            if(_supplier == null)
+            if(cmbTarifaIva.SelectedIndex == -1){
+                MessageBox.Show("Seleccione la Tarifa IVA del producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (_supplier == null)
             {
                 MessageBox.Show("Seleccione al proveedor. Campo obligatorio", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -389,7 +394,6 @@ namespace HendrixAccountant
                     btnLimpiar.Visible = false;
                     btnGuardar.Visible = false;
                     btnEliminar.Visible = false;
-                    cmbTarifaIva.SelectedIndex = 0;
                     EnabledForm(false);
                     txtCodProducto.Focus();
                     break;

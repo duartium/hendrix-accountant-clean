@@ -43,7 +43,7 @@ namespace HendrixAccountant
             _client = null;
             _invoice = null;
             _descuento = 0;
-            _rpsClient = null;
+            _rpsClient = new ClienteRepository();
             _rpsProduct = new ProductTempRepository();
             _rpsParams = new CompanyRepository();
             _rpsReport = new SaleReportService();
@@ -480,12 +480,15 @@ namespace HendrixAccountant
 
         private void SetFinalConsumer()
         {
+            if (_rpsClient == null) _rpsClient = new ClienteRepository();
+
+            var finalConsumer = _rpsClient.GetByIdentification("9999999999999");
             _client = new ClientIdentity
             {
-                IdCliente = 1,
-                Identificacion = "9999999999",
-                NombresCompletos = "CONSUMIDOR FINAL",
-                Direccion = String.Empty
+                IdCliente = finalConsumer.id_cliente,
+                Identificacion = finalConsumer.identificacion,
+                NombresCompletos = finalConsumer.nombres + " "+finalConsumer.apellidos,
+                Direccion = finalConsumer.direccion
             };
             SetClient();
             btnBuscarCliente.Focus();
