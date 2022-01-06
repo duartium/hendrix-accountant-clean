@@ -50,6 +50,7 @@ namespace HendrixAccountant
             _product = null;
             _isSearch = false;
             LoadSupplierDefault();
+            cmbTarifaIva.DataSource = new List<string> { "0%", "12%" };
         }
 
         public void Selected(ISaleElement entity)
@@ -113,7 +114,8 @@ namespace HendrixAccountant
             cmbTalla.SelectedValue = _product.id_talla;
             cboCategoria.SelectedValue = _product.categoria_id;
             SetBarcodeImage(_product.codigo);
-            cmbTarifaIva.SelectedItem = _product.tarifa_iva;
+            cmbTarifaIva.SelectedIndex = 1;
+
 
             if (_product.es_servicio)
                 rbServicio.Checked = true;

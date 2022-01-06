@@ -34,7 +34,7 @@ namespace HendrixAccountant.ApplicationCore.Map
                     FechaNacimiento = field["fecha_nacimiento"].ToString()
                 }).ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
             }
             return clientes;

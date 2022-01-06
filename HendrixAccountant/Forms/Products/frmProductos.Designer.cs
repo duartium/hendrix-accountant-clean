@@ -58,6 +58,9 @@
             this.lblPnCodigo = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombreProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcProductos = new System.Windows.Forms.TabControl();
             this.tpProduct = new System.Windows.Forms.TabPage();
             this.gbTipo = new System.Windows.Forms.GroupBox();
@@ -98,9 +101,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.txtNombreProd = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombreProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrecioVenta.SuspendLayout();
@@ -449,6 +449,26 @@
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             this.dgvProductos.SelectionChanged += new System.EventHandler(this.dgvProductos_SelectionChanged);
             // 
+            // colCodigo
+            // 
+            this.colCodigo.HeaderText = "Código";
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.ReadOnly = true;
+            this.colCodigo.Width = 95;
+            // 
+            // colNombreProd
+            // 
+            this.colNombreProd.HeaderText = "Nombre de artículo";
+            this.colNombreProd.Name = "colNombreProd";
+            this.colNombreProd.ReadOnly = true;
+            this.colNombreProd.Width = 315;
+            // 
+            // stock
+            // 
+            this.stock.HeaderText = "Stock";
+            this.stock.Name = "stock";
+            this.stock.Width = 80;
+            // 
             // tcProductos
             // 
             this.tcProductos.Controls.Add(this.tpProduct);
@@ -691,7 +711,7 @@
             this.tpBarcodes.Location = new System.Drawing.Point(4, 22);
             this.tpBarcodes.Name = "tpBarcodes";
             this.tpBarcodes.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBarcodes.Size = new System.Drawing.Size(499, 414);
+            this.tpBarcodes.Size = new System.Drawing.Size(499, 420);
             this.tpBarcodes.TabIndex = 1;
             this.tpBarcodes.Text = "Generador código de barras";
             this.tpBarcodes.UseVisualStyleBackColor = true;
@@ -977,26 +997,6 @@
             this.label10.Size = new System.Drawing.Size(47, 15);
             this.label10.TabIndex = 90;
             this.label10.Text = "Código";
-            // 
-            // colCodigo
-            // 
-            this.colCodigo.HeaderText = "Código";
-            this.colCodigo.Name = "colCodigo";
-            this.colCodigo.ReadOnly = true;
-            this.colCodigo.Width = 95;
-            // 
-            // colNombreProd
-            // 
-            this.colNombreProd.HeaderText = "Nombre de artículo";
-            this.colNombreProd.Name = "colNombreProd";
-            this.colNombreProd.ReadOnly = true;
-            this.colNombreProd.Width = 315;
-            // 
-            // stock
-            // 
-            this.stock.HeaderText = "Stock";
-            this.stock.Name = "stock";
-            this.stock.Width = 80;
             // 
             // frmProductos
             // 
