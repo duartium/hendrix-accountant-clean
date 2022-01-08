@@ -29,9 +29,9 @@ namespace HendrixAccountant.Reports.Labels
             // 
             this.barcode1.Angle = -90D;
             this.barcode1.Encoder = code128Encoder1;
-            this.barcode1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.2D), Telerik.Reporting.Drawing.Unit.Cm(0.6D));
+            this.barcode1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.2D), Telerik.Reporting.Drawing.Unit.Cm(0.092D));
             this.barcode1.Name = "barcode1";
-            this.barcode1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.1D), Telerik.Reporting.Drawing.Unit.Cm(3.398D));
+            this.barcode1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.1D), Telerik.Reporting.Drawing.Unit.Cm(4.774D));
             this.barcode1.Value = "=Fields.Codigo";
             // 
             // textBox1
@@ -39,9 +39,9 @@ namespace HendrixAccountant.Reports.Labels
             this.textBox1.Angle = -90D;
             this.textBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.43D), Telerik.Reporting.Drawing.Unit.Cm(0.092D));
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(0.47D), Telerik.Reporting.Drawing.Unit.Cm(4.774D));
+            this.textBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(0.57D), Telerik.Reporting.Drawing.Unit.Cm(4.774D));
             this.textBox1.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
-            this.textBox1.Value = "PRODUCTO DON FRANK";
+            this.textBox1.Value = "=Fields.NombreProducto";
             // 
             // RptLabelSingle
             // 

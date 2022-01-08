@@ -102,6 +102,10 @@ namespace HendrixAccountant
             {
                 txtCodigo2.Text = _product.codigo;
                 txtNombre2.Text = _product.nombre;
+            }else if (indexTabPage == 2)
+            {
+                txtCodigo3.Text = _product.codigo;
+                txtNombre3.Text = _product.nombre;
             }
 
             txtCodBarras.Text = _product.codigo;
@@ -624,7 +628,7 @@ namespace HendrixAccountant
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
@@ -717,24 +721,19 @@ namespace HendrixAccountant
             var printerSettings = new System.Drawing.Printing.PrinterSettings();
             printerSettings.PrinterName = printer;
 
-            foreach (var item in barcodes)
-            {
-                //Imprimir en etiquetadora
-                var rptLabelSingle = new RptLabelSingle();
-                rptLabelSingle.DataSource = barcodes.FirstOrDefault();
-
-                var reportSource = new Telerik.Reporting.InstanceReportSource();
-                reportSource.ReportDocument = rptLabelSingle;
-
-
-                //Imprimir directo
-                var reportProcessor = new Telerik.Reporting.Processing.ReportProcessor();
-                reportProcessor.PrintReport(reportSource, printerSettings);
-            }
-           
-
+            //Imprimir en etiquetadora
+            var rptLabelSingle = new RptLabelSingle();
+            rptLabelSingle.DataSource = barcodes.FirstOrDefault();
+            
+            var reportSource = new Telerik.Reporting.InstanceReportSource();
+            reportSource.ReportDocument = rptLabelSingle;
+            
             //var frmTicketVenta = new frmTicketVenta(reportSource);
             //frmTicketVenta.ShowDialog();
+
+            //IMPRIMIR DIRECTO
+            var reportProcessor = new Telerik.Reporting.Processing.ReportProcessor();
+            reportProcessor.PrintReport(reportSource, printerSettings);
 
             //Imprimir en A4
             //string pathPdfCreated = _pdfService.Generate(barcodes);
@@ -804,6 +803,79 @@ namespace HendrixAccountant
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnImprimirEtiquetas_Click(object sender, EventArgs e)
+        {
+            var barcodes = new List<BarcodeCard>();
+            if (rbGenerarIndividual.Checked)
+            {
+                if (_product == null)
+                {
+                    MessageBox.Show("Busque y seleccione un producto para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                barcodes.Add(new BarcodeCard
+                {
+                    Codigo = _product.codigo,
+                    Precio = _product.precio_venta.ToString(),
+                    NombreProducto = _product.nombre
+                });
+            }
+            else
+            {
+                barcodes = _rpsProduct.GetBarcodes();
+            }
+
+            if (barcodes.Count <= 0)
+            {
+                MessageBox.Show("No se encontraron productos para generar su etiqueta.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var printParams = new CompanyRepository().GetPrintParams();
+            string printer = printParams.Where(x => x.Nombre.Equals("impresora_etiquetas"))
+                .Select(x => x.Valor).FirstOrDefault();
+
+            var printerSettings = new System.Drawing.Printing.PrinterSettings();
+            printerSettings.PrinterName = printer;
+
+            //Imprimir en etiquetadora
+            var rptLabelSingle = new RptLabelSingle();
+            rptLabelSingle.DataSource = barcodes.FirstOrDefault();
+
+            var reportSource = new Telerik.Reporting.InstanceReportSource();
+            reportSource.ReportDocument = rptLabelSingle;
+
+            //IMPRIMIR DIRECTO
+            var reportProcessor = new Telerik.Reporting.Processing.ReportProcessor();
+            reportProcessor.PrintReport(reportSource, printerSettings);
         }
     }
 }

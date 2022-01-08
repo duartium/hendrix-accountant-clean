@@ -49,7 +49,6 @@ namespace HendrixAccountant.Forms.Inventory
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.pnAside = new System.Windows.Forms.Panel();
             this.btnConsultar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
-            this.btnCerrar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnImprimir = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.label1 = new System.Windows.Forms.Label();
@@ -205,7 +204,6 @@ namespace HendrixAccountant.Forms.Inventory
             // 
             this.pnAside.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.pnAside.Controls.Add(this.btnConsultar);
-            this.pnAside.Controls.Add(this.btnCerrar);
             this.pnAside.Controls.Add(this.btnLimpiar);
             this.pnAside.Controls.Add(this.btnImprimir);
             this.pnAside.Dock = System.Windows.Forms.DockStyle.Right;
@@ -234,26 +232,6 @@ namespace HendrixAccountant.Forms.Inventory
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnCerrar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnCerrar.Image = global::HendrixAccountant.Properties.Resources.CloseBlue20;
-            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrar.Location = new System.Drawing.Point(0, 474);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnCerrar.Size = new System.Drawing.Size(127, 35);
-            this.btnCerrar.TabIndex = 16;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = false;
             // 
             // btnLimpiar
             // 
@@ -505,7 +483,6 @@ namespace HendrixAccountant.Forms.Inventory
         private System.Windows.Forms.Label lblFechaEmision;
         private System.Windows.Forms.DateTimePicker dtpFechaDesde;
         private System.Windows.Forms.Panel pnAside;
-        private UIControls.Buttons.ItemAsideSmall btnCerrar;
         private UIControls.Buttons.ItemAsideSmall btnLimpiar;
         private UIControls.Buttons.ItemAsideSmall btnImprimir;
         private System.Windows.Forms.Label label1;

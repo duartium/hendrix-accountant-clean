@@ -58,6 +58,9 @@
             this.lblPnCodigo = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombreProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcProductos = new System.Windows.Forms.TabControl();
             this.tpProduct = new System.Windows.Forms.TabPage();
             this.gbTipo = new System.Windows.Forms.GroupBox();
@@ -98,9 +101,21 @@
             this.label24 = new System.Windows.Forms.Label();
             this.txtNombreProd = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombreProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tpEtiquetas = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tpIndividual = new System.Windows.Forms.TabPage();
+            this.tpLote = new System.Windows.Forms.TabPage();
+            this.btnImprimirEtiquetas = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtCodigo3 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.txtNombre3 = new HendrixAccountant.UIControls.TextInput();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrecioVenta.SuspendLayout();
@@ -122,6 +137,13 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.tpEtiquetas.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tpIndividual.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnHeader
@@ -451,15 +473,37 @@
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             this.dgvProductos.SelectionChanged += new System.EventHandler(this.dgvProductos_SelectionChanged);
             // 
+            // colCodigo
+            // 
+            this.colCodigo.HeaderText = "Código";
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.ReadOnly = true;
+            this.colCodigo.Width = 95;
+            // 
+            // colNombreProd
+            // 
+            this.colNombreProd.HeaderText = "Nombre de artículo";
+            this.colNombreProd.Name = "colNombreProd";
+            this.colNombreProd.ReadOnly = true;
+            this.colNombreProd.Width = 315;
+            // 
+            // stock
+            // 
+            this.stock.HeaderText = "Stock";
+            this.stock.Name = "stock";
+            this.stock.Width = 80;
+            // 
             // tcProductos
             // 
             this.tcProductos.Controls.Add(this.tpProduct);
             this.tcProductos.Controls.Add(this.tpBarcodes);
+            this.tcProductos.Controls.Add(this.tpEtiquetas);
             this.tcProductos.Location = new System.Drawing.Point(526, 76);
             this.tcProductos.Name = "tcProductos";
             this.tcProductos.SelectedIndex = 0;
             this.tcProductos.Size = new System.Drawing.Size(507, 440);
             this.tcProductos.TabIndex = 86;
+            this.tcProductos.Visible = false;
             // 
             // tpProduct
             // 
@@ -580,7 +624,7 @@
             this.txtCodBarras.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodBarras.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodBarras.Location = new System.Drawing.Point(29, 83);
-            this.txtCodBarras.MaxLength = 9;
+            this.txtCodBarras.MaxLength = 20;
             this.txtCodBarras.Name = "txtCodBarras";
             this.txtCodBarras.Size = new System.Drawing.Size(97, 15);
             this.txtCodBarras.TabIndex = 0;
@@ -693,14 +737,14 @@
             this.tpBarcodes.Padding = new System.Windows.Forms.Padding(3);
             this.tpBarcodes.Size = new System.Drawing.Size(499, 414);
             this.tpBarcodes.TabIndex = 1;
-            this.tpBarcodes.Text = "Etiquetas";
+            this.tpBarcodes.Text = "Generador código de barras";
             this.tpBarcodes.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.pbBarcode2);
-            this.panel1.Location = new System.Drawing.Point(20, 64);
+            this.panel1.Location = new System.Drawing.Point(20, 65);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(177, 81);
             this.panel1.TabIndex = 93;
@@ -751,13 +795,12 @@
             this.groupBox1.Controls.Add(this.checkBox3);
             this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Location = new System.Drawing.Point(20, 219);
+            this.groupBox1.Location = new System.Drawing.Point(20, 222);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(418, 100);
             this.groupBox1.TabIndex = 90;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos en etiqueta de impresión";
-            this.groupBox1.Visible = false;
             // 
             // checkBox3
             // 
@@ -801,7 +844,7 @@
             this.panel6.Controls.Add(this.txtCodigo2);
             this.panel6.Controls.Add(this.label12);
             this.panel6.Enabled = false;
-            this.panel6.Location = new System.Drawing.Point(20, 167);
+            this.panel6.Location = new System.Drawing.Point(20, 170);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(120, 32);
             this.panel6.TabIndex = 85;
@@ -832,7 +875,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label13.Location = new System.Drawing.Point(146, 151);
+            this.label13.Location = new System.Drawing.Point(146, 153);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(52, 15);
             this.label13.TabIndex = 84;
@@ -844,7 +887,7 @@
             this.panel7.Controls.Add(this.txtNombre2);
             this.panel7.Controls.Add(this.label22);
             this.panel7.Enabled = false;
-            this.panel7.Location = new System.Drawing.Point(149, 167);
+            this.panel7.Location = new System.Drawing.Point(149, 170);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(287, 32);
             this.panel7.TabIndex = 83;
@@ -874,7 +917,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label23.Location = new System.Drawing.Point(17, 151);
+            this.label23.Location = new System.Drawing.Point(17, 153);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(47, 15);
             this.label23.TabIndex = 86;
@@ -889,14 +932,13 @@
             this.btnGenerar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGenerar.Image = global::HendrixAccountant.Properties.Resources.barcode2White24;
-            this.btnGenerar.Location = new System.Drawing.Point(242, 344);
+            this.btnGenerar.Location = new System.Drawing.Point(242, 347);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(90, 30);
             this.btnGenerar.TabIndex = 56;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGenerar.UseVisualStyleBackColor = false;
-            this.btnGenerar.Visible = false;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
             // 
             // btnImprimir
@@ -909,7 +951,7 @@
             this.btnImprimir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.Black;
             this.btnImprimir.Image = global::HendrixAccountant.Properties.Resources.printGray20;
-            this.btnImprimir.Location = new System.Drawing.Point(347, 344);
+            this.btnImprimir.Location = new System.Drawing.Point(347, 347);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(90, 30);
             this.btnImprimir.TabIndex = 88;
@@ -980,26 +1022,174 @@
             this.label10.TabIndex = 90;
             this.label10.Text = "Código";
             // 
-            // colCodigo
+            // tpEtiquetas
             // 
-            this.colCodigo.HeaderText = "Código";
-            this.colCodigo.Name = "colCodigo";
-            this.colCodigo.ReadOnly = true;
-            this.colCodigo.Width = 95;
+            this.tpEtiquetas.Controls.Add(this.btnImprimirEtiquetas);
+            this.tpEtiquetas.Controls.Add(this.tabControl1);
+            this.tpEtiquetas.Location = new System.Drawing.Point(4, 22);
+            this.tpEtiquetas.Name = "tpEtiquetas";
+            this.tpEtiquetas.Padding = new System.Windows.Forms.Padding(3);
+            this.tpEtiquetas.Size = new System.Drawing.Size(499, 414);
+            this.tpEtiquetas.TabIndex = 2;
+            this.tpEtiquetas.Text = "Etiquetas";
+            this.tpEtiquetas.UseVisualStyleBackColor = true;
             // 
-            // colNombreProd
+            // tabControl1
             // 
-            this.colNombreProd.HeaderText = "Nombre de artículo";
-            this.colNombreProd.Name = "colNombreProd";
-            this.colNombreProd.ReadOnly = true;
-            this.colNombreProd.Width = 315;
+            this.tabControl1.Controls.Add(this.tpIndividual);
+            this.tabControl1.Controls.Add(this.tpLote);
+            this.tabControl1.Location = new System.Drawing.Point(20, 25);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(454, 326);
+            this.tabControl1.TabIndex = 100;
+            this.tabControl1.Visible = false;
             // 
-            // stock
+            // tpIndividual
             // 
-            this.stock.HeaderText = "Stock";
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            this.stock.Width = 80;
+            this.tpIndividual.Controls.Add(this.panel3);
+            this.tpIndividual.Controls.Add(this.panel4);
+            this.tpIndividual.Controls.Add(this.label2);
+            this.tpIndividual.Controls.Add(this.panel5);
+            this.tpIndividual.Controls.Add(this.label4);
+            this.tpIndividual.Location = new System.Drawing.Point(4, 22);
+            this.tpIndividual.Name = "tpIndividual";
+            this.tpIndividual.Padding = new System.Windows.Forms.Padding(3);
+            this.tpIndividual.Size = new System.Drawing.Size(446, 300);
+            this.tpIndividual.TabIndex = 0;
+            this.tpIndividual.Text = "Individual";
+            this.tpIndividual.UseVisualStyleBackColor = true;
+            // 
+            // tpLote
+            // 
+            this.tpLote.Location = new System.Drawing.Point(4, 22);
+            this.tpLote.Name = "tpLote";
+            this.tpLote.Padding = new System.Windows.Forms.Padding(3);
+            this.tpLote.Size = new System.Drawing.Size(446, 300);
+            this.tpLote.TabIndex = 1;
+            this.tpLote.Text = "Lote";
+            this.tpLote.UseVisualStyleBackColor = true;
+            // 
+            // btnImprimirEtiquetas
+            // 
+            this.btnImprimirEtiquetas.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnImprimirEtiquetas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnImprimirEtiquetas.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.btnImprimirEtiquetas.FlatAppearance.BorderSize = 2;
+            this.btnImprimirEtiquetas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnImprimirEtiquetas.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImprimirEtiquetas.ForeColor = System.Drawing.Color.Black;
+            this.btnImprimirEtiquetas.Image = global::HendrixAccountant.Properties.Resources.printGray20;
+            this.btnImprimirEtiquetas.Location = new System.Drawing.Point(380, 359);
+            this.btnImprimirEtiquetas.Name = "btnImprimirEtiquetas";
+            this.btnImprimirEtiquetas.Size = new System.Drawing.Size(90, 30);
+            this.btnImprimirEtiquetas.TabIndex = 105;
+            this.btnImprimirEtiquetas.Text = "Imprimir";
+            this.btnImprimirEtiquetas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnImprimirEtiquetas.UseVisualStyleBackColor = false;
+            this.btnImprimirEtiquetas.Click += new System.EventHandler(this.btnImprimirEtiquetas_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.pictureBox2);
+            this.panel3.Location = new System.Drawing.Point(17, 29);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(177, 81);
+            this.panel3.TabIndex = 104;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(5, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(165, 68);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 87;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.Control;
+            this.panel4.Controls.Add(this.txtCodigo3);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Enabled = false;
+            this.panel4.Location = new System.Drawing.Point(17, 136);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(120, 32);
+            this.panel4.TabIndex = 102;
+            // 
+            // txtCodigo3
+            // 
+            this.txtCodigo3.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCodigo3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodigo3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo3.Location = new System.Drawing.Point(7, 8);
+            this.txtCodigo3.MaxLength = 20;
+            this.txtCodigo3.Name = "txtCodigo3";
+            this.txtCodigo3.Size = new System.Drawing.Size(110, 15);
+            this.txtCodigo3.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Location = new System.Drawing.Point(0, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 2);
+            this.label1.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label2.Location = new System.Drawing.Point(143, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 15);
+            this.label2.TabIndex = 101;
+            this.label2.Text = "Nombre";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.Control;
+            this.panel5.Controls.Add(this.txtNombre3);
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Enabled = false;
+            this.panel5.Location = new System.Drawing.Point(146, 136);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(287, 32);
+            this.panel5.TabIndex = 100;
+            // 
+            // txtNombre3
+            // 
+            this.txtNombre3.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNombre3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombre3.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtNombre3.Location = new System.Drawing.Point(9, 7);
+            this.txtNombre3.MaxLength = 100;
+            this.txtNombre3.Name = "txtNombre3";
+            this.txtNombre3.Size = new System.Drawing.Size(275, 16);
+            this.txtNombre3.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
+            this.label3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label3.Location = new System.Drawing.Point(0, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(287, 2);
+            this.label3.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label4.Location = new System.Drawing.Point(14, 119);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 15);
+            this.label4.TabIndex = 103;
+            this.label4.Text = "Código";
             // 
             // frmProductos
             // 
@@ -1055,6 +1245,16 @@
             this.panel7.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tpEtiquetas.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tpIndividual.ResumeLayout(false);
+            this.tpIndividual.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1132,5 +1332,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombreProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
+        private System.Windows.Forms.TabPage tpEtiquetas;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tpIndividual;
+        private System.Windows.Forms.Button btnImprimirEtiquetas;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox txtCodigo3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel5;
+        private UIControls.TextInput txtNombre3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TabPage tpLote;
     }
 }

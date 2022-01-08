@@ -797,7 +797,7 @@
           <Border>
             <Style>None</Style>
           </Border>
-          <BackgroundColor>#b84a9f</BackgroundColor>
+          <BackgroundColor>Black</BackgroundColor>
           <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -815,7 +815,6 @@
                 <Value>=Sum(Fields!total.Value, "dsVentasGenerales")</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
-                  <Color>#b84a9f</Color>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -864,7 +863,6 @@
                   <Style>
                     <FontSize>16pt</FontSize>
                     <FontWeight>Bold</FontWeight>
-                    <Color>#b84a9f</Color>
                   </Style>
                 </TextRun>
               </TextRuns>

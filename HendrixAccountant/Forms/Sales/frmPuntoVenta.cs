@@ -610,5 +610,98 @@ namespace HendrixAccountant
                 e.Handled = e.SuppressKeyPress = true;
             }
         }
+
+        private void dgvPuntoVenta_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            
+            //e.Control.KeyDown -= columns_keydown;
+            if (dgvPuntoVenta.CurrentCell.ColumnIndex == 3)
+            {
+                TextBox tb = e.Control as TextBox;
+                if (tb != null)
+                {
+                    //tb.KeyDown -= columns_keydown;
+                    //tb.KeyDown += columns_keydown;
+
+                    //tb.KeyDown -= new KeyEventHandler(columns_keydown);
+                    //tb.KeyDown += new KeyEventHandler(columns_keydown);
+
+                    tb.TextChanged -= new EventHandler(tb_TextChanged);
+                    tb.TextChanged += new EventHandler(tb_TextChanged);
+
+                    //tb.KeyPress -= new KeyPressEventHandler(column_int_keypress);
+                    //tb.KeyPress += new KeyPressEventHandler(column_int_keypress);
+                }
+            }
+        }
+
+        private void tb_TextChanged(object sender, EventArgs e)
+        {
+            string valor = (sender as TextBox).Text;
+
+            int rowIndex = dgvPuntoVenta.CurrentRow.Index;
+            var product = _lsProducts[rowIndex];
+
+            _lsProducts[rowIndex].Precio = Convert.ToDecimal(valor, Utils.GetCulture());
+            _product.Cantidad = product.Cantidad;
+
+            decimal total = _product.Precio * product.Cantidad;
+            _lsProducts[rowIndex].Total = Math.Round(total, 2);
+
+            CalcularTotales();
+
+        }
+
+        private void columns_keydown(object sender, KeyEventArgs e)
+        {
+            string valor = (sender as TextBox).Text;
+
+            int rowIndex = dgvPuntoVenta.CurrentRow.Index;
+            var product = _lsProducts[rowIndex];
+
+            _lsProducts[rowIndex].Precio = Convert.ToDecimal(valor, Utils.GetCulture());
+            _product.Cantidad = product.Cantidad;
+
+            decimal total = _product.Precio * product.Cantidad;
+            _lsProducts[rowIndex].Total = Math.Round(total, 2);
+
+            CalcularTotales();
+
+        }
+
+        private void column_int_keypress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                {
+                    e.Handled = true;
+                }
+
+                string valor = (sender as TextBox).Text;
+                
+                //solo un punto decimal
+                if ((e.KeyChar == '.') && (valor.IndexOf('.') > -1))
+                {
+                    e.Handled = true;
+                }
+
+                int rowIndex = dgvPuntoVenta.CurrentRow.Index;
+                var product = _lsProducts[rowIndex];
+
+                _lsProducts[rowIndex].Precio = Convert.ToDecimal(valor, Utils.GetCulture());
+                _product.Cantidad = product.Cantidad;
+                
+                decimal total = _product.Precio * product.Cantidad;
+                _lsProducts[rowIndex].Total = Math.Round(total, 2);
+
+                CalcularTotales();
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("column_int_keypress", ex.ToString());
+            }
+        }
+
     }
 }

@@ -8,7 +8,6 @@ using HendrixAccountant.Forms.Directorio;
 using HendrixAccountant.Forms.Inventory;
 using HendrixAccountant.Forms.Products;
 using HendrixAccountant.Forms.Sales;
-using HendrixAccountant.Sessions;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
