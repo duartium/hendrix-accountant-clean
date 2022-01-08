@@ -580,7 +580,7 @@
             this.txtCodBarras.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodBarras.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodBarras.Location = new System.Drawing.Point(29, 83);
-            this.txtCodBarras.MaxLength = 9;
+            this.txtCodBarras.MaxLength = 20;
             this.txtCodBarras.Name = "txtCodBarras";
             this.txtCodBarras.Size = new System.Drawing.Size(97, 15);
             this.txtCodBarras.TabIndex = 0;

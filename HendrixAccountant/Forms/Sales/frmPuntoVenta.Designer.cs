@@ -765,6 +765,7 @@
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.colDireccion.DefaultCellStyle = dataGridViewCellStyle3;
             this.colDireccion.HeaderText = "Precio";
+            this.colDireccion.MaxInputLength = 10;
             this.colDireccion.Name = "colDireccion";
             this.colDireccion.Width = 140;
             // 
@@ -774,6 +775,7 @@
             dataGridViewCellStyle4.NullValue = "0";
             this.colTotal.DefaultCellStyle = dataGridViewCellStyle4;
             this.colTotal.HeaderText = "Total";
+            this.colTotal.MaxInputLength = 10;
             this.colTotal.Name = "colTotal";
             this.colTotal.ReadOnly = true;
             this.colTotal.Width = 120;
