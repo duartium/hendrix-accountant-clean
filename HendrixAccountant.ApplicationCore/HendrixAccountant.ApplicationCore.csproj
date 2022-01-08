@@ -109,6 +109,7 @@
     <Compile Include="Interfaces\Services\ISupplierService.cs" />
     <Compile Include="Interfaces\Shared\IGoogleService.cs" />
     <Compile Include="Interfaces\Shared\IMailService.cs" />
+    <Compile Include="Map\CashMapper.cs" />
     <Compile Include="Map\CatalogueMapper.cs" />
     <Compile Include="Map\KardexMapper.cs" />
     <Compile Include="Map\ParameterMapper.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Map\Validator.cs" />
     <Compile Include="Models\Audit.cs" />
     <Compile Include="Models\Barcode.cs" />
+    <Compile Include="Models\CashMovement.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\Parameters.cs" />
     <Compile Include="Models\ProductWithdrawal.cs" />

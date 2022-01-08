@@ -34,12 +34,12 @@
             this.gbxMontoTotal = new System.Windows.Forms.GroupBox();
             this.lblCash = new System.Windows.Forms.Label();
             this.dgvDineroCaja = new System.Windows.Forms.DataGridView();
-            this.btnAperturar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblFechaApertura = new System.Windows.Forms.Label();
             this.colDenominacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnAperturar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblFechaApertura = new System.Windows.Forms.Label();
             this.gbxMontoTotal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDineroCaja)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -61,7 +61,7 @@
             this.gbxMontoTotal.Controls.Add(this.lblCash);
             this.gbxMontoTotal.Controls.Add(this.lblMontoTotal);
             this.gbxMontoTotal.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxMontoTotal.Location = new System.Drawing.Point(22, 237);
+            this.gbxMontoTotal.Location = new System.Drawing.Point(22, 333);
             this.gbxMontoTotal.Name = "gbxMontoTotal";
             this.gbxMontoTotal.Size = new System.Drawing.Size(320, 87);
             this.gbxMontoTotal.TabIndex = 2;
@@ -107,9 +107,31 @@
             this.dgvDineroCaja.Name = "dgvDineroCaja";
             this.dgvDineroCaja.RowHeadersVisible = false;
             this.dgvDineroCaja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDineroCaja.Size = new System.Drawing.Size(459, 151);
+            this.dgvDineroCaja.Size = new System.Drawing.Size(459, 234);
             this.dgvDineroCaja.TabIndex = 5;
             this.dgvDineroCaja.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDineroCaja_CellValueChanged);
+            // 
+            // colDenominacion
+            // 
+            this.colDenominacion.HeaderText = "Denominación";
+            this.colDenominacion.Name = "colDenominacion";
+            this.colDenominacion.ReadOnly = true;
+            this.colDenominacion.Width = 205;
+            // 
+            // colCantidad
+            // 
+            this.colCantidad.HeaderText = "Cantidad";
+            this.colCantidad.MaxInputLength = 9;
+            this.colCantidad.Name = "colCantidad";
+            this.colCantidad.Width = 120;
+            // 
+            // colSubtotal
+            // 
+            this.colSubtotal.HeaderText = "Subtotal";
+            this.colSubtotal.MaxInputLength = 10;
+            this.colSubtotal.Name = "colSubtotal";
+            this.colSubtotal.ReadOnly = true;
+            this.colSubtotal.Width = 130;
             // 
             // btnAperturar
             // 
@@ -123,7 +145,7 @@
             this.btnAperturar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnAperturar.Image = global::HendrixAccountant.Properties.Resources.cashBlue20;
             this.btnAperturar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAperturar.Location = new System.Drawing.Point(354, 244);
+            this.btnAperturar.Location = new System.Drawing.Point(354, 340);
             this.btnAperturar.Name = "btnAperturar";
             this.btnAperturar.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnAperturar.Size = new System.Drawing.Size(127, 40);
@@ -151,34 +173,12 @@
             this.lblFechaApertura.TabIndex = 0;
             this.lblFechaApertura.Text = "Fecha/hora apertura:";
             // 
-            // colDenominacion
-            // 
-            this.colDenominacion.HeaderText = "Denominación";
-            this.colDenominacion.Name = "colDenominacion";
-            this.colDenominacion.ReadOnly = true;
-            this.colDenominacion.Width = 205;
-            // 
-            // colCantidad
-            // 
-            this.colCantidad.HeaderText = "Cantidad";
-            this.colCantidad.MaxInputLength = 9;
-            this.colCantidad.Name = "colCantidad";
-            this.colCantidad.Width = 120;
-            // 
-            // colSubtotal
-            // 
-            this.colSubtotal.HeaderText = "Subtotal";
-            this.colSubtotal.MaxInputLength = 10;
-            this.colSubtotal.Name = "colSubtotal";
-            this.colSubtotal.ReadOnly = true;
-            this.colSubtotal.Width = 130;
-            // 
             // frmAperturaCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(508, 348);
+            this.ClientSize = new System.Drawing.Size(508, 441);
             this.Controls.Add(this.btnAperturar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvDineroCaja);

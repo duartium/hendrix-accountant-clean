@@ -1,4 +1,6 @@
 ﻿using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
+using HendrixAccountant.ApplicationCore.Map;
+using HendrixAccountant.ApplicationCore.Models;
 using HendrixAccountant.Common;
 using HendrixAccountant.Data.Dtos;
 using System;
@@ -37,6 +39,15 @@ namespace HendrixAccountant.Data
             parms.Add(new SqlParameter("@accion", 'O'));
             var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
             return (int.Parse(dsResp.Tables[0].Rows[0]["RESULT"].ToString()) > 0);
+        }
+
+        public CashMovement GetCashToday()
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", 'C'));
+
+            var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+            return new CashMapper().DatasetToCashToday(dsResp);
         }
         
     }

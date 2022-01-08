@@ -13,6 +13,7 @@ using HendrixAccountant.Forms.Sales;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using HendrixAccountant.Forms.CashRegister;
 
 namespace HendrixAccountant
 {
@@ -35,6 +36,7 @@ namespace HendrixAccountant
         private frmAnulacionComprobante frmAnulacionComprobante = null;
         private frmBajaProductos frmBajaProductos = null;
         private CajaRepository _rpsCash = null;
+        private frmCierreCaja frmCierreCaja = null;
 
         #region constructores
         public frmMain()
@@ -124,6 +126,11 @@ namespace HendrixAccountant
         private void caja_FormClosed(object sender, EventArgs e)
         {
             frmCaja = null;
+        }
+
+        private void cierre_caja_FormClosed(object sender, EventArgs e)
+        {
+            frmCierreCaja = null;
         }
 
         private void anulacion_FormClosed(object sender, EventArgs e)
@@ -221,6 +228,7 @@ namespace HendrixAccountant
                 frmVentas.BringToFront();
                 return;
             }
+
             frmPuntoVenta = new frmPuntoVenta();
             frmPuntoVenta.MdiParent = this;
             frmPuntoVenta.FormClosed += new FormClosedEventHandler(ventas_FormClosed);
@@ -236,6 +244,7 @@ namespace HendrixAccountant
                 frmPuntoVenta.txtCodProducto.Focus();
                 return;
             }
+
             frmPuntoVenta = new frmPuntoVenta();
             frmPuntoVenta.MdiParent = this;
             frmPuntoVenta.FormClosed += new FormClosedEventHandler(ventas_FormClosed);
@@ -274,6 +283,20 @@ namespace HendrixAccountant
             frmCaja.MdiParent = this;
             frmCaja.FormClosed += new FormClosedEventHandler(caja_FormClosed);
             frmCaja.Show();
+        }
+
+        private void ShowCloseRegister()
+        {
+            if (frmCierreCaja != null)
+            {
+                frmCierreCaja.BringToFront();
+                return;
+            }
+
+            frmCierreCaja = new frmCierreCaja();
+            frmCierreCaja.MdiParent = this;
+            frmCierreCaja.FormClosed += new FormClosedEventHandler(cierre_caja_FormClosed);
+            frmCierreCaja.Show();
         }
 
         private void itemVenta_Click(object sender, EventArgs e)
@@ -462,6 +485,7 @@ namespace HendrixAccountant
                 frmCategorias.BringToFront();
                 return;
             };
+
             frmCategorias = new frmCategorias();
             frmCategorias.MdiParent = this;
             frmCategorias.FormClosed += new FormClosedEventHandler(categorias_FormClosed);
@@ -476,6 +500,7 @@ namespace HendrixAccountant
                 frmTallas.BringToFront();
                 return;
             };
+
             frmTallas = new frmTallas();
             frmTallas.MdiParent = this;
             frmTallas.FormClosed += new FormClosedEventHandler(tallas_FormClosed);
@@ -575,7 +600,14 @@ namespace HendrixAccountant
 
         private void cierreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            if (_rpsCash.HasCashOpening())
+            {
+                ShowCloseRegister();
+            }
+            else
+            {
+                MessageBox.Show("No se ha realizado la apertura de caja.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

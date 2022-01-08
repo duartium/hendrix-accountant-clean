@@ -29,7 +29,7 @@ namespace HendrixAccountant
             {
                 tipoMovimiento = (int)TipoMovimiento.APERTURA,
                 usuario = _username,
-                saldo = Decimal.Parse(lblMontoTotal.Text)
+                saldo = Decimal.Parse(lblMontoTotal.Text, Utils.GetCulture())
             });
 
             if (resp)
