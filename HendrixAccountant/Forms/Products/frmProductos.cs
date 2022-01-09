@@ -109,7 +109,7 @@ namespace HendrixAccountant
             txtDescripcion.Text = _product.descripcion;
             txtCosto.Text = _product.costo.ToString();
             txtPrecioVenta.Text = _product.precio_venta.ToString();
-            //txtStock.Text = _product.stock.ToString();
+            txtStock.Text = _product.stock.ToString();
             //txtCodProveedor.Text = _supplier.IdProveedor.ToString();
             //txtNombreProveedor.Text = _supplier.Nombre;
             cmbTalla.SelectedValue = _product.id_talla;
@@ -168,7 +168,14 @@ namespace HendrixAccountant
                 return;
             }
 
-            if(cmbTarifaIva.SelectedIndex == -1){
+            if (rbProducto.Checked && txtStock.Text.Length == 0)
+            {
+                MessageBox.Show("Ingrese el stock inicial del producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            
+
+            if (cmbTarifaIva.SelectedIndex == -1){
                 MessageBox.Show("Seleccione la Tarifa IVA del producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -193,7 +200,7 @@ namespace HendrixAccountant
                 Costo = Convert.ToDecimal(txtCosto.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
                 Precio = Convert.ToDecimal(txtPrecioVenta.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
                 TarifaIva = cmbTarifaIva.SelectedIndex == 0 ? 0 : 12,
-                Stock = 0,
+                Stock = rbServicio.Checked ? 0 : int.Parse(txtStock.Text),
                 IdCategoria = Convert.ToInt32(cboCategoria.SelectedValue),
                 IdProveedor = _supplier.IdProveedor,
                 IdTalla = Convert.ToInt32(cmbTalla.SelectedValue),
@@ -236,7 +243,7 @@ namespace HendrixAccountant
             txtDescripcion.Clear();
             txtCosto.Clear();
             txtPrecioVenta.Clear();
-            //txtStock.Clear();
+            txtStock.Clear();
             pbBarcode.Image = null;
             _product = null;
             dgvProductos.Rows.Clear();
@@ -257,7 +264,7 @@ namespace HendrixAccountant
             txtDescripcion.Enabled = valor;
             txtCosto.Enabled = valor;
             txtPrecioVenta.Enabled = valor;
-            //txtStock.Enabled = valor;
+            txtStock.Enabled = valor;
             gbTipo.Enabled = valor;
             cmbTarifaIva.Enabled = valor;
             //pnProveedor.Enabled = valor;
@@ -285,7 +292,7 @@ namespace HendrixAccountant
             lblPnDescripcion.BackColor = backColor;
             lblPnCosto.BackColor = backColor;
             lblPnPrecioVenta.BackColor = backColor;
-            //lblPnStock.BackColor = backColor;
+            lblPnStock.BackColor = backColor;
             //lblPnCodigoProv.BackColor = backColor;
             //lblPnNombreProv.BackColor = backColor;
         }
@@ -516,6 +523,17 @@ namespace HendrixAccountant
             _isSearch = false;
             _eEstadoPantalla = EstadoPantalla.CREACION;
             SetScreen(_eEstadoPantalla);
+
+            if (rbProducto.Checked)
+            {
+                cmbTarifaIva.SelectedIndex = 1;
+            }
+            else
+            {
+                cmbTarifaIva.SelectedIndex = 0;
+                cmbTarifaIva.Enabled = false;
+            }
+            
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -730,8 +748,11 @@ namespace HendrixAccountant
                 //Imprimir directo
                 var reportProcessor = new Telerik.Reporting.Processing.ReportProcessor();
                 reportProcessor.PrintReport(reportSource, printerSettings);
+
+                //var frmTicketVenta = new frmTicketVenta(reportSource);
+                //frmTicketVenta.ShowDialog();
             }
-           
+
 
             //var frmTicketVenta = new frmTicketVenta(reportSource);
             //frmTicketVenta.ShowDialog();
@@ -768,12 +789,18 @@ namespace HendrixAccountant
         {
             pnlCosto.Visible = false;
             lblCosto.Visible = false;
+            pnlStock.Visible = false;
+            lblStock.Visible = false;
 
             lblPrecioVenta.Location = new Point(19, 214);
             pnlPrecioVenta.Location = new Point(22, 229);
             lblTarifaIva.Location = new Point(125, 214);
             cmbTarifaIva.Location = new Point(128, 237);
             //pnProveedor.Visible = false;
+
+            cmbTarifaIva.SelectedIndex = 0;
+            cmbTarifaIva.Enabled = false;
+
             txtNombre.Focus();
         }
 
@@ -781,11 +808,16 @@ namespace HendrixAccountant
         {
             pnlCosto.Visible = true;
             lblCosto.Visible = true;
+            pnlStock.Visible = true;
+            lblStock.Visible = true;
 
             lblPrecioVenta.Location = new Point(125, 214);
             pnlPrecioVenta.Location = new Point(128, 229);
-            lblTarifaIva.Location = new Point(231, 214);
-            cmbTarifaIva.Location = new Point(234, 237);
+            lblTarifaIva.Location = new Point(238, 269);
+            cmbTarifaIva.Location = new Point(241, 286);
+
+            cmbTarifaIva.SelectedIndex = 1;
+            cmbTarifaIva.Enabled = true;
 
             //pnProveedor.Visible = true;
             txtNombre.Focus();
@@ -802,6 +834,11 @@ namespace HendrixAccountant
         }
 
         private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tpProduct_Click(object sender, EventArgs e)
         {
 
         }

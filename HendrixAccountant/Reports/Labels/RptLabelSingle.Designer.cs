@@ -14,7 +14,7 @@ namespace HendrixAccountant.Reports.Labels
             Telerik.Reporting.Drawing.StyleRule styleRule1 = new Telerik.Reporting.Drawing.StyleRule();
             this.detail = new Telerik.Reporting.DetailSection();
             this.barcode1 = new Telerik.Reporting.Barcode();
-            this.textBox1 = new Telerik.Reporting.TextBox();
+            this.txtNameProduct = new Telerik.Reporting.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // detail
@@ -22,26 +22,29 @@ namespace HendrixAccountant.Reports.Labels
             this.detail.Height = Telerik.Reporting.Drawing.Unit.Cm(5D);
             this.detail.Items.AddRange(new Telerik.Reporting.ReportItemBase[] {
             this.barcode1,
-            this.textBox1});
+            this.txtNameProduct});
             this.detail.Name = "detail";
             // 
             // barcode1
             // 
             this.barcode1.Angle = -90D;
             this.barcode1.Encoder = code128Encoder1;
-            this.barcode1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.2D), Telerik.Reporting.Drawing.Unit.Cm(0.092D));
+            this.barcode1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(0.2D), Telerik.Reporting.Drawing.Unit.Cm(1D));
             this.barcode1.Name = "barcode1";
-            this.barcode1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.1D), Telerik.Reporting.Drawing.Unit.Cm(4.774D));
+            this.barcode1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(1.3D), Telerik.Reporting.Drawing.Unit.Cm(2.7D));
+            this.barcode1.Stretch = true;
+            this.barcode1.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(8D);
             this.barcode1.Value = "=Fields.Codigo";
             // 
-            // textBox1
+            // txtNameProduct
             // 
-            this.textBox1.Angle = -90D;
-            this.textBox1.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.43D), Telerik.Reporting.Drawing.Unit.Cm(0.092D));
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(0.57D), Telerik.Reporting.Drawing.Unit.Cm(4.774D));
-            this.textBox1.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
-            this.textBox1.Value = "=Fields.NombreProducto";
+            this.txtNameProduct.Angle = -90D;
+            this.txtNameProduct.Location = new Telerik.Reporting.Drawing.PointU(Telerik.Reporting.Drawing.Unit.Cm(1.5D), Telerik.Reporting.Drawing.Unit.Cm(0.8D));
+            this.txtNameProduct.Name = "txtNameProduct";
+            this.txtNameProduct.Size = new Telerik.Reporting.Drawing.SizeU(Telerik.Reporting.Drawing.Unit.Cm(0.57D), Telerik.Reporting.Drawing.Unit.Cm(3.1D));
+            this.txtNameProduct.Style.Font.Size = Telerik.Reporting.Drawing.Unit.Point(7D);
+            this.txtNameProduct.Style.TextAlign = Telerik.Reporting.Drawing.HorizontalAlign.Center;
+            this.txtNameProduct.Value = "=Fields.NombreProducto";
             // 
             // RptLabelSingle
             // 
@@ -60,13 +63,13 @@ namespace HendrixAccountant.Reports.Labels
             styleRule1.Style.Padding.Right = Telerik.Reporting.Drawing.Unit.Point(2D);
             this.StyleSheet.AddRange(new Telerik.Reporting.Drawing.StyleRule[] {
             styleRule1});
-            this.Width = Telerik.Reporting.Drawing.Unit.Cm(2.2D);
+            this.Width = Telerik.Reporting.Drawing.Unit.Cm(2.3D);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
         #endregion
         private Telerik.Reporting.DetailSection detail;
         private Telerik.Reporting.Barcode barcode1;
-        private Telerik.Reporting.TextBox textBox1;
+        private Telerik.Reporting.TextBox txtNameProduct;
     }
 }

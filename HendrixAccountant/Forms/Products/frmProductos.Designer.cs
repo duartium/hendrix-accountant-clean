@@ -58,6 +58,9 @@
             this.lblPnCodigo = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombreProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcProductos = new System.Windows.Forms.TabControl();
             this.tpProduct = new System.Windows.Forms.TabPage();
             this.gbTipo = new System.Windows.Forms.GroupBox();
@@ -67,7 +70,6 @@
             this.cmbTarifaIva = new System.Windows.Forms.ComboBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pbBarcode = new System.Windows.Forms.PictureBox();
-            this.txtCodBarras = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -98,9 +100,11 @@
             this.label24 = new System.Windows.Forms.Label();
             this.txtNombreProd = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombreProd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCodBarras = new HendrixAccountant.UIControls.NumericInput();
+            this.pnlStock = new System.Windows.Forms.Panel();
+            this.txtStock = new HendrixAccountant.UIControls.NumericInput();
+            this.lblPnStock = new System.Windows.Forms.Label();
+            this.lblStock = new System.Windows.Forms.Label();
             this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrecioVenta.SuspendLayout();
@@ -122,6 +126,7 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.pnlStock.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnHeader
@@ -139,7 +144,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HendrixAccountant.Properties.Resources.productWhite25;
-            this.pictureBox1.Location = new System.Drawing.Point(326, 15);
+            this.pictureBox1.Location = new System.Drawing.Point(349, 15);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(28, 25);
             this.pictureBox1.TabIndex = 3;
@@ -159,7 +164,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblTitulo.Location = new System.Drawing.Point(360, 19);
+            this.lblTitulo.Location = new System.Drawing.Point(394, 19);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(219, 19);
             this.lblTitulo.TabIndex = 0;
@@ -393,6 +398,7 @@
             // pnCodigo
             // 
             this.pnCodigo.BackColor = System.Drawing.SystemColors.Control;
+            this.pnCodigo.Controls.Add(this.txtCodBarras);
             this.pnCodigo.Controls.Add(this.lblPnCodigo);
             this.pnCodigo.Location = new System.Drawing.Point(21, 75);
             this.pnCodigo.Name = "pnCodigo";
@@ -451,6 +457,27 @@
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             this.dgvProductos.SelectionChanged += new System.EventHandler(this.dgvProductos_SelectionChanged);
             // 
+            // colCodigo
+            // 
+            this.colCodigo.HeaderText = "Código";
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.ReadOnly = true;
+            this.colCodigo.Width = 95;
+            // 
+            // colNombreProd
+            // 
+            this.colNombreProd.HeaderText = "Nombre de artículo";
+            this.colNombreProd.Name = "colNombreProd";
+            this.colNombreProd.ReadOnly = true;
+            this.colNombreProd.Width = 315;
+            // 
+            // stock
+            // 
+            this.stock.HeaderText = "Stock";
+            this.stock.Name = "stock";
+            this.stock.ReadOnly = true;
+            this.stock.Width = 80;
+            // 
             // tcProductos
             // 
             this.tcProductos.Controls.Add(this.tpProduct);
@@ -463,11 +490,12 @@
             // 
             // tpProduct
             // 
+            this.tpProduct.Controls.Add(this.pnlStock);
+            this.tpProduct.Controls.Add(this.lblStock);
             this.tpProduct.Controls.Add(this.gbTipo);
             this.tpProduct.Controls.Add(this.lblTarifaIva);
             this.tpProduct.Controls.Add(this.cmbTarifaIva);
             this.tpProduct.Controls.Add(this.panel8);
-            this.tpProduct.Controls.Add(this.txtCodBarras);
             this.tpProduct.Controls.Add(this.btnModificar);
             this.tpProduct.Controls.Add(this.btnNuevo);
             this.tpProduct.Controls.Add(this.pnCodigo);
@@ -494,6 +522,7 @@
             this.tpProduct.TabIndex = 0;
             this.tpProduct.Text = "Detalle de producto";
             this.tpProduct.UseVisualStyleBackColor = true;
+            this.tpProduct.Click += new System.EventHandler(this.tpProduct_Click);
             // 
             // gbTipo
             // 
@@ -539,7 +568,7 @@
             this.lblTarifaIva.AutoSize = true;
             this.lblTarifaIva.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTarifaIva.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblTarifaIva.Location = new System.Drawing.Point(231, 215);
+            this.lblTarifaIva.Location = new System.Drawing.Point(238, 269);
             this.lblTarifaIva.Name = "lblTarifaIva";
             this.lblTarifaIva.Size = new System.Drawing.Size(56, 15);
             this.lblTarifaIva.TabIndex = 95;
@@ -550,7 +579,7 @@
             this.cmbTarifaIva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTarifaIva.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTarifaIva.FormattingEnabled = true;
-            this.cmbTarifaIva.Location = new System.Drawing.Point(234, 238);
+            this.cmbTarifaIva.Location = new System.Drawing.Point(241, 286);
             this.cmbTarifaIva.Name = "cmbTarifaIva";
             this.cmbTarifaIva.Size = new System.Drawing.Size(100, 24);
             this.cmbTarifaIva.TabIndex = 9;
@@ -572,20 +601,6 @@
             this.pbBarcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBarcode.TabIndex = 88;
             this.pbBarcode.TabStop = false;
-            // 
-            // txtCodBarras
-            // 
-            this.txtCodBarras.BackColor = System.Drawing.SystemColors.Control;
-            this.txtCodBarras.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCodBarras.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCodBarras.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodBarras.Location = new System.Drawing.Point(29, 83);
-            this.txtCodBarras.MaxLength = 20;
-            this.txtCodBarras.Name = "txtCodBarras";
-            this.txtCodBarras.Size = new System.Drawing.Size(97, 15);
-            this.txtCodBarras.TabIndex = 0;
-            this.txtCodBarras.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodBarras_KeyDown);
-            this.txtCodBarras.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodBarras_KeyPress);
             // 
             // btnModificar
             // 
@@ -980,26 +995,58 @@
             this.label10.TabIndex = 90;
             this.label10.Text = "Código";
             // 
-            // colCodigo
+            // txtCodBarras
             // 
-            this.colCodigo.HeaderText = "Código";
-            this.colCodigo.Name = "colCodigo";
-            this.colCodigo.ReadOnly = true;
-            this.colCodigo.Width = 95;
+            this.txtCodBarras.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCodBarras.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodBarras.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodBarras.Location = new System.Drawing.Point(9, 6);
+            this.txtCodBarras.MaxLength = 13;
+            this.txtCodBarras.Name = "txtCodBarras";
+            this.txtCodBarras.Size = new System.Drawing.Size(98, 15);
+            this.txtCodBarras.TabIndex = 98;
+            this.txtCodBarras.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodBarras_KeyDown);
             // 
-            // colNombreProd
+            // pnlStock
             // 
-            this.colNombreProd.HeaderText = "Nombre de artículo";
-            this.colNombreProd.Name = "colNombreProd";
-            this.colNombreProd.ReadOnly = true;
-            this.colNombreProd.Width = 315;
+            this.pnlStock.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlStock.Controls.Add(this.txtStock);
+            this.pnlStock.Controls.Add(this.lblPnStock);
+            this.pnlStock.Location = new System.Drawing.Point(235, 230);
+            this.pnlStock.Name = "pnlStock";
+            this.pnlStock.Size = new System.Drawing.Size(93, 32);
+            this.pnlStock.TabIndex = 99;
             // 
-            // stock
+            // txtStock
             // 
-            this.stock.HeaderText = "Stock";
-            this.stock.Name = "stock";
-            this.stock.ReadOnly = true;
-            this.stock.Width = 80;
+            this.txtStock.BackColor = System.Drawing.SystemColors.Control;
+            this.txtStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStock.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStock.Location = new System.Drawing.Point(9, 7);
+            this.txtStock.MaxLength = 9;
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(81, 16);
+            this.txtStock.TabIndex = 7;
+            // 
+            // lblPnStock
+            // 
+            this.lblPnStock.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
+            this.lblPnStock.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblPnStock.Location = new System.Drawing.Point(0, 30);
+            this.lblPnStock.Name = "lblPnStock";
+            this.lblPnStock.Size = new System.Drawing.Size(93, 2);
+            this.lblPnStock.TabIndex = 9;
+            // 
+            // lblStock
+            // 
+            this.lblStock.AutoSize = true;
+            this.lblStock.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStock.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblStock.Location = new System.Drawing.Point(232, 215);
+            this.lblStock.Name = "lblStock";
+            this.lblStock.Size = new System.Drawing.Size(37, 15);
+            this.lblStock.TabIndex = 100;
+            this.lblStock.Text = "Stock";
             // 
             // frmProductos
             // 
@@ -1033,6 +1080,7 @@
             this.pnNombres.ResumeLayout(false);
             this.pnNombres.PerformLayout();
             this.pnCodigo.ResumeLayout(false);
+            this.pnCodigo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.tcProductos.ResumeLayout(false);
             this.tpProduct.ResumeLayout(false);
@@ -1055,6 +1103,8 @@
             this.panel7.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.pnlStock.ResumeLayout(false);
+            this.pnlStock.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1119,7 +1169,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.PictureBox pbBarcode;
         private System.Windows.Forms.TextBox txtCodProducto;
-        private System.Windows.Forms.TextBox txtCodBarras;
         private System.Windows.Forms.TextBox txtCodigo2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel8;
@@ -1132,5 +1181,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombreProd;
         private System.Windows.Forms.DataGridViewTextBoxColumn stock;
+        private UIControls.NumericInput txtCodBarras;
+        private System.Windows.Forms.Panel pnlStock;
+        private UIControls.NumericInput txtStock;
+        private System.Windows.Forms.Label lblPnStock;
+        private System.Windows.Forms.Label lblStock;
     }
 }
