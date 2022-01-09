@@ -3,13 +3,6 @@ using HendrixAccountant.ApplicationCore.Enums;
 using HendrixAccountant.Common;
 using HendrixAccountant.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HendrixAccountant
@@ -41,16 +34,16 @@ namespace HendrixAccountant
 
             if (resp)
             {
-                MessageBox.Show("Caja habilitada.", "Notificación", MessageBoxButtons.OK);
+                MessageBox.Show("Punto de venta habilitado.", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             else
-                MessageBox.Show("No se pudo realizar la apertura de caja.", "Notificación", MessageBoxButtons.OK);
+                MessageBox.Show("No se pudo realizar la apertura de caja.", "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void frmAperturaCaja_Load(object sender, EventArgs e)
         {
-            lblFechaApertura.Text += " " + DateTime.Now.ToString("dd/MM/yyyy");
+            lblFechaApertura.Text += " " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             foreach (var denom in CString.DENOMINACIONES)
                 dgvDineroCaja.Rows.Add(new object[] { denom, "0", "0" });
 

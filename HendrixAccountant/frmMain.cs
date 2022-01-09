@@ -1,6 +1,8 @@
 ﻿using HendrixAccountant.ApplicationCore.Constants;
 using HendrixAccountant.ApplicationCore.Enums;
 using HendrixAccountant.ApplicationCore.Models;
+using HendrixAccountant.Common;
+using HendrixAccountant.Data;
 using HendrixAccountant.Data.Repositories;
 using HendrixAccountant.Forms;
 using HendrixAccountant.Forms.Clients;
@@ -32,13 +34,15 @@ namespace HendrixAccountant
         private frmCumpleaneros frmCumpleaneros = null;
         private frmAnulacionComprobante frmAnulacionComprobante = null;
         private frmBajaProductos frmBajaProductos = null;
-        
+        private CajaRepository _rpsCash = null;
+
         #region constructores
         public frmMain()
         {
             InitializeComponent();
             pnHeader.BackColor = DataOperator.Instance.ColorSecondary;
             pnAside.BackColor = DataOperator.Instance.ColorPrimary;
+            _rpsCash = new CajaRepository();
         }
         #endregion
 
@@ -82,14 +86,13 @@ namespace HendrixAccountant
 
         private void aperturarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (frmCaja != null) {
-                frmCaja.BringToFront();
+            if (_rpsCash.HasCashOpening())
+            {
+                MessageBox.Show("Ya se realizó la apertura de caja.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            frmCaja = new frmAperturaCaja();
-            frmCaja.MdiParent = this;
-            frmCaja.FormClosed += new FormClosedEventHandler(caja_FormClosed);
-            frmCaja.Show();
+
+            ShowCashRegister();
         }
 
         #region Events form closed
@@ -125,7 +128,7 @@ namespace HendrixAccountant
 
         private void anulacion_FormClosed(object sender, EventArgs e)
         {
-            frmCaja = null;
+            frmAnulacionComprobante = null;
         }
 
         private void ventas_FormClosed(object sender, EventArgs e)
@@ -175,18 +178,33 @@ namespace HendrixAccountant
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
-            _dataOper = DataOperator.Instance;
-            if (_dataOper.UserRole == (int)UserRole.CAJERO)
-                RestrictAccess();
+            try
+            {
+                _dataOper = DataOperator.Instance;
+                if (_dataOper.UserRole == (int)UserRole.CAJERO)
+                    RestrictAccess();
 
-            lblNombreUsuario.Text = _dataOper.Username;
-            lblTipoUsuario.Text = _dataOper.Role;
-            foreach (Control ctrl in this.Controls)
-                if (ctrl is MdiClient)
-                    ctrl.BackColor = SystemColors.ControlLight;
+                lblNombreUsuario.Text = _dataOper.Username;
+                lblTipoUsuario.Text = _dataOper.Role;
+                foreach (Control ctrl in this.Controls)
+                    if (ctrl is MdiClient)
+                        ctrl.BackColor = SystemColors.ControlLight;
 
-            itemVenta.BackColor = DataOperator.Instance.ColorQuaternary;
-            ShowPOS();
+                
+                if (_rpsCash.HasCashOpening())
+                {
+                    itemVenta.BackColor = DataOperator.Instance.ColorQuaternary;
+                    ShowPOS();
+                }
+                else
+                    ShowCashRegister();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Utils.GrabarLog("frmMain_Load", ex.ToString());
+            }
+
         }
 
         private void RestrictAccess()
@@ -244,8 +262,29 @@ namespace HendrixAccountant
             frmVentas.Show();
         }
 
+
+        private void ShowCashRegister()
+        {
+            if (frmCaja != null)
+            {
+                frmCaja.BringToFront();
+                return;
+            }
+            frmCaja = new frmAperturaCaja();
+            frmCaja.MdiParent = this;
+            frmCaja.FormClosed += new FormClosedEventHandler(caja_FormClosed);
+            frmCaja.Show();
+        }
+
         private void itemVenta_Click(object sender, EventArgs e)
         {
+            if (!_rpsCash.HasCashOpening())
+            {
+                MessageBox.Show("Por favor, realice la apertura de caja para habilitar el punto de venta.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowCashRegister();
+                return;
+            }
+
             DeselectButtons();
             itemVenta.BackColor = DataOperator.Instance.ColorQuaternary;
             ShowPOS();
@@ -532,6 +571,11 @@ namespace HendrixAccountant
             frmBajaProductos.MdiParent = this;
             frmBajaProductos.FormClosed += new FormClosedEventHandler(bajaProductos_FormClosed);
             frmBajaProductos.Show();
+        }
+
+        private void cierreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

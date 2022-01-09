@@ -30,6 +30,14 @@ namespace HendrixAccountant.Data
             int numRows = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
             return ( numRows > 0) ? true : false;
         }
+
+        public bool HasCashOpening()
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", 'O'));
+            var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+            return (int.Parse(dsResp.Tables[0].Rows[0]["RESULT"].ToString()) > 0);
+        }
         
     }
 }
