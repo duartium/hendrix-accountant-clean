@@ -461,6 +461,7 @@ namespace HendrixAccountant.Forms.Inventory
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmKardex";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "KARDEX";
             this.Activated += new System.EventHandler(this.frmKardex_Activated);
             this.Load += new System.EventHandler(this.frmKardex_Load);

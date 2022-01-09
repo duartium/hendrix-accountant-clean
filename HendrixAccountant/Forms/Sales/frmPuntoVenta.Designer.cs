@@ -78,17 +78,17 @@
             this.lblInfo = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblEstadoProceso = new System.Windows.Forms.ToolStripStatusLabel();
             this.dgvPuntoVenta = new System.Windows.Forms.DataGridView();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCodProducto = new System.Windows.Forms.TextBox();
-            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpDatosVenta.SuspendLayout();
             this.gbFromaPago.SuspendLayout();
             this.pnDireccion.SuspendLayout();
@@ -116,7 +116,7 @@
             this.gpDatosVenta.Controls.Add(this.btnBuscarCliente);
             this.gpDatosVenta.Location = new System.Drawing.Point(8, 11);
             this.gpDatosVenta.Name = "gpDatosVenta";
-            this.gpDatosVenta.Size = new System.Drawing.Size(684, 175);
+            this.gpDatosVenta.Size = new System.Drawing.Size(684, 179);
             this.gpDatosVenta.TabIndex = 0;
             this.gpDatosVenta.TabStop = false;
             // 
@@ -126,7 +126,7 @@
             this.gbFromaPago.Controls.Add(this.rbEfectivo);
             this.gbFromaPago.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbFromaPago.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.gbFromaPago.Location = new System.Drawing.Point(431, 109);
+            this.gbFromaPago.Location = new System.Drawing.Point(431, 114);
             this.gbFromaPago.Name = "gbFromaPago";
             this.gbFromaPago.Size = new System.Drawing.Size(218, 48);
             this.gbFromaPago.TabIndex = 23;
@@ -162,7 +162,7 @@
             this.pnDireccion.BackColor = System.Drawing.SystemColors.Control;
             this.pnDireccion.Controls.Add(this.txtDireccionCliente);
             this.pnDireccion.Controls.Add(this.label1);
-            this.pnDireccion.Location = new System.Drawing.Point(18, 123);
+            this.pnDireccion.Location = new System.Drawing.Point(18, 128);
             this.pnDireccion.Name = "pnDireccion";
             this.pnDireccion.Size = new System.Drawing.Size(381, 32);
             this.pnDireccion.TabIndex = 19;
@@ -192,7 +192,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label8.Location = new System.Drawing.Point(15, 107);
+            this.label8.Location = new System.Drawing.Point(15, 112);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(59, 15);
             this.label8.TabIndex = 20;
@@ -203,7 +203,7 @@
             this.pnNombres.BackColor = System.Drawing.SystemColors.Control;
             this.pnNombres.Controls.Add(this.txtNombresCliente);
             this.pnNombres.Controls.Add(this.label4);
-            this.pnNombres.Location = new System.Drawing.Point(214, 68);
+            this.pnNombres.Location = new System.Drawing.Point(214, 71);
             this.pnNombres.Name = "pnNombres";
             this.pnNombres.Size = new System.Drawing.Size(381, 32);
             this.pnNombres.TabIndex = 17;
@@ -234,7 +234,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label5.Location = new System.Drawing.Point(211, 52);
+            this.label5.Location = new System.Drawing.Point(211, 55);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(180, 15);
             this.label5.TabIndex = 18;
@@ -245,7 +245,7 @@
             this.pnIdentificacion.BackColor = System.Drawing.SystemColors.Control;
             this.pnIdentificacion.Controls.Add(this.txtIdentCliente);
             this.pnIdentificacion.Controls.Add(this.label7);
-            this.pnIdentificacion.Location = new System.Drawing.Point(17, 68);
+            this.pnIdentificacion.Location = new System.Drawing.Point(17, 71);
             this.pnIdentificacion.Name = "pnIdentificacion";
             this.pnIdentificacion.Size = new System.Drawing.Size(188, 32);
             this.pnIdentificacion.TabIndex = 15;
@@ -276,7 +276,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label3.Location = new System.Drawing.Point(14, 52);
+            this.label3.Location = new System.Drawing.Point(14, 55);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 15);
             this.label3.TabIndex = 16;
@@ -323,7 +323,7 @@
             this.pnMontosVenta.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnMontosVenta.Location = new System.Drawing.Point(704, 0);
             this.pnMontosVenta.Name = "pnMontosVenta";
-            this.pnMontosVenta.Size = new System.Drawing.Size(219, 561);
+            this.pnMontosVenta.Size = new System.Drawing.Size(219, 606);
             this.pnMontosVenta.TabIndex = 1;
             // 
             // pnAside2
@@ -334,7 +334,7 @@
             this.pnAside2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnAside2.Location = new System.Drawing.Point(0, 372);
             this.pnAside2.Name = "pnAside2";
-            this.pnAside2.Size = new System.Drawing.Size(219, 189);
+            this.pnAside2.Size = new System.Drawing.Size(219, 234);
             this.pnAside2.TabIndex = 5;
             this.pnAside2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -599,7 +599,7 @@
             this.statusPOS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblInfo,
             this.lblEstadoProceso});
-            this.statusPOS.Location = new System.Drawing.Point(0, 539);
+            this.statusPOS.Location = new System.Drawing.Point(0, 584);
             this.statusPOS.Name = "statusPOS";
             this.statusPOS.Size = new System.Drawing.Size(704, 22);
             this.statusPOS.TabIndex = 4;
@@ -655,88 +655,10 @@
             this.dgvPuntoVenta.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvPuntoVenta.RowHeadersVisible = false;
             this.dgvPuntoVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPuntoVenta.Size = new System.Drawing.Size(680, 268);
+            this.dgvPuntoVenta.Size = new System.Drawing.Size(680, 306);
             this.dgvPuntoVenta.TabIndex = 6;
             this.dgvPuntoVenta.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvPuntoVenta_EditingControlShowing);
             this.dgvPuntoVenta.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvPuntoVenta_UserDeletingRow);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.BorderSize = 0;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
-            this.btnEliminar.Location = new System.Drawing.Point(349, 219);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(90, 32);
-            this.btnEliminar.TabIndex = 5;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            this.btnEliminar.MouseEnter += new System.EventHandler(this.btnEliminar_MouseEnter);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(89)))));
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAgregar.Image = global::HendrixAccountant.Properties.Resources.addWhite20;
-            this.btnAgregar.Location = new System.Drawing.Point(253, 219);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(90, 32);
-            this.btnAgregar.TabIndex = 3;
-            this.btnAgregar.Text = " Agregar";
-            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(12, 219);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(235, 32);
-            this.panel1.TabIndex = 16;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
-            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label2.Location = new System.Drawing.Point(0, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(235, 2);
-            this.label2.TabIndex = 9;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label9.Location = new System.Drawing.Point(10, 201);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(115, 15);
-            this.label9.TabIndex = 24;
-            this.label9.Text = "Código de producto";
-            // 
-            // txtCodProducto
-            // 
-            this.txtCodProducto.BackColor = System.Drawing.SystemColors.Control;
-            this.txtCodProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCodProducto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodProducto.Location = new System.Drawing.Point(21, 228);
-            this.txtCodProducto.Name = "txtCodProducto";
-            this.txtCodProducto.Size = new System.Drawing.Size(215, 15);
-            this.txtCodProducto.TabIndex = 10;
-            this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
-            this.txtCodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodProducto_KeyPress_1);
             // 
             // colCodigo
             // 
@@ -780,12 +702,90 @@
             this.colTotal.ReadOnly = true;
             this.colTotal.Width = 120;
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEliminar.FlatAppearance.BorderSize = 0;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
+            this.btnEliminar.Location = new System.Drawing.Point(349, 218);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(90, 32);
+            this.btnEliminar.TabIndex = 5;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnEliminar.MouseEnter += new System.EventHandler(this.btnEliminar_MouseEnter);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(89)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAgregar.Image = global::HendrixAccountant.Properties.Resources.addWhite20;
+            this.btnAgregar.Location = new System.Drawing.Point(253, 218);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(90, 32);
+            this.btnAgregar.TabIndex = 3;
+            this.btnAgregar.Text = " Agregar";
+            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Location = new System.Drawing.Point(12, 218);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(235, 32);
+            this.panel1.TabIndex = 16;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label2.Location = new System.Drawing.Point(0, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(235, 2);
+            this.label2.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label9.Location = new System.Drawing.Point(10, 200);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(115, 15);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "Código de producto";
+            // 
+            // txtCodProducto
+            // 
+            this.txtCodProducto.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCodProducto.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodProducto.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodProducto.Location = new System.Drawing.Point(21, 227);
+            this.txtCodProducto.Name = "txtCodProducto";
+            this.txtCodProducto.Size = new System.Drawing.Size(215, 15);
+            this.txtCodProducto.TabIndex = 10;
+            this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
+            this.txtCodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodProducto_KeyPress_1);
+            // 
             // frmPuntoVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(923, 561);
+            this.ClientSize = new System.Drawing.Size(923, 606);
             this.Controls.Add(this.txtCodProducto);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel1);

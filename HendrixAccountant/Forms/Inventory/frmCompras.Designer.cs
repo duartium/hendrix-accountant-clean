@@ -46,7 +46,7 @@
             this.pnCodProveedor = new System.Windows.Forms.Panel();
             this.txtCodProveedor = new HendrixAccountant.UIControls.NumericInput();
             this.lblPnCodigoProv = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBuscarProveedor = new System.Windows.Forms.Button();
             this.pnNombreProveedor = new System.Windows.Forms.Panel();
             this.txtNombreProveedor = new HendrixAccountant.UIControls.TextInput();
             this.lblPnNombreProv = new System.Windows.Forms.Label();
@@ -82,20 +82,21 @@
             this.gbProveedor.Controls.Add(this.dtpFechaEmision);
             this.gbProveedor.Controls.Add(this.label2);
             this.gbProveedor.Controls.Add(this.pnCodProveedor);
-            this.gbProveedor.Controls.Add(this.button1);
+            this.gbProveedor.Controls.Add(this.btnBuscarProveedor);
             this.gbProveedor.Controls.Add(this.pnNombreProveedor);
-            this.gbProveedor.Location = new System.Drawing.Point(9, 3);
+            this.gbProveedor.Location = new System.Drawing.Point(19, 11);
             this.gbProveedor.Name = "gbProveedor";
-            this.gbProveedor.Size = new System.Drawing.Size(600, 185);
+            this.gbProveedor.Size = new System.Drawing.Size(600, 199);
             this.gbProveedor.TabIndex = 0;
             this.gbProveedor.TabStop = false;
+            this.gbProveedor.Enter += new System.EventHandler(this.gbProveedor_Enter);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label15.Location = new System.Drawing.Point(15, 122);
+            this.label15.Location = new System.Drawing.Point(15, 132);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(148, 15);
             this.label15.TabIndex = 78;
@@ -126,9 +127,9 @@
             // 
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label7.Location = new System.Drawing.Point(0, 29);
+            this.label7.Location = new System.Drawing.Point(0, 30);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(151, 3);
+            this.label7.Size = new System.Drawing.Size(151, 2);
             this.label7.TabIndex = 9;
             // 
             // pnDireccion
@@ -136,7 +137,7 @@
             this.pnDireccion.BackColor = System.Drawing.SystemColors.Control;
             this.pnDireccion.Controls.Add(this.txtObservaciones);
             this.pnDireccion.Controls.Add(this.lblPnDescripcion);
-            this.pnDireccion.Location = new System.Drawing.Point(18, 137);
+            this.pnDireccion.Location = new System.Drawing.Point(18, 148);
             this.pnDireccion.Name = "pnDireccion";
             this.pnDireccion.Size = new System.Drawing.Size(547, 32);
             this.pnDireccion.TabIndex = 77;
@@ -156,9 +157,9 @@
             // 
             this.lblPnDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.lblPnDescripcion.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblPnDescripcion.Location = new System.Drawing.Point(0, 29);
+            this.lblPnDescripcion.Location = new System.Drawing.Point(0, 30);
             this.lblPnDescripcion.Name = "lblPnDescripcion";
-            this.lblPnDescripcion.Size = new System.Drawing.Size(547, 3);
+            this.lblPnDescripcion.Size = new System.Drawing.Size(547, 2);
             this.lblPnDescripcion.TabIndex = 9;
             // 
             // label5
@@ -188,7 +189,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label3.Location = new System.Drawing.Point(16, 70);
+            this.label3.Location = new System.Drawing.Point(16, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 15);
             this.label3.TabIndex = 76;
@@ -208,7 +209,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label2.Location = new System.Drawing.Point(94, 70);
+            this.label2.Location = new System.Drawing.Point(98, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 15);
             this.label2.TabIndex = 75;
@@ -219,7 +220,7 @@
             this.pnCodProveedor.BackColor = System.Drawing.SystemColors.Control;
             this.pnCodProveedor.Controls.Add(this.txtCodProveedor);
             this.pnCodProveedor.Controls.Add(this.lblPnCodigoProv);
-            this.pnCodProveedor.Location = new System.Drawing.Point(19, 85);
+            this.pnCodProveedor.Location = new System.Drawing.Point(19, 91);
             this.pnCodProveedor.Name = "pnCodProveedor";
             this.pnCodProveedor.Size = new System.Drawing.Size(73, 32);
             this.pnCodProveedor.TabIndex = 72;
@@ -229,37 +230,38 @@
             this.txtCodProveedor.BackColor = System.Drawing.SystemColors.Control;
             this.txtCodProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCodProveedor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodProveedor.Location = new System.Drawing.Point(2, 6);
+            this.txtCodProveedor.Location = new System.Drawing.Point(9, 6);
             this.txtCodProveedor.MaxLength = 10;
             this.txtCodProveedor.Name = "txtCodProveedor";
-            this.txtCodProveedor.Size = new System.Drawing.Size(65, 19);
+            this.txtCodProveedor.Size = new System.Drawing.Size(55, 19);
             this.txtCodProveedor.TabIndex = 6;
             // 
             // lblPnCodigoProv
             // 
             this.lblPnCodigoProv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.lblPnCodigoProv.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblPnCodigoProv.Location = new System.Drawing.Point(0, 29);
+            this.lblPnCodigoProv.Location = new System.Drawing.Point(0, 30);
             this.lblPnCodigoProv.Name = "lblPnCodigoProv";
-            this.lblPnCodigoProv.Size = new System.Drawing.Size(73, 3);
+            this.lblPnCodigoProv.Size = new System.Drawing.Size(73, 2);
             this.lblPnCodigoProv.TabIndex = 9;
             // 
-            // button1
+            // btnBuscarProveedor
             // 
-            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(373, 85);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(42, 32);
-            this.button1.TabIndex = 74;
-            this.button1.Text = "...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBuscarProveedor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProveedor.Location = new System.Drawing.Point(377, 91);
+            this.btnBuscarProveedor.Name = "btnBuscarProveedor";
+            this.btnBuscarProveedor.Size = new System.Drawing.Size(42, 32);
+            this.btnBuscarProveedor.TabIndex = 74;
+            this.btnBuscarProveedor.Text = "...";
+            this.btnBuscarProveedor.UseVisualStyleBackColor = true;
+            this.btnBuscarProveedor.Click += new System.EventHandler(this.btnBuscarProveedor_Click);
             // 
             // pnNombreProveedor
             // 
             this.pnNombreProveedor.BackColor = System.Drawing.SystemColors.Control;
             this.pnNombreProveedor.Controls.Add(this.txtNombreProveedor);
             this.pnNombreProveedor.Controls.Add(this.lblPnNombreProv);
-            this.pnNombreProveedor.Location = new System.Drawing.Point(97, 85);
+            this.pnNombreProveedor.Location = new System.Drawing.Point(101, 91);
             this.pnNombreProveedor.Name = "pnNombreProveedor";
             this.pnNombreProveedor.Size = new System.Drawing.Size(269, 32);
             this.pnNombreProveedor.TabIndex = 73;
@@ -270,19 +272,19 @@
             this.txtNombreProveedor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNombreProveedor.Enabled = false;
             this.txtNombreProveedor.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtNombreProveedor.Location = new System.Drawing.Point(1, 7);
+            this.txtNombreProveedor.Location = new System.Drawing.Point(9, 7);
             this.txtNombreProveedor.MaxLength = 100;
             this.txtNombreProveedor.Name = "txtNombreProveedor";
-            this.txtNombreProveedor.Size = new System.Drawing.Size(265, 16);
+            this.txtNombreProveedor.Size = new System.Drawing.Size(250, 16);
             this.txtNombreProveedor.TabIndex = 7;
             // 
             // lblPnNombreProv
             // 
             this.lblPnNombreProv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
             this.lblPnNombreProv.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblPnNombreProv.Location = new System.Drawing.Point(0, 29);
+            this.lblPnNombreProv.Location = new System.Drawing.Point(0, 30);
             this.lblPnNombreProv.Name = "lblPnNombreProv";
-            this.lblPnNombreProv.Size = new System.Drawing.Size(269, 3);
+            this.lblPnNombreProv.Size = new System.Drawing.Size(269, 2);
             this.lblPnNombreProv.TabIndex = 9;
             // 
             // txtTotalCompra
@@ -290,7 +292,7 @@
             this.txtTotalCompra.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTotalCompra.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalCompra.ForeColor = System.Drawing.Color.Black;
-            this.txtTotalCompra.Location = new System.Drawing.Point(476, 193);
+            this.txtTotalCompra.Location = new System.Drawing.Point(486, 225);
             this.txtTotalCompra.MaxLength = 13;
             this.txtTotalCompra.Name = "txtTotalCompra";
             this.txtTotalCompra.ReadOnly = true;
@@ -323,7 +325,7 @@
             this.colPrecio,
             this.ColTotal});
             this.dgvProductos.EnableHeadersVisualStyles = false;
-            this.dgvProductos.Location = new System.Drawing.Point(12, 234);
+            this.dgvProductos.Location = new System.Drawing.Point(22, 276);
             this.dgvProductos.MultiSelect = false;
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowHeadersVisible = false;
@@ -369,9 +371,9 @@
             this.pnAside.Controls.Add(this.btnLimpiar);
             this.pnAside.Controls.Add(this.btnGuardar);
             this.pnAside.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnAside.Location = new System.Drawing.Point(622, 0);
+            this.pnAside.Location = new System.Drawing.Point(645, 0);
             this.pnAside.Name = "pnAside";
-            this.pnAside.Size = new System.Drawing.Size(127, 516);
+            this.pnAside.Size = new System.Drawing.Size(127, 576);
             this.pnAside.TabIndex = 78;
             // 
             // btnCerrar
@@ -393,6 +395,7 @@
             this.btnCerrar.TabIndex = 16;
             this.btnCerrar.Text = "Cerrar";
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Visible = false;
             // 
             // btnLimpiar
             // 
@@ -445,9 +448,9 @@
             this.btnAgregar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnAgregar.Image = global::HendrixAccountant.Properties.Resources.addWhite20;
-            this.btnAgregar.Location = new System.Drawing.Point(241, 196);
+            this.btnAgregar.Location = new System.Drawing.Point(251, 228);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(151, 30);
+            this.btnAgregar.Size = new System.Drawing.Size(151, 31);
             this.btnAgregar.TabIndex = 77;
             this.btnAgregar.Text = " Agregar producto";
             this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -459,7 +462,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(749, 516);
+            this.ClientSize = new System.Drawing.Size(772, 576);
             this.Controls.Add(this.pnAside);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvProductos);
@@ -506,7 +509,7 @@
         private System.Windows.Forms.Panel pnNombreProveedor;
         private UIControls.TextInput txtNombreProveedor;
         private System.Windows.Forms.Label lblPnNombreProv;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuscarProveedor;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;

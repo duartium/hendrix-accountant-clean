@@ -739,7 +739,11 @@ namespace HendrixAccountant
             {
                 //Imprimir en etiquetadora
                 var rptLabelSingle = new RptLabelSingle();
-                rptLabelSingle.DataSource = barcodes.FirstOrDefault();
+
+                if(rbGenerarIndividual.Checked)
+                    rptLabelSingle.DataSource = barcodes.FirstOrDefault();
+                else
+                    rptLabelSingle.DataSource = item;
 
                 var reportSource = new Telerik.Reporting.InstanceReportSource();
                 reportSource.ReportDocument = rptLabelSingle;
@@ -762,7 +766,7 @@ namespace HendrixAccountant
             //string execute = new ParameterServices().Get(CString.PDF_EXECUTE);
             //if(execute.Equals("chrome"))
             //    System.Diagnostics.Process.Start("chrome.exe", pathPdfCreated);
-
+            txtCodBarras.Focus();
         }
 
         private void txtCodBarras_KeyDown(object sender, KeyEventArgs e)

@@ -56,6 +56,9 @@ namespace HendrixAccountant.Forms.Inventory
             txtNumComprobante.Clear();
             txtObservaciones.Clear();
             txtTotalCompra.Clear();
+            _supplier = null;
+            txtCodProveedor.Clear();
+            txtNombreProveedor.Clear();
         }
 
         private void btnGuardar_Click_2(object sender, EventArgs e)
@@ -153,6 +156,10 @@ namespace HendrixAccountant.Forms.Inventory
                     frmCantidadPrecio frmCantidad = new frmCantidadPrecio(this);
                     frmCantidad.ShowDialog();
                     break;
+                case "SupplierDto":
+                    _supplier = entity as SupplierDto;
+                    SetSupplier();
+                    break;
             }
         }
 
@@ -183,6 +190,29 @@ namespace HendrixAccountant.Forms.Inventory
         private void frmCompras_Activated(object sender, EventArgs e)
         {
             txtNumComprobante.Focus();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbProveedor_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarProveedor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmBuscarProveedor frmBuscarProveedor = new frmBuscarProveedor(this);
+                frmBuscarProveedor.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("btnBuscarProveedor_Click", ex.ToString());
+            }
         }
     }
 }

@@ -62,7 +62,7 @@
             this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHeader.Location = new System.Drawing.Point(0, 0);
             this.pnHeader.Name = "pnHeader";
-            this.pnHeader.Size = new System.Drawing.Size(379, 60);
+            this.pnHeader.Size = new System.Drawing.Size(456, 60);
             this.pnHeader.TabIndex = 2;
             // 
             // pictureBox1
@@ -80,7 +80,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 55);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(379, 5);
+            this.panel2.Size = new System.Drawing.Size(456, 5);
             this.panel2.TabIndex = 2;
             // 
             // lblTitulo
@@ -100,7 +100,7 @@
             this.pnDireccion.BackColor = System.Drawing.SystemColors.Control;
             this.pnDireccion.Controls.Add(this.txtCodigo);
             this.pnDireccion.Controls.Add(this.label6);
-            this.pnDireccion.Location = new System.Drawing.Point(49, 132);
+            this.pnDireccion.Location = new System.Drawing.Point(83, 169);
             this.pnDireccion.Name = "pnDireccion";
             this.pnDireccion.Size = new System.Drawing.Size(96, 32);
             this.pnDireccion.TabIndex = 16;
@@ -130,7 +130,7 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblCodigo.Location = new System.Drawing.Point(46, 117);
+            this.lblCodigo.Location = new System.Drawing.Point(80, 154);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(47, 15);
             this.lblCodigo.TabIndex = 17;
@@ -141,7 +141,7 @@
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
             this.panel3.Controls.Add(this.txtNombre);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(49, 185);
+            this.panel3.Location = new System.Drawing.Point(83, 222);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(282, 32);
             this.panel3.TabIndex = 18;
@@ -171,7 +171,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label2.Location = new System.Drawing.Point(46, 170);
+            this.label2.Location = new System.Drawing.Point(80, 207);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 15);
             this.label2.TabIndex = 19;
@@ -182,7 +182,7 @@
             this.rbnModificar.AutoSize = true;
             this.rbnModificar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.rbnModificar.Location = new System.Drawing.Point(185, 79);
+            this.rbnModificar.Location = new System.Drawing.Point(219, 105);
             this.rbnModificar.Name = "rbnModificar";
             this.rbnModificar.Size = new System.Drawing.Size(135, 19);
             this.rbnModificar.TabIndex = 24;
@@ -196,7 +196,7 @@
             this.rbnNuevo.Checked = true;
             this.rbnNuevo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.rbnNuevo.Location = new System.Drawing.Point(49, 79);
+            this.rbnNuevo.Location = new System.Drawing.Point(83, 105);
             this.rbnNuevo.Name = "rbnNuevo";
             this.rbnNuevo.Size = new System.Drawing.Size(117, 19);
             this.rbnNuevo.TabIndex = 23;
@@ -214,7 +214,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.userWhite20;
-            this.btnLimpiar.Location = new System.Drawing.Point(49, 236);
+            this.btnLimpiar.Location = new System.Drawing.Point(82, 297);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar.TabIndex = 20;
@@ -232,7 +232,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
-            this.btnEliminar.Location = new System.Drawing.Point(145, 236);
+            this.btnEliminar.Location = new System.Drawing.Point(178, 297);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar.TabIndex = 21;
@@ -250,7 +250,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGuardar.Image = global::HendrixAccountant.Properties.Resources.saveWhite20;
-            this.btnGuardar.Location = new System.Drawing.Point(241, 236);
+            this.btnGuardar.Location = new System.Drawing.Point(274, 297);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 30);
             this.btnGuardar.TabIndex = 22;
@@ -270,7 +270,7 @@
             this.btnBuscar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnBuscar.Image = global::HendrixAccountant.Properties.Resources.searchBlue20;
-            this.btnBuscar.Location = new System.Drawing.Point(224, 132);
+            this.btnBuscar.Location = new System.Drawing.Point(258, 169);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(107, 32);
             this.btnBuscar.TabIndex = 25;
@@ -284,7 +284,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(379, 293);
+            this.ClientSize = new System.Drawing.Size(456, 392);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.rbnModificar);
             this.Controls.Add(this.rbnNuevo);

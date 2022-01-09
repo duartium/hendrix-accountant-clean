@@ -904,9 +904,9 @@
             this.btnGenerar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGenerar.Image = global::HendrixAccountant.Properties.Resources.barcode2White24;
-            this.btnGenerar.Location = new System.Drawing.Point(242, 344);
+            this.btnGenerar.Location = new System.Drawing.Point(236, 344);
             this.btnGenerar.Name = "btnGenerar";
-            this.btnGenerar.Size = new System.Drawing.Size(90, 30);
+            this.btnGenerar.Size = new System.Drawing.Size(96, 30);
             this.btnGenerar.TabIndex = 56;
             this.btnGenerar.Text = "Generar";
             this.btnGenerar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -924,9 +924,9 @@
             this.btnImprimir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.Black;
             this.btnImprimir.Image = global::HendrixAccountant.Properties.Resources.printGray20;
-            this.btnImprimir.Location = new System.Drawing.Point(347, 344);
+            this.btnImprimir.Location = new System.Drawing.Point(338, 344);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(90, 30);
+            this.btnImprimir.Size = new System.Drawing.Size(99, 30);
             this.btnImprimir.TabIndex = 88;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -966,7 +966,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label24.Location = new System.Drawing.Point(119, 19);
+            this.label24.Location = new System.Drawing.Point(119, 18);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(52, 15);
             this.label24.TabIndex = 92;
@@ -989,7 +989,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label10.Location = new System.Drawing.Point(7, 19);
+            this.label10.Location = new System.Drawing.Point(7, 18);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(47, 15);
             this.label10.TabIndex = 90;
