@@ -10,7 +10,7 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
         List<Product> GetAll(ProductFilterDto filters);
         void UpdateStock(List<StockDto> stock, bool isDecrease);
         void UpdateStock(StockDto stock, bool isDecrease);
-        bool Save(ProductDto product, bool isUpdate = false);
+        int Save(ProductDto product, bool isUpdate = false);
         bool Remove(int idProduct, string usuario);
         List<BarcodeCard> GetBarcodes();
         ProductIdentityDto GetByCode(string code);

@@ -82,7 +82,7 @@ namespace HendrixAccountant.Data.Repositories
            int resp = _sqlServer.ExecuteNonQuery(SP_STOCK, parms);
         }
 
-        public bool Save(ProductDto product, bool isUpdate = false)
+        public int Save(ProductDto product, bool isUpdate = false)
         {
             char action = 'I';
             if (isUpdate) action = 'M';
@@ -103,8 +103,9 @@ namespace HendrixAccountant.Data.Repositories
             parms.Add(new SqlParameter("@idCategoria", product.IdCategoria));
             parms.Add(new SqlParameter("@es_servicio", product.EsServicio));
             if (isUpdate) parms.Add(new SqlParameter("@idProducto", product.IdProducto));
-            int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
-            if (resp > 0) return true; else return false;
+            var resp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+
+            return int.Parse(resp.Tables[0].Rows[0][0].ToString());
         }
 
         public bool Remove(int idProduct, string usuario)

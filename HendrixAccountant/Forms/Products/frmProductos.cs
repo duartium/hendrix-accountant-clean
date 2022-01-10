@@ -159,77 +159,103 @@ namespace HendrixAccountant
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (txtCodBarras.Text.Trim().Length == 0 ||
-                txtNombre.Text.Length == 0 ||
-               txtCosto.Text.Trim().Length == 0 ||
-               txtPrecioVenta.Text.Trim().Length == 0)
+            try
             {
-                MessageBox.Show("Complete los datos del producto para proceder con su registro.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+                if (!chkCodigoAutogenerado.Checked && txtCodBarras.Text.Length == 0)
+                {
+                    MessageBox.Show("El código de producto es obligatorio.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
-            if (rbProducto.Checked && txtStock.Text.Length == 0)
+                if (
+                    txtNombre.Text.Length == 0 ||
+                   txtCosto.Text.Trim().Length == 0 ||
+                   txtPrecioVenta.Text.Trim().Length == 0)
+                {
+                    MessageBox.Show("Complete los datos Nombre, Costo y Precio del producto. Campos obligatorios.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                if (rbProducto.Checked && txtStock.Text.Length == 0)
+                {
+                    MessageBox.Show("Ingrese el stock inicial del producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+
+                if (cmbTarifaIva.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Seleccione la Tarifa IVA del producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                if (_supplier == null)
+                {
+                    MessageBox.Show("Seleccione al proveedor. Campo obligatorio", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                _isSearch = false;
+                bool isUpdate = false;
+                string mensaje = "Producto registrado con éxito.";
+                var dataOp = DataOperator.Instance;
+                var product = new ProductDto
+                {
+                    IdProducto = _product == null ? -1 : _product.id_producto,
+                    CodigoBarras = chkCodigoAutogenerado.Checked ? "-1" : txtCodBarras.Text.Trim(),
+                    EsServicio = rbServicio.Checked,
+                    Nombre = txtNombre.Text,
+                    Descripcion = txtDescripcion.Text,
+                    Costo = Convert.ToDecimal(txtCosto.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
+                    Precio = Convert.ToDecimal(txtPrecioVenta.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
+                    TarifaIva = cmbTarifaIva.SelectedIndex == 0 ? 0 : 12,
+                    Stock = rbServicio.Checked ? 0 : int.Parse(txtStock.Text),
+                    IdCategoria = Convert.ToInt32(cboCategoria.SelectedValue),
+                    IdProveedor = _supplier.IdProveedor,
+                    IdTalla = Convert.ToInt32(cmbTalla.SelectedValue),
+                    Usuario = dataOp.Username
+                };
+
+                if (rbServicio.Checked)
+                    mensaje = "Servicio registrado con éxito.";
+
+                if (_eEstadoPantalla == EstadoPantalla.MODIFICACION) { isUpdate = true; mensaje = mensaje.Replace("registrado", "actualizado"); }
+
+                if (!isUpdate && _rpsProduct.IsDuplicateCode(product.CodigoBarras))
+                {
+                    MessageBox.Show($"Ya existe un producto registrado con el código {product.CodigoBarras}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int identity = _rpsProduct.Save(product, isUpdate);
+                if (identity <= 0)
+                {
+                    MessageBox.Show("No se pudo registrar/modificar el producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                if (chkCodigoAutogenerado.Checked)
+                    _barcodeService.Generate(identity.ToString());
+                else
+                    _barcodeService.Generate(txtCodBarras.Text.Trim());
+
+
+                Clear();
+                SetScreen(EstadoPantalla.INICIAL);
+                MessageBox.Show(mensaje, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtCodBarras.Focus();
+
+                pnCodigo.Visible = true;
+                lblCodigo.Visible = true;
+                gbTipo.Location = new Point(143, 75);
+                chkCodigoAutogenerado.Visible = false;
+                txtCodBarras.Focus();
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Ingrese el stock inicial del producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                Utils.GrabarLog("btnGuardar_Click", ex.ToString());
+                MessageBox.Show(ex.Message, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
-
-            if (cmbTarifaIva.SelectedIndex == -1){
-                MessageBox.Show("Seleccione la Tarifa IVA del producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (_supplier == null)
-            {
-                MessageBox.Show("Seleccione al proveedor. Campo obligatorio", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            
-            _isSearch = false;
-            bool isUpdate = false;
-            string mensaje = "Producto registrado con éxito.";
-            var dataOp = DataOperator.Instance;
-            var product = new ProductDto
-            {
-                IdProducto = _product == null ? -1 : _product.id_producto,
-                CodigoBarras = txtCodBarras.Text.Trim().ToUpper(),
-                EsServicio = rbServicio.Checked,
-                Nombre = txtNombre.Text,
-                Descripcion = txtDescripcion.Text,
-                Costo = Convert.ToDecimal(txtCosto.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
-                Precio = Convert.ToDecimal(txtPrecioVenta.Text.Trim().Substring(1).Replace(",", ""), Utils.GetCulture()),
-                TarifaIva = cmbTarifaIva.SelectedIndex == 0 ? 0 : 12,
-                Stock = rbServicio.Checked ? 0 : int.Parse(txtStock.Text),
-                IdCategoria = Convert.ToInt32(cboCategoria.SelectedValue),
-                IdProveedor = _supplier.IdProveedor,
-                IdTalla = Convert.ToInt32(cmbTalla.SelectedValue),
-                Usuario = dataOp.Username
-            };
-
-            if (rbServicio.Checked) 
-                mensaje = "Servicio registrado con éxito.";
-
-            if (_eEstadoPantalla == EstadoPantalla.MODIFICACION) { isUpdate = true; mensaje = mensaje.Replace("registrado", "actualizado"); }
-
-            if (!isUpdate && _rpsProduct.IsDuplicateCode(product.CodigoBarras))
-            {
-                MessageBox.Show($"Ya existe un producto registrado con el código {product.CodigoBarras}.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (!_rpsProduct.Save(product, isUpdate))
-            {
-                MessageBox.Show("No se pudo registrar/modificar el producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            _barcodeService.Generate(txtCodBarras.Text.Trim());
-            Clear();
-            SetScreen(EstadoPantalla.INICIAL);
-            MessageBox.Show(mensaje, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            txtCodBarras.Focus();
-            return;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -267,6 +293,7 @@ namespace HendrixAccountant
             txtStock.Enabled = valor;
             gbTipo.Enabled = valor;
             cmbTarifaIva.Enabled = valor;
+            chkCodigoAutogenerado.Enabled = valor;
             //pnProveedor.Enabled = valor;
             EnabledCombos(valor);
         }
@@ -449,13 +476,17 @@ namespace HendrixAccountant
             _isSearch = false;
             string code = _product.codigo;
             bool resp = _rpsProduct.Remove(_product.id_producto, DataOperator.Instance.Username);
-            if (resp)
+            
+            if (!resp)
             {
-                RemoveBarcodeImage(code);
-                MessageBox.Show("Producto eliminado con éxito.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Clear();
+                MessageBox.Show("No se pudo eliminar el producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
+                return;
             }
-            else MessageBox.Show("No se pudo eliminar el producto.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
+                
+
+            RemoveBarcodeImage(code);
+            MessageBox.Show("Producto eliminado con éxito.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Clear();
         }
 
         private void btnBuscarProveedor_Click(object sender, EventArgs e)
@@ -523,7 +554,10 @@ namespace HendrixAccountant
             _isSearch = false;
             _eEstadoPantalla = EstadoPantalla.CREACION;
             SetScreen(_eEstadoPantalla);
+            
+            rbProducto.Checked = true;
 
+            chkCodigoAutogenerado.Visible = true;
             if (rbProducto.Checked)
             {
                 cmbTarifaIva.SelectedIndex = 1;
@@ -541,9 +575,11 @@ namespace HendrixAccountant
             if (_product == null)
             {
                 MessageBox.Show("Busque y seleccione un producto para proceder a modificarlo.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtCodProducto.Focus();
                 return;
             }
 
+            chkCodigoAutogenerado.Visible = false;
             _eEstadoPantalla = EstadoPantalla.MODIFICACION;
             SetScreen(_eEstadoPantalla);
         }
@@ -618,6 +654,7 @@ namespace HendrixAccountant
                 }
                 SetScreen(EstadoPantalla.INICIAL);
                 btnEliminar.Visible = true;
+                chkCodigoAutogenerado.Visible = false;
             }
             catch (Exception ex)
             {
@@ -796,15 +833,17 @@ namespace HendrixAccountant
             pnlStock.Visible = false;
             lblStock.Visible = false;
 
-            lblPrecioVenta.Location = new Point(19, 214);
-            pnlPrecioVenta.Location = new Point(22, 229);
-            lblTarifaIva.Location = new Point(125, 214);
-            cmbTarifaIva.Location = new Point(128, 237);
+            lblPrecioVenta.Location = new Point(19, 264);
+            pnlPrecioVenta.Location = new Point(22, 280);
+            lblTarifaIva.Location = new Point(125, 264);
+            cmbTarifaIva.Location = new Point(128, 285);
             //pnProveedor.Visible = false;
 
             cmbTarifaIva.SelectedIndex = 0;
             cmbTarifaIva.Enabled = false;
 
+            chkCodigoAutogenerado.Checked = true;
+            
             txtNombre.Focus();
         }
 
@@ -815,10 +854,10 @@ namespace HendrixAccountant
             pnlStock.Visible = true;
             lblStock.Visible = true;
 
-            lblPrecioVenta.Location = new Point(125, 214);
-            pnlPrecioVenta.Location = new Point(128, 229);
-            lblTarifaIva.Location = new Point(238, 269);
-            cmbTarifaIva.Location = new Point(241, 286);
+            lblPrecioVenta.Location = new Point(125, 264);
+            pnlPrecioVenta.Location = new Point(128, 280);
+            lblTarifaIva.Location = new Point(238, 319);
+            cmbTarifaIva.Location = new Point(241, 340);
 
             cmbTarifaIva.SelectedIndex = 1;
             cmbTarifaIva.Enabled = true;
@@ -845,6 +884,100 @@ namespace HendrixAccountant
         private void tpProduct_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblStock_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTarifaIva_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbTarifaIva_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnNombres_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnDireccion_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblCosto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlCosto_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblPrecioVenta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlPrecioVenta_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pnlStock_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbTalla_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkCodigoAutogenerado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkCodigoAutogenerado.Checked)
+            {
+                pnCodigo.Visible = false;
+                lblCodigo.Visible = false;
+
+                gbTipo.Location = new Point(21, 70);
+            }
+            else
+            {
+                pnCodigo.Visible = true;
+                lblCodigo.Visible = true;
+                gbTipo.Location = new Point(143, 75);
+                txtCodBarras.Focus();
+            }
+            txtNombre.Focus();
         }
     }
 }
