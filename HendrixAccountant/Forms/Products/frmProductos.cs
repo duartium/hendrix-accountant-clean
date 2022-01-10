@@ -753,6 +753,16 @@ namespace HendrixAccountant
                     NombreProducto = _product.nombre
                 });
 
+            }else if (rbGenerarVarios.Checked)
+            {
+                if (dgvProductos.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Por favor, seleccione los productos que desea imprimir su etiqueta.", "Productos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtCodProducto.Focus();
+                    return;
+                }
+
+                barcodes = GetRowsSelectedBarcodes();
             }
             else
             {
@@ -804,6 +814,33 @@ namespace HendrixAccountant
             //if(execute.Equals("chrome"))
             //    System.Diagnostics.Process.Start("chrome.exe", pathPdfCreated);
             txtCodBarras.Focus();
+        }
+
+        private List<BarcodeCard> GetRowsSelectedBarcodes()
+        {
+            List<BarcodeCard> result = new List<BarcodeCard>();
+            try
+            {
+                result = dgvProductos.SelectedRows
+                   .OfType<DataGridViewRow>()
+                   .ToArray()
+                   .Select(x => {
+                       var product = x.Tag as Product;
+                       return new BarcodeCard
+                       {
+                           Codigo = product.codigo,
+                           NombreProducto = product.nombre,
+                           Precio = product.precio_venta.ToString(Utils.GetCulture())
+                       };
+                   }).ToList();
+
+                dgvProductos.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("GetRowsSelectedBarcodes", ex.ToString());
+            }
+            return result;
         }
 
         private void txtCodBarras_KeyDown(object sender, KeyEventArgs e)
@@ -978,6 +1015,33 @@ namespace HendrixAccountant
                 txtCodBarras.Focus();
             }
             txtNombre.Focus();
+        }
+
+        private void tcProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void tcProductos_Selected(object sender, TabControlEventArgs e)
+        {
+            
+        }
+
+        private void rbGenerarTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvProductos.MultiSelect = false;
+        }
+
+        private void rbGenerarVarios_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvProductos.MultiSelect = true;
+
+            
+        }
+
+        private void rbGenerarIndividual_CheckedChanged(object sender, EventArgs e)
+        {
+            dgvProductos.MultiSelect = false;
         }
     }
 }

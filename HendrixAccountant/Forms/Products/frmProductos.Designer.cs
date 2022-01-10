@@ -106,6 +106,7 @@
             this.txtNombreProd = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.chkCodigoAutogenerado = new System.Windows.Forms.CheckBox();
+            this.rbGenerarVarios = new System.Windows.Forms.RadioButton();
             this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrecioVenta.SuspendLayout();
@@ -512,6 +513,8 @@
             this.tcProductos.SelectedIndex = 0;
             this.tcProductos.Size = new System.Drawing.Size(507, 504);
             this.tcProductos.TabIndex = 86;
+            this.tcProductos.SelectedIndexChanged += new System.EventHandler(this.tcProductos_SelectedIndexChanged);
+            this.tcProductos.Selected += new System.Windows.Forms.TabControlEventHandler(this.tcProductos_Selected);
             // 
             // tpProduct
             // 
@@ -774,10 +777,10 @@
             this.tpBarcodes.Controls.Add(this.label23);
             this.tpBarcodes.Controls.Add(this.btnGenerar);
             this.tpBarcodes.Controls.Add(this.btnImprimir);
-            this.tpBarcodes.Location = new System.Drawing.Point(4, 22);
+            this.tpBarcodes.Location = new System.Drawing.Point(4, 34);
             this.tpBarcodes.Name = "tpBarcodes";
             this.tpBarcodes.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBarcodes.Size = new System.Drawing.Size(499, 414);
+            this.tpBarcodes.Size = new System.Drawing.Size(499, 466);
             this.tpBarcodes.TabIndex = 1;
             this.tpBarcodes.Text = "Etiquetas";
             this.tpBarcodes.UseVisualStyleBackColor = true;
@@ -786,7 +789,7 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.pbBarcode2);
-            this.panel1.Location = new System.Drawing.Point(20, 64);
+            this.panel1.Location = new System.Drawing.Point(20, 136);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(177, 81);
             this.panel1.TabIndex = 93;
@@ -802,42 +805,44 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rbGenerarVarios);
             this.groupBox2.Controls.Add(this.rbGenerarTodos);
             this.groupBox2.Controls.Add(this.rbGenerarIndividual);
             this.groupBox2.Location = new System.Drawing.Point(20, 11);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(416, 47);
+            this.groupBox2.Size = new System.Drawing.Size(418, 107);
             this.groupBox2.TabIndex = 92;
             this.groupBox2.TabStop = false;
             // 
             // rbGenerarTodos
             // 
             this.rbGenerarTodos.AutoSize = true;
-            this.rbGenerarTodos.Location = new System.Drawing.Point(216, 16);
+            this.rbGenerarTodos.Location = new System.Drawing.Point(12, 70);
             this.rbGenerarTodos.Name = "rbGenerarTodos";
             this.rbGenerarTodos.Size = new System.Drawing.Size(182, 17);
             this.rbGenerarTodos.TabIndex = 1;
             this.rbGenerarTodos.Text = "Generar para todos los productos";
             this.rbGenerarTodos.UseVisualStyleBackColor = true;
+            this.rbGenerarTodos.CheckedChanged += new System.EventHandler(this.rbGenerarTodos_CheckedChanged);
             // 
             // rbGenerarIndividual
             // 
             this.rbGenerarIndividual.AutoSize = true;
             this.rbGenerarIndividual.Checked = true;
-            this.rbGenerarIndividual.Location = new System.Drawing.Point(12, 16);
+            this.rbGenerarIndividual.Location = new System.Drawing.Point(12, 23);
             this.rbGenerarIndividual.Name = "rbGenerarIndividual";
             this.rbGenerarIndividual.Size = new System.Drawing.Size(198, 17);
             this.rbGenerarIndividual.TabIndex = 0;
-            this.rbGenerarIndividual.TabStop = true;
             this.rbGenerarIndividual.Text = "Generar para producto seleccionado";
             this.rbGenerarIndividual.UseVisualStyleBackColor = true;
+            this.rbGenerarIndividual.CheckedChanged += new System.EventHandler(this.rbGenerarIndividual_CheckedChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.checkBox3);
             this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.checkBox1);
-            this.groupBox1.Location = new System.Drawing.Point(20, 219);
+            this.groupBox1.Location = new System.Drawing.Point(20, 292);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(418, 100);
             this.groupBox1.TabIndex = 90;
@@ -887,7 +892,7 @@
             this.panel6.Controls.Add(this.txtCodigo2);
             this.panel6.Controls.Add(this.label12);
             this.panel6.Enabled = false;
-            this.panel6.Location = new System.Drawing.Point(20, 167);
+            this.panel6.Location = new System.Drawing.Point(20, 240);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(120, 32);
             this.panel6.TabIndex = 85;
@@ -918,7 +923,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label13.Location = new System.Drawing.Point(146, 151);
+            this.label13.Location = new System.Drawing.Point(146, 224);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(52, 15);
             this.label13.TabIndex = 84;
@@ -930,7 +935,7 @@
             this.panel7.Controls.Add(this.txtNombre2);
             this.panel7.Controls.Add(this.label22);
             this.panel7.Enabled = false;
-            this.panel7.Location = new System.Drawing.Point(149, 167);
+            this.panel7.Location = new System.Drawing.Point(149, 240);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(287, 32);
             this.panel7.TabIndex = 83;
@@ -960,7 +965,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label23.Location = new System.Drawing.Point(17, 151);
+            this.label23.Location = new System.Drawing.Point(17, 224);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(47, 15);
             this.label23.TabIndex = 86;
@@ -975,7 +980,7 @@
             this.btnGenerar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGenerar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGenerar.Image = global::HendrixAccountant.Properties.Resources.barcode2White24;
-            this.btnGenerar.Location = new System.Drawing.Point(236, 344);
+            this.btnGenerar.Location = new System.Drawing.Point(236, 417);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(96, 30);
             this.btnGenerar.TabIndex = 56;
@@ -995,7 +1000,7 @@
             this.btnImprimir.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimir.ForeColor = System.Drawing.Color.Black;
             this.btnImprimir.Image = global::HendrixAccountant.Properties.Resources.printGray20;
-            this.btnImprimir.Location = new System.Drawing.Point(338, 344);
+            this.btnImprimir.Location = new System.Drawing.Point(338, 417);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(99, 30);
             this.btnImprimir.TabIndex = 88;
@@ -1078,6 +1083,17 @@
             this.chkCodigoAutogenerado.UseVisualStyleBackColor = true;
             this.chkCodigoAutogenerado.Visible = false;
             this.chkCodigoAutogenerado.CheckedChanged += new System.EventHandler(this.chkCodigoAutogenerado_CheckedChanged);
+            // 
+            // rbGenerarVarios
+            // 
+            this.rbGenerarVarios.AutoSize = true;
+            this.rbGenerarVarios.Location = new System.Drawing.Point(12, 47);
+            this.rbGenerarVarios.Name = "rbGenerarVarios";
+            this.rbGenerarVarios.Size = new System.Drawing.Size(239, 17);
+            this.rbGenerarVarios.TabIndex = 2;
+            this.rbGenerarVarios.Text = "Generar para varios productos seleccionados";
+            this.rbGenerarVarios.UseVisualStyleBackColor = true;
+            this.rbGenerarVarios.CheckedChanged += new System.EventHandler(this.rbGenerarVarios_CheckedChanged);
             // 
             // frmProductos
             // 
@@ -1218,5 +1234,6 @@
         private System.Windows.Forms.Label lblPnStock;
         private System.Windows.Forms.Label lblStock;
         private System.Windows.Forms.CheckBox chkCodigoAutogenerado;
+        private System.Windows.Forms.RadioButton rbGenerarVarios;
     }
 }
