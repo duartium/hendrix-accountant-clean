@@ -7,6 +7,7 @@
         public string FechaDesde { get; set; }
         public string FechaHasta { get; set; }
         public int IdUsuario { get; set; }
+        public int Estado { get; set; }
     }
 
     public class ClientFilterDto

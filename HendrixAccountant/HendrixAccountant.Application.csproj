@@ -503,6 +503,7 @@
     <Content Include="Resources\Images\usersWhite25.png" />
     <Content Include="Resources\Images\userWhite20.png" />
     <Content Include="Resources\Images\whatsapp_ticket.jpg" />
+    <Content Include="Resources\Images\log_mesther.jpg" />
     <Content Include="Resources\NovedadesChicLogo.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

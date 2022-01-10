@@ -49,6 +49,7 @@ namespace HendrixAccountant.Forms
 
         private void rptVentas_Load(object sender, EventArgs e)
         {
+            cboEstadoComprobante.DataSource = new List<string> { "GENERADAS", "ANULADAS" };
             EnabledPrint(false);
         }
 
@@ -71,6 +72,7 @@ namespace HendrixAccountant.Forms
                 new ReportCriteriaDto{ Nombre = "identificacion", Descripcion = txtIdentCliente.Text },
                 new ReportCriteriaDto{ Nombre = "nombresCliente", Descripcion = txtNombresCliente.Text}
             };
+
             Company company = _rpsParams.Get() as Company;
             var dtCompany = new CompanyMapper().JsonCompanyToDataTable(company);
             if(!_dsResp.Tables.Contains("dtCompany"))
@@ -122,7 +124,7 @@ namespace HendrixAccountant.Forms
                     dgvComprobanteInd.Rows.Add(row.ItemArray[0], row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[4]);
             else
                 foreach (var row in _dsResp.Tables["Table"].AsEnumerable())
-                    dgvVentaGeneral.Rows.Add(row.ItemArray[1], row.ItemArray[2], row.ItemArray[4], row.ItemArray[7], row.ItemArray[8]);
+                    dgvVentaGeneral.Rows.Add(row.ItemArray[1], row.ItemArray[2], row.ItemArray[4], row.ItemArray[10], row.ItemArray[15]);
             EnabledPrint(true);
         }
 
@@ -173,10 +175,12 @@ namespace HendrixAccountant.Forms
         {
             if (tabControlVentas.SelectedTab.Name.Equals("tpGeneral"))
             {
+                consultaVenta = ConsultaVenta.GENERAL;
                 txtIdentCliente.Focus();
             }
             else
             {
+                consultaVenta = ConsultaVenta.COMP_INDIVIDUAL;
                 txtNumSecuencial.Focus();
             }
         }
@@ -206,24 +210,29 @@ namespace HendrixAccountant.Forms
                         FechaDesde = dtpFechaDesde.Value.Date.ToString("dd/MM/yyyy"),
                         FechaHasta = dtpFechaHasta.Value.Date.ToString("dd/MM/yyyy"),
                         IdCliente = (_client != null) ? _client.IdCliente : -1,
-                        IdUsuario = (_user != null) ? _user.IdUsuario : -1
+                        IdUsuario = (_user != null) ? _user.IdUsuario : -1,
+                        Estado = cboEstadoComprobante.SelectedIndex + 1
                     };
 
                     if (_dsResp != null) _dsResp.Clear();
                     _dsResp = _rpsReports.Get(salesFilters);
                     if (_dsResp == null)
                     {
+                        Clear();
                         MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
+
                     if (_dsResp.Tables.Contains("Table"))
                     {
                         if (_dsResp.Tables["Table"].Rows.Count <= 0)
                         {
+                            Clear();
                             MessageBox.Show("No se obtuvieron resultados de la búsqueda.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
                     }
+
                     if (_dsResp.Tables.Contains("Table1"))
                     {
                         if (_dsResp.Tables["Table1"].Rows.Count <= 0)

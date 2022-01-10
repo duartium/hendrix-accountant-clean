@@ -88,10 +88,10 @@
             this.tpEmpresa.Controls.Add(this.lblRazonSocial);
             this.tpEmpresa.Controls.Add(this.pnIdentificacion);
             this.tpEmpresa.Controls.Add(this.lblRuc);
-            this.tpEmpresa.Location = new System.Drawing.Point(4, 24);
+            this.tpEmpresa.Location = new System.Drawing.Point(4, 34);
             this.tpEmpresa.Name = "tpEmpresa";
             this.tpEmpresa.Padding = new System.Windows.Forms.Padding(3);
-            this.tpEmpresa.Size = new System.Drawing.Size(434, 317);
+            this.tpEmpresa.Size = new System.Drawing.Size(434, 307);
             this.tpEmpresa.TabIndex = 0;
             this.tpEmpresa.Text = "Empresa";
             this.tpEmpresa.UseVisualStyleBackColor = true;
@@ -296,6 +296,7 @@
             this.tcParametros.Controls.Add(this.tpEmpresa);
             this.tcParametros.Controls.Add(this.tpImpresora);
             this.tcParametros.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcParametros.ItemSize = new System.Drawing.Size(63, 30);
             this.tcParametros.Location = new System.Drawing.Point(17, 80);
             this.tcParametros.Name = "tcParametros";
             this.tcParametros.SelectedIndex = 0;

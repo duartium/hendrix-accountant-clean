@@ -26,6 +26,7 @@ namespace HendrixAccountant.Data.Services
             parms.Add(new SqlParameter("@fecha_hasta", salesFilter.FechaHasta));
             parms.Add(new SqlParameter("@id_cliente", salesFilter.IdCliente));
             parms.Add(new SqlParameter("@id_usuario", salesFilter.IdUsuario));
+            parms.Add(new SqlParameter("@estado", salesFilter.Estado));
             return _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
         }
 
