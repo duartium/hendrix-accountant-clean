@@ -287,6 +287,7 @@ namespace HendrixAccountant
             _client = null;
             _invoice = null;
             _product = null;
+            rbEfectivo.Checked = true;
         }
 
         private void ResetTotals()
@@ -756,5 +757,11 @@ namespace HendrixAccountant
 
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Clear();
+            SetFinalConsumer();
+            txtCodProducto.Focus();
+        }
     }
 }
