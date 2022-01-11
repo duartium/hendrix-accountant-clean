@@ -64,7 +64,7 @@ namespace HendrixAccountant.Forms.CashRegister
         private void tb_TextChangedInt(object sender, EventArgs e)
         {
             TextBox tb = sender as TextBox;
-            tb.MaxLength = 10;
+            tb.MaxLength = 9;
             tb.KeyPress -= new KeyPressEventHandler(column_int_keypressInt);
             tb.KeyPress += new KeyPressEventHandler(column_int_keypressInt);
 
@@ -101,7 +101,7 @@ namespace HendrixAccountant.Forms.CashRegister
             try
             {
                 TextBox tb = e.Control as TextBox;
-                tb.MaxLength = 10;
+                tb.MaxLength = 9;
                 if (dgvDineroCaja.CurrentCell.ColumnIndex == 1)//cantidad
                 {
                     if (tb != null)

@@ -154,7 +154,7 @@ namespace HendrixAccountant.Forms.CashRegister
             this.dgvDineroCaja.Name = "dgvDineroCaja";
             this.dgvDineroCaja.RowHeadersVisible = false;
             this.dgvDineroCaja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDineroCaja.Size = new System.Drawing.Size(471, 219);
+            this.dgvDineroCaja.Size = new System.Drawing.Size(471, 261);
             this.dgvDineroCaja.TabIndex = 9;
             this.dgvDineroCaja.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvDineroCaja_EditingControlShowing);
             // 
@@ -185,7 +185,7 @@ namespace HendrixAccountant.Forms.CashRegister
             this.gbxMontoTotal.Controls.Add(this.lblCash);
             this.gbxMontoTotal.Controls.Add(this.lblMontoTotal);
             this.gbxMontoTotal.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxMontoTotal.Location = new System.Drawing.Point(27, 377);
+            this.gbxMontoTotal.Location = new System.Drawing.Point(27, 415);
             this.gbxMontoTotal.Name = "gbxMontoTotal";
             this.gbxMontoTotal.Size = new System.Drawing.Size(318, 87);
             this.gbxMontoTotal.TabIndex = 8;
@@ -226,7 +226,7 @@ namespace HendrixAccountant.Forms.CashRegister
             this.btnCerrarCaja.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnCerrarCaja.Image = global::HendrixAccountant.Properties.Resources.cashBlue20;
             this.btnCerrarCaja.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarCaja.Location = new System.Drawing.Point(363, 387);
+            this.btnCerrarCaja.Location = new System.Drawing.Point(363, 425);
             this.btnCerrarCaja.Name = "btnCerrarCaja";
             this.btnCerrarCaja.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnCerrarCaja.Size = new System.Drawing.Size(135, 40);
@@ -240,7 +240,7 @@ namespace HendrixAccountant.Forms.CashRegister
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(533, 480);
+            this.ClientSize = new System.Drawing.Size(533, 522);
             this.Controls.Add(this.btnCerrarCaja);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvDineroCaja);

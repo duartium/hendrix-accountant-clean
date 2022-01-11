@@ -52,8 +52,7 @@ namespace HendrixAccountant
 
         private void dgvDineroCaja_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-                CalcularSubtotalCaja(e);
+            
         }
 
         #region métodos privados
@@ -82,5 +81,64 @@ namespace HendrixAccountant
         {
             this.Close();
         }
+
+        private void dgvDineroCaja_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            try
+            {
+                TextBox tb = e.Control as TextBox;
+                tb.MaxLength = 9;
+                if (dgvDineroCaja.CurrentCell.ColumnIndex == 1)//cantidad
+                {
+                    if (tb != null)
+                    {
+                        tb.TextChanged -= new EventHandler(tb_TextChangedInt);
+                        tb.TextChanged += new EventHandler(tb_TextChangedInt);
+                    }
+                }
+            }
+            catch (ArgumentException)
+            {
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("dgvPuntoVenta_EditingControlShowing", ex.ToString());
+            }
+        }
+
+        private void tb_TextChangedInt(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            tb.MaxLength = 9;
+            tb.KeyPress -= new KeyPressEventHandler(column_int_keypressInt);
+            tb.KeyPress += new KeyPressEventHandler(column_int_keypressInt);
+
+            var row = dgvDineroCaja.CurrentRow;
+
+            string cantidad = (sender as TextBox).Text;
+
+            if (cantidad != "")
+            {
+                string denominacion = (dgvDineroCaja.Rows[row.Index].Cells[0].Value.ToString()).Split('$').GetValue(1).ToString();
+                if (cantidad == null || denominacion == null) return;
+
+                decimal subtotalRow = int.Parse(cantidad) * Decimal.Parse(denominacion, Utils.GetCulture());
+                decimal montoActual = Decimal.Parse(lblMontoTotal.Text, Utils.GetCulture());
+                decimal montoTotal = montoActual + subtotalRow;
+                dgvDineroCaja.Rows[row.Index].Cells[2].Value = subtotalRow.ToString();
+                lblMontoTotal.Text = montoTotal.ToString(Utils.GetCulture());
+            }
+        }
+
+        private void column_int_keypressInt(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
     }
 }

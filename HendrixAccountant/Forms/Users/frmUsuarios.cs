@@ -127,6 +127,7 @@ namespace HendrixAccountant
             DisabledSearch();
             EnabledTextboxs(true);
             txtUsuario.Focus();
+            cboTipoUsuario.Enabled = true;
             pnClaves.Visible = true;
             _user = null;
         }
@@ -137,6 +138,7 @@ namespace HendrixAccountant
             EnableSearch();
             EnableRemove();
             EnabledTextboxs(false);
+            cboTipoUsuario.Enabled = false;
             pnClaves.Visible = false;
         }
 
@@ -154,8 +156,7 @@ namespace HendrixAccountant
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            frmBuscarUsuario frmBuscarUsuario = new frmBuscarUsuario(this);
-            frmBuscarUsuario.ShowDialog();
+            
         }
 
         public void Selected(ISaleElement entity)

@@ -870,8 +870,8 @@ namespace HendrixAccountant
             pnlStock.Visible = false;
             lblStock.Visible = false;
 
-            lblPrecioVenta.Location = new Point(19, 264);
-            pnlPrecioVenta.Location = new Point(22, 280);
+            lblPrecioVenta.Location = new Point(19, 268);
+            pnlPrecioVenta.Location = new Point(22, 284);
             lblTarifaIva.Location = new Point(125, 264);
             cmbTarifaIva.Location = new Point(128, 285);
             //pnProveedor.Visible = false;

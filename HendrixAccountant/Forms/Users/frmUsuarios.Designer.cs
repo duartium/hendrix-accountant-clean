@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUsuarios));
             this.pnHeader = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -50,16 +52,20 @@
             this.rbnModificar = new System.Windows.Forms.RadioButton();
             this.rbnNuevo = new System.Windows.Forms.RadioButton();
             this.pnClaves = new System.Windows.Forms.Panel();
-            this.btnBuscar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
+            this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColFechaCreacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnNombres.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.pnClaves.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // pnHeader
@@ -71,13 +77,13 @@
             this.pnHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHeader.Location = new System.Drawing.Point(0, 0);
             this.pnHeader.Name = "pnHeader";
-            this.pnHeader.Size = new System.Drawing.Size(477, 60);
+            this.pnHeader.Size = new System.Drawing.Size(839, 60);
             this.pnHeader.TabIndex = 1;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::HendrixAccountant.Properties.Resources.usersWhite25;
-            this.pictureBox1.Location = new System.Drawing.Point(170, 14);
+            this.pictureBox1.Location = new System.Drawing.Point(356, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(28, 25);
             this.pictureBox1.TabIndex = 3;
@@ -89,7 +95,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 55);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(477, 5);
+            this.panel2.Size = new System.Drawing.Size(839, 5);
             this.panel2.TabIndex = 2;
             // 
             // lblTitulo
@@ -97,7 +103,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblTitulo.Location = new System.Drawing.Point(204, 18);
+            this.lblTitulo.Location = new System.Drawing.Point(390, 20);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(83, 19);
             this.lblTitulo.TabIndex = 0;
@@ -109,7 +115,7 @@
             this.pnNombres.BackColor = System.Drawing.SystemColors.Control;
             this.pnNombres.Controls.Add(this.txtUsuario);
             this.pnNombres.Controls.Add(this.label1);
-            this.pnNombres.Location = new System.Drawing.Point(56, 186);
+            this.pnNombres.Location = new System.Drawing.Point(435, 153);
             this.pnNombres.Name = "pnNombres";
             this.pnNombres.Size = new System.Drawing.Size(168, 32);
             this.pnNombres.TabIndex = 0;
@@ -139,7 +145,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label11.Location = new System.Drawing.Point(53, 169);
+            this.label11.Location = new System.Drawing.Point(432, 136);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(114, 15);
             this.label11.TabIndex = 75;
@@ -192,7 +198,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label7.Location = new System.Drawing.Point(243, 170);
+            this.label7.Location = new System.Drawing.Point(622, 137);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(93, 15);
             this.label7.TabIndex = 81;
@@ -203,7 +209,7 @@
             this.cboTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTipoUsuario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboTipoUsuario.FormattingEnabled = true;
-            this.cboTipoUsuario.Location = new System.Drawing.Point(246, 190);
+            this.cboTipoUsuario.Location = new System.Drawing.Point(625, 157);
             this.cboTipoUsuario.Name = "cboTipoUsuario";
             this.cboTipoUsuario.Size = new System.Drawing.Size(169, 24);
             this.cboTipoUsuario.TabIndex = 4;
@@ -255,7 +261,7 @@
             this.rbnModificar.AutoSize = true;
             this.rbnModificar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.rbnModificar.Location = new System.Drawing.Point(208, 79);
+            this.rbnModificar.Location = new System.Drawing.Point(590, 84);
             this.rbnModificar.Name = "rbnModificar";
             this.rbnModificar.Size = new System.Drawing.Size(124, 19);
             this.rbnModificar.TabIndex = 9;
@@ -269,7 +275,7 @@
             this.rbnNuevo.Checked = true;
             this.rbnNuevo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbnNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.rbnNuevo.Location = new System.Drawing.Point(53, 79);
+            this.rbnNuevo.Location = new System.Drawing.Point(435, 84);
             this.rbnNuevo.Name = "rbnNuevo";
             this.rbnNuevo.Size = new System.Drawing.Size(106, 19);
             this.rbnNuevo.TabIndex = 8;
@@ -284,30 +290,10 @@
             this.pnClaves.Controls.Add(this.label3);
             this.pnClaves.Controls.Add(this.label5);
             this.pnClaves.Controls.Add(this.panel4);
-            this.pnClaves.Location = new System.Drawing.Point(28, 222);
+            this.pnClaves.Location = new System.Drawing.Point(407, 193);
             this.pnClaves.Name = "pnClaves";
             this.pnClaves.Size = new System.Drawing.Size(417, 58);
             this.pnClaves.TabIndex = 1;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderSize = 0;
-            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnBuscar.Image = global::HendrixAccountant.Properties.Resources.searchBlue20;
-            this.btnBuscar.Location = new System.Drawing.Point(308, 115);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(107, 32);
-            this.btnBuscar.TabIndex = 10;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiar
             // 
@@ -318,7 +304,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.userWhite20;
-            this.btnLimpiar.Location = new System.Drawing.Point(57, 310);
+            this.btnLimpiar.Location = new System.Drawing.Point(435, 369);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar.TabIndex = 5;
@@ -336,7 +322,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
-            this.btnEliminar.Location = new System.Drawing.Point(229, 309);
+            this.btnEliminar.Location = new System.Drawing.Point(607, 368);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar.TabIndex = 6;
@@ -354,7 +340,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGuardar.Image = global::HendrixAccountant.Properties.Resources.saveWhite20;
-            this.btnGuardar.Location = new System.Drawing.Point(325, 309);
+            this.btnGuardar.Location = new System.Drawing.Point(703, 368);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 30);
             this.btnGuardar.TabIndex = 7;
@@ -363,14 +349,67 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // dgvUsuarios
+            // 
+            this.dgvUsuarios.AllowUserToAddRows = false;
+            this.dgvUsuarios.AllowUserToResizeRows = false;
+            this.dgvUsuarios.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvUsuarios.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsuarios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUsuarios.ColumnHeadersHeight = 27;
+            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colUsuario,
+            this.colCodigo,
+            this.ColFechaCreacion});
+            this.dgvUsuarios.EnableHeadersVisualStyles = false;
+            this.dgvUsuarios.Location = new System.Drawing.Point(12, 84);
+            this.dgvUsuarios.MultiSelect = false;
+            this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.RowHeadersVisible = false;
+            this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUsuarios.Size = new System.Drawing.Size(365, 314);
+            this.dgvUsuarios.TabIndex = 82;
+            // 
+            // colUsuario
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colUsuario.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colUsuario.HeaderText = "Nombre de Usuario";
+            this.colUsuario.Name = "colUsuario";
+            this.colUsuario.ReadOnly = true;
+            this.colUsuario.Width = 160;
+            // 
+            // colCodigo
+            // 
+            this.colCodigo.HeaderText = "Tipo";
+            this.colCodigo.Name = "colCodigo";
+            this.colCodigo.ReadOnly = true;
+            this.colCodigo.Width = 80;
+            // 
+            // ColFechaCreacion
+            // 
+            this.ColFechaCreacion.HeaderText = "Creado en";
+            this.ColFechaCreacion.Name = "ColFechaCreacion";
+            this.ColFechaCreacion.ReadOnly = true;
+            this.ColFechaCreacion.Width = 120;
+            // 
             // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(477, 366);
+            this.ClientSize = new System.Drawing.Size(839, 422);
+            this.Controls.Add(this.dgvUsuarios);
             this.Controls.Add(this.pnClaves);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.rbnModificar);
             this.Controls.Add(this.rbnNuevo);
             this.Controls.Add(this.btnLimpiar);
@@ -402,6 +441,7 @@
             this.panel4.PerformLayout();
             this.pnClaves.ResumeLayout(false);
             this.pnClaves.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,7 +472,10 @@
         private System.Windows.Forms.RadioButton rbnModificar;
         private System.Windows.Forms.RadioButton rbnNuevo;
         private System.Windows.Forms.Button btnLimpiar;
-        private UIControls.Buttons.ItemAsideSmall btnBuscar;
         private System.Windows.Forms.Panel pnClaves;
+        private System.Windows.Forms.DataGridView dgvUsuarios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColFechaCreacion;
     }
 }

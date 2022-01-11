@@ -61,7 +61,7 @@
             this.gbxMontoTotal.Controls.Add(this.lblCash);
             this.gbxMontoTotal.Controls.Add(this.lblMontoTotal);
             this.gbxMontoTotal.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxMontoTotal.Location = new System.Drawing.Point(22, 333);
+            this.gbxMontoTotal.Location = new System.Drawing.Point(22, 419);
             this.gbxMontoTotal.Name = "gbxMontoTotal";
             this.gbxMontoTotal.Size = new System.Drawing.Size(320, 87);
             this.gbxMontoTotal.TabIndex = 2;
@@ -102,14 +102,15 @@
             this.colCantidad,
             this.colSubtotal});
             this.dgvDineroCaja.EnableHeadersVisualStyles = false;
-            this.dgvDineroCaja.Location = new System.Drawing.Point(22, 80);
+            this.dgvDineroCaja.Location = new System.Drawing.Point(22, 85);
             this.dgvDineroCaja.MultiSelect = false;
             this.dgvDineroCaja.Name = "dgvDineroCaja";
             this.dgvDineroCaja.RowHeadersVisible = false;
             this.dgvDineroCaja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDineroCaja.Size = new System.Drawing.Size(459, 234);
+            this.dgvDineroCaja.Size = new System.Drawing.Size(459, 323);
             this.dgvDineroCaja.TabIndex = 5;
             this.dgvDineroCaja.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDineroCaja_CellValueChanged);
+            this.dgvDineroCaja.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvDineroCaja_EditingControlShowing);
             // 
             // colDenominacion
             // 
@@ -145,7 +146,7 @@
             this.btnAperturar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnAperturar.Image = global::HendrixAccountant.Properties.Resources.cashBlue20;
             this.btnAperturar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAperturar.Location = new System.Drawing.Point(354, 340);
+            this.btnAperturar.Location = new System.Drawing.Point(354, 426);
             this.btnAperturar.Name = "btnAperturar";
             this.btnAperturar.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnAperturar.Size = new System.Drawing.Size(127, 40);
@@ -157,9 +158,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblFechaApertura);
-            this.groupBox1.Location = new System.Drawing.Point(22, 19);
+            this.groupBox1.Location = new System.Drawing.Point(22, 20);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(459, 52);
+            this.groupBox1.Size = new System.Drawing.Size(459, 59);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Apertura de caja";
@@ -167,7 +168,7 @@
             // lblFechaApertura
             // 
             this.lblFechaApertura.AutoSize = true;
-            this.lblFechaApertura.Location = new System.Drawing.Point(6, 24);
+            this.lblFechaApertura.Location = new System.Drawing.Point(6, 26);
             this.lblFechaApertura.Name = "lblFechaApertura";
             this.lblFechaApertura.Size = new System.Drawing.Size(108, 13);
             this.lblFechaApertura.TabIndex = 0;
@@ -178,7 +179,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(508, 441);
+            this.ClientSize = new System.Drawing.Size(508, 522);
             this.Controls.Add(this.btnAperturar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgvDineroCaja);
