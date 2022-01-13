@@ -64,6 +64,7 @@
             this.stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcProductos = new System.Windows.Forms.TabControl();
             this.tpProduct = new System.Windows.Forms.TabPage();
+            this.chkCodigoAutogenerado = new System.Windows.Forms.CheckBox();
             this.pnlStock = new System.Windows.Forms.Panel();
             this.txtStock = new HendrixAccountant.UIControls.NumericInput();
             this.lblPnStock = new System.Windows.Forms.Label();
@@ -81,15 +82,24 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.tpBarcodes = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pbBarcode2 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbGenerarVarios = new System.Windows.Forms.RadioButton();
             this.rbGenerarTodos = new System.Windows.Forms.RadioButton();
             this.rbGenerarIndividual = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.btnGenerar = new System.Windows.Forms.Button();
+            this.btnImprimir = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtCodProducto = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtNombreProd = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pnlVisualizacionProducto = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pbBarcode2 = new System.Windows.Forms.PictureBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtCodigo2 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -98,15 +108,6 @@
             this.txtNombre2 = new HendrixAccountant.UIControls.TextInput();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.btnGenerar = new System.Windows.Forms.Button();
-            this.btnImprimir = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtCodProducto = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.txtNombreProd = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.chkCodigoAutogenerado = new System.Windows.Forms.CheckBox();
-            this.rbGenerarVarios = new System.Windows.Forms.RadioButton();
             this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlPrecioVenta.SuspendLayout();
@@ -122,13 +123,14 @@
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBarcode)).BeginInit();
             this.tpBarcodes.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.pnlVisualizacionProducto.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode2)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnHeader
@@ -178,7 +180,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label6.Location = new System.Drawing.Point(339, 268);
+            this.label6.Location = new System.Drawing.Point(339, 277);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(33, 15);
             this.label6.TabIndex = 76;
@@ -195,7 +197,7 @@
             "A",
             "B",
             "C"});
-            this.cmbTalla.Location = new System.Drawing.Point(342, 292);
+            this.cmbTalla.Location = new System.Drawing.Point(342, 301);
             this.cmbTalla.Name = "cmbTalla";
             this.cmbTalla.Size = new System.Drawing.Size(100, 24);
             this.cmbTalla.TabIndex = 77;
@@ -207,7 +209,7 @@
             this.pnlPrecioVenta.BackColor = System.Drawing.SystemColors.Control;
             this.pnlPrecioVenta.Controls.Add(this.lblPnPrecioVenta);
             this.pnlPrecioVenta.Controls.Add(this.txtPrecioVenta);
-            this.pnlPrecioVenta.Location = new System.Drawing.Point(128, 284);
+            this.pnlPrecioVenta.Location = new System.Drawing.Point(128, 293);
             this.pnlPrecioVenta.Name = "pnlPrecioVenta";
             this.pnlPrecioVenta.Size = new System.Drawing.Size(98, 32);
             this.pnlPrecioVenta.TabIndex = 4;
@@ -240,7 +242,7 @@
             this.lblPrecioVenta.AutoSize = true;
             this.lblPrecioVenta.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPrecioVenta.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblPrecioVenta.Location = new System.Drawing.Point(125, 268);
+            this.lblPrecioVenta.Location = new System.Drawing.Point(125, 277);
             this.lblPrecioVenta.Name = "lblPrecioVenta";
             this.lblPrecioVenta.Size = new System.Drawing.Size(91, 15);
             this.lblPrecioVenta.TabIndex = 67;
@@ -252,7 +254,7 @@
             this.pnlCosto.BackColor = System.Drawing.SystemColors.Control;
             this.pnlCosto.Controls.Add(this.lblPnCosto);
             this.pnlCosto.Controls.Add(this.txtCosto);
-            this.pnlCosto.Location = new System.Drawing.Point(22, 284);
+            this.pnlCosto.Location = new System.Drawing.Point(22, 293);
             this.pnlCosto.Name = "pnlCosto";
             this.pnlCosto.Size = new System.Drawing.Size(98, 32);
             this.pnlCosto.TabIndex = 3;
@@ -285,7 +287,7 @@
             this.lblCosto.AutoSize = true;
             this.lblCosto.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCosto.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblCosto.Location = new System.Drawing.Point(19, 268);
+            this.lblCosto.Location = new System.Drawing.Point(19, 277);
             this.lblCosto.Name = "lblCosto";
             this.lblCosto.Size = new System.Drawing.Size(40, 15);
             this.lblCosto.TabIndex = 62;
@@ -297,7 +299,7 @@
             this.pnDireccion.BackColor = System.Drawing.SystemColors.Control;
             this.pnDireccion.Controls.Add(this.txtDescripcion);
             this.pnDireccion.Controls.Add(this.lblPnDescripcion);
-            this.pnDireccion.Location = new System.Drawing.Point(22, 228);
+            this.pnDireccion.Location = new System.Drawing.Point(22, 237);
             this.pnDireccion.Name = "pnDireccion";
             this.pnDireccion.Size = new System.Drawing.Size(309, 32);
             this.pnDireccion.TabIndex = 3;
@@ -329,7 +331,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label15.Location = new System.Drawing.Point(19, 212);
+            this.label15.Location = new System.Drawing.Point(19, 221);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(73, 15);
             this.label15.TabIndex = 64;
@@ -341,7 +343,7 @@
             this.pnNombres.BackColor = System.Drawing.SystemColors.Control;
             this.pnNombres.Controls.Add(this.txtNombre);
             this.pnNombres.Controls.Add(this.lblPnNombre);
-            this.pnNombres.Location = new System.Drawing.Point(21, 174);
+            this.pnNombres.Location = new System.Drawing.Point(21, 183);
             this.pnNombres.Name = "pnNombres";
             this.pnNombres.Size = new System.Drawing.Size(310, 32);
             this.pnNombres.TabIndex = 1;
@@ -373,7 +375,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label11.Location = new System.Drawing.Point(18, 158);
+            this.label11.Location = new System.Drawing.Point(18, 167);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(52, 15);
             this.label11.TabIndex = 59;
@@ -385,7 +387,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label7.Location = new System.Drawing.Point(19, 325);
+            this.label7.Location = new System.Drawing.Point(19, 334);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(61, 15);
             this.label7.TabIndex = 78;
@@ -401,7 +403,7 @@
             "A",
             "B",
             "C"});
-            this.cboCategoria.Location = new System.Drawing.Point(22, 343);
+            this.cboCategoria.Location = new System.Drawing.Point(22, 352);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(205, 24);
             this.cboCategoria.TabIndex = 10;
@@ -413,7 +415,7 @@
             this.pnCodigo.BackColor = System.Drawing.SystemColors.Control;
             this.pnCodigo.Controls.Add(this.txtCodBarras);
             this.pnCodigo.Controls.Add(this.lblPnCodigo);
-            this.pnCodigo.Location = new System.Drawing.Point(21, 93);
+            this.pnCodigo.Location = new System.Drawing.Point(21, 102);
             this.pnCodigo.Name = "pnCodigo";
             this.pnCodigo.Size = new System.Drawing.Size(113, 32);
             this.pnCodigo.TabIndex = 0;
@@ -444,7 +446,7 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblCodigo.Location = new System.Drawing.Point(18, 77);
+            this.lblCodigo.Location = new System.Drawing.Point(18, 86);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(47, 15);
             this.lblCodigo.TabIndex = 61;
@@ -477,7 +479,7 @@
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.RowHeadersVisible = false;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.Size = new System.Drawing.Size(494, 435);
+            this.dgvProductos.Size = new System.Drawing.Size(494, 459);
             this.dgvProductos.TabIndex = 82;
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             this.dgvProductos.SelectionChanged += new System.EventHandler(this.dgvProductos_SelectionChanged);
@@ -511,7 +513,7 @@
             this.tcProductos.Location = new System.Drawing.Point(526, 76);
             this.tcProductos.Name = "tcProductos";
             this.tcProductos.SelectedIndex = 0;
-            this.tcProductos.Size = new System.Drawing.Size(507, 504);
+            this.tcProductos.Size = new System.Drawing.Size(507, 528);
             this.tcProductos.TabIndex = 86;
             this.tcProductos.SelectedIndexChanged += new System.EventHandler(this.tcProductos_SelectedIndexChanged);
             this.tcProductos.Selected += new System.Windows.Forms.TabControlEventHandler(this.tcProductos_Selected);
@@ -547,18 +549,31 @@
             this.tpProduct.Location = new System.Drawing.Point(4, 34);
             this.tpProduct.Name = "tpProduct";
             this.tpProduct.Padding = new System.Windows.Forms.Padding(3);
-            this.tpProduct.Size = new System.Drawing.Size(499, 466);
+            this.tpProduct.Size = new System.Drawing.Size(499, 490);
             this.tpProduct.TabIndex = 0;
             this.tpProduct.Text = "Detalle de producto";
             this.tpProduct.UseVisualStyleBackColor = true;
             this.tpProduct.Click += new System.EventHandler(this.tpProduct_Click);
+            // 
+            // chkCodigoAutogenerado
+            // 
+            this.chkCodigoAutogenerado.AutoSize = true;
+            this.chkCodigoAutogenerado.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkCodigoAutogenerado.Location = new System.Drawing.Point(22, 140);
+            this.chkCodigoAutogenerado.Name = "chkCodigoAutogenerado";
+            this.chkCodigoAutogenerado.Size = new System.Drawing.Size(128, 17);
+            this.chkCodigoAutogenerado.TabIndex = 101;
+            this.chkCodigoAutogenerado.Text = "Código autogenerado";
+            this.chkCodigoAutogenerado.UseVisualStyleBackColor = true;
+            this.chkCodigoAutogenerado.Visible = false;
+            this.chkCodigoAutogenerado.CheckedChanged += new System.EventHandler(this.chkCodigoAutogenerado_CheckedChanged);
             // 
             // pnlStock
             // 
             this.pnlStock.BackColor = System.Drawing.SystemColors.Control;
             this.pnlStock.Controls.Add(this.txtStock);
             this.pnlStock.Controls.Add(this.lblPnStock);
-            this.pnlStock.Location = new System.Drawing.Point(235, 284);
+            this.pnlStock.Location = new System.Drawing.Point(235, 293);
             this.pnlStock.Name = "pnlStock";
             this.pnlStock.Size = new System.Drawing.Size(93, 32);
             this.pnlStock.TabIndex = 5;
@@ -589,7 +604,7 @@
             this.lblStock.AutoSize = true;
             this.lblStock.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStock.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblStock.Location = new System.Drawing.Point(232, 268);
+            this.lblStock.Location = new System.Drawing.Point(232, 277);
             this.lblStock.Name = "lblStock";
             this.lblStock.Size = new System.Drawing.Size(72, 15);
             this.lblStock.TabIndex = 100;
@@ -602,7 +617,7 @@
             this.gbTipo.Controls.Add(this.rbProducto);
             this.gbTipo.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbTipo.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.gbTipo.Location = new System.Drawing.Point(143, 79);
+            this.gbTipo.Location = new System.Drawing.Point(143, 88);
             this.gbTipo.Name = "gbTipo";
             this.gbTipo.Size = new System.Drawing.Size(156, 48);
             this.gbTipo.TabIndex = 97;
@@ -640,7 +655,7 @@
             this.lblTarifaIva.AutoSize = true;
             this.lblTarifaIva.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTarifaIva.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblTarifaIva.Location = new System.Drawing.Point(238, 326);
+            this.lblTarifaIva.Location = new System.Drawing.Point(238, 335);
             this.lblTarifaIva.Name = "lblTarifaIva";
             this.lblTarifaIva.Size = new System.Drawing.Size(56, 15);
             this.lblTarifaIva.TabIndex = 95;
@@ -652,7 +667,7 @@
             this.cmbTarifaIva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTarifaIva.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTarifaIva.FormattingEnabled = true;
-            this.cmbTarifaIva.Location = new System.Drawing.Point(241, 343);
+            this.cmbTarifaIva.Location = new System.Drawing.Point(241, 352);
             this.cmbTarifaIva.Name = "cmbTarifaIva";
             this.cmbTarifaIva.Size = new System.Drawing.Size(100, 24);
             this.cmbTarifaIva.TabIndex = 9;
@@ -662,7 +677,7 @@
             // 
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel8.Controls.Add(this.pbBarcode);
-            this.panel8.Location = new System.Drawing.Point(315, 86);
+            this.panel8.Location = new System.Drawing.Point(315, 95);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(166, 81);
             this.panel8.TabIndex = 94;
@@ -685,7 +700,7 @@
             this.btnModificar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnModificar.Image = global::HendrixAccountant.Properties.Resources.addWhite20;
-            this.btnModificar.Location = new System.Drawing.Point(131, 18);
+            this.btnModificar.Location = new System.Drawing.Point(131, 27);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(90, 30);
             this.btnModificar.TabIndex = 89;
@@ -703,7 +718,7 @@
             this.btnNuevo.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.Window;
             this.btnNuevo.Image = global::HendrixAccountant.Properties.Resources.addWhite20;
-            this.btnNuevo.Location = new System.Drawing.Point(21, 18);
+            this.btnNuevo.Location = new System.Drawing.Point(21, 27);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(90, 30);
             this.btnNuevo.TabIndex = 83;
@@ -721,7 +736,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGuardar.Image = global::HendrixAccountant.Properties.Resources.saveWhite20;
-            this.btnGuardar.Location = new System.Drawing.Point(369, 410);
+            this.btnGuardar.Location = new System.Drawing.Point(369, 419);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(90, 30);
             this.btnGuardar.TabIndex = 55;
@@ -739,7 +754,7 @@
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnEliminar.Image = global::HendrixAccountant.Properties.Resources.trashWhite20;
-            this.btnEliminar.Location = new System.Drawing.Point(241, 18);
+            this.btnEliminar.Location = new System.Drawing.Point(241, 27);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 30);
             this.btnEliminar.TabIndex = 56;
@@ -757,7 +772,7 @@
             this.btnLimpiar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.userWhite20;
-            this.btnLimpiar.Location = new System.Drawing.Point(22, 410);
+            this.btnLimpiar.Location = new System.Drawing.Point(22, 419);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(90, 30);
             this.btnLimpiar.TabIndex = 58;
@@ -768,40 +783,18 @@
             // 
             // tpBarcodes
             // 
-            this.tpBarcodes.Controls.Add(this.panel1);
+            this.tpBarcodes.Controls.Add(this.pnlVisualizacionProducto);
             this.tpBarcodes.Controls.Add(this.groupBox2);
             this.tpBarcodes.Controls.Add(this.groupBox1);
-            this.tpBarcodes.Controls.Add(this.panel6);
-            this.tpBarcodes.Controls.Add(this.label13);
-            this.tpBarcodes.Controls.Add(this.panel7);
-            this.tpBarcodes.Controls.Add(this.label23);
             this.tpBarcodes.Controls.Add(this.btnGenerar);
             this.tpBarcodes.Controls.Add(this.btnImprimir);
             this.tpBarcodes.Location = new System.Drawing.Point(4, 34);
             this.tpBarcodes.Name = "tpBarcodes";
             this.tpBarcodes.Padding = new System.Windows.Forms.Padding(3);
-            this.tpBarcodes.Size = new System.Drawing.Size(499, 466);
+            this.tpBarcodes.Size = new System.Drawing.Size(499, 490);
             this.tpBarcodes.TabIndex = 1;
             this.tpBarcodes.Text = "Etiquetas";
             this.tpBarcodes.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.pbBarcode2);
-            this.panel1.Location = new System.Drawing.Point(20, 136);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(177, 81);
-            this.panel1.TabIndex = 93;
-            // 
-            // pbBarcode2
-            // 
-            this.pbBarcode2.Location = new System.Drawing.Point(5, 6);
-            this.pbBarcode2.Name = "pbBarcode2";
-            this.pbBarcode2.Size = new System.Drawing.Size(165, 68);
-            this.pbBarcode2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbBarcode2.TabIndex = 87;
-            this.pbBarcode2.TabStop = false;
             // 
             // groupBox2
             // 
@@ -813,6 +806,17 @@
             this.groupBox2.Size = new System.Drawing.Size(418, 107);
             this.groupBox2.TabIndex = 92;
             this.groupBox2.TabStop = false;
+            // 
+            // rbGenerarVarios
+            // 
+            this.rbGenerarVarios.AutoSize = true;
+            this.rbGenerarVarios.Location = new System.Drawing.Point(12, 47);
+            this.rbGenerarVarios.Name = "rbGenerarVarios";
+            this.rbGenerarVarios.Size = new System.Drawing.Size(239, 17);
+            this.rbGenerarVarios.TabIndex = 2;
+            this.rbGenerarVarios.Text = "Generar para varios productos seleccionados";
+            this.rbGenerarVarios.UseVisualStyleBackColor = true;
+            this.rbGenerarVarios.CheckedChanged += new System.EventHandler(this.rbGenerarVarios_CheckedChanged);
             // 
             // rbGenerarTodos
             // 
@@ -833,6 +837,7 @@
             this.rbGenerarIndividual.Name = "rbGenerarIndividual";
             this.rbGenerarIndividual.Size = new System.Drawing.Size(198, 17);
             this.rbGenerarIndividual.TabIndex = 0;
+            this.rbGenerarIndividual.TabStop = true;
             this.rbGenerarIndividual.Text = "Generar para producto seleccionado";
             this.rbGenerarIndividual.UseVisualStyleBackColor = true;
             this.rbGenerarIndividual.CheckedChanged += new System.EventHandler(this.rbGenerarIndividual_CheckedChanged);
@@ -885,91 +890,6 @@
             this.checkBox1.TabIndex = 89;
             this.checkBox1.Text = "Incluir precio";
             this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.Control;
-            this.panel6.Controls.Add(this.txtCodigo2);
-            this.panel6.Controls.Add(this.label12);
-            this.panel6.Enabled = false;
-            this.panel6.Location = new System.Drawing.Point(20, 240);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(120, 32);
-            this.panel6.TabIndex = 85;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
-            // 
-            // txtCodigo2
-            // 
-            this.txtCodigo2.BackColor = System.Drawing.SystemColors.Control;
-            this.txtCodigo2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCodigo2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo2.Location = new System.Drawing.Point(6, 8);
-            this.txtCodigo2.MaxLength = 20;
-            this.txtCodigo2.Name = "txtCodigo2";
-            this.txtCodigo2.Size = new System.Drawing.Size(111, 15);
-            this.txtCodigo2.TabIndex = 10;
-            // 
-            // label12
-            // 
-            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
-            this.label12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label12.Location = new System.Drawing.Point(0, 30);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(120, 2);
-            this.label12.TabIndex = 9;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label13.Location = new System.Drawing.Point(146, 224);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(52, 15);
-            this.label13.TabIndex = 84;
-            this.label13.Text = "Nombre";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.SystemColors.Control;
-            this.panel7.Controls.Add(this.txtNombre2);
-            this.panel7.Controls.Add(this.label22);
-            this.panel7.Enabled = false;
-            this.panel7.Location = new System.Drawing.Point(149, 240);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(287, 32);
-            this.panel7.TabIndex = 83;
-            // 
-            // txtNombre2
-            // 
-            this.txtNombre2.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNombre2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombre2.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtNombre2.Location = new System.Drawing.Point(9, 7);
-            this.txtNombre2.MaxLength = 100;
-            this.txtNombre2.Name = "txtNombre2";
-            this.txtNombre2.Size = new System.Drawing.Size(275, 16);
-            this.txtNombre2.TabIndex = 0;
-            // 
-            // label22
-            // 
-            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
-            this.label22.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label22.Location = new System.Drawing.Point(0, 30);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(287, 2);
-            this.label22.TabIndex = 9;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label23.Location = new System.Drawing.Point(17, 224);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(47, 15);
-            this.label23.TabIndex = 86;
-            this.label23.Text = "Código";
             // 
             // btnGenerar
             // 
@@ -1071,36 +991,126 @@
             this.label10.TabIndex = 90;
             this.label10.Text = "Código";
             // 
-            // chkCodigoAutogenerado
+            // pnlVisualizacionProducto
             // 
-            this.chkCodigoAutogenerado.AutoSize = true;
-            this.chkCodigoAutogenerado.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkCodigoAutogenerado.Location = new System.Drawing.Point(22, 131);
-            this.chkCodigoAutogenerado.Name = "chkCodigoAutogenerado";
-            this.chkCodigoAutogenerado.Size = new System.Drawing.Size(128, 17);
-            this.chkCodigoAutogenerado.TabIndex = 101;
-            this.chkCodigoAutogenerado.Text = "Código autogenerado";
-            this.chkCodigoAutogenerado.UseVisualStyleBackColor = true;
-            this.chkCodigoAutogenerado.Visible = false;
-            this.chkCodigoAutogenerado.CheckedChanged += new System.EventHandler(this.chkCodigoAutogenerado_CheckedChanged);
+            this.pnlVisualizacionProducto.Controls.Add(this.panel3);
+            this.pnlVisualizacionProducto.Controls.Add(this.panel6);
+            this.pnlVisualizacionProducto.Controls.Add(this.label13);
+            this.pnlVisualizacionProducto.Controls.Add(this.panel7);
+            this.pnlVisualizacionProducto.Controls.Add(this.label23);
+            this.pnlVisualizacionProducto.Location = new System.Drawing.Point(20, 124);
+            this.pnlVisualizacionProducto.Name = "pnlVisualizacionProducto";
+            this.pnlVisualizacionProducto.Size = new System.Drawing.Size(443, 162);
+            this.pnlVisualizacionProducto.TabIndex = 93;
             // 
-            // rbGenerarVarios
+            // panel3
             // 
-            this.rbGenerarVarios.AutoSize = true;
-            this.rbGenerarVarios.Location = new System.Drawing.Point(12, 47);
-            this.rbGenerarVarios.Name = "rbGenerarVarios";
-            this.rbGenerarVarios.Size = new System.Drawing.Size(239, 17);
-            this.rbGenerarVarios.TabIndex = 2;
-            this.rbGenerarVarios.Text = "Generar para varios productos seleccionados";
-            this.rbGenerarVarios.UseVisualStyleBackColor = true;
-            this.rbGenerarVarios.CheckedChanged += new System.EventHandler(this.rbGenerarVarios_CheckedChanged);
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.pbBarcode2);
+            this.panel3.Location = new System.Drawing.Point(12, 18);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(177, 81);
+            this.panel3.TabIndex = 98;
+            // 
+            // pbBarcode2
+            // 
+            this.pbBarcode2.Location = new System.Drawing.Point(5, 6);
+            this.pbBarcode2.Name = "pbBarcode2";
+            this.pbBarcode2.Size = new System.Drawing.Size(165, 68);
+            this.pbBarcode2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBarcode2.TabIndex = 87;
+            this.pbBarcode2.TabStop = false;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.Control;
+            this.panel6.Controls.Add(this.txtCodigo2);
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Enabled = false;
+            this.panel6.Location = new System.Drawing.Point(12, 122);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(120, 32);
+            this.panel6.TabIndex = 96;
+            // 
+            // txtCodigo2
+            // 
+            this.txtCodigo2.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCodigo2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtCodigo2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo2.Location = new System.Drawing.Point(6, 8);
+            this.txtCodigo2.MaxLength = 20;
+            this.txtCodigo2.Name = "txtCodigo2";
+            this.txtCodigo2.Size = new System.Drawing.Size(111, 15);
+            this.txtCodigo2.TabIndex = 10;
+            // 
+            // label12
+            // 
+            this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
+            this.label12.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label12.Location = new System.Drawing.Point(0, 30);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(120, 2);
+            this.label12.TabIndex = 9;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label13.Location = new System.Drawing.Point(138, 106);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(52, 15);
+            this.label13.TabIndex = 95;
+            this.label13.Text = "Nombre";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.SystemColors.Control;
+            this.panel7.Controls.Add(this.txtNombre2);
+            this.panel7.Controls.Add(this.label22);
+            this.panel7.Enabled = false;
+            this.panel7.Location = new System.Drawing.Point(141, 122);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(287, 32);
+            this.panel7.TabIndex = 94;
+            // 
+            // txtNombre2
+            // 
+            this.txtNombre2.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNombre2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombre2.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtNombre2.Location = new System.Drawing.Point(9, 7);
+            this.txtNombre2.MaxLength = 100;
+            this.txtNombre2.Name = "txtNombre2";
+            this.txtNombre2.Size = new System.Drawing.Size(275, 16);
+            this.txtNombre2.TabIndex = 0;
+            // 
+            // label22
+            // 
+            this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
+            this.label22.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label22.Location = new System.Drawing.Point(0, 30);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(287, 2);
+            this.label22.TabIndex = 9;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label23.Location = new System.Drawing.Point(9, 106);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(47, 15);
+            this.label23.TabIndex = 97;
+            this.label23.Text = "Código";
             // 
             // frmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1050, 604);
+            this.ClientSize = new System.Drawing.Size(1050, 633);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.tcProductos);
             this.Controls.Add(this.dgvProductos);
@@ -1139,19 +1149,20 @@
             this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbBarcode)).EndInit();
             this.tpBarcodes.ResumeLayout(false);
-            this.tpBarcodes.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.pnlVisualizacionProducto.ResumeLayout(false);
+            this.pnlVisualizacionProducto.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbBarcode2)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1191,14 +1202,6 @@
         private System.Windows.Forms.TabControl tcProductos;
         private System.Windows.Forms.TabPage tpProduct;
         private System.Windows.Forms.TabPage tpBarcodes;
-        private System.Windows.Forms.PictureBox pbBarcode2;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Panel panel7;
-        private UIControls.TextInput txtNombre2;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -1216,8 +1219,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.PictureBox pbBarcode;
         private System.Windows.Forms.TextBox txtCodProducto;
-        private System.Windows.Forms.TextBox txtCodigo2;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label lblTarifaIva;
         private System.Windows.Forms.ComboBox cmbTarifaIva;
@@ -1235,5 +1236,16 @@
         private System.Windows.Forms.Label lblStock;
         private System.Windows.Forms.CheckBox chkCodigoAutogenerado;
         private System.Windows.Forms.RadioButton rbGenerarVarios;
+        private System.Windows.Forms.Panel pnlVisualizacionProducto;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pbBarcode2;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox txtCodigo2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel7;
+        private UIControls.TextInput txtNombre2;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
     }
 }

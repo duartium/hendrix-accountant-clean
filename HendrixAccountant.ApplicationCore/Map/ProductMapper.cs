@@ -36,6 +36,7 @@ namespace HendrixAccountant.ApplicationCore.Map
                     proveedor_id = Convert.ToInt32(field["idProveedor"].ToString()),
                     proveedor = field["nombreProveedor"].ToString(),
                     es_servicio = Convert.ToBoolean(field["es_servicio"].ToString()),
+
                     tarifa_iva = Convert.ToInt32(field["tarifa_iva"].ToString())
                 }).ToList();
             }

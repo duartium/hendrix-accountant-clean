@@ -199,10 +199,21 @@ namespace HendrixAccountant
                 bool isUpdate = false;
                 string mensaje = "Producto registrado con éxito.";
                 var dataOp = DataOperator.Instance;
+                string codigoBarras = String.Empty;
+
+                if(_eEstadoPantalla == EstadoPantalla.MODIFICACION)
+                {
+                    codigoBarras = txtCodBarras.Text.Trim();
+                }
+                else if(_eEstadoPantalla == EstadoPantalla.CREACION)
+                {
+                    codigoBarras = chkCodigoAutogenerado.Checked ? "-1" : txtCodBarras.Text.Trim();
+                }
+
                 var product = new ProductDto
                 {
                     IdProducto = _product == null ? -1 : _product.id_producto,
-                    CodigoBarras = chkCodigoAutogenerado.Checked ? "-1" : txtCodBarras.Text.Trim(),
+                    CodigoBarras = codigoBarras,
                     EsServicio = rbServicio.Checked,
                     Nombre = txtNombre.Text,
                     Descripcion = txtDescripcion.Text,
@@ -247,7 +258,7 @@ namespace HendrixAccountant
 
                 pnCodigo.Visible = true;
                 lblCodigo.Visible = true;
-                gbTipo.Location = new Point(143, 75);
+                gbTipo.Location = new Point(143, 88);
                 chkCodigoAutogenerado.Visible = false;
                 txtCodBarras.Focus();
             }
@@ -473,6 +484,10 @@ namespace HendrixAccountant
                 MessageBox.Show("Busque y seleccione un producto para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
+            if (MessageBox.Show("¿Está seguro que desea eliminar el producto o servicio seleccionado?", CString.DEFAULT_TITLE, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.Cancel) return;
+
+
             _isSearch = false;
             string code = _product.codigo;
             bool resp = _rpsProduct.Remove(_product.id_producto, DataOperator.Instance.Username);
@@ -556,8 +571,9 @@ namespace HendrixAccountant
             SetScreen(_eEstadoPantalla);
             
             rbProducto.Checked = true;
-
+            chkCodigoAutogenerado.Checked = false;
             chkCodigoAutogenerado.Visible = true;
+
             if (rbProducto.Checked)
             {
                 cmbTarifaIva.SelectedIndex = 1;
@@ -870,17 +886,18 @@ namespace HendrixAccountant
             pnlStock.Visible = false;
             lblStock.Visible = false;
 
-            lblPrecioVenta.Location = new Point(19, 268);
-            pnlPrecioVenta.Location = new Point(22, 284);
-            lblTarifaIva.Location = new Point(125, 264);
-            cmbTarifaIva.Location = new Point(128, 285);
+            lblPrecioVenta.Location = new Point(19, 277);
+            pnlPrecioVenta.Location = new Point(22, 293);
+            lblTarifaIva.Location = new Point(125, 277);
+            cmbTarifaIva.Location = new Point(128, 301);
             //pnProveedor.Visible = false;
 
             cmbTarifaIva.SelectedIndex = 0;
             cmbTarifaIva.Enabled = false;
 
             chkCodigoAutogenerado.Checked = true;
-            
+
+            txtStock.Text = "0";
             txtNombre.Focus();
         }
 
@@ -891,14 +908,15 @@ namespace HendrixAccountant
             pnlStock.Visible = true;
             lblStock.Visible = true;
 
-            lblPrecioVenta.Location = new Point(125, 264);
-            pnlPrecioVenta.Location = new Point(128, 280);
-            lblTarifaIva.Location = new Point(238, 319);
-            cmbTarifaIva.Location = new Point(241, 340);
+            lblPrecioVenta.Location = new Point(125, 277);
+            pnlPrecioVenta.Location = new Point(128, 293);
+            lblTarifaIva.Location = new Point(238, 335);
+            cmbTarifaIva.Location = new Point(241, 352);
 
             cmbTarifaIva.SelectedIndex = 1;
             cmbTarifaIva.Enabled = true;
 
+            chkCodigoAutogenerado.Checked = false;
             //pnProveedor.Visible = true;
             txtNombre.Focus();
         }
@@ -1005,13 +1023,13 @@ namespace HendrixAccountant
                 pnCodigo.Visible = false;
                 lblCodigo.Visible = false;
 
-                gbTipo.Location = new Point(21, 70);
+                gbTipo.Location = new Point(21, 88);
             }
             else
             {
                 pnCodigo.Visible = true;
                 lblCodigo.Visible = true;
-                gbTipo.Location = new Point(143, 75);
+                gbTipo.Location = new Point(143, 88);
                 txtCodBarras.Focus();
             }
             txtNombre.Focus();
@@ -1030,18 +1048,20 @@ namespace HendrixAccountant
         private void rbGenerarTodos_CheckedChanged(object sender, EventArgs e)
         {
             dgvProductos.MultiSelect = false;
+            pnlVisualizacionProducto.Visible = false;
         }
 
         private void rbGenerarVarios_CheckedChanged(object sender, EventArgs e)
         {
             dgvProductos.MultiSelect = true;
+            pnlVisualizacionProducto.Visible = false;
 
-            
         }
 
         private void rbGenerarIndividual_CheckedChanged(object sender, EventArgs e)
         {
             dgvProductos.MultiSelect = false;
+            pnlVisualizacionProducto.Visible = true;
         }
     }
 }

@@ -220,6 +220,7 @@ namespace HendrixAccountant
             inventarioToolStripMenuItem.Visible = false;
             itemConfiguracion.Visible = false;
             itemUsuarios.Visible = false;
+            usuariosToolStripMenuItem.Visible = false;
         }
 
         private void btnVenta_Click(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using HendrixAccountant.ApplicationCore.Constants;
 using HendrixAccountant.ApplicationCore.DTOs;
+using HendrixAccountant.ApplicationCore.Enums;
 using HendrixAccountant.ApplicationCore.Interfaces.Forms;
 using HendrixAccountant.Common;
 using HendrixAccountant.Data;
@@ -20,6 +21,9 @@ namespace HendrixAccountant
     {
         private IUserRepository _rpsUser;
         private UserDto _user;
+        private List<UserDto> _users;
+        private EstadoPantalla _eEstadoPantalla;
+
         public frmUsuarios()
         {
             InitializeComponent();
@@ -43,14 +47,52 @@ namespace HendrixAccountant
 
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
-            DisabledSearch();
-            DisabledRemove();
             LoadComboBoxRoles();
+            LoadUsers();
+            _eEstadoPantalla = EstadoPantalla.INICIAL;
+
+        }
+
+        private void LoadUsers()
+        {
+            try
+            {
+                _users = _rpsUser.GetAll();
+                dgvUsuarios.AutoGenerateColumns = false;
+                dgvUsuarios.DataSource = _users;
+                
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("LoadUsers", ex.ToString());
+                MessageBox.Show("Ingrese nombre de usuario y contraseña.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void SetLabelsBottomColor(EstadoPantalla estadoPantalla)
+        {
+            Color backColor = Color.FromArgb(30, 107, 247); //azul
+            switch (estadoPantalla)
+            {
+                case EstadoPantalla.INICIAL:
+                    Color.FromArgb(30, 107, 247); //azul
+                    break;
+                case EstadoPantalla.CREACION:
+                    backColor = Color.FromArgb(40, 167, 69);//verde
+                    break;
+                case EstadoPantalla.MODIFICACION:
+                    backColor = Color.FromArgb(253, 184, 39);//amarillo
+                    break;
+            }
+
+            lblPnUsuario.BackColor = backColor;
+            lblPnContrasena.BackColor = backColor;
+            lblConfirmContrasena.BackColor = backColor;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!rbnModificar.Checked)
+            if (_eEstadoPantalla == EstadoPantalla.MODIFICACION)
             {
                 if (txtUsuario.Text.Trim().Length <= 0 ||
                                 txtClave.Text.Trim().Length <= 0 ||
@@ -62,7 +104,7 @@ namespace HendrixAccountant
                 }
             }
 
-            if(txtClave.Text.Trim() != txtClave2.Text.Trim() && !rbnModificar.Checked)
+            if(txtClave.Text.Trim() != txtClave2.Text.Trim() && _eEstadoPantalla != EstadoPantalla.MODIFICACION)
             {
                 MessageBox.Show("Las contraseñas no coinciden.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtClave.Focus();
@@ -83,18 +125,28 @@ namespace HendrixAccountant
             var dataOp = DataOperator.Instance;
             var user = new UserSaveDto
             {
-                IdUsuario = _user == null? -1 :_user.IdUsuario, 
-                NombreUsuario = txtUsuario.Text,
+                IdUsuario = _user == null ? -1 : _user.IdUsuario,
+                NombreUsuario = txtUsuario.Text.Trim().Replace(" ", ""),
                 Clave = Encrypt.GetSHA256(txtClave.Text),
                 IdRol = Convert.ToInt32((cboTipoUsuario.SelectedItem as Rol).IdRol),
                 Usuario = dataOp.Username
             };
-            if (rbnModificar.Checked) { isUpdate = true; mensaje = mensaje.Replace("registrado", "modificado"); }
+
+            if (_eEstadoPantalla == EstadoPantalla.MODIFICACION) { isUpdate = true; mensaje = mensaje.Replace("registrado", "modificado"); }
 
             if (_rpsUser.Save(user, isUpdate))
             {
                 MessageBox.Show(mensaje, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Clear();
+
+
+                pnClaves.Visible = false;
+                _eEstadoPantalla = EstadoPantalla.INICIAL;
+                SetLabelsBottomColor(_eEstadoPantalla);
+                EnabledFields(false);
+
+                LoadUsers();
+                EnableRemove();
                 txtUsuario.Focus();
             }
             else
@@ -104,6 +156,8 @@ namespace HendrixAccountant
         }
         private void Clear()
         {
+            dgvUsuarios.DataSource = null;
+            dgvUsuarios.Rows.Clear();
             txtUsuario.Clear();
             txtClave.Clear();
             txtClave2.Clear();
@@ -124,8 +178,6 @@ namespace HendrixAccountant
         {
             Clear();
             DisabledRemove();
-            DisabledSearch();
-            EnabledTextboxs(true);
             txtUsuario.Focus();
             cboTipoUsuario.Enabled = true;
             pnClaves.Visible = true;
@@ -135,28 +187,9 @@ namespace HendrixAccountant
         private void rbnModificar_CheckedChanged(object sender, EventArgs e)
         {
             Clear();
-            EnableSearch();
             EnableRemove();
-            EnabledTextboxs(false);
             cboTipoUsuario.Enabled = false;
             pnClaves.Visible = false;
-        }
-
-        private void EnableSearch()
-        {
-            btnBuscar.Enabled = true;
-            btnBuscar.BackColor = Color.FromArgb(253, 184, 39);
-        }
-
-        private void DisabledSearch()
-        {
-            btnBuscar.Enabled = false;
-            btnBuscar.BackColor = SystemColors.Control;
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            
         }
 
         public void Selected(ISaleElement entity)
@@ -178,15 +211,8 @@ namespace HendrixAccountant
             if (_user == null) return;
             txtUsuario.Text = _user.Usuario;
             cboTipoUsuario.SelectedValue = _user.IdRol;
-            EnabledTextboxs(true);
+            
             txtUsuario.Focus();
-        }
-
-        private void EnabledTextboxs(bool valor)
-        {
-            txtUsuario.Enabled = valor;
-            txtClave.Enabled = valor;
-            txtClave2.Enabled = valor;
         }
 
         private void LoadComboBoxRoles()
@@ -207,6 +233,9 @@ namespace HendrixAccountant
                 return;
             }
 
+            if (MessageBox.Show("¿Está seguro que desea eliminar el usuario seleccionado?", CString.DEFAULT_TITLE, MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) == DialogResult.Cancel) return;
+
+
             bool resp = _rpsUser.Remove(_user.IdUsuario, DataOperator.Instance.Username);
             if (resp)
             {
@@ -214,6 +243,69 @@ namespace HendrixAccountant
                 Clear();
             }
             else MessageBox.Show("No se pudo eliminar el usuario.", CString.DEFAULT_TITLE, MessageBoxButtons.OK);
+        }
+
+        private void dgvUsuarios_SelectionChanged(object sender, EventArgs e)
+        {
+
+            int indexRow = dgvUsuarios.CurrentRow.Index;
+            if (indexRow < 0) return;
+
+            _user = _users[indexRow];
+            SetUser();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            _eEstadoPantalla = EstadoPantalla.CREACION;
+            dgvUsuarios.DataSource = null;
+            dgvUsuarios.Rows.Clear();
+            _user = null;
+            Clear();
+
+            SetLabelsBottomColor(_eEstadoPantalla);
+
+            EnabledFields(true);
+            DisabledRemove();
+            pnClaves.Visible = true;
+            txtUsuario.Focus();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (_user == null)
+            {
+                MessageBox.Show("Busque y seleccione un usuario para proceder a modificarlo.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            _eEstadoPantalla = EstadoPantalla.MODIFICACION;
+            EnabledFields(true);
+
+            pnClaves.Visible = true;
+
+            DisabledRemove();
+            txtUsuario.Focus();
+            
+        }
+
+        private void EnabledFields(bool valor)
+        {
+            txtUsuario.Enabled = valor;
+            txtClave.Enabled = valor;
+            txtClave2.Enabled = valor;
+            cboTipoUsuario.Enabled = valor;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            pnClaves.Visible = false;
+            _eEstadoPantalla = EstadoPantalla.INICIAL;
+            SetLabelsBottomColor(_eEstadoPantalla);
+            EnabledFields(false);
+
+            LoadUsers();
+            EnableRemove();
         }
     }
 }

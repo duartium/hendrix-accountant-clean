@@ -31,6 +31,7 @@ namespace HendrixAccountant.ApplicationCore.Entities
         public DateTime eliminado_en { get; set; }
         public string usuario_elim { get; set; }
         public bool es_servicio { get; set; }
+        public string es_servicio_descr { get; set; }
         public int tarifa_iva { get; set; }
     }
 }
