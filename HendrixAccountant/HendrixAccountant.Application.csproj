@@ -97,6 +97,12 @@
     <Compile Include="Forms\CashRegister\frmCierreCaja.Designer.cs">
       <DependentUpon>frmCierreCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CashRegister\frmGastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CashRegister\frmGastos.Designer.cs">
+      <DependentUpon>frmGastos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Clients\frmBuscarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CashRegister\frmCierreCaja.resx">
       <DependentUpon>frmCierreCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CashRegister\frmGastos.resx">
+      <DependentUpon>frmGastos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clients\frmBuscarClientes.resx">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>

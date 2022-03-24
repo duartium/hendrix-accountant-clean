@@ -610,5 +610,10 @@ namespace HendrixAccountant
                 MessageBox.Show("No se ha realizado la apertura de caja.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void gastosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

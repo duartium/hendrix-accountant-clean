@@ -27,6 +27,7 @@ namespace HendrixAccountant
 
         private void frmCantidad_Load(object sender, EventArgs e)
         {
+            txtCantidad.Text = "1";
             txtCantidad.Focus();
         }
 
