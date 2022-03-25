@@ -37,6 +37,7 @@ namespace HendrixAccountant
         private frmBajaProductos frmBajaProductos = null;
         private CajaRepository _rpsCash = null;
         private frmCierreCaja frmCierreCaja = null;
+        private frmGastos frmGastos = null;
 
         #region constructores
         public frmMain()
@@ -131,6 +132,11 @@ namespace HendrixAccountant
         private void cierre_caja_FormClosed(object sender, EventArgs e)
         {
             frmCierreCaja = null;
+        }
+
+        private void gastos_FormClosed(object sender, EventArgs e)
+        {
+            frmGastos = null;
         }
 
         private void anulacion_FormClosed(object sender, EventArgs e)
@@ -613,7 +619,16 @@ namespace HendrixAccountant
 
         private void gastosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (frmGastos != null)
+            {
+                frmGastos.BringToFront();
+                return;
+            }
 
+            frmGastos = new frmGastos();
+            frmGastos.MdiParent = this;
+            frmGastos.FormClosed += new FormClosedEventHandler(gastos_FormClosed);
+            frmGastos.Show();
         }
     }
 }
