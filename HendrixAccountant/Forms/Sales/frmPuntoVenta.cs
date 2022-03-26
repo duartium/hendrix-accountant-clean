@@ -335,6 +335,27 @@ namespace HendrixAccountant
             }
         }
 
+        private void RemoveStockProducts()
+        {
+            try
+            {
+                if (dgvPuntoVenta.SelectedRows.Count > 0)
+                {
+                    foreach (DataGridViewRow row in dgvPuntoVenta.SelectedRows)
+                    {
+                        var product = _lsProducts[row.Index];
+                        _rpsProduct.UpdateStock(new StockDto { IdProducto = product.IdProducto, Cantidad = product.Cantidad }, false);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("RemoveProduct", ex.ToString());
+            }
+        }
+
+
+
         private void RemoveAllProducts()
         {
             try
@@ -759,6 +780,7 @@ namespace HendrixAccountant
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            RemoveStockProducts();
             Clear();
             SetFinalConsumer();
             txtCodProducto.Focus();
