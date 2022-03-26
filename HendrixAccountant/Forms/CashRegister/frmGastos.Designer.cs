@@ -107,6 +107,7 @@ namespace HendrixAccountant.Forms.CashRegister
             this.txtValorGasto.Size = new System.Drawing.Size(85, 15);
             this.txtValorGasto.TabIndex = 6;
             this.txtValorGasto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValorGasto.TextChanged += new System.EventHandler(this.txtValorGasto_TextChanged);
             // 
             // btnRegistrarGasto
             // 
@@ -219,6 +220,7 @@ namespace HendrixAccountant.Forms.CashRegister
             this.Name = "frmGastos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "GASTOS";
+            this.Activated += new System.EventHandler(this.frmGastos_Activated);
             this.Load += new System.EventHandler(this.frmGastos_Load);
             this.gbProveedor.ResumeLayout(false);
             this.gbProveedor.PerformLayout();
