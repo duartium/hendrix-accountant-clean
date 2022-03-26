@@ -34,7 +34,7 @@ namespace HendrixAccountant
 
         private void frmBuscarProductos_Load(object sender, EventArgs e)
         {
-            
+            Search();
         }
 
         #region Private methods

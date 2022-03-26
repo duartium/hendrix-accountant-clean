@@ -106,6 +106,7 @@ namespace HendrixAccountant.Forms.CashRegister
             this.txtValorGasto.Name = "txtValorGasto";
             this.txtValorGasto.Size = new System.Drawing.Size(85, 15);
             this.txtValorGasto.TabIndex = 6;
+            this.txtValorGasto.Tag = "0";
             this.txtValorGasto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtValorGasto.TextChanged += new System.EventHandler(this.txtValorGasto_TextChanged);
             // 
@@ -121,6 +122,7 @@ namespace HendrixAccountant.Forms.CashRegister
             this.btnRegistrarGasto.Name = "btnRegistrarGasto";
             this.btnRegistrarGasto.Size = new System.Drawing.Size(90, 30);
             this.btnRegistrarGasto.TabIndex = 83;
+            this.btnRegistrarGasto.Tag = "4";
             this.btnRegistrarGasto.Text = "Registrar";
             this.btnRegistrarGasto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRegistrarGasto.UseVisualStyleBackColor = false;
@@ -135,6 +137,7 @@ namespace HendrixAccountant.Forms.CashRegister
             this.cboTipoGasto.Name = "cboTipoGasto";
             this.cboTipoGasto.Size = new System.Drawing.Size(243, 24);
             this.cboTipoGasto.TabIndex = 82;
+            this.cboTipoGasto.Tag = "3";
             // 
             // label13
             // 
@@ -178,6 +181,7 @@ namespace HendrixAccountant.Forms.CashRegister
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(404, 15);
             this.txtObservaciones.TabIndex = 2;
+            this.txtObservaciones.Tag = "1";
             // 
             // lblPnDescripcion
             // 
@@ -207,6 +211,7 @@ namespace HendrixAccountant.Forms.CashRegister
             this.dtpFechaGasto.Name = "dtpFechaGasto";
             this.dtpFechaGasto.Size = new System.Drawing.Size(115, 25);
             this.dtpFechaGasto.TabIndex = 13;
+            this.dtpFechaGasto.Tag = "2";
             // 
             // frmGastos
             // 
