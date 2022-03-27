@@ -60,6 +60,15 @@
             this.gbTipo = new System.Windows.Forms.GroupBox();
             this.rbTicket = new System.Windows.Forms.RadioButton();
             this.rbA4 = new System.Windows.Forms.RadioButton();
+            this.tpFacturacion = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtSecuencialAct = new HendrixAccountant.UIControls.NumericInput();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbSistema = new System.Windows.Forms.RadioButton();
+            this.rbSri = new System.Windows.Forms.RadioButton();
+            this.btnGuardarParmsFact = new System.Windows.Forms.Button();
             this.pnHeader = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -72,6 +81,9 @@
             this.tcParametros.SuspendLayout();
             this.tpImpresora.SuspendLayout();
             this.gbTipo.SuspendLayout();
+            this.tpFacturacion.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.pnHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -295,6 +307,7 @@
             // 
             this.tcParametros.Controls.Add(this.tpEmpresa);
             this.tcParametros.Controls.Add(this.tpImpresora);
+            this.tcParametros.Controls.Add(this.tpFacturacion);
             this.tcParametros.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcParametros.ItemSize = new System.Drawing.Size(63, 30);
             this.tcParametros.Location = new System.Drawing.Point(17, 80);
@@ -314,10 +327,10 @@
             this.tpImpresora.Controls.Add(this.lblTarifaIva);
             this.tpImpresora.Controls.Add(this.cmbModoImpresion);
             this.tpImpresora.Controls.Add(this.gbTipo);
-            this.tpImpresora.Location = new System.Drawing.Point(4, 24);
+            this.tpImpresora.Location = new System.Drawing.Point(4, 34);
             this.tpImpresora.Name = "tpImpresora";
             this.tpImpresora.Padding = new System.Windows.Forms.Padding(3);
-            this.tpImpresora.Size = new System.Drawing.Size(434, 317);
+            this.tpImpresora.Size = new System.Drawing.Size(434, 307);
             this.tpImpresora.TabIndex = 1;
             this.tpImpresora.Text = "Impresión";
             this.tpImpresora.UseVisualStyleBackColor = true;
@@ -454,6 +467,118 @@
             this.rbA4.Text = "A4";
             this.rbA4.UseVisualStyleBackColor = true;
             // 
+            // tpFacturacion
+            // 
+            this.tpFacturacion.Controls.Add(this.panel1);
+            this.tpFacturacion.Controls.Add(this.label9);
+            this.tpFacturacion.Controls.Add(this.groupBox1);
+            this.tpFacturacion.Controls.Add(this.btnGuardarParmsFact);
+            this.tpFacturacion.Location = new System.Drawing.Point(4, 34);
+            this.tpFacturacion.Name = "tpFacturacion";
+            this.tpFacturacion.Size = new System.Drawing.Size(434, 307);
+            this.tpFacturacion.TabIndex = 2;
+            this.tpFacturacion.Text = "Facturación";
+            this.tpFacturacion.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.txtSecuencialAct);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Location = new System.Drawing.Point(259, 53);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(111, 32);
+            this.panel1.TabIndex = 109;
+            // 
+            // txtSecuencialAct
+            // 
+            this.txtSecuencialAct.BackColor = System.Drawing.SystemColors.Control;
+            this.txtSecuencialAct.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSecuencialAct.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSecuencialAct.Location = new System.Drawing.Point(10, 6);
+            this.txtSecuencialAct.MaxLength = 13;
+            this.txtSecuencialAct.Name = "txtSecuencialAct";
+            this.txtSecuencialAct.Size = new System.Drawing.Size(91, 19);
+            this.txtSecuencialAct.TabIndex = 1;
+            this.txtSecuencialAct.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
+            this.label10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label10.Location = new System.Drawing.Point(0, 30);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(111, 2);
+            this.label10.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label9.Location = new System.Drawing.Point(262, 35);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(103, 15);
+            this.label9.TabIndex = 108;
+            this.label9.Text = "Secuencial Actual";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.rbSistema);
+            this.groupBox1.Controls.Add(this.rbSri);
+            this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.groupBox1.Location = new System.Drawing.Point(22, 25);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(181, 63);
+            this.groupBox1.TabIndex = 107;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tipo de Secuencial";
+            // 
+            // rbSistema
+            // 
+            this.rbSistema.AutoSize = true;
+            this.rbSistema.Checked = true;
+            this.rbSistema.ForeColor = System.Drawing.Color.Black;
+            this.rbSistema.Location = new System.Drawing.Point(77, 28);
+            this.rbSistema.Name = "rbSistema";
+            this.rbSistema.Size = new System.Drawing.Size(73, 20);
+            this.rbSistema.TabIndex = 4;
+            this.rbSistema.TabStop = true;
+            this.rbSistema.Text = "SISTEMA";
+            this.rbSistema.UseVisualStyleBackColor = true;
+            this.rbSistema.CheckedChanged += new System.EventHandler(this.rbSistema_CheckedChanged);
+            // 
+            // rbSri
+            // 
+            this.rbSri.AutoSize = true;
+            this.rbSri.ForeColor = System.Drawing.Color.Black;
+            this.rbSri.Location = new System.Drawing.Point(14, 28);
+            this.rbSri.Name = "rbSri";
+            this.rbSri.Size = new System.Drawing.Size(44, 20);
+            this.rbSri.TabIndex = 3;
+            this.rbSri.Text = "SRI";
+            this.rbSri.UseVisualStyleBackColor = true;
+            this.rbSri.CheckedChanged += new System.EventHandler(this.rbSri_CheckedChanged);
+            // 
+            // btnGuardarParmsFact
+            // 
+            this.btnGuardarParmsFact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(89)))));
+            this.btnGuardarParmsFact.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarParmsFact.FlatAppearance.BorderSize = 0;
+            this.btnGuardarParmsFact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarParmsFact.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarParmsFact.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnGuardarParmsFact.Image = global::HendrixAccountant.Properties.Resources.saveWhite20;
+            this.btnGuardarParmsFact.Location = new System.Drawing.Point(316, 255);
+            this.btnGuardarParmsFact.Name = "btnGuardarParmsFact";
+            this.btnGuardarParmsFact.Size = new System.Drawing.Size(90, 30);
+            this.btnGuardarParmsFact.TabIndex = 106;
+            this.btnGuardarParmsFact.Text = "Guardar";
+            this.btnGuardarParmsFact.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardarParmsFact.UseVisualStyleBackColor = false;
+            this.btnGuardarParmsFact.Click += new System.EventHandler(this.btnGuardarParmsFact_Click);
+            // 
             // pnHeader
             // 
             this.pnHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
@@ -509,7 +634,7 @@
             this.Location = new System.Drawing.Point(5, 5);
             this.Name = "frmParametros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "PARÁMETROS";
+            this.Text = "CONFIGURACIÓN";
             this.Activated += new System.EventHandler(this.frmParametros_Activated);
             this.Load += new System.EventHandler(this.frmParametros_Load);
             this.tpEmpresa.ResumeLayout(false);
@@ -527,6 +652,12 @@
             this.tpImpresora.PerformLayout();
             this.gbTipo.ResumeLayout(false);
             this.gbTipo.PerformLayout();
+            this.tpFacturacion.ResumeLayout(false);
+            this.tpFacturacion.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.pnHeader.ResumeLayout(false);
             this.pnHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -571,5 +702,14 @@
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbImpresoraEtiquetas;
+        private System.Windows.Forms.TabPage tpFacturacion;
+        private System.Windows.Forms.Button btnGuardarParmsFact;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbSistema;
+        private System.Windows.Forms.RadioButton rbSri;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel1;
+        private UIControls.NumericInput txtSecuencialAct;
+        private System.Windows.Forms.Label label10;
     }
 }

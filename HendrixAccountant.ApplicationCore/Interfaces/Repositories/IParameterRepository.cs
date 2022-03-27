@@ -8,8 +8,15 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
     {
         bool CreateOrUpdate(IParameter parameter);
         bool CreateOrUpdate(List<Parameters> parameters);
+        bool UpdateSequential(string nameSequential, int newSequential);
+
         List<Parameters> GetPrintParams();
+
+        string GetByName(string name);
+
         IParameter Get();
+
+        List<Parameters> GetSequential();
 
     }
 }

@@ -60,6 +60,16 @@ namespace HendrixAccountant.Data.Repositories
             return (resp == parameters.Count);
         }
 
+        public bool UpdateSequential(string nameSequential, int newSequential)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", 'U'));
+            parms.Add(new SqlParameter("@nombre", nameSequential));
+            parms.Add(new SqlParameter("@valor", newSequential));
+            int resp = _sqlServer.ExecuteNonQuery(_storeProcedureName, parms);
+            return (resp > 0);
+        }
+
         public IParameter Get()
         {
             var parms = new List<SqlParameter>();
@@ -73,12 +83,30 @@ namespace HendrixAccountant.Data.Repositories
             return company;
         }
 
+        public string GetByName(string name)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", 'C'));
+            parms.Add(new SqlParameter("@nombre", name));
+            var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+            if (!Validator.DatasetIsValid(dsResp)) return null;
+            return dsResp.Tables[0].Rows[0]["dato"].ToString();
+        }
+
         public List<Parameters> GetPrintParams()
         {
             var parms = new List<SqlParameter>();
             parms.Add(new SqlParameter("@accion", 'P'));
             var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
             return new ParameterMapper().DatasetToParameters(dsResp);
+        }
+
+        public List<Parameters> GetSequential()
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", 'S'));
+            var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
+            return new ParameterMapper().DatasetToSequential(dsResp);
         }
     }
 }

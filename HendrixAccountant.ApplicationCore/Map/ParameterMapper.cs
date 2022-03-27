@@ -25,7 +25,27 @@ namespace HendrixAccountant.ApplicationCore.Map
             }
             catch (Exception ex)
             {
-                Utils.GrabarLog("DatasetToProducts", ex.ToString());
+                Utils.GrabarLog("DatasetToParameters", ex.ToString());
+            }
+            return parameters;
+        }
+
+        public List<Parameters> DatasetToSequential(DataSet data)
+        {
+            if (!Validator.DatasetIsValid(data)) return null;
+
+            List<Parameters> parameters = new List<Parameters>();
+            try
+            {
+                parameters = data.Tables[0].AsEnumerable().Select(field => new Parameters
+                {
+                    Nombre = field["nombre"].ToString(),
+                    Valor = field["valor"].ToString()
+                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("DatasetToSequential", ex.ToString());
             }
             return parameters;
         }

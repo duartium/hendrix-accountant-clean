@@ -22,6 +22,10 @@ namespace HendrixAccountant
     {
         private IParameterRepository _rpsParams;
         private Company _company;
+
+        private string SecuencialSistema { get; set; }
+        private string SecuencialSRI { get; set; }
+
         public frmParametros()
         {
             InitializeComponent();
@@ -40,6 +44,7 @@ namespace HendrixAccountant
                 txtRuc.Focus();
             }
             LoadPrintersList();
+            LoadSecuencial();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -70,6 +75,35 @@ namespace HendrixAccountant
             var printers = GetAllPrinterList();
             cmbImpresoras.DataSource = printers;
             cmbImpresoraEtiquetas.DataSource = printers.ToList();
+        }
+
+        private void LoadSecuencial()
+        {
+            try
+            {
+                var sequentials = _rpsParams.GetSequential();
+                SecuencialSistema = sequentials.Find(x => x.Nombre.Equals("factura")).Valor;
+                SecuencialSRI = sequentials.Find(x => x.Nombre.Equals("factura_sri")).Valor;
+
+                string tipoSecuencial = _rpsParams.GetByName("tipo_secuencial");
+
+                if (tipoSecuencial.Equals("SISTEMA"))
+                {
+                    rbSistema.Checked = true;
+                    txtSecuencialAct.Text = SecuencialSistema;
+                    txtSecuencialAct.Enabled = false;
+                }
+                else
+                {
+                    rbSri.Checked = true;
+                    txtSecuencialAct.Text = SecuencialSRI;
+                    txtSecuencialAct.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private List<string> GetAllPrinterList()
@@ -169,5 +203,53 @@ namespace HendrixAccountant
                 rbTicket.Checked = true;
         }
 
+        private void btnGuardarParmsFact_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var parameters = new List<Parameters>();
+
+                string nuevoTipoSecuencial = String.Empty;
+                if (rbSistema.Checked)
+                {
+                    nuevoTipoSecuencial = "SISTEMA";
+                    parameters.Add(new Parameters { Nombre = "tipo_secuencial", Valor = nuevoTipoSecuencial });
+                }
+                else
+                {
+                    if(txtSecuencialAct.Text.Trim().Length == 0)
+                    {
+                        MessageBox.Show("Por favor ingrese el secuencial a actualizar", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    nuevoTipoSecuencial = "SRI";
+                    parameters.Add(new Parameters { Nombre = "tipo_secuencial", Valor = nuevoTipoSecuencial });
+                    _rpsParams.UpdateSequential("factura_sri", int.Parse(txtSecuencialAct.Text));
+                }
+                    
+
+                if (_rpsParams.CreateOrUpdate(parameters))
+                    MessageBox.Show("Se actualizó secuencial.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("No se pudo grabar los datos de impresión.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void rbSri_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSecuencialAct.Enabled = true;
+            txtSecuencialAct.Text = SecuencialSRI;
+        }
+
+        private void rbSistema_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSecuencialAct.Enabled = false;
+            txtSecuencialAct.Text = SecuencialSistema;
+        }
     }
 }
