@@ -55,6 +55,7 @@
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.pnMontosVenta = new System.Windows.Forms.Panel();
             this.pnAside2 = new System.Windows.Forms.Panel();
+            this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.lblDivisor = new System.Windows.Forms.Label();
             this.pnAside = new System.Windows.Forms.Panel();
@@ -89,7 +90,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCodProducto = new System.Windows.Forms.TextBox();
-            this.btnLimpiar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
+            this.chbImprimir = new System.Windows.Forms.CheckBox();
             this.gpDatosVenta.SuspendLayout();
             this.gbFromaPago.SuspendLayout();
             this.pnDireccion.SuspendLayout();
@@ -105,6 +106,7 @@
             // 
             // gpDatosVenta
             // 
+            this.gpDatosVenta.Controls.Add(this.chbImprimir);
             this.gpDatosVenta.Controls.Add(this.gbFromaPago);
             this.gpDatosVenta.Controls.Add(this.pnDireccion);
             this.gpDatosVenta.Controls.Add(this.label8);
@@ -339,6 +341,27 @@
             this.pnAside2.Size = new System.Drawing.Size(219, 234);
             this.pnAside2.TabIndex = 5;
             this.pnAside2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
+            this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.clearBlue20;
+            this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar.Location = new System.Drawing.Point(0, 172);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
+            this.btnLimpiar.Size = new System.Drawing.Size(219, 40);
+            this.btnLimpiar.TabIndex = 12;
+            this.btnLimpiar.Text = "LIMPIAR";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnGuardar
             // 
@@ -782,26 +805,17 @@
             this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
             this.txtCodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodProducto_KeyPress_1);
             // 
-            // btnLimpiar
+            // chbImprimir
             // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiar.FlatAppearance.BorderSize = 0;
-            this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(39)))));
-            this.btnLimpiar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(184)))), ((int)(((byte)(45)))));
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 11.25F);
-            this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
-            this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.clearBlue20;
-            this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiar.Location = new System.Drawing.Point(0, 172);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Padding = new System.Windows.Forms.Padding(38, 0, 0, 0);
-            this.btnLimpiar.Size = new System.Drawing.Size(219, 40);
-            this.btnLimpiar.TabIndex = 12;
-            this.btnLimpiar.Text = "LIMPIAR";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            this.chbImprimir.AutoSize = true;
+            this.chbImprimir.Checked = true;
+            this.chbImprimir.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbImprimir.Location = new System.Drawing.Point(529, 20);
+            this.chbImprimir.Name = "chbImprimir";
+            this.chbImprimir.Size = new System.Drawing.Size(127, 17);
+            this.chbImprimir.TabIndex = 24;
+            this.chbImprimir.Text = "Imprimir Comprobante";
+            this.chbImprimir.UseVisualStyleBackColor = true;
             // 
             // frmPuntoVenta
             // 
@@ -911,5 +925,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colDireccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private UIControls.Buttons.ItemAsideSmall btnLimpiar;
+        private System.Windows.Forms.CheckBox chbImprimir;
     }
 }

@@ -250,7 +250,9 @@ namespace HendrixAccountant
                 int secuencial = sale.Generate(_invoice);
                 if (secuencial > 0)
                 {
-                    PrintSale(secuencial);
+                    if(chbImprimir.Checked)
+                        PrintSale(secuencial);
+
                     MessageBox.Show($"Se registró la venta con comprobante nº {secuencial}.", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clear();
                     DisableAdd();
