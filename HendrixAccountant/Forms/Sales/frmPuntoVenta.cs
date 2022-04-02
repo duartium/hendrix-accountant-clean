@@ -202,12 +202,17 @@ namespace HendrixAccountant
                 return;
             }
 
-            if(txtPago.Text.Equals("0.00") || txtPago.Text.Length == 0)
+            if (rbEfectivo.Checked)
             {
-                MessageBox.Show("Ingrese el valor que paga el cliente.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtPago.Focus();
-                return;
+                if (txtPago.Text.Equals("0.00") || txtPago.Text.Length == 0)
+                {
+                    MessageBox.Show("Ingrese el valor que paga el cliente.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPago.Focus();
+                    return;
+                }
             }
+            else
+                txtPago.Text = txtTotalPagar.Text;
 
             decimal pago = Convert.ToDecimal(txtPago.Text.Replace("$", "").Replace(",", "."), Utils.GetCulture());
             decimal totalPagar = Convert.ToDecimal(txtTotalPagar.Text.Replace(",", "."), Utils.GetCulture());
@@ -239,6 +244,7 @@ namespace HendrixAccountant
                     Pago = Convert.ToDecimal(txtPago.Text.Replace("$", ""), Utils.GetCulture()),
                     Cambio = Convert.ToDecimal(txtCambio.Text, Utils.GetCulture()),
                     Detalle = _lsProducts,
+                    Observaciones = txtObservaciones.Text,
                     Auditoria = new Audit{
                         IdUser = dataOp.IdUser,
                         Username = dataOp.Username,
@@ -281,10 +287,12 @@ namespace HendrixAccountant
             txtValorSubtotalGral.Text = "0.00";
             txtPago.Text = "0.00";
             txtCambio.Text = "0.00";
-
+            
             txtNombresCliente.Clear();
             txtIdentCliente.Clear();
             txtDireccionCliente.Clear();
+            txtObservaciones.Clear();
+
             _lsProducts.Clear();
             _client = null;
             _invoice = null;
@@ -786,6 +794,24 @@ namespace HendrixAccountant
             Clear();
             SetFinalConsumer();
             txtCodProducto.Focus();
+        }
+
+        private void rbTarjeta_CheckedChanged(object sender, EventArgs e)
+        {
+            lblPagoCliente.Visible = false;
+            txtPago.Text = txtTotalPagar.Text;
+            txtPago.Visible = false;
+            lblCambio.Visible = false;
+            txtCambio.Visible = false;
+        }
+
+        private void rbEfectivo_CheckedChanged(object sender, EventArgs e)
+        {
+            lblPagoCliente.Visible = true;
+            txtPago.Text = "0.00";
+            txtPago.Visible = true;
+            lblCambio.Visible = true;
+            txtCambio.Visible = true;
         }
     }
 }

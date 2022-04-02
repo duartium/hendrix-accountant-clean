@@ -76,6 +76,7 @@ namespace HendrixAccountant.ApplicationCore.Services
                         new XElement("total", invoice.Total),
                         new XElement("pago", invoice.Pago),
                         new XElement("cambio", invoice.Cambio),
+                        new XElement("observaciones", invoice.Observaciones),
                         new XElement("descuento", invoice.TotalDescuento),
                         new XElement("detalles",
                             (from det in invoice.Detalle

@@ -630,5 +630,10 @@ namespace HendrixAccountant
             frmGastos.FormClosed += new FormClosedEventHandler(gastos_FormClosed);
             frmGastos.Show();
         }
+
+        private void historialClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

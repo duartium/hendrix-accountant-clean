@@ -18,6 +18,7 @@ namespace HendrixAccountant.ApplicationCore.DTOs
         public decimal Total { get; set; }
         public decimal Pago { get; set; }
         public decimal Cambio { get; set; }
+        public string Observaciones { get; set; }
         public List<ProductIdentityDto> Detalle { get; set; }
         public Audit Auditoria { get; set; }
     }
