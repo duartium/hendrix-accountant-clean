@@ -635,5 +635,12 @@ namespace HendrixAccountant
         {
 
         }
+
+        private void administrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowClient();
+            DeselectButtons();
+            itemClientes.BackColor = DataOperator.Instance.ColorQuaternary;
+        }
     }
 }

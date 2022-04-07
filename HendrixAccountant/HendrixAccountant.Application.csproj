@@ -109,6 +109,12 @@
     <Compile Include="Forms\Clients\frmBuscarClientes.Designer.cs">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Clients\frmClienteHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clients\frmClienteHistorial.Designer.cs">
+      <DependentUpon>frmClienteHistorial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Clients\frmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clients\frmBuscarClientes.resx">
       <DependentUpon>frmBuscarClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Clients\frmClienteHistorial.resx">
+      <DependentUpon>frmClienteHistorial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clients\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
