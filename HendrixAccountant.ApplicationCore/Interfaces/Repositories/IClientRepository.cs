@@ -14,5 +14,6 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
         List<ClientDto> GetList();
         bool IsDuplicateClient(string identification);
         DataTable GetBirthdayCustomers(int month);
+        DataTable GetHistory(CustomerHistoryFilters filters); 
     }
 }

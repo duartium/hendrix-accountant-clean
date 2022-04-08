@@ -29,4 +29,12 @@ namespace HendrixAccountant.ApplicationCore.DTOs
         public string NombresCompletos { get; set; }
         public string Direccion { get; set; }
     }
+
+    public class CustomerHistoryFilters
+    {
+        public string Identificacion { get; set; }
+        public string Nombres { get; set; }
+        public string FechaDesde { get; set; }
+        public string FechaHasta { get; set; }
+    }
 }

@@ -43,16 +43,16 @@ namespace HendrixAccountant.Forms.Clients
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnBuscar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
-            this.dgvVentaGeneral = new System.Windows.Forms.DataGridView();
-            this.cboTipoIdentif = new System.Windows.Forms.ComboBox();
+            this.dgvHistorialCliente = new System.Windows.Forms.DataGridView();
             this.colSecuencial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cboTipoFechas = new System.Windows.Forms.ComboBox();
             this.pnNombres.SuspendLayout();
             this.pnIdentificacion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVentaGeneral)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // pnNombres
@@ -158,13 +158,13 @@ namespace HendrixAccountant.Forms.Clients
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // dgvVentaGeneral
+            // dgvHistorialCliente
             // 
-            this.dgvVentaGeneral.AllowUserToAddRows = false;
-            this.dgvVentaGeneral.AllowUserToResizeRows = false;
-            this.dgvVentaGeneral.BackgroundColor = System.Drawing.SystemColors.ControlLight;
-            this.dgvVentaGeneral.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvVentaGeneral.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvHistorialCliente.AllowUserToAddRows = false;
+            this.dgvHistorialCliente.AllowUserToResizeRows = false;
+            this.dgvHistorialCliente.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvHistorialCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvHistorialCliente.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -172,37 +172,21 @@ namespace HendrixAccountant.Forms.Clients
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVentaGeneral.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvVentaGeneral.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvVentaGeneral.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvHistorialCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvHistorialCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvHistorialCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSecuencial,
             this.colFechaEmision,
             this.colCliente,
             this.colTotal,
             this.colUsuario});
-            this.dgvVentaGeneral.EnableHeadersVisualStyles = false;
-            this.dgvVentaGeneral.Location = new System.Drawing.Point(30, 96);
-            this.dgvVentaGeneral.Name = "dgvVentaGeneral";
-            this.dgvVentaGeneral.RowHeadersVisible = false;
-            this.dgvVentaGeneral.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVentaGeneral.Size = new System.Drawing.Size(903, 476);
-            this.dgvVentaGeneral.TabIndex = 25;
-            // 
-            // cboTipoIdentif
-            // 
-            this.cboTipoIdentif.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTipoIdentif.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTipoIdentif.FormattingEnabled = true;
-            this.cboTipoIdentif.Items.AddRange(new object[] {
-            "TODO",
-            "ÚLTIMO MES",
-            "ÚLTIMOS 3 MESES",
-            "ÚLTIMOS 6 MESES",
-            "ÚLTIMO AÑO"});
-            this.cboTipoIdentif.Location = new System.Drawing.Point(606, 49);
-            this.cboTipoIdentif.Name = "cboTipoIdentif";
-            this.cboTipoIdentif.Size = new System.Drawing.Size(205, 24);
-            this.cboTipoIdentif.TabIndex = 82;
+            this.dgvHistorialCliente.EnableHeadersVisualStyles = false;
+            this.dgvHistorialCliente.Location = new System.Drawing.Point(30, 96);
+            this.dgvHistorialCliente.Name = "dgvHistorialCliente";
+            this.dgvHistorialCliente.RowHeadersVisible = false;
+            this.dgvHistorialCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvHistorialCliente.Size = new System.Drawing.Size(903, 476);
+            this.dgvHistorialCliente.TabIndex = 25;
             // 
             // colSecuencial
             // 
@@ -251,14 +235,30 @@ namespace HendrixAccountant.Forms.Clients
             this.colUsuario.ReadOnly = true;
             this.colUsuario.Width = 270;
             // 
+            // cboTipoFechas
+            // 
+            this.cboTipoFechas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoFechas.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTipoFechas.FormattingEnabled = true;
+            this.cboTipoFechas.Items.AddRange(new object[] {
+            "ÚLTIMO MES",
+            "ÚLTIMOS 3 MESES",
+            "ÚLTIMOS 6 MESES",
+            "ÚLTIMO AÑO",
+            "TODO"});
+            this.cboTipoFechas.Location = new System.Drawing.Point(606, 49);
+            this.cboTipoFechas.Name = "cboTipoFechas";
+            this.cboTipoFechas.Size = new System.Drawing.Size(205, 24);
+            this.cboTipoFechas.TabIndex = 82;
+            // 
             // frmClienteHistorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(972, 606);
-            this.Controls.Add(this.cboTipoIdentif);
-            this.Controls.Add(this.dgvVentaGeneral);
+            this.Controls.Add(this.cboTipoFechas);
+            this.Controls.Add(this.dgvHistorialCliente);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.pnNombres);
             this.Controls.Add(this.label5);
@@ -270,11 +270,12 @@ namespace HendrixAccountant.Forms.Clients
             this.Name = "frmClienteHistorial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "HISTORIAL DE CLIENTE";
+            this.Load += new System.EventHandler(this.frmClienteHistorial_Load);
             this.pnNombres.ResumeLayout(false);
             this.pnNombres.PerformLayout();
             this.pnIdentificacion.ResumeLayout(false);
             this.pnIdentificacion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVentaGeneral)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,8 +292,8 @@ namespace HendrixAccountant.Forms.Clients
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private UIControls.Buttons.ItemAsideSmall btnBuscar;
-        private System.Windows.Forms.DataGridView dgvVentaGeneral;
-        private System.Windows.Forms.ComboBox cboTipoIdentif;
+        private System.Windows.Forms.DataGridView dgvHistorialCliente;
+        private System.Windows.Forms.ComboBox cboTipoFechas;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSecuencial;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFechaEmision;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;

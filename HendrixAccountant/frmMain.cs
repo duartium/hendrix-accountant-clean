@@ -38,6 +38,7 @@ namespace HendrixAccountant
         private CajaRepository _rpsCash = null;
         private frmCierreCaja frmCierreCaja = null;
         private frmGastos frmGastos = null;
+        private frmClienteHistorial frmClienteHistorial = null;
 
         #region constructores
         public frmMain()
@@ -152,6 +153,11 @@ namespace HendrixAccountant
         private void frmVentas_FormClosed(object sender, EventArgs e)
         {
             frmVentas = null;
+        }
+
+        private void frmClienteHistorial_FormClosed(object sender, EventArgs e)
+        {
+            frmClienteHistorial = null;
         }
 
         private void mantProveedor_FormClosed(object sender, EventArgs e)
@@ -358,9 +364,7 @@ namespace HendrixAccountant
 
         private void clientesToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            ShowClient();
-            DeselectButtons();
-            itemClientes.BackColor = DataOperator.Instance.ColorQuaternary;
+            
         }
 
         private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -633,7 +637,15 @@ namespace HendrixAccountant
 
         private void historialClientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (frmClienteHistorial != null)
+            {
+                frmClienteHistorial.BringToFront();
+                return;
+            }
+            frmClienteHistorial = new frmClienteHistorial();
+            frmClienteHistorial.MdiParent = this;
+            frmClienteHistorial.FormClosed += new FormClosedEventHandler(frmClienteHistorial_FormClosed);
+            frmClienteHistorial.Show();
         }
 
         private void administrarToolStripMenuItem_Click(object sender, EventArgs e)

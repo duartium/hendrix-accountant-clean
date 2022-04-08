@@ -98,5 +98,15 @@ namespace HendrixAccountant.Data
             return dsResp.Tables[0];
         }
 
+        public DataTable GetHistory(CustomerHistoryFilters filters)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@identificacion", filters.Identificacion));
+            parms.Add(new SqlParameter("@nombres", filters.Nombres));
+            parms.Add(new SqlParameter("@fecha_desde", filters.FechaDesde));
+            parms.Add(new SqlParameter("@fecha_hasta", filters.FechaHasta));
+            var dsResp = _sqlServer.ExecuteProcedure("QRY_CUSTOMER_HISTORY", parms);
+            return dsResp.Tables[0];
+        }
     }
 }
