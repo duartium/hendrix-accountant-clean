@@ -35,9 +35,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPuntoVenta));
             this.gpDatosVenta = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.chbImprimir = new System.Windows.Forms.CheckBox();
             this.gbFromaPago = new System.Windows.Forms.GroupBox();
             this.rbTarjeta = new System.Windows.Forms.RadioButton();
             this.rbEfectivo = new System.Windows.Forms.RadioButton();
+            this.pnDireccion = new System.Windows.Forms.Panel();
+            this.txtDireccionCliente = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.pnNombres = new System.Windows.Forms.Panel();
             this.txtNombresCliente = new HendrixAccountant.UIControls.TextInput();
@@ -82,20 +89,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCodProducto = new System.Windows.Forms.TextBox();
-            this.chbImprimir = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtDireccionCliente = new System.Windows.Forms.TextBox();
-            this.pnDireccion = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtObservaciones = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpDatosVenta.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.gbFromaPago.SuspendLayout();
+            this.pnDireccion.SuspendLayout();
             this.pnNombres.SuspendLayout();
             this.pnIdentificacion.SuspendLayout();
             this.pnMontosVenta.SuspendLayout();
@@ -104,8 +106,6 @@
             this.statusPOS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuntoVenta)).BeginInit();
             this.panel1.SuspendLayout();
-            this.pnDireccion.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpDatosVenta
@@ -128,6 +128,51 @@
             this.gpDatosVenta.Size = new System.Drawing.Size(707, 208);
             this.gpDatosVenta.TabIndex = 0;
             this.gpDatosVenta.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.txtObservaciones);
+            this.panel2.Location = new System.Drawing.Point(410, 139);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(279, 54);
+            this.panel2.TabIndex = 20;
+            // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.BackColor = System.Drawing.SystemColors.Control;
+            this.txtObservaciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtObservaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObservaciones.Location = new System.Drawing.Point(11, 8);
+            this.txtObservaciones.MaxLength = 300;
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtObservaciones.Size = new System.Drawing.Size(258, 38);
+            this.txtObservaciones.TabIndex = 10;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label14.Location = new System.Drawing.Point(407, 123);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(125, 15);
+            this.label14.TabIndex = 25;
+            this.label14.Text = "Nota / Observaciones";
+            // 
+            // chbImprimir
+            // 
+            this.chbImprimir.AutoSize = true;
+            this.chbImprimir.Checked = true;
+            this.chbImprimir.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbImprimir.Location = new System.Drawing.Point(283, 28);
+            this.chbImprimir.Name = "chbImprimir";
+            this.chbImprimir.Size = new System.Drawing.Size(127, 17);
+            this.chbImprimir.TabIndex = 24;
+            this.chbImprimir.Text = "Imprimir Comprobante";
+            this.chbImprimir.UseVisualStyleBackColor = true;
             // 
             // gbFromaPago
             // 
@@ -167,6 +212,36 @@
             this.rbEfectivo.Text = "Efectivo";
             this.rbEfectivo.UseVisualStyleBackColor = true;
             this.rbEfectivo.CheckedChanged += new System.EventHandler(this.rbEfectivo_CheckedChanged);
+            // 
+            // pnDireccion
+            // 
+            this.pnDireccion.BackColor = System.Drawing.SystemColors.Control;
+            this.pnDireccion.Controls.Add(this.txtDireccionCliente);
+            this.pnDireccion.Controls.Add(this.label1);
+            this.pnDireccion.Location = new System.Drawing.Point(18, 139);
+            this.pnDireccion.Name = "pnDireccion";
+            this.pnDireccion.Size = new System.Drawing.Size(381, 32);
+            this.pnDireccion.TabIndex = 19;
+            // 
+            // txtDireccionCliente
+            // 
+            this.txtDireccionCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.txtDireccionCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDireccionCliente.Enabled = false;
+            this.txtDireccionCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccionCliente.Location = new System.Drawing.Point(7, 8);
+            this.txtDireccionCliente.Name = "txtDireccionCliente";
+            this.txtDireccionCliente.Size = new System.Drawing.Size(366, 15);
+            this.txtDireccionCliente.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Location = new System.Drawing.Point(0, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(381, 2);
+            this.label1.TabIndex = 9;
             // 
             // label8
             // 
@@ -660,6 +735,7 @@
             this.dgvPuntoVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPuntoVenta.Size = new System.Drawing.Size(703, 284);
             this.dgvPuntoVenta.TabIndex = 6;
+            this.dgvPuntoVenta.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvPuntoVenta_CellBeginEdit);
             this.dgvPuntoVenta.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvPuntoVenta_EditingControlShowing);
             this.dgvPuntoVenta.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvPuntoVenta_UserDeletingRow);
             // 
@@ -741,83 +817,9 @@
             this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
             this.txtCodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodProducto_KeyPress_1);
             // 
-            // chbImprimir
-            // 
-            this.chbImprimir.AutoSize = true;
-            this.chbImprimir.Checked = true;
-            this.chbImprimir.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbImprimir.Location = new System.Drawing.Point(283, 28);
-            this.chbImprimir.Name = "chbImprimir";
-            this.chbImprimir.Size = new System.Drawing.Size(127, 17);
-            this.chbImprimir.TabIndex = 24;
-            this.chbImprimir.Text = "Imprimir Comprobante";
-            this.chbImprimir.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(107)))), ((int)(((byte)(247)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(0, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(381, 2);
-            this.label1.TabIndex = 9;
-            // 
-            // txtDireccionCliente
-            // 
-            this.txtDireccionCliente.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDireccionCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDireccionCliente.Enabled = false;
-            this.txtDireccionCliente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccionCliente.Location = new System.Drawing.Point(7, 8);
-            this.txtDireccionCliente.Name = "txtDireccionCliente";
-            this.txtDireccionCliente.Size = new System.Drawing.Size(366, 15);
-            this.txtDireccionCliente.TabIndex = 0;
-            // 
-            // pnDireccion
-            // 
-            this.pnDireccion.BackColor = System.Drawing.SystemColors.Control;
-            this.pnDireccion.Controls.Add(this.txtDireccionCliente);
-            this.pnDireccion.Controls.Add(this.label1);
-            this.pnDireccion.Location = new System.Drawing.Point(18, 139);
-            this.pnDireccion.Name = "pnDireccion";
-            this.pnDireccion.Size = new System.Drawing.Size(381, 32);
-            this.pnDireccion.TabIndex = 19;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.label14.Location = new System.Drawing.Point(407, 123);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(125, 15);
-            this.label14.TabIndex = 25;
-            this.label14.Text = "Nota / Observaciones";
-            // 
-            // txtObservaciones
-            // 
-            this.txtObservaciones.BackColor = System.Drawing.SystemColors.Control;
-            this.txtObservaciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtObservaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservaciones.Location = new System.Drawing.Point(11, 8);
-            this.txtObservaciones.MaxLength = 300;
-            this.txtObservaciones.Multiline = true;
-            this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtObservaciones.Size = new System.Drawing.Size(258, 38);
-            this.txtObservaciones.TabIndex = 10;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.txtObservaciones);
-            this.panel2.Location = new System.Drawing.Point(410, 139);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(279, 54);
-            this.panel2.TabIndex = 20;
-            // 
             // colCodigo
             // 
+            this.colCodigo.DataPropertyName = "Codigo";
             this.colCodigo.HeaderText = "Código";
             this.colCodigo.Name = "colCodigo";
             this.colCodigo.ReadOnly = true;
@@ -825,6 +827,7 @@
             // 
             // colNombre
             // 
+            this.colNombre.DataPropertyName = "Nombre";
             this.colNombre.HeaderText = "Nombre de producto";
             this.colNombre.Name = "colNombre";
             this.colNombre.ReadOnly = true;
@@ -832,6 +835,7 @@
             // 
             // colCantidad
             // 
+            this.colCantidad.DataPropertyName = "Cantidad";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.colCantidad.DefaultCellStyle = dataGridViewCellStyle2;
             this.colCantidad.HeaderText = "Cantidad";
@@ -840,6 +844,7 @@
             // 
             // colDireccion
             // 
+            this.colDireccion.DataPropertyName = "Precio";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.colDireccion.DefaultCellStyle = dataGridViewCellStyle3;
             this.colDireccion.HeaderText = "Precio";
@@ -849,6 +854,7 @@
             // 
             // colTotal
             // 
+            this.colTotal.DataPropertyName = "Total";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle4.NullValue = "0";
             this.colTotal.DefaultCellStyle = dataGridViewCellStyle4;
@@ -887,8 +893,12 @@
             this.Load += new System.EventHandler(this.frmPuntoVenta_Load);
             this.gpDatosVenta.ResumeLayout(false);
             this.gpDatosVenta.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.gbFromaPago.ResumeLayout(false);
             this.gbFromaPago.PerformLayout();
+            this.pnDireccion.ResumeLayout(false);
+            this.pnDireccion.PerformLayout();
             this.pnNombres.ResumeLayout(false);
             this.pnNombres.PerformLayout();
             this.pnIdentificacion.ResumeLayout(false);
@@ -901,10 +911,6 @@
             this.statusPOS.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPuntoVenta)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.pnDireccion.ResumeLayout(false);
-            this.pnDireccion.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

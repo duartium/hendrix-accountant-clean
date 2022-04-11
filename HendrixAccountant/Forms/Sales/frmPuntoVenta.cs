@@ -35,6 +35,11 @@ namespace HendrixAccountant
         private IParameterRepository _rpsParams;
         private readonly IReports _rpsReport;
         private bool isKeyValid;
+        private bool isEditingPrice;
+        TextBox tbChangeQuantity;
+        TextBox tbPrecioChanged;
+        bool quantityHasEvent;
+        bool priceHasEvent;
         public frmPuntoVenta()
         {
             InitializeComponent();
@@ -50,6 +55,10 @@ namespace HendrixAccountant
             _rpsReport = new SaleReportService();
             SetFinalConsumer();
             isKeyValid = false;
+            this.dgvPuntoVenta.AutoGenerateColumns = false;
+            quantityHasEvent = false;
+            priceHasEvent = false;
+
         }
 
         private void frmPuntoVenta_Load(object sender, EventArgs e)
@@ -99,10 +108,11 @@ namespace HendrixAccountant
             frmBuscarProductos frmBuscarProductos = new frmBuscarProductos(this);
             frmBuscarProductos.ShowDialog();
         }
-
+        
         private void FillGrid()
         {
             if (_product == null) return;
+            //dgvPuntoVenta.DataSource = _lsProducts;
             dgvPuntoVenta.Rows.Add(_product.Codigo, _product.Nombre, _product.Cantidad, _product.Precio, _product.Total);
             dgvPuntoVenta.FirstDisplayedScrollingRowIndex = dgvPuntoVenta.RowCount - 1;
             EnableRemove();
@@ -165,8 +175,8 @@ namespace HendrixAccountant
 
             decimal subtotal0 = _lsProducts.Where(x => x.TarifaIva == 0).Select(x => x.Total).Sum();
             decimal subtotal12 = _lsProducts.Where(x => x.TarifaIva == 12).Select(x => x.Total).Sum();
-            decimal subtotal = subtotal0 + subtotal12;
-            decimal totalGeneral = subtotal - _descuento;
+            decimal subtotal = Math.Round(subtotal0 + subtotal12, 2);
+            decimal totalGeneral = Math.Round(subtotal - _descuento, 2);
             decimal iva = Math.Round((subtotal12 * 0.12M), 2);
 
             txtValorSubtotal0.Text = subtotal0.ToString().Replace(",", ".");
@@ -651,11 +661,13 @@ namespace HendrixAccountant
             try
             {
                 //e.Control.KeyDown -= columns_keydown;
-                TextBox tb = e.Control as TextBox;
-                tb.MaxLength = 10;
+
+                string x = dgvPuntoVenta.Columns[dgvPuntoVenta.CurrentCell.ColumnIndex].HeaderText;
                 if (dgvPuntoVenta.CurrentCell.ColumnIndex == 3)//precio
                 {
-                    if (tb != null)
+                    TextBox tbPrecio = e.Control as TextBox;
+                    tbPrecio.MaxLength = 10;
+                    if (tbPrecio != null)
                     {
                         //tb.KeyDown -= columns_keydown;
                         //tb.KeyDown += columns_keydown;
@@ -665,19 +677,23 @@ namespace HendrixAccountant
 
                         //tb.KeyPress -= new KeyPressEventHandler(column_int_keypress);
                         //tb.KeyPress += new KeyPressEventHandler(column_int_keypress);
-
-                        tb.TextChanged -= new EventHandler(tb_TextChanged);
-                        tb.TextChanged += new EventHandler(tb_TextChanged);
+                        tbPrecio.TextChanged -= new EventHandler(tb_TextChanged);
+                        tbPrecio.TextChanged += new EventHandler(tb_TextChanged);
+                        
                     }
                 }
                 else if (dgvPuntoVenta.CurrentCell.ColumnIndex == 2) //cantidad
                 {
-                    tb.TextChanged -= new EventHandler(tb_TextChangedInt);
-                    tb.TextChanged += new EventHandler(tb_TextChangedInt);
+                    isEditingPrice = false;
+                    TextBox tbCantidad = e.Control as TextBox;
+                    tbCantidad.MaxLength = 10;
+                    tbCantidad.TextChanged -= new EventHandler(tb_TextChangedInt);
+                    tbCantidad.TextChanged += new EventHandler(tb_TextChangedInt);
                 }
             }
             catch (ArgumentException)
             {
+
             }
             catch (Exception ex)
             {
@@ -687,50 +703,73 @@ namespace HendrixAccountant
 
         private void tb_TextChanged(object sender, EventArgs e)
         {
-            TextBox tb = sender as TextBox;
-            tb.MaxLength = 10;
-            tb.KeyPress -= new KeyPressEventHandler(column_int_keypress);
-            tb.KeyPress += new KeyPressEventHandler(column_int_keypress);
+            if (!isEditingPrice) return;
+
+            tbPrecioChanged = sender as TextBox;
+            tbPrecioChanged.MaxLength = 10;
+
+            if (!priceHasEvent)
+            {
+                tbPrecioChanged.KeyPress -= new KeyPressEventHandler(column_int_keypress);
+                tbPrecioChanged.KeyPress += new KeyPressEventHandler(column_int_keypress);
+            }
 
             string valor = (sender as TextBox).Text;
+            if (valor.StartsWith("."))
+            {
+                tbPrecioChanged.Text = "";
+                return;
+            }
 
-            if(valor != "")
+
+            if (valor != "" && !valor.StartsWith("."))
             {
                 int rowIndex = dgvPuntoVenta.CurrentRow.Index;
                 var product = _lsProducts[rowIndex];
 
+                product.Precio = Convert.ToDecimal(valor, Utils.GetCulture());
                 _lsProducts[rowIndex].Precio = Convert.ToDecimal(valor, Utils.GetCulture());
-                _product.Cantidad = product.Cantidad;
-
-                decimal total = _product.Precio * product.Cantidad;
+                //_product.Cantidad = product.Cantidad;
+                
+                decimal total = product.Precio * product.Cantidad;
                 _lsProducts[rowIndex].Total = Math.Round(total, 2);
-
+                
+                dgvPuntoVenta.Rows[rowIndex].Cells[4].Value = total.ToString();
+               
                 CalcularTotales();
             }
         }
 
         private void tb_TextChangedInt(object sender, EventArgs e)
         {
-            TextBox tb = sender as TextBox;
-            tb.MaxLength = 10;
-            tb.KeyPress -= new KeyPressEventHandler(column_int_keypressInt);
-            tb.KeyPress += new KeyPressEventHandler(column_int_keypressInt);
+            if (isEditingPrice) return;
+
+            tbChangeQuantity = sender as TextBox;
+            tbChangeQuantity.MaxLength = 10;
+
+            if (!quantityHasEvent)
+            {
+                tbChangeQuantity.KeyPress -= new KeyPressEventHandler(column_int_keypressInt);
+                tbChangeQuantity.KeyPress += new KeyPressEventHandler(column_int_keypressInt);
+            }
             
+
             string cantidad = (sender as TextBox).Text;
 
-            if (cantidad != "")
+            if (cantidad != "" && !cantidad.Contains("."))
             {
                 int rowIndex = dgvPuntoVenta.CurrentRow.Index;
                 var product = _lsProducts[rowIndex];
-
                 _lsProducts[rowIndex].Cantidad = Convert.ToInt32(cantidad, Utils.GetCulture());
-                _product.Cantidad = _lsProducts[rowIndex].Cantidad;
+                //_product.Cantidad = _lsProducts[rowIndex].Cantidad;
 
-                decimal total = _product.Precio * _product.Cantidad;
+                decimal total = product.Precio * product.Cantidad;
                 _lsProducts[rowIndex].Total = Math.Round(total, 2);
+                dgvPuntoVenta.Rows[rowIndex].Cells[4].Value = total.ToString();
 
                 CalcularTotales();
             }
+            quantityHasEvent = true;
         }
 
         private void columns_keydown(object sender, KeyEventArgs e)
@@ -790,7 +829,7 @@ namespace HendrixAccountant
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            RemoveStockProducts();
+            RemoveAllProducts();
             Clear();
             SetFinalConsumer();
             txtCodProducto.Focus();
@@ -812,6 +851,11 @@ namespace HendrixAccountant
             txtPago.Visible = true;
             lblCambio.Visible = true;
             txtCambio.Visible = true;
+        }
+
+        private void dgvPuntoVenta_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            isEditingPrice = e.ColumnIndex == 3;
         }
     }
 }
