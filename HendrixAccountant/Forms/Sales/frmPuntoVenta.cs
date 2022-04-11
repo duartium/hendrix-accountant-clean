@@ -660,8 +660,6 @@ namespace HendrixAccountant
 
             try
             {
-                //e.Control.KeyDown -= columns_keydown;
-
                 string x = dgvPuntoVenta.Columns[dgvPuntoVenta.CurrentCell.ColumnIndex].HeaderText;
                 if (dgvPuntoVenta.CurrentCell.ColumnIndex == 3)//precio
                 {
@@ -669,17 +667,8 @@ namespace HendrixAccountant
                     tbPrecio.MaxLength = 10;
                     if (tbPrecio != null)
                     {
-                        //tb.KeyDown -= columns_keydown;
-                        //tb.KeyDown += columns_keydown;
-
-                        //tb.KeyDown -= new KeyEventHandler(columns_keydown);
-                        //tb.KeyDown += new KeyEventHandler(columns_keydown);
-
-                        //tb.KeyPress -= new KeyPressEventHandler(column_int_keypress);
-                        //tb.KeyPress += new KeyPressEventHandler(column_int_keypress);
                         tbPrecio.TextChanged -= new EventHandler(tb_TextChanged);
                         tbPrecio.TextChanged += new EventHandler(tb_TextChanged);
-                        
                     }
                 }
                 else if (dgvPuntoVenta.CurrentCell.ColumnIndex == 2) //cantidad
@@ -710,8 +699,8 @@ namespace HendrixAccountant
 
             if (!priceHasEvent)
             {
-                tbPrecioChanged.KeyPress -= new KeyPressEventHandler(column_int_keypress);
-                tbPrecioChanged.KeyPress += new KeyPressEventHandler(column_int_keypress);
+                tbPrecioChanged.KeyPress -= new KeyPressEventHandler(column_keypress_Validation);
+                tbPrecioChanged.KeyPress += new KeyPressEventHandler(column_keypress_Validation);
             }
 
             string valor = (sender as TextBox).Text;
@@ -749,8 +738,8 @@ namespace HendrixAccountant
 
             if (!quantityHasEvent)
             {
-                tbChangeQuantity.KeyPress -= new KeyPressEventHandler(column_int_keypressInt);
-                tbChangeQuantity.KeyPress += new KeyPressEventHandler(column_int_keypressInt);
+                tbChangeQuantity.KeyPress -= new KeyPressEventHandler(column_keypress_Validation);
+                tbChangeQuantity.KeyPress += new KeyPressEventHandler(column_keypress_Validation);
             }
             
 
@@ -813,18 +802,41 @@ namespace HendrixAccountant
 
         }
 
-        private void column_int_keypressInt(object sender, KeyPressEventArgs e)
+        private void column_keypress_Validation(object sender, KeyPressEventArgs e)
         {
-
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (isEditingPrice)
             {
-                e.Handled = true;
-                isKeyValid = false;
-                return;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                {
+                    e.Handled = true;
+                    isKeyValid = false;
+                    return;
+                }
+                else
+                    isKeyValid = true;
+
+                string valor = (sender as TextBox).Text;
+
+                //solo un punto decimal
+                if ((e.KeyChar == '.') && (valor.IndexOf('.') > -1))
+                {
+                    e.Handled = true;
+                    isKeyValid = false;
+                }
+                else
+                    isKeyValid = true;
             }
             else
-                isKeyValid = true;
-
+            {
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;
+                    isKeyValid = false;
+                    return;
+                }
+                else
+                    isKeyValid = true;
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
