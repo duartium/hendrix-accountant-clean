@@ -30,6 +30,7 @@ namespace HendrixAccountant.Forms.Clients
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,12 +45,12 @@ namespace HendrixAccountant.Forms.Clients
             this.label3 = new System.Windows.Forms.Label();
             this.btnBuscar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
             this.dgvHistorialCliente = new System.Windows.Forms.DataGridView();
+            this.cboTipoFechas = new System.Windows.Forms.ComboBox();
             this.colSecuencial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cboTipoFechas = new System.Windows.Forms.ComboBox();
+            this.colObservaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnNombres.SuspendLayout();
             this.pnIdentificacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialCliente)).BeginInit();
@@ -69,13 +70,14 @@ namespace HendrixAccountant.Forms.Clients
             // 
             this.txtNombresCliente.BackColor = System.Drawing.SystemColors.Control;
             this.txtNombresCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombresCliente.Enabled = false;
             this.txtNombresCliente.Font = new System.Drawing.Font("Arial", 10F);
             this.txtNombresCliente.Location = new System.Drawing.Point(9, 7);
             this.txtNombresCliente.MaxLength = 100;
             this.txtNombresCliente.Name = "txtNombresCliente";
             this.txtNombresCliente.Size = new System.Drawing.Size(333, 16);
             this.txtNombresCliente.TabIndex = 0;
+            this.txtNombresCliente.TextChanged += new System.EventHandler(this.txtNombresCliente_TextChanged);
+            this.txtNombresCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombresCliente_KeyDown);
             // 
             // label4
             // 
@@ -117,6 +119,8 @@ namespace HendrixAccountant.Forms.Clients
             this.txtIdentCliente.Name = "txtIdentCliente";
             this.txtIdentCliente.Size = new System.Drawing.Size(166, 19);
             this.txtIdentCliente.TabIndex = 0;
+            this.txtIdentCliente.TextChanged += new System.EventHandler(this.txtIdentCliente_TextChanged);
+            this.txtIdentCliente.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtIdentCliente_KeyDown);
             // 
             // label7
             // 
@@ -162,6 +166,7 @@ namespace HendrixAccountant.Forms.Clients
             // 
             this.dgvHistorialCliente.AllowUserToAddRows = false;
             this.dgvHistorialCliente.AllowUserToResizeRows = false;
+            this.dgvHistorialCliente.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvHistorialCliente.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dgvHistorialCliente.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvHistorialCliente.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -179,19 +184,44 @@ namespace HendrixAccountant.Forms.Clients
             this.colFechaEmision,
             this.colCliente,
             this.colTotal,
-            this.colUsuario});
+            this.colObservaciones});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHistorialCliente.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvHistorialCliente.EnableHeadersVisualStyles = false;
             this.dgvHistorialCliente.Location = new System.Drawing.Point(30, 96);
             this.dgvHistorialCliente.Name = "dgvHistorialCliente";
             this.dgvHistorialCliente.RowHeadersVisible = false;
             this.dgvHistorialCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHistorialCliente.Size = new System.Drawing.Size(903, 476);
+            this.dgvHistorialCliente.Size = new System.Drawing.Size(905, 476);
             this.dgvHistorialCliente.TabIndex = 25;
+            // 
+            // cboTipoFechas
+            // 
+            this.cboTipoFechas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoFechas.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTipoFechas.FormattingEnabled = true;
+            this.cboTipoFechas.Items.AddRange(new object[] {
+            "ÚLTIMO MES",
+            "ÚLTIMOS 3 MESES",
+            "ÚLTIMOS 6 MESES",
+            "ÚLTIMO AÑO",
+            "TODO"});
+            this.cboTipoFechas.Location = new System.Drawing.Point(606, 49);
+            this.cboTipoFechas.Name = "cboTipoFechas";
+            this.cboTipoFechas.Size = new System.Drawing.Size(205, 24);
+            this.cboTipoFechas.TabIndex = 82;
+            this.cboTipoFechas.SelectedIndexChanged += new System.EventHandler(this.cboTipoFechas_SelectedIndexChanged);
             // 
             // colSecuencial
             // 
             this.colSecuencial.DataPropertyName = "secuencial";
-            this.colSecuencial.HeaderText = "Número";
+            this.colSecuencial.HeaderText = "Nº Factura";
             this.colSecuencial.Name = "colSecuencial";
             this.colSecuencial.ReadOnly = true;
             this.colSecuencial.Width = 80;
@@ -199,7 +229,7 @@ namespace HendrixAccountant.Forms.Clients
             // colFechaEmision
             // 
             this.colFechaEmision.DataPropertyName = "fechaEmision";
-            this.colFechaEmision.HeaderText = "Fecha de emisión";
+            this.colFechaEmision.HeaderText = "Fecha de venta";
             this.colFechaEmision.Name = "colFechaEmision";
             this.colFechaEmision.ReadOnly = true;
             this.colFechaEmision.Width = 130;
@@ -225,31 +255,15 @@ namespace HendrixAccountant.Forms.Clients
             this.colTotal.ReadOnly = true;
             this.colTotal.Width = 120;
             // 
-            // colUsuario
+            // colObservaciones
             // 
-            this.colUsuario.DataPropertyName = "usuarioCrea";
+            this.colObservaciones.DataPropertyName = "observaciones";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.colUsuario.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colUsuario.HeaderText = "Nota/Observaciones";
-            this.colUsuario.Name = "colUsuario";
-            this.colUsuario.ReadOnly = true;
-            this.colUsuario.Width = 270;
-            // 
-            // cboTipoFechas
-            // 
-            this.cboTipoFechas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTipoFechas.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTipoFechas.FormattingEnabled = true;
-            this.cboTipoFechas.Items.AddRange(new object[] {
-            "ÚLTIMO MES",
-            "ÚLTIMOS 3 MESES",
-            "ÚLTIMOS 6 MESES",
-            "ÚLTIMO AÑO",
-            "TODO"});
-            this.cboTipoFechas.Location = new System.Drawing.Point(606, 49);
-            this.cboTipoFechas.Name = "cboTipoFechas";
-            this.cboTipoFechas.Size = new System.Drawing.Size(205, 24);
-            this.cboTipoFechas.TabIndex = 82;
+            this.colObservaciones.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colObservaciones.HeaderText = "Nota/Observaciones";
+            this.colObservaciones.Name = "colObservaciones";
+            this.colObservaciones.ReadOnly = true;
+            this.colObservaciones.Width = 270;
             // 
             // frmClienteHistorial
             // 
@@ -298,6 +312,6 @@ namespace HendrixAccountant.Forms.Clients
         private System.Windows.Forms.DataGridViewTextBoxColumn colFechaEmision;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colObservaciones;
     }
 }
