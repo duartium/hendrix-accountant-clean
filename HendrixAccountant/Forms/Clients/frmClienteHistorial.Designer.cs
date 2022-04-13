@@ -30,10 +30,12 @@ namespace HendrixAccountant.Forms.Clients
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClienteHistorial));
             this.pnNombres = new System.Windows.Forms.Panel();
             this.txtNombresCliente = new HendrixAccountant.UIControls.TextInput();
@@ -48,12 +50,15 @@ namespace HendrixAccountant.Forms.Clients
             this.cboTipoFechas = new System.Windows.Forms.ComboBox();
             this.colSecuencial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colObservaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblNombresCliente = new System.Windows.Forms.Label();
+            this.dgvProductoServicio = new System.Windows.Forms.DataGridView();
+            this.colProductoServicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnNombres.SuspendLayout();
             this.pnIdentificacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductoServicio)).BeginInit();
             this.SuspendLayout();
             // 
             // pnNombres
@@ -165,6 +170,7 @@ namespace HendrixAccountant.Forms.Clients
             // dgvHistorialCliente
             // 
             this.dgvHistorialCliente.AllowUserToAddRows = false;
+            this.dgvHistorialCliente.AllowUserToDeleteRows = false;
             this.dgvHistorialCliente.AllowUserToResizeRows = false;
             this.dgvHistorialCliente.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvHistorialCliente.BackgroundColor = System.Drawing.SystemColors.ControlLight;
@@ -182,24 +188,25 @@ namespace HendrixAccountant.Forms.Clients
             this.dgvHistorialCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSecuencial,
             this.colFechaEmision,
-            this.colCliente,
             this.colTotal,
             this.colObservaciones});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHistorialCliente.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHistorialCliente.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvHistorialCliente.EnableHeadersVisualStyles = false;
-            this.dgvHistorialCliente.Location = new System.Drawing.Point(30, 96);
+            this.dgvHistorialCliente.Location = new System.Drawing.Point(30, 123);
             this.dgvHistorialCliente.Name = "dgvHistorialCliente";
+            this.dgvHistorialCliente.ReadOnly = true;
             this.dgvHistorialCliente.RowHeadersVisible = false;
             this.dgvHistorialCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHistorialCliente.Size = new System.Drawing.Size(905, 476);
+            this.dgvHistorialCliente.Size = new System.Drawing.Size(604, 449);
             this.dgvHistorialCliente.TabIndex = 25;
+            this.dgvHistorialCliente.SelectionChanged += new System.EventHandler(this.dgvHistorialCliente_SelectionChanged);
             // 
             // cboTipoFechas
             // 
@@ -224,6 +231,7 @@ namespace HendrixAccountant.Forms.Clients
             this.colSecuencial.HeaderText = "Nº Factura";
             this.colSecuencial.Name = "colSecuencial";
             this.colSecuencial.ReadOnly = true;
+            this.colSecuencial.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colSecuencial.Width = 80;
             // 
             // colFechaEmision
@@ -232,38 +240,91 @@ namespace HendrixAccountant.Forms.Clients
             this.colFechaEmision.HeaderText = "Fecha de venta";
             this.colFechaEmision.Name = "colFechaEmision";
             this.colFechaEmision.ReadOnly = true;
+            this.colFechaEmision.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colFechaEmision.Width = 130;
-            // 
-            // colCliente
-            // 
-            this.colCliente.DataPropertyName = "nombresCliente";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.colCliente.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colCliente.HeaderText = "Nombres de cliente";
-            this.colCliente.Name = "colCliente";
-            this.colCliente.ReadOnly = true;
-            this.colCliente.Width = 300;
             // 
             // colTotal
             // 
             this.colTotal.DataPropertyName = "total";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.NullValue = "0";
-            this.colTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.NullValue = "0";
+            this.colTotal.DefaultCellStyle = dataGridViewCellStyle2;
             this.colTotal.HeaderText = "Total";
             this.colTotal.Name = "colTotal";
             this.colTotal.ReadOnly = true;
+            this.colTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colTotal.Width = 120;
             // 
             // colObservaciones
             // 
             this.colObservaciones.DataPropertyName = "observaciones";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.colObservaciones.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colObservaciones.DefaultCellStyle = dataGridViewCellStyle3;
             this.colObservaciones.HeaderText = "Nota/Observaciones";
             this.colObservaciones.Name = "colObservaciones";
             this.colObservaciones.ReadOnly = true;
+            this.colObservaciones.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colObservaciones.Width = 270;
+            // 
+            // lblNombresCliente
+            // 
+            this.lblNombresCliente.AutoSize = true;
+            this.lblNombresCliente.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombresCliente.ForeColor = System.Drawing.Color.Black;
+            this.lblNombresCliente.Location = new System.Drawing.Point(27, 98);
+            this.lblNombresCliente.Name = "lblNombresCliente";
+            this.lblNombresCliente.Size = new System.Drawing.Size(64, 15);
+            this.lblNombresCliente.TabIndex = 83;
+            this.lblNombresCliente.Text = "CLIENTE: ";
+            this.lblNombresCliente.Visible = false;
+            // 
+            // dgvProductoServicio
+            // 
+            this.dgvProductoServicio.AllowUserToAddRows = false;
+            this.dgvProductoServicio.AllowUserToDeleteRows = false;
+            this.dgvProductoServicio.AllowUserToResizeRows = false;
+            this.dgvProductoServicio.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvProductoServicio.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.dgvProductoServicio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvProductoServicio.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductoServicio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvProductoServicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvProductoServicio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colProductoServicio});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductoServicio.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvProductoServicio.EnableHeadersVisualStyles = false;
+            this.dgvProductoServicio.Location = new System.Drawing.Point(643, 145);
+            this.dgvProductoServicio.Name = "dgvProductoServicio";
+            this.dgvProductoServicio.ReadOnly = true;
+            this.dgvProductoServicio.RowHeadersVisible = false;
+            this.dgvProductoServicio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductoServicio.Size = new System.Drawing.Size(307, 427);
+            this.dgvProductoServicio.TabIndex = 85;
+            // 
+            // colProductoServicio
+            // 
+            this.colProductoServicio.DataPropertyName = "productoServicio";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colProductoServicio.DefaultCellStyle = dataGridViewCellStyle6;
+            this.colProductoServicio.HeaderText = "Producto/Servicio";
+            this.colProductoServicio.Name = "colProductoServicio";
+            this.colProductoServicio.ReadOnly = true;
+            this.colProductoServicio.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colProductoServicio.Width = 300;
             // 
             // frmClienteHistorial
             // 
@@ -271,6 +332,8 @@ namespace HendrixAccountant.Forms.Clients
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(972, 606);
+            this.Controls.Add(this.dgvProductoServicio);
+            this.Controls.Add(this.lblNombresCliente);
             this.Controls.Add(this.cboTipoFechas);
             this.Controls.Add(this.dgvHistorialCliente);
             this.Controls.Add(this.btnBuscar);
@@ -290,6 +353,7 @@ namespace HendrixAccountant.Forms.Clients
             this.pnIdentificacion.ResumeLayout(false);
             this.pnIdentificacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorialCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductoServicio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,8 +374,10 @@ namespace HendrixAccountant.Forms.Clients
         private System.Windows.Forms.ComboBox cboTipoFechas;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSecuencial;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFechaEmision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn colObservaciones;
+        private System.Windows.Forms.Label lblNombresCliente;
+        private System.Windows.Forms.DataGridView dgvProductoServicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colProductoServicio;
     }
 }

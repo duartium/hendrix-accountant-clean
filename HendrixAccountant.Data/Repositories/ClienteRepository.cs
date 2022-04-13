@@ -101,6 +101,7 @@ namespace HendrixAccountant.Data
         public DataTable GetHistory(CustomerHistoryFilters filters)
         {
             var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", "G"));
             parms.Add(new SqlParameter("@identificacion", filters.Identificacion));
             parms.Add(new SqlParameter("@nombres", filters.Nombres));
             parms.Add(new SqlParameter("@fecha_desde", filters.FechaDesde));
@@ -108,5 +109,7 @@ namespace HendrixAccountant.Data
             var dsResp = _sqlServer.ExecuteProcedure("QRY_CUSTOMER_HISTORY", parms);
             return dsResp.Tables[0];
         }
+
+       
     }
 }

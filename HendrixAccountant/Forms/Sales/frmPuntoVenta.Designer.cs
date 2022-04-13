@@ -698,7 +698,7 @@
             this.colDireccion,
             this.colTotal});
             this.dgvPuntoVenta.EnableHeadersVisualStyles = false;
-            this.dgvPuntoVenta.Location = new System.Drawing.Point(12, 287);
+            this.dgvPuntoVenta.Location = new System.Drawing.Point(12, 289);
             this.dgvPuntoVenta.Name = "dgvPuntoVenta";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;

@@ -169,5 +169,14 @@ namespace HendrixAccountant.Data.Repositories
             int resp = _sqlServer.ExecuteNonQuery("SP_UNSUSCRIBE_PRODUCT", parms);
             if (resp > 0) return true; else return false;
         }
+
+        System.Data.DataTable IProductTempRepository.GetProductsBySale(int secuencial)
+        {
+            var parms = new List<SqlParameter>();
+            parms.Add(new SqlParameter("@accion", "C"));
+            parms.Add(new SqlParameter("@secuencial", secuencial));
+            var dsResp = _sqlServer.ExecuteProcedure("QRY_CUSTOMER_HISTORY", parms);
+            return dsResp.Tables[0];
+        }
     }
 }

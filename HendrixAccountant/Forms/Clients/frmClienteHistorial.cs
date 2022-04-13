@@ -2,18 +2,24 @@
 using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.Data;
+using HendrixAccountant.Data.Repositories;
 using System;
 using System.Windows.Forms;
+using System.Linq;
+using System.Data;
 
 namespace HendrixAccountant.Forms.Clients
 {
     public partial class frmClienteHistorial : Form
     {
         private readonly IClientRepository _rpsClient;
+        private readonly IProductTempRepository _rpsProduct;
+        
         public frmClienteHistorial()
         {
             InitializeComponent();
             _rpsClient = new ClienteRepository();
+            _rpsProduct = new ProductTempRepository();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -80,13 +86,22 @@ namespace HendrixAccountant.Forms.Clients
                 FechaDesde = fechaDesde,
                 FechaHasta = fechaHasta
             };
+
             var data = _rpsClient.GetHistory(filters);
             if (data.Rows.Count == 0)
             {
+                dgvHistorialCliente.DataSource = null;
+                dgvProductoServicio.DataSource = null;
                 MessageBox.Show("No se encontraron resultados", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
+            dgvHistorialCliente.SelectionChanged -= new System.EventHandler(this.dgvHistorialCliente_SelectionChanged);
             dgvHistorialCliente.DataSource = data;
+            dgvHistorialCliente.SelectionChanged += new System.EventHandler(this.dgvHistorialCliente_SelectionChanged);
+
+            dgvHistorialCliente.ClearSelection();
+            dgvProductoServicio.ClearSelection();
         }
 
         private void txtIdentCliente_KeyDown(object sender, KeyEventArgs e)
@@ -137,6 +152,19 @@ namespace HendrixAccountant.Forms.Clients
         {
             if (txtNombresCliente.Text.Trim().Length > 0)
                 txtNombresCliente.Clear();
+        }
+
+        private void dgvHistorialCliente_SelectionChanged(object sender, EventArgs e)
+        {
+            int indexRow = dgvHistorialCliente.CurrentRow.Index;
+            if (indexRow < 0) return;
+            if (dgvHistorialCliente.SelectedRows.Count == 0) return;
+
+            var dtHistorialCliente = dgvHistorialCliente.DataSource as DataTable;
+            if (dtHistorialCliente.Rows.Count == 0) return;
+
+            int secuencial = int.Parse(dtHistorialCliente.Rows[indexRow]["secuencial"].ToString());
+            dgvProductoServicio.DataSource = _rpsProduct.GetProductsBySale(secuencial);
         }
     }
 }

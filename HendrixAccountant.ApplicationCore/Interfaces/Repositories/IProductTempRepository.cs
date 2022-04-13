@@ -16,5 +16,6 @@ namespace HendrixAccountant.ApplicationCore.Interfaces.Repositories
         ProductIdentityDto GetByCode(string code);
         bool IsDuplicateCode(string code);
         bool UnsuscribeProduct(ProductWithdrawal product);
+        System.Data.DataTable GetProductsBySale(int secuencial);
     }
 }
