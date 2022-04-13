@@ -3,13 +3,6 @@ using HendrixAccountant.ApplicationCore.DTOs;
 using HendrixAccountant.ApplicationCore.Interfaces.Repositories;
 using HendrixAccountant.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HendrixAccountant.Forms.Clients

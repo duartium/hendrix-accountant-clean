@@ -35,8 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPuntoVenta));
             this.gpDatosVenta = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.chbImprimir = new System.Windows.Forms.CheckBox();
             this.gbFromaPago = new System.Windows.Forms.GroupBox();
@@ -89,13 +87,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCodProducto = new System.Windows.Forms.TextBox();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDireccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpDatosVenta.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.gbFromaPago.SuspendLayout();
             this.pnDireccion.SuspendLayout();
             this.pnNombres.SuspendLayout();
@@ -110,7 +108,7 @@
             // 
             // gpDatosVenta
             // 
-            this.gpDatosVenta.Controls.Add(this.panel2);
+            this.gpDatosVenta.Controls.Add(this.txtObservaciones);
             this.gpDatosVenta.Controls.Add(this.label14);
             this.gpDatosVenta.Controls.Add(this.chbImprimir);
             this.gpDatosVenta.Controls.Add(this.gbFromaPago);
@@ -128,28 +126,6 @@
             this.gpDatosVenta.Size = new System.Drawing.Size(707, 208);
             this.gpDatosVenta.TabIndex = 0;
             this.gpDatosVenta.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.Control;
-            this.panel2.Controls.Add(this.txtObservaciones);
-            this.panel2.Location = new System.Drawing.Point(410, 139);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(279, 54);
-            this.panel2.TabIndex = 20;
-            // 
-            // txtObservaciones
-            // 
-            this.txtObservaciones.BackColor = System.Drawing.SystemColors.Control;
-            this.txtObservaciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtObservaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservaciones.Location = new System.Drawing.Point(11, 8);
-            this.txtObservaciones.MaxLength = 300;
-            this.txtObservaciones.Multiline = true;
-            this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtObservaciones.Size = new System.Drawing.Size(258, 38);
-            this.txtObservaciones.TabIndex = 10;
             // 
             // label14
             // 
@@ -700,6 +676,7 @@
             // dgvPuntoVenta
             // 
             this.dgvPuntoVenta.AllowUserToAddRows = false;
+            this.dgvPuntoVenta.AllowUserToResizeColumns = false;
             this.dgvPuntoVenta.AllowUserToResizeRows = false;
             this.dgvPuntoVenta.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dgvPuntoVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -817,12 +794,25 @@
             this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
             this.txtCodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodProducto_KeyPress_1);
             // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.BackColor = System.Drawing.SystemColors.Control;
+            this.txtObservaciones.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObservaciones.Location = new System.Drawing.Point(410, 139);
+            this.txtObservaciones.MaxLength = 300;
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtObservaciones.Size = new System.Drawing.Size(279, 55);
+            this.txtObservaciones.TabIndex = 10;
+            // 
             // colCodigo
             // 
             this.colCodigo.DataPropertyName = "Codigo";
             this.colCodigo.HeaderText = "Código";
             this.colCodigo.Name = "colCodigo";
             this.colCodigo.ReadOnly = true;
+            this.colCodigo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colCodigo.Width = 60;
             // 
             // colNombre
@@ -831,6 +821,7 @@
             this.colNombre.HeaderText = "Nombre de producto";
             this.colNombre.Name = "colNombre";
             this.colNombre.ReadOnly = true;
+            this.colNombre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colNombre.Width = 300;
             // 
             // colCantidad
@@ -840,6 +831,7 @@
             this.colCantidad.DefaultCellStyle = dataGridViewCellStyle2;
             this.colCantidad.HeaderText = "Cantidad";
             this.colCantidad.Name = "colCantidad";
+            this.colCantidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colCantidad.Width = 80;
             // 
             // colDireccion
@@ -850,6 +842,7 @@
             this.colDireccion.HeaderText = "Precio";
             this.colDireccion.MaxInputLength = 10;
             this.colDireccion.Name = "colDireccion";
+            this.colDireccion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colDireccion.Width = 140;
             // 
             // colTotal
@@ -862,6 +855,7 @@
             this.colTotal.MaxInputLength = 10;
             this.colTotal.Name = "colTotal";
             this.colTotal.ReadOnly = true;
+            this.colTotal.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colTotal.Width = 120;
             // 
             // frmPuntoVenta
@@ -893,8 +887,6 @@
             this.Load += new System.EventHandler(this.frmPuntoVenta_Load);
             this.gpDatosVenta.ResumeLayout(false);
             this.gpDatosVenta.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.gbFromaPago.ResumeLayout(false);
             this.gbFromaPago.PerformLayout();
             this.pnDireccion.ResumeLayout(false);
@@ -971,7 +963,6 @@
         private System.Windows.Forms.TextBox txtDireccionCliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCodigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNombre;

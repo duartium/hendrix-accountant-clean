@@ -58,7 +58,6 @@ namespace HendrixAccountant
             this.dgvPuntoVenta.AutoGenerateColumns = false;
             quantityHasEvent = false;
             priceHasEvent = false;
-
         }
 
         private void frmPuntoVenta_Load(object sender, EventArgs e)
@@ -173,8 +172,8 @@ namespace HendrixAccountant
                 return;
             }
 
-            decimal subtotal0 = _lsProducts.Where(x => x.TarifaIva == 0).Select(x => x.Total).Sum();
-            decimal subtotal12 = _lsProducts.Where(x => x.TarifaIva == 12).Select(x => x.Total).Sum();
+            decimal subtotal0 = Math.Round(_lsProducts.Where(x => x.TarifaIva == 0).Select(x => x.Total).Sum(), 2);
+            decimal subtotal12 = Math.Round(_lsProducts.Where(x => x.TarifaIva == 12).Select(x => x.Total).Sum(), 2);
             decimal subtotal = Math.Round(subtotal0 + subtotal12, 2);
             decimal totalGeneral = Math.Round(subtotal - _descuento, 2);
             decimal iva = Math.Round((subtotal12 * 0.12M), 2);
