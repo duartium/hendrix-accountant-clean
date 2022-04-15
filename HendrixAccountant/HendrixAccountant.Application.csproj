@@ -292,6 +292,12 @@
     <Compile Include="Reports\Labels\RptLabelSingle.Designer.cs">
       <DependentUpon>RptLabelSingle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Tickets\ticketPersonalizado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Tickets\ticketPersonalizado.Designer.cs">
+      <DependentUpon>ticketPersonalizado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports\Tickets\ticketVenta.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -425,6 +431,9 @@
     <EmbeddedResource Include="Reports\rptFacturaVenta.rdlc" />
     <EmbeddedResource Include="Reports\rptTicketVenta.rdlc" />
     <EmbeddedResource Include="Reports\rptVentasGenerales.rdlc" />
+    <EmbeddedResource Include="Reports\Tickets\ticketPersonalizado.resx">
+      <DependentUpon>ticketPersonalizado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Tickets\ticketVenta.resx">
       <DependentUpon>ticketVenta.cs</DependentUpon>
     </EmbeddedResource>

@@ -560,19 +560,37 @@ namespace HendrixAccountant
             //var frmReportVentas = new frmReportVentas(new ReportData { Data = dsFactura, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
             //frmReportVentas.ShowDialog();
 
-            var ticketVenta = new ticketVenta();
-            ticketVenta.DataSource = dsFactura.Tables["table"];
-            ticketVenta.tblDetailInvoice.DataSource = dsFactura.Tables["table1"];
+            Telerik.Reporting.InstanceReportSource reportSource;
+            string tipoSecuencial = _rpsParams.GetByName("tipo_secuencial");
 
-            var reportSource = new Telerik.Reporting.InstanceReportSource();
-            reportSource.ReportDocument = ticketVenta;
+            if (tipoSecuencial.Equals("SISTEMA"))
+            {
+                var ticketPersonalizado = new ticketPersonalizado();
+                ticketPersonalizado.DataSource = dsFactura.Tables["table"];
+                ticketPersonalizado.tblDetailInvoice.DataSource = dsFactura.Tables["table1"];
+
+                reportSource = new Telerik.Reporting.InstanceReportSource();
+                reportSource.ReportDocument = ticketPersonalizado;
+            }
+            else
+            {
+                var ticketVenta = new ticketVenta();
+                ticketVenta.DataSource = dsFactura.Tables["table"];
+                ticketVenta.tblDetailInvoice.DataSource = dsFactura.Tables["table1"];
+
+                reportSource = new Telerik.Reporting.InstanceReportSource();
+                reportSource.ReportDocument = ticketVenta;
+            }
+
+            
 
             //IMPRIMIR DIRECTO
-            var reportProcessor = new Telerik.Reporting.Processing.ReportProcessor();
-            reportProcessor.PrintReport(reportSource, printerSettings);
+            //var reportProcessor = new Telerik.Reporting.Processing.ReportProcessor();
+            //reportProcessor.PrintReport(reportSource, printerSettings);
 
-            //var x = new frmTicketVenta(reportSource);
-            //x.ShowDialog();
+            //MOSTRAR TICKET
+            var ticket = new frmTicketVenta(reportSource);
+            ticket.ShowDialog();
 
             //frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = dsFactura, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
             //frmReportVentas.ShowDialog();
