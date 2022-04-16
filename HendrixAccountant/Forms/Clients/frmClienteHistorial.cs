@@ -166,5 +166,10 @@ namespace HendrixAccountant.Forms.Clients
             int secuencial = int.Parse(dtHistorialCliente.Rows[indexRow]["secuencial"].ToString());
             dgvProductoServicio.DataSource = _rpsProduct.GetProductsBySale(secuencial);
         }
+
+        private void dgvHistorialCliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

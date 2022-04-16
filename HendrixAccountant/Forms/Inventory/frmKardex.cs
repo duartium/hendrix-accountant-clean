@@ -104,5 +104,11 @@ namespace HendrixAccountant.Forms.Inventory
         {
             txtCodProducto.Focus();
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dgvKardex.DataSource = null;
+
+        }
     }
 }

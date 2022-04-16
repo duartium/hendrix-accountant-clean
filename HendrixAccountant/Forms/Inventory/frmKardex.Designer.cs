@@ -245,13 +245,14 @@ namespace HendrixAccountant.Forms.Inventory
             this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(46)))), ((int)(((byte)(140)))));
             this.btnLimpiar.Image = global::HendrixAccountant.Properties.Resources.clearBlue20;
             this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiar.Location = new System.Drawing.Point(0, 392);
+            this.btnLimpiar.Location = new System.Drawing.Point(0, 462);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnLimpiar.Size = new System.Drawing.Size(127, 35);
             this.btnLimpiar.TabIndex = 15;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnImprimir
             // 

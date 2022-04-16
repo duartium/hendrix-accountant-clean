@@ -582,15 +582,15 @@ namespace HendrixAccountant
                 reportSource.ReportDocument = ticketVenta;
             }
 
-            
+
 
             //IMPRIMIR DIRECTO
-            //var reportProcessor = new Telerik.Reporting.Processing.ReportProcessor();
-            //reportProcessor.PrintReport(reportSource, printerSettings);
+            var reportProcessor = new Telerik.Reporting.Processing.ReportProcessor();
+            reportProcessor.PrintReport(reportSource, printerSettings);
 
             //MOSTRAR TICKET
-            var ticket = new frmTicketVenta(reportSource);
-            ticket.ShowDialog();
+            //var ticket = new frmTicketVenta(reportSource);
+            //ticket.ShowDialog();
 
             //frmReportVentas frmReportVentas = new frmReportVentas(new ReportData { Data = dsFactura, TipoReporte = TipoReporte.FACTURA_VENTA, Criterios = null });
             //frmReportVentas.ShowDialog();

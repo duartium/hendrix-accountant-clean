@@ -16,5 +16,17 @@ namespace HendrixAccountant.Forms.Sales
         {
             
         }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.rptViewerTicket.PrintReport();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Notificación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

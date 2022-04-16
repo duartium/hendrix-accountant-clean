@@ -89,12 +89,21 @@ namespace HendrixAccountant.Forms
                 //    return;
                 //}
 
-                var ticketVenta = new ticketVenta();
-                ticketVenta.DataSource = _dsResp.Tables["table"];
-                ticketVenta.tblDetailInvoice.DataSource = _dsResp.Tables["table1"];
-
-                var reportSource = new Telerik.Reporting.InstanceReportSource();
-                reportSource.ReportDocument = ticketVenta;
+                Telerik.Reporting.InstanceReportSource reportSource = new Telerik.Reporting.InstanceReportSource();
+                if (rbImpSistema.Checked)
+                {
+                    var ticketVenta = new ticketVenta();
+                    ticketVenta.DataSource = _dsResp.Tables["table"];
+                    ticketVenta.tblDetailInvoice.DataSource = _dsResp.Tables["table1"];
+                    reportSource.ReportDocument = ticketVenta;
+                }
+                else
+                {
+                    var ticketPersonalizado = new ticketPersonalizado();
+                    ticketPersonalizado.DataSource = _dsResp.Tables["table"];
+                    ticketPersonalizado.tblDetailInvoice.DataSource = _dsResp.Tables["table1"];
+                    reportSource.ReportDocument = ticketPersonalizado;
+                }
 
                 var frmTicketVenta = new frmTicketVenta(reportSource);
                 frmTicketVenta.ShowDialog();
@@ -120,8 +129,17 @@ namespace HendrixAccountant.Forms
             }
 
             if(consultaVenta == ConsultaVenta.COMP_INDIVIDUAL)
+            {
+
+                string nombresCliente = _dsResp.Tables["Table"].AsEnumerable()
+                    .Select(x => x.Field<string>("nombresCliente")).FirstOrDefault();
+                lblTitleCliente.Visible = true;
+                lblNombresCliente.Visible = true;
+                lblNombresCliente.Text = nombresCliente;
+
                 foreach (var row in _dsResp.Tables["Table1"].AsEnumerable())
-                    dgvComprobanteInd.Rows.Add(row.ItemArray[0], row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[4]);
+                    dgvComprobanteInd.Rows.Add(row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[4], row.ItemArray[5]);
+            }
             else
                 foreach (var row in _dsResp.Tables["Table"].AsEnumerable())
                     dgvVentaGeneral.Rows.Add(row.ItemArray[1], row.ItemArray[2], row.ItemArray[4], row.ItemArray[10], row.ItemArray[15]);
