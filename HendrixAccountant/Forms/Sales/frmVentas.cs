@@ -49,6 +49,7 @@ namespace HendrixAccountant.Forms
 
         private void rptVentas_Load(object sender, EventArgs e)
         {
+            dgvVentaGeneral.AutoGenerateColumns = false;
             cboEstadoComprobante.DataSource = new List<string> { "GENERADAS", "ANULADAS" };
             EnabledPrint(false);
         }
@@ -90,7 +91,7 @@ namespace HendrixAccountant.Forms
                 //}
 
                 Telerik.Reporting.InstanceReportSource reportSource = new Telerik.Reporting.InstanceReportSource();
-                if (rbImpSistema.Checked)
+                if (rbImpSRI.Checked)
                 {
                     var ticketVenta = new ticketVenta();
                     ticketVenta.DataSource = _dsResp.Tables["table"];
@@ -140,9 +141,13 @@ namespace HendrixAccountant.Forms
                 foreach (var row in _dsResp.Tables["Table1"].AsEnumerable())
                     dgvComprobanteInd.Rows.Add(row.ItemArray[1], row.ItemArray[2], row.ItemArray[3], row.ItemArray[4], row.ItemArray[5]);
             }
-            else
-                foreach (var row in _dsResp.Tables["Table"].AsEnumerable())
-                    dgvVentaGeneral.Rows.Add(row.ItemArray[1], row.ItemArray[2], row.ItemArray[4], row.ItemArray[10], row.ItemArray[15]);
+            else{
+                //foreach (var row in _dsResp.Tables["Table"].AsEnumerable())
+                //    dgvVentaGeneral.Rows.Add(row.ItemArray[1], row.ItemArray[2], row.ItemArray[4], row.ItemArray[10], row.ItemArray[15]);
+                dgvVentaGeneral.DataSource = null;
+                dgvVentaGeneral.DataSource = _dsResp.Tables["Table"];
+            }
+                
             EnabledPrint(true);
         }
 
@@ -325,7 +330,7 @@ namespace HendrixAccountant.Forms
                 txtNombresCliente.Clear();
                 dtpFechaDesde.Value = DateTime.Now;
                 dtpFechaHasta.Value = DateTime.Now;
-                dgvVentaGeneral.Rows.Clear();
+                dgvVentaGeneral.DataSource = null;
             }
             
         }

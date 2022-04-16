@@ -199,7 +199,9 @@ namespace HendrixAccountant
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if(_client == null){
+            bool imprimirFactura = false;
+
+            if (_client == null){
                 MessageBox.Show("Seleccione un cliente para continuar.", CString.DEFAULT_TITLE, MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtIdentCliente.Focus();
                 return;
@@ -232,11 +234,25 @@ namespace HendrixAccountant
                 return;
             }
 
-            if (MessageBox.Show("¿Está seguro que desea registrar la venta?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-                return;
+            if (MessageBox.Show("¿Desea imprimir el comprobante de venta?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                imprimirFactura = true;
 
             try
             {
+                string tipoSecuencial = _rpsParams.GetByName("tipo_secuencial");
+                if(tipoSecuencial.Equals("SRI") && !chbSri.Checked)
+                {
+                    var parameters = new List<Parameters>();
+                    parameters.Add(new Parameters { Nombre = "tipo_secuencial", Valor = "SISTEMA" });
+                    _rpsParams.CreateOrUpdate(parameters);
+                }
+                else if(tipoSecuencial.Equals("SISTEMA") && chbSri.Checked)
+                {
+                    var parameters = new List<Parameters>();
+                    parameters.Add(new Parameters { Nombre = "tipo_secuencial", Valor = "SRI" });
+                    _rpsParams.CreateOrUpdate(parameters);
+                }
+
                 var dataOp = DataOperator.Instance;
                 _invoice = new InvoiceDto()
                 {
@@ -265,7 +281,7 @@ namespace HendrixAccountant
                 int secuencial = sale.Generate(_invoice);
                 if (secuencial > 0)
                 {
-                    if(chbImprimir.Checked)
+                    if(imprimirFactura)
                         PrintSale(secuencial);
 
                     MessageBox.Show($"Se registró la venta con comprobante nº {secuencial}.", "Proceso exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -885,6 +901,11 @@ namespace HendrixAccountant
         private void dgvPuntoVenta_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             isEditingPrice = e.ColumnIndex == 3;
+        }
+
+        private void gpDatosVenta_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVentas));
             this.pnAside = new System.Windows.Forms.Panel();
             this.btnCerrar = new HendrixAccountant.UIControls.Buttons.ItemAsideSmall();
@@ -45,11 +45,6 @@
             this.tabControlVentas = new System.Windows.Forms.TabControl();
             this.tpGeneral = new System.Windows.Forms.TabPage();
             this.dgvVentaGeneral = new System.Windows.Forms.DataGridView();
-            this.colSecuencial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpDatosVenta = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.cboEstadoComprobante = new System.Windows.Forms.ComboBox();
@@ -85,6 +80,15 @@
             this.rbImpSRI = new System.Windows.Forms.RadioButton();
             this.lblTitleCliente = new System.Windows.Forms.Label();
             this.lblNombresCliente = new System.Windows.Forms.Label();
+            this.colSecuencial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFormaPago = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSubtotal0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSubtotal12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSubtotalGral = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnAside.SuspendLayout();
             this.tabControlVentas.SuspendLayout();
             this.tpGeneral.SuspendLayout();
@@ -107,7 +111,7 @@
             this.pnAside.Controls.Add(this.btnImprimir);
             this.pnAside.Controls.Add(this.btnConsultar);
             this.pnAside.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnAside.Location = new System.Drawing.Point(796, 0);
+            this.pnAside.Location = new System.Drawing.Point(857, 0);
             this.pnAside.Name = "pnAside";
             this.pnAside.Size = new System.Drawing.Size(127, 606);
             this.pnAside.TabIndex = 9;
@@ -201,10 +205,10 @@
             this.tabControlVentas.Controls.Add(this.tpGeneral);
             this.tabControlVentas.Controls.Add(this.tpCIndividual);
             this.tabControlVentas.ItemSize = new System.Drawing.Size(49, 30);
-            this.tabControlVentas.Location = new System.Drawing.Point(14, 12);
+            this.tabControlVentas.Location = new System.Drawing.Point(13, 12);
             this.tabControlVentas.Name = "tabControlVentas";
             this.tabControlVentas.SelectedIndex = 0;
-            this.tabControlVentas.Size = new System.Drawing.Size(760, 573);
+            this.tabControlVentas.Size = new System.Drawing.Size(838, 573);
             this.tabControlVentas.TabIndex = 11;
             this.tabControlVentas.SelectedIndexChanged += new System.EventHandler(this.tabControlVentas_SelectedIndexChanged);
             this.tabControlVentas.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControlVentas_Selected);
@@ -216,7 +220,7 @@
             this.tpGeneral.Location = new System.Drawing.Point(4, 34);
             this.tpGeneral.Name = "tpGeneral";
             this.tpGeneral.Padding = new System.Windows.Forms.Padding(3);
-            this.tpGeneral.Size = new System.Drawing.Size(752, 535);
+            this.tpGeneral.Size = new System.Drawing.Size(830, 535);
             this.tpGeneral.TabIndex = 0;
             this.tpGeneral.Text = "GENERAL";
             this.tpGeneral.UseVisualStyleBackColor = true;
@@ -241,62 +245,19 @@
             this.colSecuencial,
             this.colFechaEmision,
             this.colCliente,
+            this.colFormaPago,
             this.colTotal,
+            this.colSubtotal0,
+            this.colSubtotal12,
+            this.colSubtotalGral,
             this.colUsuario});
             this.dgvVentaGeneral.EnableHeadersVisualStyles = false;
             this.dgvVentaGeneral.Location = new System.Drawing.Point(9, 189);
             this.dgvVentaGeneral.Name = "dgvVentaGeneral";
             this.dgvVentaGeneral.RowHeadersVisible = false;
             this.dgvVentaGeneral.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvVentaGeneral.Size = new System.Drawing.Size(724, 340);
+            this.dgvVentaGeneral.Size = new System.Drawing.Size(805, 340);
             this.dgvVentaGeneral.TabIndex = 12;
-            // 
-            // colSecuencial
-            // 
-            this.colSecuencial.DataPropertyName = "secuencial";
-            this.colSecuencial.HeaderText = "Número";
-            this.colSecuencial.Name = "colSecuencial";
-            this.colSecuencial.ReadOnly = true;
-            this.colSecuencial.Width = 80;
-            // 
-            // colFechaEmision
-            // 
-            this.colFechaEmision.DataPropertyName = "fechaEmision";
-            this.colFechaEmision.HeaderText = "Fecha de emisión";
-            this.colFechaEmision.Name = "colFechaEmision";
-            this.colFechaEmision.ReadOnly = true;
-            this.colFechaEmision.Width = 130;
-            // 
-            // colCliente
-            // 
-            this.colCliente.DataPropertyName = "nombresCliente";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.colCliente.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colCliente.HeaderText = "Nombres de cliente";
-            this.colCliente.Name = "colCliente";
-            this.colCliente.ReadOnly = true;
-            this.colCliente.Width = 300;
-            // 
-            // colTotal
-            // 
-            this.colTotal.DataPropertyName = "total";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.NullValue = "0";
-            this.colTotal.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colTotal.HeaderText = "Total";
-            this.colTotal.Name = "colTotal";
-            this.colTotal.ReadOnly = true;
-            this.colTotal.Width = 120;
-            // 
-            // colUsuario
-            // 
-            this.colUsuario.DataPropertyName = "usuarioCrea";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.colUsuario.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colUsuario.HeaderText = "Usuario";
-            this.colUsuario.Name = "colUsuario";
-            this.colUsuario.ReadOnly = true;
-            this.colUsuario.Width = 85;
             // 
             // gpDatosVenta
             // 
@@ -310,7 +271,7 @@
             this.gpDatosVenta.Controls.Add(this.groupBox1);
             this.gpDatosVenta.Location = new System.Drawing.Point(8, 6);
             this.gpDatosVenta.Name = "gpDatosVenta";
-            this.gpDatosVenta.Size = new System.Drawing.Size(725, 170);
+            this.gpDatosVenta.Size = new System.Drawing.Size(806, 170);
             this.gpDatosVenta.TabIndex = 11;
             this.gpDatosVenta.TabStop = false;
             // 
@@ -355,9 +316,9 @@
             this.lblFechaDesde.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblFechaDesde.Location = new System.Drawing.Point(8, 22);
             this.lblFechaDesde.Name = "lblFechaDesde";
-            this.lblFechaDesde.Size = new System.Drawing.Size(82, 15);
+            this.lblFechaDesde.Size = new System.Drawing.Size(79, 15);
             this.lblFechaDesde.TabIndex = 30;
-            this.lblFechaDesde.Text = "Fecha desde:";
+            this.lblFechaDesde.Text = "Fecha desde";
             // 
             // lblHasta
             // 
@@ -366,9 +327,9 @@
             this.lblHasta.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblHasta.Location = new System.Drawing.Point(126, 21);
             this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(78, 15);
+            this.lblHasta.Size = new System.Drawing.Size(75, 15);
             this.lblHasta.TabIndex = 32;
-            this.lblHasta.Text = "Fecha hasta:";
+            this.lblHasta.Text = "Fecha hasta";
             // 
             // dtpFechaHasta
             // 
@@ -387,7 +348,7 @@
             this.gbUsuario.Controls.Add(this.txtCodUsuario);
             this.gbUsuario.Controls.Add(this.btnBuscarUsuario);
             this.gbUsuario.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.gbUsuario.Location = new System.Drawing.Point(461, 75);
+            this.gbUsuario.Location = new System.Drawing.Point(464, 75);
             this.gbUsuario.Name = "gbUsuario";
             this.gbUsuario.Size = new System.Drawing.Size(231, 81);
             this.gbUsuario.TabIndex = 28;
@@ -521,7 +482,7 @@
             this.tpCIndividual.Location = new System.Drawing.Point(4, 34);
             this.tpCIndividual.Name = "tpCIndividual";
             this.tpCIndividual.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCIndividual.Size = new System.Drawing.Size(752, 535);
+            this.tpCIndividual.Size = new System.Drawing.Size(654, 535);
             this.tpCIndividual.TabIndex = 1;
             this.tpCIndividual.Text = "FACTURA INDIVIDUAL";
             this.tpCIndividual.UseVisualStyleBackColor = true;
@@ -705,12 +666,86 @@
             this.lblNombresCliente.Text = "Cliente";
             this.lblNombresCliente.Visible = false;
             // 
+            // colSecuencial
+            // 
+            this.colSecuencial.DataPropertyName = "secuencial";
+            this.colSecuencial.HeaderText = "Secuencial";
+            this.colSecuencial.Name = "colSecuencial";
+            this.colSecuencial.ReadOnly = true;
+            this.colSecuencial.Width = 80;
+            // 
+            // colFechaEmision
+            // 
+            this.colFechaEmision.DataPropertyName = "fechaEmision";
+            this.colFechaEmision.HeaderText = "Fecha de emisión";
+            this.colFechaEmision.Name = "colFechaEmision";
+            this.colFechaEmision.ReadOnly = true;
+            this.colFechaEmision.Width = 130;
+            // 
+            // colCliente
+            // 
+            this.colCliente.DataPropertyName = "nombresCliente";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colCliente.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colCliente.HeaderText = "Nombres de cliente";
+            this.colCliente.Name = "colCliente";
+            this.colCliente.ReadOnly = true;
+            this.colCliente.Width = 250;
+            // 
+            // colFormaPago
+            // 
+            this.colFormaPago.DataPropertyName = "formaPago";
+            this.colFormaPago.HeaderText = "Forma Pago";
+            this.colFormaPago.Name = "colFormaPago";
+            this.colFormaPago.ReadOnly = true;
+            // 
+            // colTotal
+            // 
+            this.colTotal.DataPropertyName = "total";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.NullValue = "0";
+            this.colTotal.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colTotal.HeaderText = "Total";
+            this.colTotal.Name = "colTotal";
+            this.colTotal.ReadOnly = true;
+            // 
+            // colSubtotal0
+            // 
+            this.colSubtotal0.DataPropertyName = "subtotal0";
+            this.colSubtotal0.HeaderText = "Subtotal 0";
+            this.colSubtotal0.Name = "colSubtotal0";
+            this.colSubtotal0.ReadOnly = true;
+            // 
+            // colSubtotal12
+            // 
+            this.colSubtotal12.DataPropertyName = "subtotal12";
+            this.colSubtotal12.HeaderText = "Subtotal 12";
+            this.colSubtotal12.Name = "colSubtotal12";
+            this.colSubtotal12.ReadOnly = true;
+            // 
+            // colSubtotalGral
+            // 
+            this.colSubtotalGral.DataPropertyName = "subtotal";
+            this.colSubtotalGral.HeaderText = "Subtotal General";
+            this.colSubtotalGral.Name = "colSubtotalGral";
+            this.colSubtotalGral.ReadOnly = true;
+            // 
+            // colUsuario
+            // 
+            this.colUsuario.DataPropertyName = "usuarioCrea";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colUsuario.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colUsuario.HeaderText = "Usuario";
+            this.colUsuario.Name = "colUsuario";
+            this.colUsuario.ReadOnly = true;
+            this.colUsuario.Width = 85;
+            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(923, 606);
+            this.ClientSize = new System.Drawing.Size(984, 606);
             this.Controls.Add(this.tabControlVentas);
             this.Controls.Add(this.pnAside);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -775,11 +810,6 @@
         private UIControls.Buttons.ItemAsideSmall btnLimpiar;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cboEstadoComprobante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSecuencial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFechaEmision;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colUsuario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox gbDetalleVentaFactInd;
         private System.Windows.Forms.DataGridView dgvComprobanteInd;
@@ -793,5 +823,14 @@
         private System.Windows.Forms.RadioButton rbImpSRI;
         private System.Windows.Forms.Label lblNombresCliente;
         private System.Windows.Forms.Label lblTitleCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSecuencial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFechaEmision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFormaPago;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal0;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotal12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSubtotalGral;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUsuario;
     }
 }
