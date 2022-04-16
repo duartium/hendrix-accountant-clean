@@ -50,9 +50,12 @@ namespace HendrixAccountant.Forms.CashRegister
         private void frmCierreCaja_Load(object sender, EventArgs e)
         {
             var cashRegister = _rpsCash.GetCashToday();
-            lblFechaApertura.Text = cashRegister.FechaHoraApertura;
-            lblFechaCierre.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm");
-            lblMontoApertura.Text = cashRegister.Saldo.ToString();
+            lblFechaApertura.Text = cashRegister.FechaApertura;
+            lblFechaCierre.Text = DateTime.Now.ToString("dd-MM-yyyy HH:mm");
+            lblMontoApertura.Text = cashRegister.BaseApertura;
+            lblTotalIngresos.Text = cashRegister.TotalIngresos;
+            lblTotalGastos.Text = cashRegister.TotalGastos;
+            lblSaldo.Text = cashRegister.Saldo;
 
             foreach (var denom in CString.DENOMINACIONES)
                 dgvDineroCaja.Rows.Add(new object[] { denom, "0", "0" });
@@ -78,10 +81,21 @@ namespace HendrixAccountant.Forms.CashRegister
                 if (cantidad == null || denominacion == null) return;
 
                 decimal subtotalRow = int.Parse(cantidad) * Decimal.Parse(denominacion, Utils.GetCulture());
-                decimal montoActual = Decimal.Parse(lblMontoTotal.Text, Utils.GetCulture());
-                decimal montoTotal = montoActual + subtotalRow;
+                //decimal montoActual = Decimal.Parse(lblMontoTotal.Text, Utils.GetCulture());
+                //decimal montoTotal = montoActual + subtotalRow;
+
+                //lblMontoTotal.Text = montoTotal.ToString(Utils.GetCulture());
                 dgvDineroCaja.Rows[row.Index].Cells[2].Value = subtotalRow.ToString();
-                lblMontoTotal.Text = montoTotal.ToString(Utils.GetCulture());
+
+                //calcular total
+                decimal montoTotal = 0;
+
+                for (int i = 0; i < dgvDineroCaja.Rows.Count; i++)
+                {
+                    var valorColumna = Convert.ToDecimal(dgvDineroCaja.Rows[i].Cells[colSubtotal.Index].Value.ToString(), Utils.GetCulture());
+                    montoTotal += valorColumna;
+                }
+                lblMontoTotal.Text = Math.Round(montoTotal, 2).ToString(Utils.GetCulture());
             }
         }
 

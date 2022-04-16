@@ -37,5 +37,31 @@ namespace HendrixAccountant.ApplicationCore.Map
 
             return cashMovement;
         }
+
+        public CashFlowToday DatasetToCashFlowToday(DataSet data)
+        {
+            if (!Validator.DatasetIsValid(data)) return null;
+
+            CashFlowToday cashFlowToday = null;
+            try
+            {
+                cashFlowToday = data.Tables[0].AsEnumerable().Select(field => new CashFlowToday
+                {
+                    TotalIngresos = field["totalIngresos"].ToString(),
+                    TotalEgresos = "",
+                    Saldo = field["saldo"].ToString(),
+                    TotalGastos = field["totalGastos"].ToString(),
+                    BaseApertura = field["baseApertura"].ToString(),
+                    FechaApertura = Convert.ToDateTime(field["fechaApertura"]).ToString("dd-MM-yyyy HH:mm")
+                }).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Utils.GrabarLog("DatasetToCashFlowToday", ex.ToString());
+            }
+
+            return cashFlowToday;
+        }
+
     }
 }

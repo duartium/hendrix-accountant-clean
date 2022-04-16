@@ -11,4 +11,14 @@
         public decimal IdUsuario { get; set; }
         public decimal IdCaja { get; set; }
     }
+
+    public class CashFlowToday
+    {
+        public string TotalIngresos { get; set; }
+        public string TotalEgresos { get; set; }
+        public string TotalGastos { get; set; }
+        public string BaseApertura { get; set; }
+        public string Saldo { get; set; }
+        public string FechaApertura { get; set; }
+    }
 }

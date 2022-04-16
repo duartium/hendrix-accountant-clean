@@ -41,13 +41,13 @@ namespace HendrixAccountant.Data
             return (int.Parse(dsResp.Tables[0].Rows[0]["RESULT"].ToString()) > 0);
         }
 
-        public CashMovement GetCashToday()
+        public CashFlowToday GetCashToday()
         {
             var parms = new List<SqlParameter>();
             parms.Add(new SqlParameter("@accion", 'C'));
 
             var dsResp = _sqlServer.ExecuteProcedure(_storeProcedureName, parms);
-            return new CashMapper().DatasetToCashToday(dsResp);
+            return new CashMapper().DatasetToCashFlowToday(dsResp);
         }
         
     }
